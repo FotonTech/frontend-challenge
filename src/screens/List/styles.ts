@@ -1,31 +1,9 @@
 import styled from "styled-components";
-import colors from "../../utils/colors";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   max-height: 100vh;
-`;
-
-export const NavBar = styled.nav`
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  padding: 8px 12px 0;
-`;
-
-export const NavTitleContainer = styled.div`
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-`;
-
-export const NavTitleWrapper = styled.span`
-  display: flex;
-  width: auto;
-  padding-bottom: 0.1rem;
-  border-bottom: 0.1rem solid ${colors.text.secondary}66;
-  text-transform: capitalize;
 `;
 
 export const BooksContainer = styled.div`

@@ -4,15 +4,13 @@ import { IoIosMenu, IoIosSearch, IoIosClose } from "react-icons/io";
 import { useParams } from "react-router";
 import BookThumbnail from "../../components/BookThumbnail";
 import Button from "../../components/Button";
+import NavBar from "../../components/NavBar";
 import Title from "../../components/Title";
 import { Book, BooksApiResponse } from "../../utils/apiTypes";
 import colors from "../../utils/colors";
 import {
   Container,
   BooksContainer,
-  NavBar,
-  NavTitleContainer,
-  NavTitleWrapper,
   ButtonContainer,
   SearchInput,
 } from "./styles";
@@ -67,40 +65,40 @@ const ListScreen: React.FC = () => {
 
   return (
     <Container>
-      <NavBar>
-        <IoIosMenu size={32} color={colors.text.primary} />
-        <NavTitleContainer>
-          <NavTitleWrapper>
-            {showSearchInput ? (
-              <SearchInput
-                value={searchTerm}
-                onChange={(e) => {
-                  setPage(1);
-                  setSearchTerm(e.target.value);
-                }}
-                placeholder="Pesquisar"
-              />
-            ) : (
-              <Title variant="h6" as="h2" textAlign="center">
-                {topic} Books
-              </Title>
-            )}
-          </NavTitleWrapper>
-        </NavTitleContainer>
-        {showSearchInput ? (
-          <IoIosClose
-            size={32}
-            color={colors.text.primary}
-            onClick={() => setShowSearchInput(false)}
-          />
-        ) : (
-          <IoIosSearch
-            size={32}
-            color={colors.text.primary}
-            onClick={() => setShowSearchInput(true)}
-          />
-        )}
-      </NavBar>
+      <NavBar
+        leftComponent={<IoIosMenu size={32} color={colors.text.primary} />}
+        centerComponent={
+          showSearchInput ? (
+            <SearchInput
+              value={searchTerm}
+              onChange={(e) => {
+                setPage(1);
+                setSearchTerm(e.target.value);
+              }}
+              placeholder="Pesquisar"
+            />
+          ) : (
+            <Title variant="h6" as="h2" textAlign="center">
+              {topic} Books
+            </Title>
+          )
+        }
+        rightComponent={
+          showSearchInput ? (
+            <IoIosClose
+              size={32}
+              color={colors.text.primary}
+              onClick={() => setShowSearchInput(false)}
+            />
+          ) : (
+            <IoIosSearch
+              size={32}
+              color={colors.text.primary}
+              onClick={() => setShowSearchInput(true)}
+            />
+          )
+        }
+      />
       <BooksContainer>
         {books.map((book) => (
           <BookThumbnail
