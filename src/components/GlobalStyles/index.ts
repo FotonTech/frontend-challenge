@@ -11,6 +11,10 @@ export const GlobalStyle = createGlobalStyle`
     overflow: hidden;
     padding: 0;
   }
+
+  *:focus {
+    outline: none;
+  }
 `;
 
 export const GlobalContainer = styled.div`

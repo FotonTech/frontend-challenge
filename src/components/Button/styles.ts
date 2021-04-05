@@ -5,7 +5,7 @@ import colors from "../../utils/colors";
 
 type StyledHtmlButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-export type StyledButtonProps = (LinkProps & StyledHtmlButtonProps) & {
+export type StyledButtonProps = (Partial<LinkProps> & StyledHtmlButtonProps) & {
   color?: "primary" | "secondary";
   shadow?: boolean;
 };
@@ -40,5 +40,9 @@ export const StyledButton = styled(Link)<StyledButtonProps>`
 
   :hover {
     cursor: pointer;
+  }
+
+  :focus {
+    outline: none;
   }
 `;

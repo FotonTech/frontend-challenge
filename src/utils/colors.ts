@@ -1,6 +1,9 @@
 const colors = {
   primary: "#fef000",
-  body: "#ffffff",
+  body: {
+    default: "#ffffff",
+    gray: "#dadada",
+  },
   text: {
     primary: "#353200",
     secondary: "#464230",

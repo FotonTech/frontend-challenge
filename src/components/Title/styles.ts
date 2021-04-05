@@ -3,6 +3,7 @@ import colors from "../../utils/colors";
 
 export type HeadingVariant = `h${1 | 2 | 3 | 4 | 5 | 6}`;
 type HeadingStyle = {
+  fontFamily?: string;
   fontSize: number;
   fontWeight?: "bold" | "normal" | number;
   textAlign?: "left" | "right" | "center";
@@ -26,7 +27,8 @@ const styles: Record<HeadingVariant, HeadingStyle> = {
     fontSize: 2.4,
   },
   h6: {
-    fontSize: 1.8,
+    fontSize: 1.4,
+    fontFamily: "'Source Sans Pro', sans-serif",
   },
 };
 
@@ -38,6 +40,9 @@ export type StyledTitleProps = Partial<HeadingStyle> & {
 
 export const StyledTitle = styled(SimpleHeading)<StyledTitleProps>`
   color: ${colors.text.primary};
+  ${(p) =>
+    styles[p.variant].fontFamily &&
+    `font-family: ${styles[p.variant].fontFamily};`}
   font-size: ${(p) => p.fontSize ?? styles[p.variant].fontSize}rem;
   font-weight: ${(p) =>
     p.fontWeight ?? styles[p.variant].fontWeight ?? "normal"};
