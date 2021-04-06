@@ -1,7 +1,7 @@
 import AwesomeDebouncePromise from "awesome-debounce-promise";
 import React, { useEffect, useState } from "react";
 import { IoIosMenu, IoIosSearch, IoIosClose } from "react-icons/io";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import BookThumbnail from "../../components/BookThumbnail";
 import Button from "../../components/Button";
 import NavBar from "../../components/NavBar";
@@ -33,7 +33,9 @@ const ListScreen: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [hasNextPage, setHasNextPage] = useState(true);
   const [books, setBooks] = useState<Array<Book>>([]);
+
   const { topic } = useParams<{ topic: string }>();
+  const history = useHistory();
 
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -60,8 +62,6 @@ const ListScreen: React.FC = () => {
       setSearchTerm("");
     }
   }, [showSearchInput]);
-
-  useEffect(() => {}, [loading]);
 
   return (
     <Container>
@@ -103,7 +103,7 @@ const ListScreen: React.FC = () => {
         {books.map((book) => (
           <BookThumbnail
             key={book.id}
-            redirectTo={`/book/${book.id}`}
+            onClick={() => history.push(`/book/${book.id}`)}
             src={book.volumeInfo.imageLinks?.thumbnail}
             shadow
           />
