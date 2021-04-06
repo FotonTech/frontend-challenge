@@ -6,6 +6,10 @@ export const Container = styled.nav`
   box-sizing: border-box;
   display: flex;
   padding: 8px 12px 0;
+
+  svg:hover {
+    cursor: pointer;
+  }
 `;
 
 export const TitleContainer = styled.div`
