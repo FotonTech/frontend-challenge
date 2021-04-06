@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-import { StyledImg, StyledNoThumbBook } from "./styles";
+import { StyledImg, StyledLink, StyledNoThumbBook } from "./styles";
 
 type Props = React.ComponentProps<typeof StyledImg> & {
-  redirectTo?: string;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
 const NoThumbBook = ({ shadow }: { shadow?: boolean }) => (
@@ -13,13 +12,17 @@ const NoThumbBook = ({ shadow }: { shadow?: boolean }) => (
   </StyledNoThumbBook>
 );
 
-const BookThumbnail: React.FC<Props> = ({ redirectTo, ...props }) => {
+const BookThumbnail: React.FC<Props> = ({ onClick, ...props }) => {
   const imgElement = !props.src ? (
     <NoThumbBook shadow={props.shadow} />
   ) : (
     <StyledImg {...props} />
   );
-  return redirectTo ? <Link to={redirectTo}>{imgElement}</Link> : imgElement;
+  return onClick ? (
+    <StyledLink onClick={onClick}>{imgElement}</StyledLink>
+  ) : (
+    imgElement
+  );
 };
 
 export default BookThumbnail;

@@ -27,8 +27,8 @@ export const StyledNoThumbBook = styled.div<StyledThumbProps>`
   ${(p) => p.shadow && `box-shadow: 1px 4px 20px ${colors.text.primary}86;`}
 `;
 
-// export const StyledLink = styled(Link)`
-//     :hover {
-//         cursor:
-//     }
-// `
+export const StyledLink = styled.a`
+  :hover {
+    cursor: pointer;
+  }
+`;
