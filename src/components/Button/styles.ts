@@ -8,6 +8,7 @@ type StyledHtmlButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 export type StyledButtonProps = (Partial<LinkProps> & StyledHtmlButtonProps) & {
   color?: "primary" | "secondary";
   shadow?: boolean;
+  padding?: string | number;
 };
 
 const styles = {
@@ -33,7 +34,7 @@ export const StyledButton = styled(Link)<StyledButtonProps>`
   font-size: 0.9rem;
   font-weight: bold;
   margin: 4px;
-  padding: 12px 16px;
+  padding: ${(p) => p.padding ?? "12px 16px"};
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;

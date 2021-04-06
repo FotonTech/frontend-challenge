@@ -7,6 +7,7 @@ type HeadingStyle = {
   fontSize: number;
   fontWeight?: "bold" | "normal" | number;
   textAlign?: "left" | "right" | "center";
+  margin?: string | number;
 };
 
 const styles: Record<HeadingVariant, HeadingStyle> = {
@@ -46,6 +47,6 @@ export const StyledTitle = styled(SimpleHeading)<StyledTitleProps>`
   font-size: ${(p) => p.fontSize ?? styles[p.variant].fontSize}rem;
   font-weight: ${(p) =>
     p.fontWeight ?? styles[p.variant].fontWeight ?? "normal"};
-  margin: 12px 0;
+  margin: ${(p) => p.margin ?? "12px 0"};
   ${(p) => p.textAlign && `text-align: ${p.textAlign};`}
 `;

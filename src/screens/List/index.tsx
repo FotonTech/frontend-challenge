@@ -103,9 +103,8 @@ const ListScreen: React.FC = () => {
         {books.map((book) => (
           <BookThumbnail
             key={book.id}
-            onClick={() => history.push(`/book/${book.id}`)}
+            onClick={() => history.push(`/book/${book.id}`, { book, topic })}
             src={book.volumeInfo.imageLinks?.thumbnail}
-            shadow
           />
         ))}
         <ButtonContainer>

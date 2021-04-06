@@ -11,7 +11,7 @@ export const StyledImg = styled.img<StyledThumbProps>`
   object-fit: cover;
   width: 100%;
 
-  ${(p) => p.shadow && `box-shadow: 1px 4px 20px ${colors.text.primary}86;`}
+  ${(p) => p.shadow && `box-shadow: 1px 12px 28px ${colors.text.primary}46;`}
 `;
 
 export const StyledNoThumbBook = styled.div<StyledThumbProps>`
@@ -24,7 +24,7 @@ export const StyledNoThumbBook = styled.div<StyledThumbProps>`
   text-align: center;
   width: 100%;
 
-  ${(p) => p.shadow && `box-shadow: 1px 4px 20px ${colors.text.primary}86;`}
+  ${(p) => p.shadow && `box-shadow: 1px 12px 28px ${colors.text.primary}46;`}
 `;
 
 export const StyledLink = styled.a`

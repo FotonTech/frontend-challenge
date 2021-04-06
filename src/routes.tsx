@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import { GlobalContainer, ScreenContainer } from "./components/GlobalStyles";
 import HomeScreen from "./screens/Home";
 import ListScreen from "./screens/List";
+import BookScreen from "./screens/Book";
 
 export default function Routes() {
   return (
@@ -17,7 +18,9 @@ export default function Routes() {
             <Route path="/list/:topic">
               <ListScreen />
             </Route>
-            <Route path="/book/:id">book</Route>
+            <Route path="/book/:id">
+              <BookScreen />
+            </Route>
           </Switch>
         </Router>
       </ScreenContainer>
