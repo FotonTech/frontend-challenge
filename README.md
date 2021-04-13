@@ -1,4 +1,4 @@
-# Desafio Web Frontend
+# Desafio React Web Frontend
 
 Clone este repositório e comece já o nosso desafio.
 
@@ -17,13 +17,13 @@ OBS: Pode ser utilizado a forma de chamada de apis de sua preferencia (fetch, ax
 
 ## Design/Telas
 
-![Design Desafio Frontend Foton](https://user-images.githubusercontent.com/15015324/48946886-4f169880-ef16-11e8-92ba-5754dcff6068.png)
+![book](https://user-images.githubusercontent.com/13947203/114557626-3d95ce80-9c40-11eb-94ab-57abc6a82904.png)
 
 O design do site consiste em 3 telas, sendo elas:
 
 ### Home
 
-1. Crie uma página com base no design apresentado nas telas de Listagem e Detalhes;
+1. Crie uma página com base no design da imagem acima.
 2. É **obrigatório** um botão para navegar para a página de Listagem.
 
 ### Listagem
