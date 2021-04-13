@@ -2,6 +2,8 @@
 
 Clone este repositório e comece já o nosso desafio.
 
+Use React ou RN dependendo da vaga que você estiver tentando.
+
 OBS: Caso tenha alguma dúvida em relação ao teste é só nos mandar sua pergunta no canal #challenge-foton do Slack do [React Brasil](https://react-brasil-slack.herokuapp.com/).
 
 ## API
