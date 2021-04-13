@@ -1,4 +1,4 @@
-# Desafio React Web Frontend
+# Desafio Frontend
 
 Clone este repositório e comece já o nosso desafio.
 
@@ -16,21 +16,23 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
 OBS: Pode ser utilizado a forma de chamada de apis de sua preferencia (fetch, axios, etc).
 
 ## Design/Telas
+https://www.figma.com/file/KFElqzD983WNyvMY1SaF0c/book-app?node-id=0%3A1
 
-![book](https://user-images.githubusercontent.com/13947203/114557626-3d95ce80-9c40-11eb-94ab-57abc6a82904.png)
+<img width="581" alt="Screen Shot 2021-04-13 at 10 19 47" src="https://user-images.githubusercontent.com/13947203/114559257-eb55ad00-9c41-11eb-9617-4e7627cc373e.png">
+
 
 O design do site consiste em 3 telas, sendo elas:
 
 ### Home
 
-1. Crie uma página com base no design da imagem acima.
-2. É **obrigatório** um botão para navegar para a página de Listagem.
+1. Crie a tela pixel perfect com base no design acima
+2. Os livros precisam ser clicáveis para mostrar a tela de detalhes
 
-### Listagem
+### Search
 
 Nesta tela é **obrigatório** que o usuário tenha possibilidade de:
 
-1. Ver a lista dos livros;
+1. Ver a lista dos livros baseado na busca;
 2. Possibilitar buscar mais livros com um botão no estilo "Load more";
 3. Buscar livros pelo nome;
 4. Clicar em um dos livros para ver seus detalhes.
@@ -40,4 +42,3 @@ Nesta tela é **obrigatório** que o usuário tenha possibilidade de:
 Nesta tela é **obrigatório** que o usuário tenha possibilidade de:
 
 1. Ver as informações completas do livro selecionado;
-2. Poder adicionar uma nota, dar like e adicionar aos favoritos (somente estado interno como useState, useReducer, etc).
