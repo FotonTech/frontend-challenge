@@ -1,7 +1,6 @@
 import React from "react";
 import { ProductType } from "../../types";
 
-
 const Home = () => {
    let productArray: Array<ProductType> = [];
 
@@ -9,21 +8,15 @@ const Home = () => {
    const IteradorProdutos = () => {
       return (
          <>
-            {
-               /*
+            {/*
             productArray.map((item, key) => (
                < {...item} key={item.id.toString()} />
-            )*/
-         }
+            )*/}
          </>
       );
    };
 
-   return (
-      <React.Fragment>
-
-      </React.Fragment>
-   );
+   return <React.Fragment></React.Fragment>;
 };
 
 export default Home;

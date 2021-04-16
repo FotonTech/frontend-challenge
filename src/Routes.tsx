@@ -5,7 +5,6 @@ import Home from "./pages/home";
 
 import NotFound from "./pages/notFound";
 
-
 const Routes = () => {
    /*
    const dispatch = useDispatch();
