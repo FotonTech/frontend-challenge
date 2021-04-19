@@ -1,5 +1,5 @@
 import { AnyAction, Reducer } from "redux";
-import {  BookType } from "../../types/index";
+import { BookType } from "../../types/index";
 
 type InitialStateType = {
    products: BookType[];

@@ -10,7 +10,7 @@ const Text = styled.h1`
 const NotFound: React.FC = () => {
    return (
       <React.Fragment>
-        {/*
+         {/*
          <Navbar buttonText="Voltar para home" linkPath="/" showNumberOfItens={false} />
         */}
          <Text>Ops! Página não encontrada..</Text>

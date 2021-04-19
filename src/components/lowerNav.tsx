@@ -1,13 +1,8 @@
 import React from "react";
-import * as Chakra from '@chakra-ui/react';
-
+import * as Chakra from "@chakra-ui/react";
 
 const LowerNav = () => {
-    return (
-        <>
-        
-        </>
-    )
-}
+   return <></>;
+};
 
-export default LowerNav
+export default LowerNav;
