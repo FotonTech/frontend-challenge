@@ -1,5 +1,5 @@
-import { ACTION_TYPES } from "../Redux/reducers/db";
-import { BookType } from "../types";
+import { ACTION_TYPES } from "../reducers/db";
+import { BookType } from "../../types";
 
 const sendToDb = (books: BookType[], totalItem: number) => {
    return {

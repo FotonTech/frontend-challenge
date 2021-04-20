@@ -5,31 +5,34 @@ import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
 
 const LowerNav = () => {
    return (
+      <Box fontSize="10px" lineHeight="11,93px" paddingTop="11px" backgroundColor="#FFFFFF">
       <Flex
          justifyContent="space-between"
          flexDirection="row"
          width="375px"
-         backgroundColor="#FFFFFF"
-         bottom="0"
-         marginBottom="1px"
+         padding="0 32px 9px 32px"
+        
+         marginBottom="0"
          marginTop="auto"
-         position="absolute"
+         position="sticky"
+         
       >
-         <Box>
+         <Flex direction="column" justifyContent="space-between" justifyItems="center" alignItems="center">
             <PhoneIcon />
             <Text>Home</Text>
-         </Box>
+         </Flex>
 
-         <Box>
+         <Flex direction="column" justifyContent="space-between" justifyItems="center" alignItems="center">
             <AddIcon />
             <Text>Libraries</Text>
-         </Box>
+         </Flex>
 
-         <Box>
+         <Flex direction="column" justifyContent="space-between" justifyItems="center" alignItems="center">
             <WarningIcon alignSelf="center" justifySelf="center" />
             <Text>Profile</Text>
-         </Box>
+         </Flex>
       </Flex>
+      </Box>
    );
 };
 
