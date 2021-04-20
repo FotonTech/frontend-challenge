@@ -9,15 +9,12 @@ import theme from "./theme";
 //import Footer from "./Components/Footer";
 import "./App.css";
 
-
 function App() {
    return (
       <ReduxWrapper>
          <BrowserRouter>
             <ChakraProvider theme={theme}>
-              
-                  <Routes />
-              
+               <Routes />
             </ChakraProvider>
          </BrowserRouter>
       </ReduxWrapper>

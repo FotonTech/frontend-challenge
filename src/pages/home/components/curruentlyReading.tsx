@@ -24,19 +24,20 @@ const bookAuthorProperties = {
 };
 
 const DiscoverBox: React.FC<DiscoverBoxType> = ({ currentBook }) => {
+    console.log(currentBook.book.author)
    return (
-      <Box display="flex" alignItems="center"  color="black" height="136px" borderRadius="1px">
+      <Box display="flex" alignItems="center"  color="black" height="136px" >
          <Box position="absolute" zIndex="overlay" >
             <Image  boxShadow="sm" marginLeft="19px" borderRadius="1px" height="136px" src={currentBook.book.thumbnail} />
          </Box>
 
-         <Box position="relative" boxShadow="xs"  backgroundColor="#EEF5DB" height="100px" width="331px">
+         <Box position="relative" boxShadow="xs"  backgroundColor="#EEF5DB" width="331px">
             <Box marginLeft="118px">
                <Text {...bookNameProperties} marginTop="10px">
-                  Hooked
+                  {currentBook.book.name ?? "Hooked"}
                </Text>
                <Text {...bookAuthorProperties} marginTop="5px">
-                  Nir Eyal
+                 {currentBook.book.author ?? "Nir Eyal"}
                </Text>
 
                <Box fontSize="10px" lineHeight="11,93px" marginTop="22" marginBottom="12px">

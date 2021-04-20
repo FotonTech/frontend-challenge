@@ -12,5 +12,5 @@ export type BookType = {
 export type BookBeingReadType = {
    book: BookType;
    currentChapter: number;
-   currentPage: number;
+   totalChapters: number;
 };

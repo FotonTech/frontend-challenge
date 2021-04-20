@@ -6,9 +6,12 @@ import { Box } from "@chakra-ui/react";
 
 function Searchbar() {
    return (
-      <Box paddingTop="50px">
-         <Chakra.InputGroup outlineColor="blue.400" >
-            <Chakra.InputLeftElement pointerEvents="none" children={<SearchIcon transform="rotate(90deg)"  color="gray.300" />} />
+      <Box margin="50px 20px 0 20px">
+         <Chakra.InputGroup outlineColor="blue.400">
+            <Chakra.InputLeftElement
+               pointerEvents="none"
+               children={<SearchIcon transform="rotate(90deg)" color="gray.300" />}
+            />
             <Chakra.Input
                backgroundColor="white"
                type="text"

@@ -29,6 +29,7 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({ book }) => {
          color="#E7E7E1"
          backgroundColor="blue.700"
          width="272px"
+         marginLeft="20px"
          height="139px"
          borderRadius="5px"
       >
