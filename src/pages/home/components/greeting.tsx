@@ -7,12 +7,15 @@ type GreetingProps = {
 };
 const Greeting: React.FC<GreetingProps> = ({ name = "Mehmed Al Fatih" }) => {
    return (
-      <Box fontSize="24px" padding="30px 0">
-         <Text as="span">Hi, </Text>
-         <Text as="span" fontWeight="bold" color={theme.colors.textRed}>
-            {name} 👋{" "}
-         </Text>
-      </Box>
+      <>
+         <Box fontSize="24px" margin="30px 0">
+            <Text as="span">Hi, </Text>
+            <Text as="span" fontWeight="bold" color={theme.colors.textRed}>
+               {name} 👋{" "}
+            </Text>
+         </Box>
+        
+      </>
    );
 };
 

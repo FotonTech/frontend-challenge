@@ -59,6 +59,10 @@ export const getAllBooks = (setLoading: (arg0: boolean) => void, setError: (arg0
             BookArray.push(temp);
          }
          dispatch(sendToDb(BookArray, totalItems));
+         setLoading(false);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+         setError(error.message || "Um erro aconteceu ao baixar os livros");
+         setLoading(false);
+      });
 };
