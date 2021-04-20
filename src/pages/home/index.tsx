@@ -6,7 +6,7 @@ import Greeting from "./components/greeting";
 import DiscoverBox from "./components/discoverBox";
 import Label from "./components/twoColumnText";
 import LowerNav from '../../components/lowerNav';
-
+import CurrentlyReading from './components/curruentlyReading'
 
 import { getAllBooks } from "../../actions/bookActions";
 import { useAppSelector } from "../../Redux/hooks";
@@ -56,7 +56,12 @@ const Home = () => {
 
    //seletor type safe do redux
    const books = useAppSelector((state) => state.db.books);
-
+   
+   const bookRead: BookBeingReadType = {
+      currentChapter: 2,
+      book: books[4],
+      totalChapters: 9
+   }
    //mapeia um card para cada item no array, usando desestruturação, já que sei o tipo de objeto
    const BooksIterator = () => {
       return (
@@ -80,6 +85,7 @@ const Home = () => {
          <Label marginTop="30px" leftText="Currently Reading"  rightText="All"  />
       
          <Label marginTop="30px" leftText="Reviews of The Days"  rightText="All Video"  />
+         <CurrentlyReading currentBook={bookRead} />
      </PaddingWrapper>
          <LowerNav />
          </PageWrapper>
