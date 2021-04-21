@@ -6,6 +6,7 @@ import Greeting from "./components/greeting";
 import DiscoverBox from "./components/discoverBox";
 import Label from "./components/twoColumnText";
 import LowerNav from "../../components/lowerNav"
+import ReviewsOfTheDay from "./components/reviewsOfTheDay";
 import CurrentlyReading from "./components/curruentlyReading";
 import sortBooks from '../../utils/sortBooks';
 import { getAllBooks } from "../../Redux/actions/bookActions"
@@ -16,11 +17,26 @@ import { useDispatch } from "react-redux";
 const PageWrapper: React.FC = (props) => {
    const theme = useTheme();
 
+   /**
+    * Coloco position relative para manter os itens absolutos no lugar
+    * Os overflows x e y servem para o scroll da página
+    * E encontra-se dentro de um wrapper cinza para melhorar a visualização
+    * 
+    * Em relação aos dois divs, um com o tamanho correto e outro dentro, uso eles para criar um scroll
+    * mobile-like, sem a scrollbar, usando um truque de margem negativa e padding.
+    * 
+    */
+
+
    return (
-      <Box backgroundColor="gray.300" width="100%" height="100%" display="flex" alignContent="center" justifyContent="center">
-         <Box width="375px" height="812px" backgroundColor={theme.colors.backgroundColor} boxShadow="md">
+      <Box backgroundColor="gray.300" width="100%" height="130vh" display="flex" justifyContent="center" alignItems="center" justifyItems="center">
+         
+         <Box  width="375px" height="812px" overflow="hidden"  position="relative" overflowX="hidden" overflowY="scroll" backgroundColor={theme.colors.backgroundColor} boxShadow="md">
+         
             {props.children}
+            <LowerNav />
          </Box>
+         
       </Box>
    );
 };
@@ -69,9 +85,9 @@ const Home = () => {
                <Label marginTop="30px" leftText="Currently Reading" rightText="All" />
                <CurrentlyReading currentBook={bookRead} />
                <Label marginTop="30px" leftText="Reviews of The Days" rightText="All Video" />
-              
+               <ReviewsOfTheDay />
            
-            <LowerNav />
+         
          </PageWrapper>
       </React.Fragment>
    );

@@ -23,6 +23,10 @@ const bookAuthorProperties = {
    fontFamily: "Roboto, sans-serif",
 };
 
+const makeTextOneLine = {
+   
+}
+
 const DiscoverBox: React.FC<DiscoverBoxType> = ({ currentBook }) => {
     console.log(currentBook.book.author)
    return (
@@ -32,12 +36,12 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({ currentBook }) => {
          </Box>
 
          <Box position="relative" boxShadow="xs"  backgroundColor="#EEF5DB" width="331px">
-            <Box marginLeft="118px">
-               <Text {...bookNameProperties} marginTop="10px">
+            <Box marginLeft="128px">
+               <Text {...bookNameProperties} marginTop="10px" whiteSpace="nowrap" textOverflow="ellipsis" overflow="hidden" >
                   {currentBook.book.name ?? "Hooked"}
                </Text>
-               <Text {...bookAuthorProperties} marginTop="5px">
-                 {currentBook.book.author ?? "Nir Eyal"}
+               <Text {...bookAuthorProperties}  marginTop="5px"  whiteSpace="nowrap" textOverflow="ellipsis" overflow="hidden">
+                 by {currentBook.book.author ?? "Nir Eyal"}
                </Text>
 
                <Box fontSize="10px" lineHeight="11,93px" marginTop="22" marginBottom="12px">

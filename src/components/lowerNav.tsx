@@ -5,16 +5,18 @@ import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
 
 const LowerNav = () => {
    return (
-      <Box fontSize="10px" lineHeight="11,93px" paddingTop="11px" backgroundColor="#FFFFFF">
+      <Box  
+      position="sticky"
+      bottom="0"
+      marginTop="auto"
+      fontSize="10px" lineHeight="11,93px" paddingTop="11px" backgroundColor="#FFFFFF">
       <Flex
          justifyContent="space-between"
          flexDirection="row"
          width="375px"
          padding="0 32px 9px 32px"
         
-         marginBottom="0"
-         marginTop="auto"
-         position="sticky"
+        
          
       >
          <Flex direction="column" justifyContent="space-between" justifyItems="center" alignItems="center">
