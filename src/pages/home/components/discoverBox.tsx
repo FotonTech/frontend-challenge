@@ -12,7 +12,7 @@ type DiscoverBoxType = {
    paddingTopAndBottom?: string;
    backgroundColor?: string;
    transparency?: boolean;
-   marginLeftText?: string
+   marginLeftText?: string;
 };
 
 const bookNameProperties = {
@@ -34,12 +34,11 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({
    backgroundColor = "#00173D",
    paddingTopAndBottom = "0",
    transparency = false,
-   marginLeftText="20px"
+   marginLeftText = "20px",
 }) => {
    const newHeight = (Number("139") - Number(paddingTopAndBottom) * 2).toString() + "px";
    const history = useHistory();
    const onClickItem = () => {
-     
       history.push(`/details/${book.id}`);
    };
    return (
@@ -147,7 +146,7 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({
                   </Box>
 
                   <Text as="span" fontWeight="heading">
-                     120+{" "}
+                     {book.pageCount}+{" "}
                   </Text>
                   <Text as="span" fontFamily="'SF UI Display Light', sans-serif">
                      {" "}

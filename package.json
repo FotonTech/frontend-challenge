@@ -1,7 +1,7 @@
 {
   "name": "desafio-foton",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@chakra-ui/icons": "^1.0.10",
     "@chakra-ui/react": "^1.5.1",

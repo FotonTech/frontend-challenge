@@ -1,10 +1,9 @@
 import React from "react";
-import { Text, Box, Image, GridItem, Flex } from "@chakra-ui/react";
+import { Text, Box, Image, Flex } from "@chakra-ui/react";
 import { BookType } from "../../types/index";
-import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useHistory } from "react-router";
 import { useAppSelector } from "../../Redux/hooks";
-
+import Circle from "../../components/circle.png";
 // import { Container } from './styles';
 
 const Details: React.FC<{ id: string }> = ({ id }) => {
@@ -14,11 +13,11 @@ const Details: React.FC<{ id: string }> = ({ id }) => {
       history.goBack();
    };
    let selectedBook: BookType = booksFromRedux.books[0];
-   const selectedBooks = booksFromRedux.books.filter((element) => element.id === id);
-   if (!selectedBooks || selectedBooks.length === 0) {
+   const selectedBooksArray = booksFromRedux.books.filter((element) => element.id === id);
+   if (!selectedBooksArray || selectedBooksArray.length === 0) {
       alert("Livro inválido.");
       history.push("/");
-   } else selectedBook = selectedBooks[0];
+   } else selectedBook = selectedBooksArray[0];
 
    return (
       <Box>
@@ -35,24 +34,50 @@ const Details: React.FC<{ id: string }> = ({ id }) => {
                   />
                </svg>
             </Box>
+            <Box margin="115px 239px 104px 74px" position="absolute">
+               <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="31.5" cy="31.5" r="31.5" fill="#00173D" />
+               </svg>
+            </Box>
+            <Box margin="125px 314px 142px 47px" position="absolute">
+               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#FF6978" />
+               </svg>
+            </Box>
+
+            <Box margin="86px 103px 172px 249px" position="absolute">
+               <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="13" cy="13" r="12" stroke="#4550A7" stroke-width="2" />
+               </svg>
+            </Box>
+
+            <Box margin="218.11px 84.11px 0.11px 227.11px" position="absolute">
+               <Image h="48px" w="48px" transform="rotate(25deg)" src={Circle} />
+            </Box>
+
+            <Box margin="-34.45px -55.45px 183.55px 298.55px" position="absolute">
+               <Image h="100px" w="100px" transform="rotate(25deg)" src={Circle} />
+            </Box>
+
             <Image
                borderRadius="md"
                boxShadow="lg"
                margin="84px 111px 0 114px"
                position="absolute"
                zIndex="overlay"
+               objectFit="fill"
                w="151px"
                h="234px"
                src={selectedBook.thumbnail}
             />
          </Box>
 
-         <Box marginTop="67px" margin="67px 20px 0 21px">
+         <Box fontFamily="'SF UI Display Medium', sans-serif" marginTop="67px" margin="67px 20px 0 21px">
             <Text fontSize="24px">{selectedBook.name}</Text>
-            <Text fontSize="16px" lineHeight="19px" fontWeight="normal" color="#FF6978">
+            <Text fontSize="16px" lineHeight="19px" color="#FF6978">
                {selectedBook.author}
             </Text>
-            <Text marginTop="10px" marginBottom="70px" lineHeight="25px" fontSize="14px">
+            <Text color="#31313199" marginTop="10px" marginBottom="70px" lineHeight="25px" fontSize="14px">
                {selectedBook.description}
             </Text>
          </Box>

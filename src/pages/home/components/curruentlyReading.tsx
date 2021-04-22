@@ -28,10 +28,9 @@ const bookAuthorProperties = {
 const CurrentlyReadingBox: React.FC<CurrentlyReadingBoxType> = ({ currentBook }) => {
    const history = useHistory();
    const onClickItem = () => {
-     
       history.push(`/details/${currentBook.book.id}`);
    };
-   
+
    return (
       <Box display="flex" alignItems="center" color="black" height="136px">
          <Box position="absolute" zIndex="overlay">

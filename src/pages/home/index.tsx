@@ -10,9 +10,8 @@ import LowerNav from "../../components/lowerNav";
 import ReviewsOfTheDay from "./components/reviewsOfTheDay";
 import CurrentlyReading from "./components/curruentlyReading";
 import sortBooks from "../../utils/sortBooks";
-import Circle from '../../components/circle.png'
+import Circle from "../../components/circle.png";
 import { useAppSelector } from "../../Redux/hooks";
-
 
 const Home = () => {
    const [searchQuery, setSearchQuery] = useState("");
@@ -20,14 +19,15 @@ const Home = () => {
    //seletor type safe do redux
    const books = useAppSelector((state) => state.db.books);
    const sortedBooks = books.sort(sortBooks("name", "asc"));
+   const rand1 = Math.floor(Math.random() * books.length);
+   const rand2 = Math.floor(Math.random() * books.length);
+   const rand3 = Math.floor(Math.random() * books.length);
+
    const bookRead: BookBeingReadType = {
       currentChapter: 2,
-      book: sortedBooks[0],
+      book: sortedBooks[rand1],
       totalChapters: 9,
    };
-
-
-
 
    //mapeia um card para cada item no array, usando desestruturação, já que sei o tipo de objeto
    const BooksIterator = () => {
@@ -40,7 +40,13 @@ const Home = () => {
       });
       return (
          <>
-            <Grid margin="40px 12px 40px 20px" alignContent="space-between" columnGap="10px" rowGap="10px" templateColumns="repeat(3, 1fr)">
+            <Grid
+               margin="40px 12px 40px 20px"
+               alignContent="space-between"
+               columnGap="10px"
+               rowGap="10px"
+               templateColumns="repeat(3, 1fr)"
+            >
                {filteredBooks.map((item, key) => (
                   <BookCard {...item} key={item.id.toString()} />
                ))}
@@ -58,18 +64,18 @@ const Home = () => {
          <>
             <Greeting />
             <Label leftText="Discover new book" rightText="More" />
-            <Image  marginTop="-55px" marginLeft="300px" position="absolute" zIndex="0" src={Circle} />
-               
+            <Image marginTop="-55px" marginLeft="300px" position="absolute" zIndex="0" src={Circle} />
+
             <Box zIndex="2">
                <Flex alignContent="center" alignItems="center" flexWrap="nowrap">
-                  <DiscoverBox book={sortedBooks[0]} />
+                  <DiscoverBox book={sortedBooks[rand3]} />
 
                   <Box>
                      <DiscoverBox
                         backgroundColor="#150e56"
                         transparency={true}
                         paddingTopAndBottom="5.5"
-                        book={sortedBooks[1]}
+                        book={sortedBooks[rand2]}
                         marginLeftText="15px"
                      />
                   </Box>
