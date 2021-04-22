@@ -38,7 +38,7 @@ export const getAllBooks = (setLoading: (arg0: boolean) => void, setError: (arg0
             let current = resultArray[i];
             let temp: BookType = { name: "", author: "", pageCount: 0, id: "", categories: "" };
             temp.name = current.volumeInfo.title;
-
+            temp.id= current.id;
             //se for uma string de arrays agrupar em comma separated
             temp.author = current.volumeInfo.authors?.join(", ");
 

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { getAllBooks } from "./Redux/actions/bookActions"
 import { Switch, Route } from "react-router-dom";
 import Home from "./pages/home";
+import Details from './pages/details';
 
 import NotFound from "./pages/notFound";
 
@@ -14,7 +15,7 @@ const Routes = () => {
    useEffect(() => {
       dispatch(getAllBooks(setLoading, setError));
       console.log("Requisicao feita")
-   }, []);
+   }, [setLoading, setError, dispatch]);
    /*
    const dispatch = useDispatch();
    useEffect(() => {
@@ -28,7 +29,7 @@ const Routes = () => {
       <div>
          <Switch>
             <Route path="/" exact={true} component={() => <Home />} />
-
+            <Route exact path="/details/:id" render={(props) => <Details id={props.match.params.id} />} />
             <Route path="*" component={() => <NotFound />} />
          </Switch>
       </div>
