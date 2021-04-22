@@ -13,8 +13,8 @@ const colors = {
 };
 
 const fonts = {
-   body: "sf_pro_display, sans-serif",
-   heading: "sf_pro_display, serif",
+   body: "'SF UI Display Medium', sans-serif",
+   heading: "'SF UI Display Semibold', serif",
    mono: "Menlo, monospace",
    text: "sans-serif",
 };

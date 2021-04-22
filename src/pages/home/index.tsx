@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BookType, BookBeingReadType } from "../../types";
-import { Box, Grid, GridItem, useTheme } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, useTheme, Image } from "@chakra-ui/react";
 import Searchbar from "../../components/searchbar";
 import BookCard from "../../components/bookCard";
 import Greeting from "./components/greeting";
@@ -10,7 +10,7 @@ import LowerNav from "../../components/lowerNav";
 import ReviewsOfTheDay from "./components/reviewsOfTheDay";
 import CurrentlyReading from "./components/curruentlyReading";
 import sortBooks from "../../utils/sortBooks";
-
+import Circle from '../../components/circle.png'
 import { useAppSelector } from "../../Redux/hooks";
 
 const Home = () => {
@@ -53,7 +53,23 @@ const Home = () => {
          <>
             <Greeting />
             <Label leftText="Discover new book" rightText="More" />
-            <DiscoverBox book={sortedBooks[0]} />
+            <Image  marginTop="-55px" marginLeft="300px" position="absolute" zIndex="0" src={Circle} />
+               
+            <Box zIndex="2">
+               <Flex alignContent="center" alignItems="center" flexWrap="nowrap">
+                  <DiscoverBox book={sortedBooks[0]} />
+
+                  <Box>
+                     <DiscoverBox
+                        backgroundColor="#150e56"
+                        transparency={true}
+                        paddingTopAndBottom="5.5"
+                        book={sortedBooks[1]}
+                        marginLeftText="15px"
+                     />
+                  </Box>
+               </Flex>
+            </Box>
             <Label marginTop="30px" leftText="Currently Reading" rightText="All" />
             <CurrentlyReading currentBook={bookRead} />
             <Label marginTop="30px" leftText="Reviews of The Days" rightText="All Video" />
