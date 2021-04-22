@@ -3,6 +3,7 @@ import { Text, Box, Image } from "@chakra-ui/react";
 import theme from "../../../theme";
 import Circle from "../../../components/circle.png";
 import { BookBeingReadType } from "../../../types/index";
+import { useHistory } from "react-router";
 // import { Container } from './styles';
 
 type CurrentlyReadingBoxType = {
@@ -25,6 +26,12 @@ const bookAuthorProperties = {
 };
 
 const CurrentlyReadingBox: React.FC<CurrentlyReadingBoxType> = ({ currentBook }) => {
+   const history = useHistory();
+   const onClickItem = () => {
+     
+      history.push(`/details/${currentBook.book.id}`);
+   };
+   
    return (
       <Box display="flex" alignItems="center" color="black" height="136px">
          <Box position="absolute" zIndex="overlay">
@@ -37,6 +44,8 @@ const CurrentlyReadingBox: React.FC<CurrentlyReadingBoxType> = ({ currentBook })
                objectFit="fill"
                shadow="lg"
                src={currentBook?.book?.thumbnail}
+               onClick={onClickItem}
+               cursor="pointer"
             />
          </Box>
 

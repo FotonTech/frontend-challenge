@@ -4,6 +4,7 @@ import theme from "../../../theme";
 import { BookType } from "../../../types/index";
 import Circle from "../../../components/circle.png";
 import CutCircle from "../../../components/cutCircle.png";
+import { useHistory } from "react-router";
 // import { Container } from './styles';
 
 type DiscoverBoxType = {
@@ -36,7 +37,11 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({
    marginLeftText="20px"
 }) => {
    const newHeight = (Number("139") - Number(paddingTopAndBottom) * 2).toString() + "px";
-
+   const history = useHistory();
+   const onClickItem = () => {
+     
+      history.push(`/details/${book.id}`);
+   };
    return (
       <Box>
          <Grid
@@ -151,7 +156,7 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({
                </Box>
             </GridItem>
             <GridItem margin="15px 20px 13px auto" colSpan={1} marginRight="20px">
-               <Image borderRadius="5px" height="111px" src={book?.thumbnail} />
+               <Image cursor="pointer" onClick={onClickItem} borderRadius="5px" height="111px" src={book?.thumbnail} />
             </GridItem>
          </Grid>
       </Box>

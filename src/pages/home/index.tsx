@@ -13,6 +13,7 @@ import sortBooks from "../../utils/sortBooks";
 import Circle from '../../components/circle.png'
 import { useAppSelector } from "../../Redux/hooks";
 
+
 const Home = () => {
    const [searchQuery, setSearchQuery] = useState("");
 
@@ -24,6 +25,10 @@ const Home = () => {
       book: sortedBooks[0],
       totalChapters: 9,
    };
+
+
+
+
    //mapeia um card para cada item no array, usando desestruturação, já que sei o tipo de objeto
    const BooksIterator = () => {
       //pesquisar dentro do array se há a query
@@ -35,7 +40,7 @@ const Home = () => {
       });
       return (
          <>
-            <Grid alignContent="space-between" columnGap="10px" rowGap="10px" templateColumns="repeat(3, 1fr)">
+            <Grid margin="40px 12px 40px 20px" alignContent="space-between" columnGap="10px" rowGap="10px" templateColumns="repeat(3, 1fr)">
                {filteredBooks.map((item, key) => (
                   <BookCard {...item} key={item.id.toString()} />
                ))}
