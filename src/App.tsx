@@ -41,6 +41,14 @@ const PageWrapper: React.FC = (props) => {
             overflowY="scroll"
             backgroundColor={theme.colors.backgroundColor}
             boxShadow="md"
+            css={{
+               "&::-webkit-scrollbar": {
+                  display: "none",
+               },
+               "&::-webkit-scrollbar-track": {
+                  display: "none",
+               },
+            }}
          >
             {props.children}
          </Box>

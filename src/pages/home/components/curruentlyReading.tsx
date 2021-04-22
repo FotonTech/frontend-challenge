@@ -32,12 +32,41 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({ currentBook }) => {
                marginLeft="19px"
                borderRadius="1px"
                height="136px"
+               w="91px"
+               objectFit="fill"
                src={currentBook?.book?.thumbnail}
             />
          </Box>
 
-         <Box position="relative" boxShadow="xs" backgroundColor="#EEF5DB" width="331px">
-            <Box marginLeft="128px">
+         <Box overflow="hidden" position="relative" boxShadow="xs" backgroundColor="#EEF5DB" width="331px">
+            <Box
+               position="absolute"
+               zIndex="overlay"
+               marginLeft="223px"
+               marginBottom="88px"
+               marginRight="90px"
+               marginTop="-6px"
+            >
+               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="10" cy="10" r="9" stroke="#4550A7" stroke-width="2" />
+               </svg>
+            </Box>
+
+            <Box position="absolute"
+               zIndex="overlay"
+               marginLeft="308.2"
+               marginBottom="20.5"
+               marginRight="0"
+               marginTop="64.5px">
+                  <svg width="46" height="16" viewBox="0 0 46 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1.16705" y="0.495239" width="46" height="4" transform="rotate(14 1.16705 0.495239)" fill="#EC6374"/>
+</svg>
+
+
+            </Box>
+
+
+            <Box marginLeft="118px">
                <Text
                   {...bookNameProperties}
                   marginTop="10px"
