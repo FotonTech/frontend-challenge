@@ -16,8 +16,8 @@ const LowerNav: React.FC<{ currentPage?: string }> = ({ currentPage = "home" }) 
          paddingTop="11px"
          backgroundColor="#FFFFFF"
       >
-         <Flex justifyContent="space-between" flexDirection="row" width="375px" padding="0 32px 9px 32px">
-            <Flex direction="column" justifyContent="space-between" justifyItems="center" alignItems="center">
+         <Flex justifyContent="space-between" flexDirection="row" width="375px" padding="0 55px 9px 52px">
+            <Flex direction="column" justifyContent="space-around" justifyItems="center" alignItems="center">
                <Icon
                   as="svg"
                   marginBottom="10px"

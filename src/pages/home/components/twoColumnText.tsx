@@ -16,7 +16,7 @@ const Label: React.FC<LabelType> = ({ leftText, rightText, marginTop = 0 }) => {
          <Text fontFamily="heading" lineHeight="21,09px" letterSpacing="0,5 px" fontSize="18px">
             {leftText || "Discover new book"}
          </Text>
-         <Text justifySelf="flex-end" textColor="blue.300" marginLeft="auto">
+         <Text fontFamily="SFProText, sans-serif" justifySelf="flex-end" textColor="#4ABDF1" marginLeft="auto">
             {rightText || "More"}
          </Text>
       </Box>

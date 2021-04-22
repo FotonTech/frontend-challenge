@@ -43,8 +43,8 @@ const Home = () => {
             <Grid
                margin="40px 12px 40px 20px"
                alignContent="space-between"
-               columnGap="10px"
-               rowGap="10px"
+               columnGap="17px"
+               rowGap="14px"
                templateColumns="repeat(3, 1fr)"
             >
                {filteredBooks.map((item, key) => (

@@ -10,7 +10,7 @@ const BookCard: React.FC<BookType> = (book) => {
       history.push(`/details/${book.id}`);
    };
    return (
-      <GridItem marginBottom="12px" colSpan={1} rowSpan={1} width="105px">
+      <GridItem colSpan={1} rowSpan={1} width="105px">
          <Image
             borderRadius="md"
             cursor="pointer"
@@ -18,6 +18,7 @@ const BookCard: React.FC<BookType> = (book) => {
             width="105px"
             height="153px"
             objectFit="fill"
+            boxShadow="lg"
             src={book.thumbnail}
          />
          <Text marginTop="9px" fontSize="12px" whiteSpace="nowrap" textOverflow="ellipsis" overflow="hidden">
@@ -26,6 +27,8 @@ const BookCard: React.FC<BookType> = (book) => {
          <Text
             fontSize="10px"
             fontFamily="Roboto, sans-serif"
+            fontWeight="900"
+            lineHeight="11,72px"
             whiteSpace="nowrap"
             textOverflow="ellipsis"
             overflow="hidden"

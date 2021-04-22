@@ -61,7 +61,7 @@ const Details: React.FC<{ id: string }> = ({ id }) => {
 
             <Image
                borderRadius="md"
-               boxShadow="lg"
+               boxShadow="xl"
                margin="84px 111px 0 114px"
                position="absolute"
                zIndex="overlay"
@@ -77,7 +77,15 @@ const Details: React.FC<{ id: string }> = ({ id }) => {
             <Text fontSize="16px" lineHeight="19px" color="#FF6978">
                {selectedBook.author}
             </Text>
-            <Text color="#31313199" marginTop="10px" marginBottom="70px" lineHeight="25px" fontSize="14px">
+            <Text
+               fontFamily="SFProText, sans-serif"
+               fontWeight="medium"
+               color="#31313199"
+               marginTop="10px"
+               marginBottom="70px"
+               lineHeight="25px"
+               fontSize="14px"
+            >
                {selectedBook.description}
             </Text>
          </Box>

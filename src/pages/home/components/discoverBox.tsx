@@ -6,7 +6,6 @@ import Circle from "../../../components/circle.png";
 import CutCircle from "../../../components/cutCircle.png";
 import { useHistory } from "react-router";
 
-
 type DiscoverBoxType = {
    book: BookType;
    paddingTopAndBottom?: string;
