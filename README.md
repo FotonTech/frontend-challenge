@@ -1,5 +1,8 @@
 # Desafio Frontend
 
+# https://www.youtube.com/watch?v=yIPZ04N3peM&feature=youtu.be
+
+
 Clone este repositório e comece já o nosso desafio.
 
 Use React ou RN dependendo da vaga que você estiver tentando.

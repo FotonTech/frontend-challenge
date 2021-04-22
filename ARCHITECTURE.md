@@ -1,39 +1,43 @@
 # Architecture
 
-Table of contents
+Tabela de conteúdos
 - [Arquitetura](#architecture)
   - [`.vscode/`](#vscode)
-    - [Extensões úteis](#useful-vscode-extensions)
-  - [`build/` - Recursos buildados](#android---android-required-files)
-  - [`node_modules/` - Módulos js utilizados na aplicação](#ios---ios-required-files)
-  - [`public/` - Arquivos públicos para runtime](#ios---ios-required-files)
+    - [Extensões úteis](#extensoes-uteis-do-vscode)
+  - [`build/` - Recursos buildados](#build-folder)
+  - [`node_modules/` - Módulos js utilizados na aplicação](#node_modules-folder)
+  - [`public/` - Arquivos públicos para runtime](#public-folder)
   - [`src/` -Código fonte da aplicação](#lib---flutter-application)
-    - [Why](#why)
+    - [Decisões](#decisões)
     - [Overview](#overview)
-    - [`application/`](#application)
-      - [`constants/`](#constants)
-      - [`coordinator/`](#coordinator)
-      - [`pages/` (views)](#pages-views)
-      - [`theme/`](#theme)
-      - [`utils/`](#utils)
-      - [`widgets/`](#widgets)
-      - [`widgets/material/`](#widgetsmaterial)
-      - [`widgets/themed/`](#widgetsthemed)
-      - [`view_models/`](#view_models)
-    - [`domain/`](#domain)
-      - [`enums/`](#enums)
-      - [`models/`](#models)
-      - [`services/`](#services)
-    - [`data/`](#data)
-      - [`gateways/`](#gateways)
-      - [`repositories/`](#repositories)
-      - [`serializers/`](#serializers)
-    - [`core/`](#core)
-      - [`faults/`](#faults)
-  - [`test/` - Unit and UI testing](#test---unit-and-ui-testing)
-    - [`utils/`](#utils-1)
-    - [`fixtures/`](#fixtures)
-  - [`web/`](#web)
+    - [`components/` - Componentes reutilizáveis em mais de uma página](#application)
+      - [`bookCard.tsx`](#bookCard)
+      - [`circle.png`](#circle)
+      - [`cutCircle.png`](#cutCircle)
+      - [`lowerNav.tsx`](#lowerNav)
+      - [`searchbar.tsx`](#searchbar)
+
+    - [`pages/`- Páginas da aplicação](#routes)
+      - [`details/`](#details)
+      - [`home/`](#home)
+      - [`notFound/`](#notFound)
+    - [`redux/` - Configurações, reducers e actions do Redux](#redux)
+      - [`actions/`](#actions)
+      - [`reducers/`](#reducers)
+      - [`hooks.ts/`](#hooks)
+      - [`hooks.ts/`](#storeRedux)
+    - [`types/` - Tipos de dados](#types)
+    - [`utils/` - Funções utilitárias](#utils)
+    - [`App.tsx` - Componente principal React](#app)
+    - [`index.tsx`- Ponto de entrada da aplicação](#index.tsx)
+    - [`Routes.tsx`- Rotas para respectivos componentes](#routes.tsx)
+    - [`theme.tsx`- Configurações do chakra-ui](#theme)
+- [`.prettierrc.js`](#prettierrc)
+- [`package.json`](#package.json)
+-  [`tsconfig.json`](#tsconfig)
+    
+    
+
 - [Extras](#extra)
   - [Por que `redux` e não outro sistema de gerenciamento de estado?](#why-river_pod-and-not-x-state-management-library)
   - [Por que `chakra-ui` e não o sistema css "x"?](#why-sembast-and-not-x-database)
@@ -52,7 +56,7 @@ Configurações que uso no vscode, além da formatação em salvamento.
   - [`settings.json`](.vscode/settings.json) is responsible for the editor configurations, such as line-length, rules
   and auto-format on save.
 
-### Useful vscode extensions
+### Extensoes uteis do vscode
 
 - Dart (id: dart-code.dart-code);
 - Flutter (id: dart-code.flutter);
@@ -62,62 +66,28 @@ Configurações que uso no vscode, além da formatação em salvamento.
 It's highly recommended to, at least, add the `Dart` and `Flutter` extension, as they provide an absurd amount of useful
 features.
 
-> You can copy the id and search in the vscode marketplace to find them.
 
-## `android/` - Android required files
+## Build folder
 
-Stores all required (and generated) files to output builds for the Android platform.
+Armazena todos os códigos gerados pelo comando `build`, podem ser servidos estaticamente através do `serve`. 
 
-This is where native Android (Kotlin) code also lives, if there is a need to implement native-specific features.
+## node_modules folder
 
-## `ios/` - iOS required files
+Todos os módulos npm utilizados na aplicação e suas peer dependencies, são instalados rodando `yarn add` ou `npm install` 
 
-Stores all required (and generated) files to output builds for the iOS/iPadOS platforms.
+## public folder
 
-This is where native iOS (Swift) code also lives, if there is a need to implement native-specific features.
+Arquivos estáticos disponíveis em runtime, serão ligados com os da pasta build
 
-## `lib/` - Flutter application
+### Decisões
 
-Entry point to the Flutter application, where most of the *action* will happen.
+> Pretendo explicar aqui as decisões de bibliotecas, estrutura e ambiente utilizadas
+> pode ser pulada, é estritamente opinativa
 
-### Why
+Utilizo **ReactJs + Typescript + Redux** como stack principal, tanto por domínio de mercado quanto por experiências prévias com outros projetos e diversas tentativas e erros. 
 
-> You can skip this explanation, this is just an overview on the topic of why we have decided to go with this particular
-> architectural approach.
+React possibilita muitas práticas ruins, porém seu suporte, desempenho e comunidade mais que fazem valer a pena sua utilização.
 
-At first glance (looking at the name of the topmost folders), with the objective of defining its layers and the
-respective interactions, you may question yourself if this project is using
-[clean architecture](http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html), 
-[domain driven design (DDD)](https://martinfowler.com/bliki/DomainDrivenDesign.html) or even some pieces of
-[MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel). Now, when you start reading it and finding
-out which part depends on what - and what they expect to execute their responsibilities -, you may wonder about things
-like "entities are not mapped to models!", "where are the use-cases?" and questions about the fact that this approach
-**doesn't follow these architectures principles**. Why is that?
-
-Well, clean architecture was originally intended for robust/enterprise-like applications that have to deal with a ton of
-business-logic complexity and highly-verbose dependencies - such as libraries, frameworks and any external resources.
-While this is a frequent scenario in the present state of software applications, **this project is definitely not the
-case of a highly-complex scenario** - it may evolve to be complex enough, but it won't exceed the complexity of being a
-REST-consuming client that **focuses** much more on the presentation layer than anything else.
-
-Nowadays, simpler architectural designs like MVC/MVVM/MVP are much more common in client applications due to this exact
-fact: a overcomplex and high boilerplate architecture doesn't provide any significant value - they make things harder
-and slower with no clear benefit other than separating a bunch of layers **for the sake of separating them**. But they
-come with a price: there is no clear distinction in between **Business Logic and Data manipulation** if you don't
-enforce such standards.
-
-No, we won't remove the classic separation of "View <-> Business Logic <-> Data" relationship, it's just that, in this
-case, **we think that following every nook and cranny of part of these architectures would be overengineering**, thus
-making things slower just to follow some principles that don't necessarily apply to this case. This approach will surely
-not make sense (or even be completely dumb) for some, but may be good for others.
-[Relevant xkcd](https://xkcd.com/927/).
-
-One extra thing: this is heavily influenced by a bunch personal opinion and experiences in some production projects
-that the team has worked on. This project's external dependencies will keep changing as the time goes on, Flutter will
-also keep evolving, and we have to adapt in a way to maintain consistency, integrity and scalability of our solution.
-So, it's probable that there is (or will be) better ways to achieve the same goals/objectives, and for this, we look
-into your help to make this project's architecture continuously provide a good developer experience to add new features,
-update old ones and keep those nasty bugs away.
 
 ### Overview
 
@@ -424,4 +394,3 @@ And that's it, the currently supported environments are: `DEV` and `PROD`.
 
 ### Release
 
-WIP

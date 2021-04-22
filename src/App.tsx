@@ -6,9 +6,6 @@ import Routes from "./Routes";
 import { ChakraProvider, Box } from "@chakra-ui/react";
 import theme from "./theme";
 
-//import Header from "./Components/Header/Navbar";
-//import Footer from "./Components/Footer";
-import "./App.css";
 
 //componente para emular a largura da página conforme o layout figma
 const PageWrapper: React.FC = (props) => {
