@@ -24,7 +24,6 @@ const bookAuthorProperties = {
 };
 
 const DiscoverBox: React.FC<DiscoverBoxType> = ({ currentBook }) => {
-
    return (
       <Box display="flex" alignItems="center" color="black" height="136px">
          <Box position="absolute" zIndex="overlay">
@@ -33,7 +32,7 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({ currentBook }) => {
                marginLeft="19px"
                borderRadius="1px"
                height="136px"
-               src={currentBook.book.thumbnail}
+               src={currentBook?.book?.thumbnail}
             />
          </Box>
 
@@ -46,7 +45,7 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({ currentBook }) => {
                   textOverflow="ellipsis"
                   overflow="hidden"
                >
-                  {currentBook.book.name ?? "Hooked"}
+                  {currentBook?.book?.name ?? "Hooked"}
                </Text>
                <Text
                   {...bookAuthorProperties}
@@ -55,15 +54,15 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({ currentBook }) => {
                   textOverflow="ellipsis"
                   overflow="hidden"
                >
-                  by {currentBook.book.author ?? "Nir Eyal"}
+                  by {currentBook?.book?.author ?? "Nir Eyal"}
                </Text>
 
                <Box fontSize="10px" lineHeight="11,93px" marginTop="22" marginBottom="12px">
                   <Text as="span">Chapter</Text>
                   <Text as="span" fontWeight="bold" color="orange.500">
-                     {" " + currentBook.currentChapter + " "}
+                     {" " + currentBook?.currentChapter + " "}
                   </Text>
-                  <Text as="span">from{" " + currentBook.totalChapters}</Text>
+                  <Text as="span">from{" " + currentBook?.totalChapters}</Text>
                </Box>
             </Box>
          </Box>

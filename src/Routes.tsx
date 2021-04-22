@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getAllBooks } from "./Redux/actions/bookActions"
+import { getAllBooks } from "./Redux/actions/bookActions";
 import { Switch, Route } from "react-router-dom";
 import Home from "./pages/home";
-import Details from './pages/details';
+import Details from "./pages/details";
 
 import NotFound from "./pages/notFound";
 
@@ -14,7 +14,7 @@ const Routes = () => {
    //fazer a chamada para a api no  carregamento do componente
    useEffect(() => {
       dispatch(getAllBooks(setLoading, setError));
-      console.log("Requisicao feita")
+      console.log("Requisicao feita");
    }, [setLoading, setError, dispatch]);
    /*
    const dispatch = useDispatch();

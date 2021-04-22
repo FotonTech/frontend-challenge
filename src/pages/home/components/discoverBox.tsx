@@ -49,7 +49,7 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({ book }) => {
             </Box>
          </GridItem>
          <GridItem margin="15px 20px 13px auto" colSpan={1} marginRight="20px">
-            <Image borderRadius="5px" height="111px" src={book.thumbnail} />
+            <Image borderRadius="5px" height="111px" src={book?.thumbnail} />
          </GridItem>
       </Grid>
    );

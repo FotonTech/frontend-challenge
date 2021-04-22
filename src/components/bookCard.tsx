@@ -1,23 +1,19 @@
 import React from "react";
 import { Text, Box, Image, GridItem } from "@chakra-ui/react";
 import { BookType } from "../types";
-import {useHistory} from 'react-router'
+import { useHistory } from "react-router";
 // import { Container } from './styles';
 
 const BookCard: React.FC<BookType> = (book) => {
-  const history = useHistory();
-   const onClickItem = () =>{
+   const history = useHistory();
+   const onClickItem = () => {
       console.log(book);
       history.push(`/details/${book.id}`);
-   }
+   };
    return (
-      <GridItem colSpan={1} rowSpan={1}  width="105px">
+      <GridItem colSpan={1} rowSpan={1} width="105px">
          <Image onClick={onClickItem} width="105px" height="153px" objectFit="fill" src={book.thumbnail} />
-         <Text fontSize="12px"
-         
-         whiteSpace="nowrap"
-         textOverflow="ellipsis"
-         overflow="hidden">
+         <Text fontSize="12px" whiteSpace="nowrap" textOverflow="ellipsis" overflow="hidden">
             {book.name}
          </Text>
          <Text

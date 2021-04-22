@@ -1,13 +1,21 @@
-import { ACTION_TYPES } from "../reducers/db";
+import { ACTION_TYPES as ACTION_TYPES_DB } from "../reducers/db";
+import { ACTION_TYPES as ACTION_TYPES_SEARCH } from "../reducers/searchReducer";
 import { BookType } from "../../types";
 
 const sendToDb = (books: BookType[], totalItem: number) => {
    return {
-      type: ACTION_TYPES.ADD_BOOK,
+      type: ACTION_TYPES_DB.ADD_BOOK,
       payload: {
          books: books,
          totalNumber: totalItem,
       },
+   };
+};
+
+export const querySearch = (search: string) => {
+   return {
+      type: ACTION_TYPES_SEARCH.ADD_SEARCH,
+      payload: search,
    };
 };
 
@@ -38,7 +46,7 @@ export const getAllBooks = (setLoading: (arg0: boolean) => void, setError: (arg0
             let current = resultArray[i];
             let temp: BookType = { name: "", author: "", pageCount: 0, id: "", categories: "" };
             temp.name = current.volumeInfo.title;
-            temp.id= current.id;
+            temp.id = current.id;
             //se for uma string de arrays agrupar em comma separated
             temp.author = current.volumeInfo.authors?.join(", ");
 

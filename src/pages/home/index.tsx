@@ -12,53 +12,9 @@ import CurrentlyReading from "./components/curruentlyReading";
 import sortBooks from "../../utils/sortBooks";
 
 import { useAppSelector } from "../../Redux/hooks";
-import { useDispatch } from "react-redux";
-
-//componente para emular a largura da página conforme o layout figma
-const PageWrapper: React.FC = (props) => {
-   const theme = useTheme();
-
-   /**
-    * Coloco position relative para manter os itens absolutos no lugar
-    * Os overflows x e y servem para o scroll da página
-    * E encontra-se dentro de um wrapper cinza para melhorar a visualização
-    *
-    * Em relação aos dois divs, um com o tamanho correto e outro dentro, uso eles para criar um scroll
-    * mobile-like, sem a scrollbar, usando um truque de margem negativa e padding.
-    *
-    */
-
-   return (
-      <Box
-         backgroundColor="gray.300"
-         width="100%"
-         height="130vh"
-         display="flex"
-         justifyContent="center"
-         alignItems="center"
-         justifyItems="center"
-      >
-         <Box
-            width="375px"
-            height="812px"
-            overflow="hidden"
-            position="relative"
-            overflowX="hidden"
-            overflowY="scroll"
-            backgroundColor={theme.colors.backgroundColor}
-            boxShadow="md"
-         >
-            {props.children}
-            <LowerNav />
-         </Box>
-      </Box>
-   );
-};
 
 const Home = () => {
-
    const [searchQuery, setSearchQuery] = useState("");
-    
 
    //seletor type safe do redux
    const books = useAppSelector((state) => state.db.books);
@@ -72,27 +28,24 @@ const Home = () => {
    const BooksIterator = () => {
       //pesquisar dentro do array se há a query
       let author, name;
-      const filteredBooks = books.filter(
-         (element) => {
-            author = element?.author?.toLowerCase();
-            name = element?.name?.toLowerCase();
-          return (author && author.includes(searchQuery))||(name && name.includes(searchQuery))}
-      );
+      const filteredBooks = books.filter((element) => {
+         author = element?.author?.toLowerCase();
+         name = element?.name?.toLowerCase();
+         return (author && author.includes(searchQuery)) || (name && name.includes(searchQuery));
+      });
       return (
          <>
             <Grid alignContent="space-between" columnGap="10px" rowGap="10px" templateColumns="repeat(3, 1fr)">
-              
-                  {filteredBooks.map((item, key) => (
-                     <BookCard {...item} key={item.id.toString()} />
-                  ))}
-              
+               {filteredBooks.map((item, key) => (
+                  <BookCard {...item} key={item.id.toString()} />
+               ))}
             </Grid>
          </>
       );
    };
 
    const BasicHomeComponents = () => {
-      if (searchQuery !== "") {
+      if (searchQuery) {
          return <BooksIterator />;
       }
 
@@ -111,10 +64,9 @@ const Home = () => {
 
    return (
       <React.Fragment>
-         <PageWrapper>
-            <Searchbar search={searchQuery} setSearch={setSearchQuery} />
-            <BasicHomeComponents />
-         </PageWrapper>
+         <Searchbar search={searchQuery} setSearch={setSearchQuery} />
+         <BasicHomeComponents />
+         <LowerNav />
       </React.Fragment>
    );
 };
