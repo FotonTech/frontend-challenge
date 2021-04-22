@@ -28,7 +28,7 @@ const bookAuthorProperties = {
 const CurrentlyReadingBox: React.FC<CurrentlyReadingBoxType> = ({ currentBook }) => {
    const history = useHistory();
    const onClickItem = () => {
-      history.push(`/details/${currentBook.book.id}`);
+      history.push(`/details/${currentBook?.book?.id}`);
    };
 
    return (

@@ -1,11 +1,11 @@
 import React from "react";
 import { Text, Box, Grid, GridItem, Image } from "@chakra-ui/react";
-import theme from "../../../theme";
+
 import { BookType } from "../../../types/index";
 import Circle from "../../../components/circle.png";
 import CutCircle from "../../../components/cutCircle.png";
 import { useHistory } from "react-router";
-// import { Container } from './styles';
+
 
 type DiscoverBoxType = {
    book: BookType;
@@ -85,6 +85,7 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({
             </Box>
 
             {/*
+            Isso aqui DEVERIA funcionar, vou verificar com um post no stackoverflow depois.
          <Box sx={{overflow: "hidden !important"}}  position="absolute"  margin="25px 170px -13px -25px">
             <Image objectFit="cover" src={Circle} height="127px" width="127px"  />
          </Box>
@@ -101,7 +102,7 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({
                   overflow="hidden"
                   marginTop="17px"
                >
-                  {book.name}
+                  {book?.name}
                </Text>
                <Text
                   {...bookAuthorProperties}
@@ -111,7 +112,7 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({
                   overflow="hidden"
                   marginTop="5px"
                >
-                  {book.author}
+                  {book?.author}
                </Text>
 
                <Box fontSize="10px" marginTop="30px">
@@ -146,7 +147,7 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({
                   </Box>
 
                   <Text as="span" fontWeight="heading">
-                     {book.pageCount}+{" "}
+                     {book?.pageCount}+{" "}
                   </Text>
                   <Text as="span" fontFamily="'SF UI Display Light', sans-serif">
                      {" "}
