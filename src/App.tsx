@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 import { BrowserRouter } from "react-router-dom";
 import ReduxWrapper from "./Redux/Store";
 import Routes from "./Routes";
@@ -10,6 +11,7 @@ import theme from "./theme";
 import "./App.css";
 
 function App() {
+ 
    return (
       <ReduxWrapper>
          <BrowserRouter>

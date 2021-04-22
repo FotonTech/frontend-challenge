@@ -11,11 +11,11 @@ type LabelType = {
 
 const Label: React.FC<LabelType> = ({ leftText, rightText, marginTop = 0 }) => {
    return (
-      <Box margin={marginTop+ " 20px 30px 20px"} display="flex" justifyContent="flex-start">
-         <Text  fontSize="18px">
+      <Box margin={marginTop + " 20px 30px 20px"} display="flex" justifyContent="flex-start">
+         <Text fontWeight="semibold" lineHeight="21,09px" letterSpacing="0,5 px" fontSize="18px">
             {leftText || "Discover new book"}
          </Text>
-         <Text justifySelf="flex-end" textColor="blue.300"  marginLeft="auto">
+         <Text justifySelf="flex-end" textColor="blue.300" marginLeft="auto">
             {rightText || "More"}
          </Text>
       </Box>

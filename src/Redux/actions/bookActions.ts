@@ -41,12 +41,9 @@ export const getAllBooks = (setLoading: (arg0: boolean) => void, setError: (arg0
 
             //se for uma string de arrays agrupar em comma separated
             temp.author = current.volumeInfo.authors?.join(", ");
-            
+
             temp.description = temp.pageCount = current.volumeInfo.description;
             temp.pageCount = current.volumeInfo.pageCount;
-
-
-
 
             //possivelmente undefined
             temp.smallThumbnail = current.volumeInfo?.imageLinks?.smallThumbnail;

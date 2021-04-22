@@ -4,7 +4,7 @@ import * as Chakra from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { Box } from "@chakra-ui/react";
 
-function Searchbar() {
+const Searchbar: React.FC<{ search: string; setSearch: (arg: string) => void }> = ({ search, setSearch }) => {
    return (
       <Box margin="50px 20px 0 20px">
          <Chakra.InputGroup outlineColor="blue.400">
@@ -17,11 +17,13 @@ function Searchbar() {
                type="text"
                placeholder="Search book"
                color="black"
+               value={search}
+               onChange={(e) => setSearch(e.target.value.toLowerCase())}
                _placeholder={{ color: "black" }}
             />
          </Chakra.InputGroup>
       </Box>
    );
-}
+};
 
 export default Searchbar;
