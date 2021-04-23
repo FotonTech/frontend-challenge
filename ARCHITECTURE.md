@@ -1,48 +1,43 @@
 # Architecture
 
 Tabela de conteúdos
-- [Arquitetura](#architecture)
+
+- [Architecture](#architecture)
   - [`.vscode/`](#vscode)
-    - [Extensões úteis](#extensoes-uteis-do-vscode)
-  - [`build/` - Recursos buildados](#build-folder)
-  - [`node_modules/` - Módulos js utilizados na aplicação](#node_modules-folder)
-  - [`public/` - Arquivos públicos para runtime](#public-folder)
-  - [`src/` -Código fonte da aplicação](#lib---flutter-application)
+    - [Extensões úteis do vscode](#extensões-úteis-do-vscode)
+  - [build/](#build)
+  - [node_modules/](#node_modules)
+  - [public/](#public)
+  - [src/](#src)
     - [Decisões](#decisões)
     - [Overview](#overview)
-    - [`components/` - Componentes reutilizáveis em mais de uma página](#application)
-      - [`bookCard.tsx`](#bookCard)
-      - [`circle.png`](#circle)
-      - [`cutCircle.png`](#cutCircle)
-      - [`lowerNav.tsx`](#lowerNav)
-      - [`searchbar.tsx`](#searchbar)
-
-    - [`pages/`- Páginas da aplicação](#routes)
-      - [`details/`](#details)
-      - [`home/`](#home)
-      - [`notFound/`](#notFound)
-    - [`redux/` - Configurações, reducers e actions do Redux](#redux)
+    - [`components/`](#components)
+      - [`bookCard.tsx`](#bookcardtsx)
+      - [`circle.png`](#circlepng)
+      - [`cutCircle.png`](#cutcirclepng)
+      - [`lowerNav.tsx`](#lowernavtsx)
+      - [`searchbar.tsx`](#searchbartsx)
+    - [`pages/`](#pages)
+      - [`details`](#details)
+      - [`notFound`](#notfound)
+    - [`redux/`](#redux)
       - [`actions/`](#actions)
       - [`reducers/`](#reducers)
-      - [`hooks.ts/`](#hooks)
-      - [`hooks.ts/`](#storeRedux)
-    - [`types/` - Tipos de dados](#types)
-    - [`utils/` - Funções utilitárias](#utils)
-    - [`App.tsx` - Componente principal React](#app)
-    - [`index.tsx`- Ponto de entrada da aplicação](#index.tsx)
-    - [`Routes.tsx`- Rotas para respectivos componentes](#routes.tsx)
-    - [`theme.tsx`- Configurações do chakra-ui](#theme)
-- [`.prettierrc.js`](#prettierrc)
-- [`package.json`](#package.json)
--  [`tsconfig.json`](#tsconfig)
-    
-    
-
-- [Extras](#extra)
-  - [Por que `redux` e não outro sistema de gerenciamento de estado?](#why-river_pod-and-not-x-state-management-library)
-  - [Por que `chakra-ui` e não o sistema css "x"?](#why-sembast-and-not-x-database)
-
-  - [Importação por arquivo de fontes, invés do `google_fonts`?](#why-manually-importing-the-font-if-there-is-the-google_fonts)
+      - [`hooks.ts`](#hooksts)
+      - [`store.ts`](#storets)
+    - [`types/`](#types)
+    - [`utils/`](#utils)
+  - [`App.tsx`](#apptsx)
+  - [`index.tsx`](#indextsx)
+  - [`Routes.tsx`](#routestsx)
+  - [`theme.tsx`](#themetsx)
+  - [`.prettierrc.js`](#prettierrcjs)
+  - [`package.json`](#packagejson)
+  - [`tsconfig.json`](#tsconfigjson)
+  - [Extras](#extras)
+  - [Por que `redux` e nao outro sistema de gerenciamento de estado?](#por-que-redux-e-nao-outro-sistema-de-gerenciamento-de-estado)
+  - [Por que `chakra-ui` e não um sistema css "x"?](#por-que-chakra-ui-e-não-um-sistema-css-x)
+  - [Importação por arquivo de fontes, invés do `google_fonts`?](#importação-por-arquivo-de-fontes-invés-do-google_fonts)
   - [Environment](#environment)
     - [Release](#release)
 
@@ -50,347 +45,190 @@ Tabela de conteúdos
 
 Configurações que uso no vscode, além da formatação em salvamento.
 
+- [`launch.json`](.vscode/launch.json) onde os comandos de debug estão
+- [`settings.json`](.vscode/settings.json) configurações de salvamento automático, formatação e etcs. Não é utilizada atualmente, porém pode ser no futuro.
 
-  - [`launch.json`](.vscode/launch.json) is where all pre-configured command-line scripts are at, such as running a
-  debug dev environment;
-  - [`settings.json`](.vscode/settings.json) is responsible for the editor configurations, such as line-length, rules
-  and auto-format on save.
-
-### Extensoes uteis do vscode
-
-- Dart (id: dart-code.dart-code);
-- Flutter (id: dart-code.flutter);
-- Awesome Flutter Snippets (id: nash.awesome-flutter-snippets) - frequently used snippets in any Flutter application;
-- Brack Pair Color (id: coenraads.bracket-pair-colorizer) - useful when dealing with nested/verbose widgets.
+### Extensões úteis do vscode
 
 It's highly recommended to, at least, add the `Dart` and `Flutter` extension, as they provide an absurd amount of useful
 features.
 
+## build/
 
-## Build folder
+Armazena todos os códigos gerados pelo comando `build`, podem ser servidos estaticamente através do `serve`.
 
-Armazena todos os códigos gerados pelo comando `build`, podem ser servidos estaticamente através do `serve`. 
+## node_modules/
 
-## node_modules folder
+Todos os módulos npm utilizados na aplicação e suas peer dependencies, são instalados rodando `yarn add` ou `npm install`
 
-Todos os módulos npm utilizados na aplicação e suas peer dependencies, são instalados rodando `yarn add` ou `npm install` 
-
-## public folder
+## public/
 
 Arquivos estáticos disponíveis em runtime, serão ligados com os da pasta build
+
+## src/
+
+Código fonte a ser buildado
 
 ### Decisões
 
 > Pretendo explicar aqui as decisões de bibliotecas, estrutura e ambiente utilizadas
 > pode ser pulada, é estritamente opinativa
 
-Utilizo **ReactJs + Typescript + Redux** como stack principal, tanto por domínio de mercado quanto por experiências prévias com outros projetos e diversas tentativas e erros. 
+Utilizo **ReactJs + Typescript + Redux** como stack principal, tanto por domínio de mercado quanto por experiências prévias com outros projetos e diversas tentativas e erros.
 
 React possibilita muitas práticas ruins, porém seu suporte, desempenho e comunidade mais que fazem valer a pena sua utilização.
 
+Typescript provê um grau configurável de *type-safety*, dando ao projeto mais robustez e prevendo erros de runtime, já que verifica tipos e propriedades no build. Pode parecer contraprodutivo, já que você escreve mais código e faz extensas declarações de tipos, mas no longo prazo compensa bastante. Já desenvolvi projetos imensos em Js puro e a conversão de trechos para typescript mostrou inúmeros bugs não detectados.
+
+Quanto ao Redux, no caso da presente aplicação não é muito necessário, já que poderia utilizar as APIs padrões react, como HOC e `useContext`, ou até mesmo localStorage, mas preferi utilizá-lo por familiaridade, robustez e potencial escalabilidade. Se decidir incluir mais features, como CMS, edição, lista de desejos, carrinho, etcs, ficará mais simples adotar no Redux que trocar o sistema de gerenciamento de estado.
+
+Por fim, quanto ao sistema de componentes, utilizo o [**ChakraUi**](https://chakra-ui.com/)
 
 ### Overview
 
-![Simple Architecture Overview](.resources/00arch_overview_simple.png "Architecture Overview")
-
-The picture above gives us a really simplified overview of each major layer that gives shape to this application.
-
-If you don't want to dig in on what each part is responsible of (and why), here is a TLDR:
-  - `application`: all interface elements alongside its view models (may contain validation and such business logic), 
-  the latter which communicates with the `domain`;
-  - `domain`: handles most of the business logic and if necessary, make the respective calls to the `data` layer;
-  - `data`: retrieves and modifies any data, without the knowledge of any other layers whatsoever. This is the
-  lower-boundary of our application that communicates with external frameworks and libraries;
-  - `core`: shared functionality to all layers.
-
-Now, if you want to take a closer inspection on each interaction of each layer, the image below might be more suited to
-comprehend exactly how each layer (and its exceptions) interacts/depends on others. 
-
-![Complex Architecture Overview](.resources/01arch_overview_complex.png "Architecture Overview")
-
-- The dotted arrow means a direct dependency, such as the connection between *View Models -> Services*. These
-connections require that the communication should always be made through an interface and following the
-[dependency inversion principle (DiP)](https://en.wikipedia.org/wiki/Dependency_inversion_principle);
-- The straight line means a direct association or usage, such as the connection between *View Models -> Models*;
-- The smaller straight line also means a direct association or usage, such as the connection between *Pages -> Enums*.
-The difference from the bigger ones is that these "cross-boundaries" between layers in a non-traditional way - through
-interactors like *View Models* (that connects the `application` with `domain`), *Services* (that connects the `domain`
-with `data`) and *Gateways* (that connects `data` with external dependencies).
-
-All of the interactions above are explained in their respective sections below.
-
-### `application/`
-
-The topmost layer, the entry point of all user interactions, which depends directly on Flutter to function properly.
-The `application` should be responsible only for rendering elements and capturing inputs, touches, and any interaction
-that comes directly from the user, alongside the interface's capabilities, like scroll, navigation, responsivity,
-etcetera.
-
-Rules about each `application/` structure's responsibilities:
-- It should never **interact** with any layer other than its own sub-folders;
-- It should never **access** any other layer classes (not even indirectly).
-
-Two exceptions for the above:
-- These structures can **access** the [`domain/enums`](#enums) - while it exposes a piece of the `domain` layer, we 
-consider this to be an acceptable exception (explained in [`data/`](#data));
-- The **[ViewModels (VMs)](#view_models)** can **interact** with the `domain/` because they are the structure that
-allows us to, in only *one-way*, cross boundaries from the `application` to the `domain`.
-
-#### `constants/`
-
-Stores any kind of constant, like images, strings, themes, etcetera.
-
-#### `coordinator/`
-
-Allows us to take control over our routing and navigation, in close contact with the `Flutter` framework to do so.
-
-The responsibility of the coordinator is to make all of those pesky deep-linking and navigation stack problems become
-easier to deal with.
-
-#### `pages/` (views)
-
-Each page is normally associated with a `Scaffold`, that represents all the contents of a single `MaterialPageRoute`,
-which is controlled by the `CoordinatorRouter`.
-
-These `pages` are the only elements that can access the [`view_models/`](#view_models).
-
-#### `theme/`
-
-Specialized implementations that deal with the `Flutter` framework's Theme (more specifically, the `ThemeData`).
-
-Because of some known limitations of the `MaterialApp` theme handling, there are some custom implementations like the
-`ThemeController`, which provides extra functionality on top of the material's default.
-
-#### `utils/`
-
-UI-related utilities like formatting, widgets helpers, animations, painters, etcetera.
-
-#### `widgets/`
-
-Individual `Widget`s that represent some custom visual element that is reused in multiple different
-[`pages`](#pages-views) or even other `application/widgets`. These should not know anything about VMs, pages, or
-anything other than `application/utils` and `application/constants`. They should be **pure** and **independent**.
-
-#### `widgets/material/`
-
-Same as the [`widgets`](#widgets/), but specific to the `flutter/material` library, which means that they can only exist
-below (as a child) of a `MaterialApp`.
-
-#### `widgets/themed/`
-
-Same as the [`widgets`](#widgets/), but requiring a `ThemeController` as a parent. It also (usually) means that they
-depend on the `flutter/material` library as well. This is because the current theme implementation is tightly coupled to
-the flutter's implementation of the material framework - do not mistake, this is an intended decision, as the material
-framework provide an enormous amount of useful features by default, mainly related to accessibility and animations.
-
-#### `view_models/`
-
-The boundary between the [`application/`](#application) and [`domain/`](#domain). The ViewModels, (suffixed with `VM`
-in each class), always should be built upon an interface (following the DiP) and should never - ever - know anything
-about the UI, meaning the `flutter` framework - but maybe some constant stuff like `Platform` and core
-meta-functionality, but never anything related to the layout per-se.
-
-The `VM`s are the only structures in [`application/`](#application) that communicates with inner layers, more
-specifically, with the [`domain/`](#domain). In the process of achieving this, it will inevitably leak some of the core
-business logic (things like input validation) that should be mostly contained in the [`domain/`](#domain) layer.
-
-### `domain/`
-
-The intermediate layer. Using the core structures (models, entities and enums), the domain is where all the business logic
-should be contained, by accessing the [`repositories`](#repositories) to achieve its goals.
-
-Rules about each `domain/` structure's responsibilities:
-- It should never **interact** with any layer other than its own sub-folders;
-- It should never **access** any other layer classes (not even indirectly).
-
-One exception for the above:
-- The **[Services](#services)** can **interact** with the `data/` (through the [`repositories`](#repositories)) because 
-they are the structure that allows us to, in only *one-way*, cross boundaries from the `domain` to the `data`.
-
-#### `enums/`
-
-They are just like our [`models`](#models) - a data structure that represent part of our business, but with the
-difference that it can be *described* statically (they are constant).
-
-> These are the only structures that can be accessed (or leaked) to the views due to its constant nature. It provides a
-> type-safety when dealing with these cases and if we don't actually leak it, normally what we have is a duplication of
-> this same enumerator behavior in the UI, but less type-safe (or just replicating the exact same behavior).
-
-#### `models/`
-
-A domain model - a set of structures that represent a business object.
-
-#### `services/`
-
-The boundary between the [`domain/`](#domain) and [`data/`](#data). Each service (suffixed with `Service` in each
-class) should always be built upon an interface (following the DiP).
-
-The `services/` should contain all the heavy business logic associated with each `model` in our project. They are
-usually split to represent each [`models/`](#models) related business logic, but this could be split in even smaller
-structures (called Use Cases in the clean architecture) if proven necessary.
-
-They are the only structures in [`domain/`](#domain) that communicates with the [`data/`](#data) layer, more
-specifically, through the [`repositories/`](#repositories).
-
-### `data/`
-
-The bottom layer. Communicates with raw libraries and frameworks to consume its raw data and expose it to its consumer.
-These libraries and frameworks are abstractions (interfaces, following the DiP) to access things like remote servers,
-hardware capabilities (audio, video, geo), databases, etcetera.
-
-Rules about each `data/` structure's responsibilities:
-- It should never **interact** with any layer other than its own sub-folders;
-- It should never **access** any other layer classes (not even indirectly).
-
-One exception for the above:
-- Both [`serializers/`](#serializers) and [`repositories/`](#repositories) can **access** the [`enums/`](#enums) and
-[`models/`](#models) - while it exposes a piece of the `domain` layer, we consider this to be an acceptable exception
-(explained below).
-
-Just like we have decided to expose the `enums/` to the interface, we also agreed to expose both `enums/` and
-`models/` to the [`serializers`](#serializers) and [`repositories`](#repositories). The alternative here was to 
-[create intermediate data models (DTOs)](http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html#what-data-crosses-the-boundaries),
-but *separating the domain model from this exact copy (DTO) doesn't provide any meaningful solution to this
-architecture* (I like [this answer in StackExchange](https://softwareengineering.stackexchange.com/a/388545) about the
-same exact issue).
-
-#### `gateways/`
-
-Raw access to libraries, databases and all external dependency that crosses the boundary of our application to anything
-that lives outside of the project.
-
-These should be built like any other major structure, through interfaces and following the DiP.
-
-Also, because gateways are "rare naming" occurrence in most architectures,
-[here is the reference of why](https://martinfowler.com/eaaCatalog/gateway.html).
-
-#### `repositories/`
-
-Interfaces the implementation of a [`gateway`](#gateways) to not expose the particularities of such external
-dependencies to the [`services`](#services). The `repositories` can be considered like *interface adapters*, allowing
-an independency when making changes to the implemented technologies, affecting only this layer (and obviously the
-technology implementation itself).
-
-Each of these *adapters* are suffixed with `Repository` and are built upon interfaces (following the DiP).
-
-#### `serializers/`
-
-Instead of a codegen approach (due to the drawbacks of being dependent of auto-generating the parsing of our core
-models), we decided to go with the manual serialization. The `serializers/` exist with the sole purpose of translating
-[`models/`](#models) to/from a raw structure.
-
-### `core/`
-
-Fundamental functionality to all the layers (being accessed by any of them), but doesn't know about their existence.
-In terms of knowledge, they are similar to the [`data/`](#data) layer, other than the fact that the `data/` layer itself
-can access `core/`.
-
-The `core/` shares functionality like [`faults/`](#faults), environment management, project-wide constants, etcetera.
-
-#### `faults/`
-
-Has all the project's custom `Error`s and `Exception`s classes.
-
-## `test/` - Unit and UI testing
-
-Nothing out of the ordinary here, we simply make a mirror of the `lib/` folder structure within `test/`. I.e. if we have
-a file that is `lib/application/widgets/custom_container.dart`, we would have a mirrored
-`test/application/widgets/custom_container_test.dart`.
-
-Due to some [limitations of the dart language](https://github.com/dart-lang/language/issues/1482) and the new
-null-safety approach, [`mockito`](https://github.com/dart-lang/mockito) is now using a codegen to mock, which we
-honestly think that [`mocktail`](https://github.com/felangel/mocktail) is a better alternative.
-
-### `utils/`
-
-Shared functionality amongst all test cases.
-
-### `fixtures/`
-
-Tests [fixtures](https://en.wikipedia.org/wiki/Test_fixture#Software) - here is a
-[good SO answer](https://stackoverflow.com/a/14684400/8558606) explaining what they represent. In our scenario, they
-usually represent raw data, models or entities.
-
-## `web/`
-
-Stores all required (and generated) files to output builds for the Web platform. Currently not supported.
+O projeto visa criar um sistema análogo a um app de livros, mostrando livros novos, atuais, pesquisa, dentre outras coisas. Para tal utilizo a API do Google Books.
 
 ---
 
-# Extra
+### `components/`
 
-These are points that aren't directly related to the folder structure and each responsibility, but things that also
-permeates the knowledge required to fully understand this architecture.
+Utilizo para armazenar os componentes reutilizáveis da aplicação, sejam eles imagens ou componentes react. No momento nem todos são reutilizados, porém em futuras modificações serão necessários.
 
-## Why `river_pod` and not "x" state management library?
+#### `bookCard.tsx`
 
-With the past experiences with libraries like the native `InheritedWidget`, `Provider` and `Bloc`, we had found that
-they tend to be quite verbose (thus bloating the code) and limited in some scenarios. Diving into each of these
-particularities would be a long discussion, but
-[`river_pod` has a brief explanation](https://github.com/rrousselGit/river_pod#why-another-project-when-provider-already-exists)
-on why it solves such problems and why it's better to use it.
+Serve para mostrar um pequeno card com o livro, dentro de um repetidor `grid`. Recebe como parâmetro um livro e mostra sua thumbnail, nome e autor.
 
-## Why `sembast` and not "x" database?
+#### `circle.png`
 
-[`sembast`](https://github.com/tekartik/sembast.dart) is one of the few NoSQL databases that are really easy to use,
-supports web (in a parallel package) and provides a decent amount of functionality like reactivity and complex queries,
-with the addition of built-in support for migration. The library has its limitations due to its inherent nature, but we
-don't think that it will be an issue for this project.
+Círculo informado no protótipo da aplicação, utilizo ao longo do app com rotações, resizes e cortes.
 
-## Why `mocktail` and not `mockito`?
+#### `cutCircle.png`
 
-After NNBD, `mockito` is using a codegen approach to deal with mocks, which we quite dislike given that there is no
-clear benefit when comparing to `mocktail`. There is an [open issue](https://github.com/dart-lang/mockito/issues/347) to
-merge mocktail into `mockito`, but until then (assuming it will be merged), we think that the same functionalities will
-continue to work using `mocktail` only.
+Idêntico ao componente acima, com a única diferença sendo o corte. Por algum motivo `overflow: hidden` no componente pai não cortou a imagem, então tive que recorrer a isso.
 
-## `CoordinatorRouter` and `Router` (or Navigator 2.0)
+#### `lowerNav.tsx`
 
-This was probably one of the decisions that we still are somewhat unsure about. To not go into a lot of the details,
-instead of using external libraries routing libraries (like `vrouter`, `auto_route` and `beamer`), we decided to take a
-shot on doing our own implementation of the Navigator 2.0 (or Router), because we believed that it could give us a much
-more fine-grained (and less bloated) implementation of what we consider a coordinator pattern (name more frequent in the
-iOS development ecosystem, but what we consider our router).
+Barra de navegação do app, se encontra na parte inferior. Futuramente, com funcionalidades de perfil e biblioteca pessoal, servirá também para navegação.
 
-While we are quite content with the result, that the solution matched our preference (personal opinion) of splitting the
-application pages in a complete separate class from the router/coordinator (contrary to what most of the routing
-libraries do), and access it call navigatons, we are not so sure about the future of the Navigator 2.0 and how
-hard/verbose it can become. We didn't quite like the API and it may be a point of difficult fixes/updates in the future.
+#### `searchbar.tsx`
 
-There is an [research](https://github.com/flutter/uxr/wiki/Navigator-2.0-API-Usability-Research) going on to improve
-Flutter's Navigator API, so we should keep track of its evolution and how it may improve our solution.
+Barra de pesquisa do app, recebe como parâmetro as referências para a função setter de estado e o estado, ambos vindos do hook `useState()`.
+Futuramente gostaria de refatorar para utilizar apenas redux, de modo a persistir a busca caso o componente seja desmontado/saia da página.
 
-While the Flutter framework doesn't provide an improved version of the current Navigator 2.0 state **AND IF** the
-current coordinator proves to be more of a burden than a help, we should migrate to one of the libraries mentioned
-above.
+---
 
-## Why manually importing the font, if there is the `google_fonts`?
+### `pages/`
 
-Four main points for this decision:
+Folder contendo as páginas da aplicação, cada página representada como um folder, com o ponto de acesso sendo o respectivo `index.tsx`.
+Podem possuir também uma pasta `components/`, contendo os componentes utilizados em tal página.
 
-- The `google_fonts` package makes an async request to lazily load its fonts, meaning that it will fallback to the
-unsupported font (it will not crash, but will be visually inconsistent with what we expect from a decent UI);
-- We wouldn't benefit from the `google_fonts` default implementation of the project's fonts, as we have a custom layout
-for each material's text theme;
-- The current version of memo doesn't require any internet connection to work, so it would also mean a bad user
-experience for offline users;
-- It's a new dependency (meaning more possible future problems) for the project.
+#### `details`
 
-The only drawback of doing this manually is importing the fonts in the `assets/` folder (size shouldn't be relevant to
-impact even low-end devices), and specifying them in the `pubspec.yaml`.
+Página responsável por mostrar detalhes de um livro, como descrição, nome, autor e a thumbnail grande.
+Acessível por uma url dinâmica, com a rota `/details/{id}`. O id é então pesquisado dentre os livros armazenados, sendo mostrado em seguida.
+
+#### `notFound`
+
+Caso uma rota inválida seja digitada esse é o destino. Não gastei muita energia nela, porém é legal de se ter.
+
+---
+
+### `redux/`
+
+Pasta contendo tudo do Redux, como hooks personalidados, actions, reducers e o objeto store.
+
+#### `actions/`
+
+Funções interceptáveis pelo middleware, com o sucessivo `dispatch` para a action devida, além do export de actions que não precisam de middleware.
+
+#### `reducers/`
+
+Em `index.ts` temos os reducers combinados para utilização na store. No momento tenho apenas o reducer `db`, utilizado para armazenar o array de livros, e o protótipo do `searchReducer`.
+
+#### `hooks.ts`
+
+Substitutos *type-safe* para `useSelector` e `useDispatch`. Uso bastante o do selector.
+
+#### `store.ts`
+
+Objeto da Store para envolver os componentes, além da configuração de persistência, whitelist/blacklist e demais itens.
+
+---
+
+### `types/`
+
+Tipos compostos utilizados na aplicação, no momento só há dois:
+
+- `bookType` ,responsável pela entidade *livro*, contendo os atributos necessários.
+  
+- `bookBeingReadType` ,responsável pela entidade *livro sendo lido*, contendo o `bookType`, total de capitulos e capitulo atual
+
+---
+
+### `utils/`
+
+Funções utilitárias, não são componentes react. No momento há apenas um **sorter** de arrays por parâmetros.
+
+---
+
+## `App.tsx`
+
+Componente principal da aplicação, contendo os *wrappers* e o componente de roteamento. Referenciado no `index.tsx`
+
+## `index.tsx`
+
+Ponto de acesso React, onde o acesso ao DOM é feito.
+
+## `Routes.tsx`
+
+Rotas da aplicação e ações assíncronas que devem acontecer no carregamento do app, como a chamada de API para recuperar todos os livros.
+
+## `theme.tsx`
+
+Arquivo de tema **ChakraUi**, contendo algumas predefinições. Não customizei muito, já que as fontes e cores variavam bastante, mas é bem interessante para criar seu próprio *ui kit*
+
+## `.prettierrc.js`
+
+Arquivo de configuração do prettier, com as configs que gosto para formatar o projeto. Basta rodar `yarn clean` no terminal para executar a limpeza dos códigos fonte.
+
+## `package.json`
+
+Arquivo de configuração do projeto, com dependências, metadados, scripts, etcs. De vital importância.
+
+## `tsconfig.json`
+
+Arquivo de configuração do typescript, com as regras e suas severidades customizadas para o projeto. Caso apagado ao iniciar o server ele irá criar um com predefinições.
+
+---
+
+## Extras
+
+Alguns pontos importantes justificando minhas decisões.
+
+## Por que `redux` e nao outro sistema de gerenciamento de estado?
+
+Como disse antes, tenho experiência com gerenciamento de estados em aplicações maiores e Redux orquestra muito bem tudo. A curva de aprendizado é íngreme, porém vale a pena. Pode ser verboso, com muito *boilerplate*, com bastante popularidade de blbiotecas auxiliares, como `redux-toolkit´, mas acostumando-se e usando *snippets* é bem agradável de se desenvolver. O começo e configuração inicial são de fato chatos, mas a utilização, recuperação, manipulação de estado compensam bastante, sem falar na robustez. Utilizando-se com typescript há uma experiência muito boa.
+
+## Por que `chakra-ui` e não um sistema css "x"?
+
+Quis experimentar essa biblioteca popular e gostei muito. Não há necessidade de customizar tudo, como com `material-ui`, `bootstrap` ou outros do mercado, sendo apenas um caminho de acoplar css em javascript.
+
+Competidores próximos para mim seriam `styled-components` e `tailwindCss`. Ambos são muito bons, mas `styled-components` deixa a desejar em tematização padrão, sendo pouco intuitivo configurar propriedades padrões, e `tailwindCss` tematiza até demais, abstraindo muito do css por baixo, fazendo ser quase outra linguagem. Preferi o `chakra-ui` por ser o meio termo, tendo tematização simples e proximidade com css puro.
+
+## Importação por arquivo de fontes, invés do `google_fonts`?
+
+Não encontrei elas facilmente na internet, utilizando uma variante `SF UI Pro`, que parecia bem próxima, e fiz a inclusão no `index.html`. As fontes Apple são encontradas em seu site para desenvolvedores, porém é necessário um sistema iOs para instalá-las, algo que não disponho, então por isso utilizei fontes com nomes análogos (apesar de no visual idênticas).
 
 ## Environment
 
-For different types of build environments, we don't use the common _flavors_, iOS schemas and all of that painful setup,
-due to the fact that, since Flutter `1.17`, we can now use command arguments to inject any variable in our application -
-no more multiple `main.dart` files and such stuff. Simply run:
+Há o ambiente de desenvolvimento, com *hot reload* embutido, acessível através do seguinte comando:
 
-`flutter run --dart-define=ENV=MY_ENVIRONMENT`
+**`yarn start`**
 
-If you are using `vscode` IDE, there is the [launch configuration files](.vscode/launch.json) for you to auto run and
-debug the application.
+Caso seja necessário fazer deploy, o comando **`yarn build`** criará o bundle e mostrará instruções. Para integração contínua, utilizo a **Vercel**, com um hook direto no repositório do projeto. Lá o comando de build é **`CI=false yarn build`**. O `CI=false` é necessário para tratar warnings como apenas warnings, senão o build falharia, já que seriam considerados erros.
 
-And that's it, the currently supported environments are: `DEV` and `PROD`.
+Se você usa o `vscode`, há os [arquivos de launch](.vscode/launch.json) para debug da aplicação, através de uma extensão de debug no vscode.
 
 ### Release
 
+Releases disponíveis no repositório. A versão 1.0 foi lançada no dia 22/04/2021.
