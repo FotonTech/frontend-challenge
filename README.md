@@ -1,7 +1,13 @@
 # Desafio Frontend
 
-# https://www.youtube.com/watch?v=yIPZ04N3peM&feature=youtu.be
+## Walkthrought do meu código
 
+[![walkthrought código](http://img.youtube.com/vi/yIPZ04N3peM/0.jpg)](http://www.youtube.com/watch?v=yIPZ04N3peM "Walkthrought do meu código")
+
+
+---
+
+## Descrição desafio
 
 Clone este repositório e comece já o nosso desafio.
 
@@ -21,10 +27,10 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
 OBS: Pode ser utilizado a forma de chamada de apis de sua preferencia (fetch, axios, etc).
 
 ## Design/Telas
-https://www.figma.com/file/KFElqzD983WNyvMY1SaF0c/book-app?node-id=0%3A1
+
+[Design Figma](https://www.figma.com/file/KFElqzD983WNyvMY1SaF0c/book-app?node-id=0%3A1)
 
 <img width="581" alt="Screen Shot 2021-04-13 at 10 19 47" src="https://user-images.githubusercontent.com/13947203/114559257-eb55ad00-9c41-11eb-9617-4e7627cc373e.png">
-
 
 O design do site consiste em 3 telas, sendo elas:
 
