@@ -1,46 +1,70 @@
-# Desafio Frontend
+# Getting Started with Create React App
 
-Clone este repositório e comece já o nosso desafio.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Use React ou RN dependendo da vaga que você estiver tentando.
+## Available Scripts
 
-OBS: Caso tenha alguma dúvida em relação ao teste é só nos mandar sua pergunta no canal #challenge-foton do Slack do [React Brasil](https://react-brasil-slack.herokuapp.com/).
+In the project directory, you can run:
 
-## API
+### `yarn start`
 
-Use a api do [google books](https://developers.google.com/books/docs/v1/using) para os dados da tela.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-```js
-const query = 'harry potter';
-fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
-```
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-OBS: Pode ser utilizado a forma de chamada de apis de sua preferencia (fetch, axios, etc).
+### `yarn test`
 
-## Design/Telas
-https://www.figma.com/file/KFElqzD983WNyvMY1SaF0c/book-app?node-id=0%3A1
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-<img width="581" alt="Screen Shot 2021-04-13 at 10 19 47" src="https://user-images.githubusercontent.com/13947203/114559257-eb55ad00-9c41-11eb-9617-4e7627cc373e.png">
+### `yarn build`
 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-O design do site consiste em 3 telas, sendo elas:
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Home
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-1. Crie a tela pixel perfect com base no design acima
-2. Os livros precisam ser clicáveis para mostrar a tela de detalhes
+### `yarn eject`
 
-### Search
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Nesta tela é **obrigatório** que o usuário tenha possibilidade de:
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-1. Ver a lista dos livros baseado na busca;
-2. Possibilitar buscar mais livros com um botão no estilo "Load more";
-3. Buscar livros pelo nome;
-4. Clicar em um dos livros para ver seus detalhes.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-### Detalhes do Livro
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-Nesta tela é **obrigatório** que o usuário tenha possibilidade de:
+## Learn More
 
-1. Ver as informações completas do livro selecionado;
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
