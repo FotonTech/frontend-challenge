@@ -62,6 +62,10 @@ export default {
   gap: 10px 15px;
   margin-top: 42px;
 
+  & > * + * {
+    margin: 10px 15px;
+  }
+
   .infinite-loading-container {
     width: 100%;
     margin: 30px 0;
