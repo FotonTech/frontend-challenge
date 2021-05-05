@@ -7,7 +7,7 @@
       <span class="void-search">No results for this search</span>
     </div>
     <div v-else class="search-content content">
-      <book-card v-for="(book, index) of bookList" :key="index" :book="book" />
+      <book-card class="mt-2" v-for="(book, index) of bookList" :key="index" :book="book" />
       <br />
       <infinite-loading spinner="spiral" @infinite="infiniteHandler">
         <div slot="no-more">No more books for this search</div>
@@ -58,13 +58,8 @@ export default {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 10px 15px;
-  margin-top: 42px;
-
-  & > * + * {
-    margin: 10px 15px;
-  }
+  justify-content: space-around;
+  margin-top: 20px;
 
   .infinite-loading-container {
     width: 100%;

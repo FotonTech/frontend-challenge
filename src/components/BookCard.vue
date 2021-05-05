@@ -31,6 +31,7 @@ export default {
 <style lang="scss">
 .book-card {
   width: 100px;
+  margin: 2px;
   overflow: hidden;
 
   .book-cover {
