@@ -1,46 +1,46 @@
-# Desafio Frontend
+# Frontend Challenge
 
-Clone este repositório e comece já o nosso desafio.
+Clone this repository and start our challenge **right now**
 
-Use React ou RN dependendo da vaga que você estiver tentando.
+Use React or React Native depending on the rule you are running for.
 
-OBS: Caso tenha alguma dúvida em relação ao teste é só nos mandar sua pergunta no canal #challenge-foton do Slack do [React Brasil](https://react-brasil-slack.herokuapp.com/).
+**NOTE:** If you have any questions regarding the test, just send us your question on Slack's channel **#challenge-foton** on [React Brasil](https://react-brasil-slack.herokuapp.com/).
 
 ## API
 
-Use a api do [google books](https://developers.google.com/books/docs/v1/using) para os dados da tela.
+Use the [Google Books](https://developers.google.com/books/docs/v1/using)' API to recover the data that will be shown on the app.
 
 ```js
 const query = 'harry potter';
 fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
 ```
 
-OBS: Pode ser utilizado a forma de chamada de apis de sua preferencia (fetch, axios, etc).
+**NOTE:** You can use the form of calling apis of your choice (Fetch, Axios, etc).  
 
-## Design/Telas
+## Design/Screens
 https://www.figma.com/file/KFElqzD983WNyvMY1SaF0c/book-app?node-id=0%3A1
 
 <img width="581" alt="Screen Shot 2021-04-13 at 10 19 47" src="https://user-images.githubusercontent.com/13947203/114559257-eb55ad00-9c41-11eb-9617-4e7627cc373e.png">
 
 
-O design do site consiste em 3 telas, sendo elas:
+The website design has 3 screens, which are:
 
 ### Home
 
-1. Crie a tela pixel perfect com base no design acima
-2. Os livros precisam ser clicáveis para mostrar a tela de detalhes
+1. Create a Pixel Perfect screen based on design above;
+2. The books must be clickable and redirect to **details** screen.
 
 ### Search
 
-Nesta tela é **obrigatório** que o usuário tenha possibilidade de:
+In this screen the functionalities below are **mandatory**:
 
-1. Ver a lista dos livros baseado na busca;
-2. Possibilitar buscar mais livros com um botão no estilo "Load more";
-3. Buscar livros pelo nome;
-4. Clicar em um dos livros para ver seus detalhes.
+1. See a list of books based on search query;
+2. Make it possible to search for more books with a "Load more" button;
+3. Search books by name;
+4. Click on one of the books to see their details.
 
-### Detalhes do Livro
+### Books details
 
-Nesta tela é **obrigatório** que o usuário tenha possibilidade de:
+In this screen the functionalities below are **mandatory**:
 
-1. Ver as informações completas do livro selecionado;
+1. See all information for the selected book.
