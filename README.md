@@ -2,7 +2,9 @@
 
 ```
 Book search built with Vue.js
-```
+
+## Live here:
+https://loving-dijkstra-2cf07e.netlify.app/#/home
 
 ## Project setup
 ```
