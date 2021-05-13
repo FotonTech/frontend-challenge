@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 import GlobalStyle from '../../globalStyles';
+import Greetings from '../Greetings';
 import SearchField from '../SearchField';
 import { Container } from './styled';
 
@@ -12,6 +13,11 @@ const App: React.FC = () => {
         <Row>
           <Col>
             <SearchField />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Greetings name="Mehmed Al Fatih" />
           </Col>
         </Row>
       </Container>
