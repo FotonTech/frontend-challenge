@@ -8,7 +8,8 @@ type GreetingsTypes = React.FC<{
 const SearchField: GreetingsTypes = ({ name }) => {
   return (
     <H4>
-      <span>Hi, </span>
+      <span>Hi,</span>
+      {'  '}
       {`${name}`}
       <span role="img" aria-label="Waving">
         👋
