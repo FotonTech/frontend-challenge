@@ -8,6 +8,7 @@ type SvgIconType = {
 
 export const InputGroup = styled(InputGroupStyled)`
   border-radius: 10px;
+  margin-bottom: 30px;
 
   .input-group-text,
   .form-control {
@@ -22,6 +23,7 @@ export const InputGroup = styled(InputGroupStyled)`
   }
 
   .form-control {
+    font-family: 'SF Pro Text', sans-serif;
     height: 48px;
     padding-left: 0;
     &::placeholder {
