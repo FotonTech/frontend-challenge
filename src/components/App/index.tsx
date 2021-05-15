@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 import GlobalStyle from '../../globalStyles';
+import CurrentlyReading from '../CurrentlyReading';
 import DiscoverBooks from '../DiscoverBooks';
 import Greetings from '../Greetings';
 import SearchField from '../SearchField';
@@ -22,6 +23,7 @@ const App: React.FC = () => {
           </Col>
         </Row>
         <DiscoverBooks />
+        <CurrentlyReading />
       </Container>
     </>
   );
