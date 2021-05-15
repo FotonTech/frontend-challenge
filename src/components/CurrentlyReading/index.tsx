@@ -19,7 +19,7 @@ import {
   Wrapper
 } from './styled';
 
-const DiscoverBooks: React.FC = () => {
+const CurrentlyReading: React.FC = () => {
   return (
     <BlockWrapper title="Currently Reading" linkTitle="All" href="#">
       <Card>
@@ -57,4 +57,4 @@ const DiscoverBooks: React.FC = () => {
   );
 };
 
-export default DiscoverBooks;
+export default CurrentlyReading;
