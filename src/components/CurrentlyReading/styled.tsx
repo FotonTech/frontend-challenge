@@ -37,7 +37,6 @@ export const Card = styled(CardStyled)`
 
     &-img {
       border-radius: 1px;
-      border-radius: 0;
       position: absolute;
       z-index: 1;
       top: -15px;

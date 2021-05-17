@@ -12,8 +12,6 @@ export const DiscoverWrapper = styled.div`
   .carousel {
     margin-right: -19px;
     &__slider {
-      overflow-x: hidden;
-      overflow-y: visible;
       padding-top: var(--oval-spacing);
       margin-top: calc(var(--oval-spacing) * -1);
 
