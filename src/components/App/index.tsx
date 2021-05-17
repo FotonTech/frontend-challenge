@@ -1,31 +1,19 @@
 import React from 'react';
-import { Col, Row } from 'reactstrap';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import GlobalStyle from '../../globalStyles';
-import CurrentlyReading from '../CurrentlyReading';
-import DiscoverBooks from '../DiscoverBooks';
-import Greetings from '../Greetings';
-import SearchField from '../SearchField';
-import { Container } from './styled';
+import { BooksProvider } from '../../providers/booksProvider';
+import Home from '../Home';
 
 const App: React.FC = () => {
   return (
-    <>
-      <GlobalStyle />
-      <Container fluid>
-        <Row>
-          <Col>
-            <SearchField />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Greetings name="Mehmed Al Fatih" />
-          </Col>
-        </Row>
-        <DiscoverBooks />
-        <CurrentlyReading />
-      </Container>
-    </>
+    <BrowserRouter>
+      <BooksProvider>
+        <GlobalStyle />
+        <Switch>
+          <Route path="/" exact component={Home} />
+        </Switch>
+      </BooksProvider>
+    </BrowserRouter>
   );
 };
 
