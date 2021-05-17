@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Input, InputGroupAddon, InputGroupText } from 'reactstrap';
+import { useDebounce } from 'use-debounce';
 import { InputGroup, SearchIcon } from './styled';
 
-const SearchField: React.FC = () => {
+type SearchFieldProps = React.FC<{
+  onSearch: (text: string) => void;
+}>;
+
+const SearchField: SearchFieldProps = ({ onSearch }) => {
+  const [search, setSearch] = useState('');
+  const [textToSearch] = useDebounce(search, 1000);
+
+  useEffect(() => {
+    onSearch(textToSearch);
+  }, [onSearch, textToSearch]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
   return (
     <InputGroup>
       <InputGroupAddon addonType="prepend">
@@ -10,7 +26,12 @@ const SearchField: React.FC = () => {
           <SearchIcon size="16px" />
         </InputGroupText>
       </InputGroupAddon>
-      <Input placeholder="Search book" />
+      <Input
+        value={search}
+        placeholder="Search book"
+        autoComplete="off"
+        onChange={handleChange}
+      />
     </InputGroup>
   );
 };
