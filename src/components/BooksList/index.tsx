@@ -26,7 +26,7 @@ const BooksList: React.FC = () => {
     );
 
     setItems([...difference]);
-  }, [books.items]);
+  }, [books.items, items]);
 
   useEffect(() => {
     actions.setSearchIndex(currentPage);
