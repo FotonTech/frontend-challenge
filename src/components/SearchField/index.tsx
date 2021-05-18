@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Input, InputGroupAddon, InputGroupText } from 'reactstrap';
 import { useDebounce } from 'use-debounce';
+import { BooksContext } from '../../providers/booksProvider';
 import { InputGroup, SearchIcon } from './styled';
 
-type SearchFieldProps = React.FC<{
-  onSearch: (text: string) => void;
-}>;
-
-const SearchField: SearchFieldProps = ({ onSearch }) => {
+const SearchField: React.FC = () => {
+  const { actions } = useContext(BooksContext);
   const [search, setSearch] = useState('');
   const [textToSearch] = useDebounce(search, 1000);
 
   useEffect(() => {
-    onSearch(textToSearch);
-  }, [onSearch, textToSearch]);
+    actions.setSearchIndex(0);
+    actions.setSearchText(textToSearch);
+  }, [actions.setSearchText, textToSearch]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
