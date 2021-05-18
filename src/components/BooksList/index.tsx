@@ -1,12 +1,22 @@
 import React, { useContext, useEffect, useMemo, useState } from 'react';
-import { Col, Row } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import {
+  Button,
+  Card,
+  CardBody,
+  CardSubtitle,
+  CardTitle,
+  Row
+} from 'reactstrap';
+import NoImageAvailable from '../../images/no-image-available.jpg';
 import { BooksContext } from '../../providers/booksProvider';
+import { CardImg, Col, Wrapper } from './styled';
 
 const BooksList: React.FC = () => {
   const { state, actions } = useContext(BooksContext);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const { books, isLoading } = state;
+  const { books, isLoading, search } = state;
   const [items, setItems] = useState<any[]>([]);
 
   useMemo(() => {
@@ -16,42 +26,61 @@ const BooksList: React.FC = () => {
     );
 
     setItems([...difference]);
-  }, [books.items, items]);
+  }, [books.items]);
 
   useEffect(() => {
     actions.setSearchIndex(currentPage);
-  }, [currentPage, isLoading, actions]);
+  }, [currentPage, isLoading]);
 
   useEffect(() => {
     if (totalPages <= 0) {
       setTotalPages(Math.ceil(books.totalItems / 10));
     }
-  }, [totalPages, books.totalItems]);
+  }, [totalPages]);
 
   const handleLoadMore = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 10);
+      setCurrentPage(currentPage + 8);
     }
   };
 
   return (
-    <>
-      <Row className="row-cols-3">
-        {items.map((book) => (
-          <Col key={book.id}>
-            {book.volumeInfo.title.length > 10
-              ? `${book.volumeInfo.title.substring(0, 10)}...`
-              : book.volumeInfo.title}
-          </Col>
-        ))}
+    <Wrapper>
+      <Row className="no-gutters justify-content-between">
+        {items.map((book) => {
+          const {
+            volumeInfo: { title, authors, imageLinks }
+          } = book;
+
+          return (
+            <>
+              <Col key={book.id}>
+                <Link to={`/book/${book.id}`}>
+                  <Card>
+                    <CardImg
+                      className="card-image"
+                      bgImage={
+                        imageLinks ? imageLinks.thumbnail : NoImageAvailable
+                      }
+                    />
+                    <CardBody>
+                      <CardTitle title={title}>{title}</CardTitle>
+                      <CardSubtitle title={`by ${authors}`}>
+                        by {authors}
+                      </CardSubtitle>
+                    </CardBody>
+                  </Card>
+                </Link>
+              </Col>
+            </>
+          );
+        })}
       </Row>
-      <Row>
-        <Col>
-          <button onClick={handleLoadMore}>Load more</button>
-        </Col>
+      <Row className="no-gutters justify-content-center">
+        <Button onClick={handleLoadMore}>Load more</Button>
       </Row>
-    </>
+    </Wrapper>
   );
 };
 
