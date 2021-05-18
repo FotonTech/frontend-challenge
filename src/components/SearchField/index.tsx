@@ -12,7 +12,7 @@ const SearchField: React.FC = () => {
   useEffect(() => {
     actions.setSearchIndex(0);
     actions.setSearchText(textToSearch);
-  }, [actions.setSearchText, textToSearch]);
+  }, [actions, textToSearch]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
