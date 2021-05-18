@@ -1,3 +1,7 @@
+# Instructions
+
+To start using this project just need to set the environment variable `REACT_APP_GOOGLE_BOOKS_API` with the google api link that in the moment is [https://www.googleapis.com/books/v1/volumes](https://www.googleapis.com/books/v1/volumes) and the variable with your google api key as `REACT_APP_GOOGLE_BOOKS_API_KEY` with the key provided by google in the page [https://console.cloud.google.com/](https://console.cloud.google.com/).
+
 # Frontend Challenge
 
 Clone this repository and start our challenge **right now**
@@ -15,13 +19,13 @@ const query = 'harry potter';
 fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
 ```
 
-**NOTE:** You can use the form of calling apis of your choice (Fetch, Axios, etc).  
+**NOTE:** You can use the form of calling apis of your choice (Fetch, Axios, etc).
 
 ## Design/Screens
+
 https://www.figma.com/file/KFElqzD983WNyvMY1SaF0c/book-app?node-id=0%3A1
 
 <img width="581" alt="Screen Shot 2021-04-13 at 10 19 47" src="https://user-images.githubusercontent.com/13947203/114559257-eb55ad00-9c41-11eb-9617-4e7627cc373e.png">
-
 
 The website design has 3 screens, which are:
 
