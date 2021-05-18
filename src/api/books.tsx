@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-type queryProps = {
+type searchProps = {
   query: string;
   startIndex: number;
 };
@@ -8,12 +8,20 @@ type queryProps = {
 const { REACT_APP_GOOGLE_BOOKS_API, REACT_APP_GOOGLE_BOOKS_API_KEY } =
   process.env;
 
-export const searchBooks = ({ query, startIndex }: queryProps) => {
+export const searchBooks = ({ query, startIndex }: searchProps) => {
   return axios.get(`${REACT_APP_GOOGLE_BOOKS_API}`, {
     params: {
       q: query,
       startIndex,
-      maxResults: 10,
+      maxResults: 8,
+      key: REACT_APP_GOOGLE_BOOKS_API_KEY
+    }
+  });
+};
+
+export const getById = (id: string) => {
+  return axios.get(`${REACT_APP_GOOGLE_BOOKS_API}/${id}`, {
+    params: {
       key: REACT_APP_GOOGLE_BOOKS_API_KEY
     }
   });

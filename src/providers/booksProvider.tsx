@@ -71,6 +71,7 @@ const reducer = (state: InitialState = initialState, action: ActionTypes) => {
     case 'GET_BOOKS_SEARCH': {
       return {
         ...state,
+        books: initialBooksState,
         isLoading: true,
         error: null
       };
@@ -116,7 +117,7 @@ export const BooksProvider: BooksProviderProps = ({ children }) => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        if (state.search) {
+        if (state.search !== '') {
           await BooksApi.searchBooks({
             query: state.search,
             startIndex: state.searchIndex
@@ -132,6 +133,13 @@ export const BooksProvider: BooksProviderProps = ({ children }) => {
             .catch((error) => {
               dispatch({ type: 'GET_BOOKS_ERROR', payload: { error } });
             });
+        } else {
+          dispatch({
+            type: 'GET_BOOKS_SUCCESS',
+            payload: {
+              books: initialBooksState
+            }
+          });
         }
       } catch (error) {
         dispatch({ type: 'GET_BOOKS_ERROR', payload: { error } });
@@ -143,6 +151,7 @@ export const BooksProvider: BooksProviderProps = ({ children }) => {
 
   const setSearchText = useCallback(
     (text: string) => {
+      dispatch({ type: 'GET_BOOKS_SEARCH' });
       dispatch({
         type: 'SET_SEARCH_TEXT',
         payload: { search: text }
