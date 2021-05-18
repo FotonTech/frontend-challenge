@@ -11,10 +11,8 @@ export const Header = styled.div`
   justify-content: center;
   margin-bottom: 67px;
   background: #fff6e5;
-  height: 313px;
   border-radius: 0px 0px 100px 0px;
   position: relative;
-  overflow: hidden;
 `;
 
 export const ArrowLink = styled(Link)`
@@ -89,7 +87,8 @@ export const OvalImg = styled.img.attrs((props: OvalImgType) => ({
   &.pos {
     &-1 {
       right: -39px;
-      top: -17px;
+      /* top: -17px; */
+      top: 0;
     }
 
     &-2 {
