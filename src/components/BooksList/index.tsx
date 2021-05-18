@@ -16,7 +16,7 @@ const BooksList: React.FC = () => {
   const { state, actions } = useContext(BooksContext);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const { books, isLoading, search } = state;
+  const { books, isLoading } = state;
   const [items, setItems] = useState<any[]>([]);
 
   useMemo(() => {
