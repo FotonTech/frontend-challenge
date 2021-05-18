@@ -80,20 +80,22 @@ export const OvalImg = styled.img.attrs((props: OvalImgType) => ({
 }))<OvalImgType>`
   display: flex;
   position: absolute;
-  transform: rotate(25deg);
+  /* transform: rotate(25deg); */
   height: ${({ height }) => height}px;
   width: ${({ width }) => width}px;
 
   &.pos {
     &-1 {
-      right: -39px;
+      /* right: -39px; */
       /* top: -17px; */
+      right: 0;
       top: 0;
     }
 
     &-2 {
       right: 97px;
       bottom: 40px;
+      transform: rotate(25deg);
     }
   }
 `;
