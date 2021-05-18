@@ -24,7 +24,7 @@ const Home: React.FC = () => {
         </Row>
         {isLoading && <>Is Loading</>}
         {books.items.length > 0 && !isLoading && search !== '' && <BooksList />}
-        {books.items.length == 0 && !isLoading && search === '' && (
+        {books.items.length === 0 && !isLoading && search === '' && (
           <>
             <Row>
               <Col>
