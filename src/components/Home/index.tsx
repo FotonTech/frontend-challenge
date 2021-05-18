@@ -11,7 +11,7 @@ import SearchField from '../SearchField';
 import { Container } from './styled';
 
 const Home: React.FC = () => {
-  const { state, actions } = useContext(BooksContext);
+  const { state } = useContext(BooksContext);
   const { books, isLoading, search } = state;
 
   return (
@@ -19,27 +19,21 @@ const Home: React.FC = () => {
       <Container fluid>
         <Row>
           <Col>
-            <SearchField onSearch={actions.setSearchText} />
+            <SearchField />
           </Col>
         </Row>
-        {books.items.length >= 0 && isLoading && search !== '' ? (
-          <>Is Loading</>
-        ) : (
+        {isLoading && <>Is Loading</>}
+        {books.items.length > 0 && !isLoading && search !== '' && <BooksList />}
+        {books.items.length == 0 && !isLoading && search === '' && (
           <>
-            {books.items.length > 0 ? (
-              <BooksList />
-            ) : (
-              <>
-                <Row>
-                  <Col>
-                    <Greetings name="Mehmed Al Fatih" />
-                  </Col>
-                </Row>
-                <DiscoverBooks />
-                <CurrentlyReading />
-                <Reviews />
-              </>
-            )}
+            <Row>
+              <Col>
+                <Greetings name="Mehmed Al Fatih" />
+              </Col>
+            </Row>
+            <DiscoverBooks />
+            <CurrentlyReading />
+            <Reviews />
           </>
         )}
       </Container>
