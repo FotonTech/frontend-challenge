@@ -17,19 +17,19 @@ const BookDetailMenu: BookDetailMenuProps = ({
       <Row>
         <Col>
           <GroupIcons>
-            <a href={readLink} target="_blank">
+            <a href={readLink} target="_blank" rel="noreferrer">
               <Icon>
                 <BookOpen /> Read
               </Icon>
             </a>
             <Border />
-            <a href={listenLink} target="_blank">
+            <a href={listenLink} target="_blank" rel="noreferrer">
               <Icon>
                 <Headphones /> Listen
               </Icon>
             </a>
             <Border />
-            <a href={shareLink} target="_blank">
+            <a href={shareLink} target="_blank" rel="noreferrer">
               <Icon>
                 <Share /> Share
               </Icon>
