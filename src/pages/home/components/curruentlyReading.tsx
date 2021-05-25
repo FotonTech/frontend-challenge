@@ -36,7 +36,9 @@ const CurrentlyReadingBox: React.FC<CurrentlyReadingBoxType> = ({ currentBook })
    };
 
    return (
+      <>
       <Box zIndex={lowerZIndex} display="flex" alignItems="center" color="black" height="136px">
+         </Box >
          <Box position="absolute" zIndex="overlay">
             <Image
                boxShadow="sm"
@@ -139,7 +141,7 @@ const CurrentlyReadingBox: React.FC<CurrentlyReadingBoxType> = ({ currentBook })
                </Box>
             </Box>
          </Box>
-      </Box>
+      </>
    );
 };
 
