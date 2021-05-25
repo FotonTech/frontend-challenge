@@ -2,8 +2,8 @@ import React from "react";
 import { Text, Box, Image } from "@chakra-ui/react";
 import theme from "../../../theme";
 import Circle from "../../../components/circle.png";
-import RedRectangle from '../svgComponents/redRectangle'
-import BlueCircle from '../svgComponents/blueCircle'
+import RedRectangle from "../svgComponents/redRectangle";
+import BlueCircle from "../svgComponents/blueCircle";
 import { BookBeingReadType } from "../../../types/index";
 import { useHistory } from "react-router";
 // import { Container } from './styles';

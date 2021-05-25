@@ -3,8 +3,8 @@ import { Text, Box, Grid, GridItem, Image } from "@chakra-ui/react";
 
 import { BookType } from "../../../types/index";
 import Circle from "../../../components/circle.png";
-import RedRectangle from '../svgComponents/redRectangle'
-import BlueCircle from '../svgComponents/blueCircle'
+import RedRectangle from "../svgComponents/redRectangle";
+import BlueCircle from "../svgComponents/blueCircle";
 import CutCircle from "../../../components/cutCircle.png";
 import { useHistory } from "react-router";
 
@@ -71,7 +71,7 @@ const DiscoverBox: React.FC<DiscoverBoxType> = ({
             </Box>
 
             <Box position="absolute" zIndex="overlay" margin="14px 110px 107px 144px">
-              <BlueCircle />
+               <BlueCircle />
             </Box>
 
             {/*
