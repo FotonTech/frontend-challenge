@@ -5,6 +5,13 @@
     },
     "extends": ["plugin:react/recommended", "airbnb", "plugin:prettier/recommended"],
     "parser": "@typescript-eslint/parser",
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".ts", ".tsx"]
+            }
+        }
+    },
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -12,6 +19,12 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    "plugins": ["react", "@typescript-eslint"],
-    "rules": {}
+    "plugins": ["react", "@typescript-eslint", "react-hooks"],
+    "rules": {
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+        "import/extensions": "off",
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+    }
 }
