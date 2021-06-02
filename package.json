@@ -6,7 +6,8 @@
     "author": "EduSantosBrito <edu.santos.brito@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "lint": "eslint --ext ts, tsx ./"
+        "lint": "eslint --ext ts, tsx ./",
+        "build": "tsc"
     },
     "husky": {
         "hooks": {
