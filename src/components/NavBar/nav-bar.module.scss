@@ -1,0 +1,38 @@
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 59px;
+
+    background: #FFFFFF;
+    padding: 16px 52px;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        cursor: pointer;
+
+        img {
+            margin-bottom: 10px;
+            width: 16px;
+        }
+
+        p {
+            font-family: "SFProDisplay-Regular";
+            font-size: 1.1rem;
+            line-height: 1.2rem;
+            color: var(--icon-disabled-gray);
+        }
+    }
+
+    .activePage {
+        p {
+            color: var(--icon-black);
+        }
+    }
+}
