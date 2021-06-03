@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    border: 0;
     box-sizing: border-box;
 }
 
@@ -74,9 +75,7 @@
 
 html {
     font-size: 10px;
-}
 
-html {
     @media (max-width: 1080px) {
         font-size: 93.75%;
     }
@@ -91,6 +90,14 @@ body {
     -moz-osx-font-smoothing: auto;
 
     color: var(--text-gray);
+}
+
+main {
+    margin: 0 auto;
+    margin-top: 65px;
+
+    width: 100%;
+    max-width: 375px;
 }
 
 body,

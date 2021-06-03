@@ -1,0 +1,45 @@
+.searchBar {
+    display: flex;
+
+    margin: 0 20px 35px 20px;
+
+    height: 48px;
+
+    background: var(--secundary);
+    
+    border-radius: 10px;
+
+    position: relative;
+
+    img {
+        top: 50%;
+        left: 15px;
+        
+        width: 12px;
+
+        position: absolute;
+        transform: translate(0px, -50%);
+    }
+
+    input {
+        padding-left: 41px;
+
+        width: 100%;
+        height: 100%;
+
+        background: none;
+
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+        color: #000000;
+
+        border-radius: 10px;
+        border: none;
+        outline: none;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+        }
+    }
+}
