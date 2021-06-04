@@ -61,9 +61,8 @@
     --decoration-pink: #ff6978;
     --decoration-yellow: #fcbc48;
     --decoration-purple: #451475;
-    --decoration-green: #eef5db;
-    --decoration-gray: #2a2b26;
     --decoration-beige: #fff6e5;
+    --decoration-gray: #2a2b26;
     --decoration-light-purple: #4550a7;
 
     --text-gray: #313131;
@@ -76,6 +75,14 @@
 
 html {
     font-size: 10px;
+
+    @media (max-width: 1080px) {
+        font-size: 93.75%;
+    }
+
+    @media (max-width: 720px) {
+        font-size: 87.5%;
+    }
 }
 
 body {
@@ -90,10 +97,9 @@ main {
 
     width: 100%;
     max-width: 375px;
-    height: 100vh;
 
     background: var(--background);
-    padding-top: 60px;
+    padding-top: 65px;
 
     position: relative;
 }

@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
 
-    bottom: 0;
+    // bottom: 0;
 
     width: 100%;
     height: 59px;
@@ -11,7 +11,7 @@
     background: #ffffff;
     padding: 16px 52px;
 
-    position: absolute;
+    // position: absolute;
 
     > div {
         display: flex;
@@ -32,11 +32,6 @@
             line-height: 1.2rem;
             color: var(--icon-disabled-gray);
         }
-    }
-
-    > div:hover {
-        transition: 0.2s all;
-        filter: brightness(0.35);
     }
 
     .activePage {
