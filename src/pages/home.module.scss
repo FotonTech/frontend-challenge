@@ -1,0 +1,16 @@
+.hello {
+    margin-left: 20px;
+
+    font-family: "SFProDisplay-Regular";
+    font-size: 24px;
+    line-height: 28px;
+    color: var(--title-light-gray);
+
+    position: absolute;
+    z-index: 1;
+
+    strong {
+        font-family: "SFProDisplay-Semibold";
+        color: var(--highlight-pink);
+    }
+}
