@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from './paint.module.scss'
 
 interface PaintProps {
