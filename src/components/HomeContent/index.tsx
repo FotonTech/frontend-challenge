@@ -1,9 +1,11 @@
-import Link from 'next/link'
+import React, { useEffect, useState } from 'react'
 
 import Book from '../../types/Book'
 import Bookshelf from '../../types/Bookshelf'
 
 import DiscoveryShelf from './DiscoveryShelf'
+import ReadingShelf from './ReadingShelf'
+import ReviewsShelf from './ReviewsShelf'
 
 import styles from './home-content.module.scss'
 
@@ -14,18 +16,37 @@ interface HomeContentProps {
 }
 
 export default function HomeContent({ discoveries, reading, books }: HomeContentProps) {
-    let discoveryShelf: Book[] = []
-    let readingShelf: Book[] = []
+    const [discoveryShelf, setDiscoveryShelf] = useState<Book[]>([])
+    const [readingShelf, setReadingShelf] = useState<Book[]>([])
 
-    if (discoveries)
-        discoveryShelf = discoveries.books.map(item => books.find(book => item.id === book.id))
+    function fillShelf(shelf: Bookshelf, shelfSetState) {
+        const fillShelf = shelf.books.map(item => books.find(book => item.id === book.id))
+        shelfSetState(fillShelf)
+    }
 
-    if (reading)
-        readingShelf = reading.books.map(item => books.find(book => item.id === book.id))
+    useEffect(() => {
+        if (discoveries)
+            fillShelf(discoveries, setDiscoveryShelf)
+
+        if (reading)
+            fillShelf(reading, setReadingShelf)
+    }, [])
+
+    useEffect(() => {
+        if (discoveries)
+            fillShelf(discoveries, setDiscoveryShelf)
+    }, [discoveries])
+
+    useEffect(() => {
+        if (reading)
+            fillShelf(reading, setReadingShelf)
+    }, [reading])
 
     return (
         <div className={styles.homeContent}>
-            <DiscoveryShelf title={discoveries?.title} books={discoveryShelf} />
+            {discoveryShelf != undefined && <DiscoveryShelf title={discoveries?.title} books={discoveryShelf} />}
+            {readingShelf != undefined && <ReadingShelf title={reading?.title} books={readingShelf}></ReadingShelf>}
+            <ReviewsShelf/>
         </div>
     )
 }

@@ -2,33 +2,33 @@ import Link from 'next/link'
 
 import Book from '../../../types/Book'
 
-import styles from './discovery-shelf.module.scss'
+import styles from './reading-shelf.module.scss'
 
-interface DiscoveryShelfProps {
+interface ReadingShelfProps {
     title: string
     books: Book[]
 }
 
-export default function DiscoveryShelf({ title, books }: DiscoveryShelfProps) {
+export default function ReadingShelf({ title, books }: ReadingShelfProps) {
     return (
-        <div className={styles.discoveryShelf}>
+        <div className={styles.readingShelf}>
             <div>
                 <h2>{title}</h2>
-                <span>More</span>
+                <span>All</span>
             </div>
             <div>
                 {books.map(book => {
                     return (
                         <Link href={book.id} key={book.title}>
                             <div>
+                                <img src={book.imageLinks.thumbnail} alt="bookCover" />
                                 <section>
                                     <div>
                                         <h3>{book.title}</h3>
-                                        <h4>{book.authors[0]}</h4>
+                                        <h4>by {book.authors[0]}</h4>
                                     </div>
-                                    <span><img src="icons/statistics.svg"></img> <strong>120+</strong> Read Now</span>
+                                    <span><img src="icons/book-marked.svg"></img>Chapter <strong>2</strong> from 9</span>
                                 </section>
-                                <img src={book.imageLinks.thumbnail} alt="bookCover" />
                             </div>
                         </Link>
                     )
