@@ -1,7 +1,4 @@
-interface Bookshelf {
-    title: string;
-    books: { id: string }[]
-}
+import Bookshelf from '../types/Bookshelf'
 
 const fetchBookshelf = async (user: string, bookshelf: string): Promise<Bookshelf> => {
     let title = ''
