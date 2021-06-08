@@ -1,5 +1,6 @@
 export default interface Book {
-    imageLinks: object
+    id: string
+    imageLinks: { thumbnail: string }
     title: string
     subtitle: string
     authors: string[]
