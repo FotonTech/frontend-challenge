@@ -1,0 +1,53 @@
+.searchContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 12px;
+
+    padding: 0 17.5px 40px 17.5px;
+
+    position: absolute;
+    z-index: 1;
+
+    .book {
+        margin-top: 14px;
+
+        color: var(--text-gray);
+
+        cursor: pointer;
+
+        h3 {
+            margin-top: 14px;
+
+            width: 105px;
+
+            font-family: "SFProDisplay-Bold", sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.4rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            
+            overflow: hidden;
+            
+            opacity: 0.8;
+        }
+
+        h4 {
+            margin-top: 5px;
+
+            font-family: "SFProDisplay-Bold", sans-serif;
+            font-size: 1.05rem;
+            font-weight: 900;
+            line-height: 1.1rem;
+
+            opacity: 0.8;
+        }
+
+        > img {
+            width: 105px;
+            height: 153px;
+
+            border-radius: 3px;
+        }
+    }
+}
