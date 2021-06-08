@@ -4,5 +4,5 @@ export default interface Book {
     title: string
     subtitle: string
     authors: string[]
-    infoLink: string
+    description: string
 }

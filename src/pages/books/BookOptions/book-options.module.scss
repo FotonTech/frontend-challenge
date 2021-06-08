@@ -1,0 +1,51 @@
+.bookOptions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0 20px;
+
+    bottom: 53px;
+
+    width: 100%;
+    height: 59px;
+
+    background: #ffffff;
+    padding: 16px 22px;
+
+    position: sticky;
+
+    > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+ 
+        width: 100%;
+
+        cursor: pointer;
+
+        img {
+            width: 16px;
+
+            margin-right: 10px;
+        }
+
+        p {
+            font-family: "SFProDisplay-Bold";
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.6rem;
+            color: var(--icon-text-gray);
+        }
+    }
+
+    > div:hover {
+        transition: 0.2s all;
+        filter: brightness(0.7);
+    }
+
+    > div:nth-child(2) {
+        border-right: 1px solid var(--icon-gray);
+        border-left: 1px solid var(--icon-gray);
+    }
+}

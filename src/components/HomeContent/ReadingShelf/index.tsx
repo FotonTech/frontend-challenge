@@ -19,7 +19,7 @@ export default function ReadingShelf({ title, books }: ReadingShelfProps) {
             <div>
                 {books.map(book => {
                     return (
-                        <Link href={book.id} key={book.title}>
+                        <Link href={`books/${book.id}`} key={book.title}>
                             <div>
                                 <img src={book.imageLinks.thumbnail} alt="bookCover" />
                                 <section>
