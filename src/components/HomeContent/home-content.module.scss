@@ -1,4 +1,7 @@
 .homeContent {
+    display: flex;
+    flex-direction: column;
+
     margin-top: calc(78px + 30px);
 
     padding-left: 20px;
@@ -8,117 +11,5 @@
         font-size: 1.8rem;
         line-height: 2.1rem;
         color: var(--title-gray);
-    }
-
-    .discoveries {
-        h2 {
-            margin-bottom: 15px;
-        }
-
-        > div {
-            display: flex;
-
-            margin-left: -20px;
-
-            height: 139px;
-
-            overflow-x: auto;
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
-
-            & {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-            }
-
-            > div {
-                display: flex;
-                justify-content: space-between;
-
-                margin-right: 10px;
-
-                min-width: auto;
-                max-width: 80%;
-                height: 100%;
-
-                background: var(--decoration-blue);
-                padding: 15px 20px;
-
-                color: var(--decoration-white);
-
-                border-radius: 5px;
-
-                cursor: pointer;
-
-                > img {
-                    border-radius: 3px;
-                }
-
-                section {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-
-                    height: 100%;
-
-                    h3 {
-                        margin-top: 2px;
-                        margin-bottom: 5px;
-
-                        min-width: 150px;
-
-                        padding-right: 7.5px;
-
-                        font-family: "Playfair Display", serif;
-                        font-weight: 700;
-                        font-size: 2.7rem;
-                        line-height: 3.4rem;
-                    }
-
-                    h4 {
-                        font-size: 1.4rem;
-                        font-style: italic;
-                        font-weight: 300;
-                        line-height: 1.6rem;
-                    }
-
-                    span {
-                        display: inline-flex;
-                        align-items: center;
-
-                        margin-bottom: 5px;
-
-                        font-family: "SFProDisplay-Regular", sans-serif;
-                        font-size: 1.1rem;
-                        line-height: 1.2rem;
-
-                        img {
-                            margin-right: 3.5px;
-
-                            width: 14px;
-                            height: 14px;
-                        }
-
-                        strong {
-                            margin-right: 2px;
-
-                            font-size: 1.05rem;
-                            font-family: "SFProDisplay-Bold", sans-serif;
-                            font-weight: 700;
-                        }
-                    }
-                }
-            }
-
-            > div:first-child {
-                margin-left: 20px;
-            }
-
-            > div:nth-child(2) {
-                background: var(--decoration-purple);
-            }
-        }
     }
 }
