@@ -4,7 +4,7 @@ Clone this repository and start our challenge **right now**
 
 Use React or React Native depending on the rule you are running for.
 
-**NOTE:** If you have any questions regarding the test, just send us your question on Slack's channel **#challenge-foton** on [React Brasil](https://react-brasil-slack.herokuapp.com/).
+**NOTE:** If you have any questions regarding the test, just send us your question on our Discord's channel **#technical-challenge** on [Foton Discord](https://discord.gg/uw55aDewNf).
 
 ## API
 
