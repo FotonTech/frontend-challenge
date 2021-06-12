@@ -26,10 +26,8 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
-    "@typescript-eslint/explicit-function-return-type": [
-      "error",
-      { "allowTypedFunctionExpressions": true }
-    ],
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "import/prefer-default-export": 0,
     'prettier/prettier': 'warn',
     '@typescript-eslint/no-var-requires': 0,
   },

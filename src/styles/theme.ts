@@ -1,0 +1,29 @@
+import { createMuiTheme, Theme } from '@material-ui/core/styles';
+
+declare module 'styled-components' {
+  export interface DefaultTheme extends Theme {
+    palette: typeof styledTheme.palette;
+  }
+}
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#FFF',
+      main: '#0088D3',
+    },
+  },
+  typography: {
+    fontSize: 14,
+  },
+  spacing: 8,
+});
+
+export const styledTheme = {
+  ...theme,
+  palette: {
+    ...theme.palette,
+  },
+};
+
+export default theme;
