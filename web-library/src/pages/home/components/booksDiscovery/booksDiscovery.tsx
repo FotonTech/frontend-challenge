@@ -1,24 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
+import HeaderSection from '../../../../components/headerSection/headerSection'
 import BookCard from './bookCard'
 
 const Wrapper = styled.div`
   margin: 0 20px;
 `
 
-const HeadSection = styled.div`
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: space-between;
-`
-
 const BooksDiscovery: React.FC = () => {
   return (
     <Wrapper>
-      <HeadSection>
-        <span>Discover new books</span>
-        <span>More</span>
-      </HeadSection>
+      <HeaderSection title={'Discover new books'} actionButton={'More'} />
       <BookCard />
     </Wrapper>
   )

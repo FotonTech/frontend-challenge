@@ -1,23 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
+import HeaderSection from '../../../../components/headerSection/headerSection'
 import CurrentReadBookCard from './currentReadBookCard'
 
 const Wrapper = styled.div`
   margin: 30px 20px 0 20px;
 `
 
-const HeadSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-
 const ReadingSummary: React.FC = () => {
   return (
     <Wrapper>
-      <HeadSection>
-        <span>Currently Reading</span>
-        <span>All</span>
-      </HeadSection>
+      <HeaderSection title={'Currently Reading'} actionButton={'All'}/>
       <CurrentReadBookCard />
     </Wrapper>
   )
