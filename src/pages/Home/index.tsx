@@ -1,13 +1,16 @@
 import React from 'react';
 import { Container } from './styles';
 
+import Title from './Title';
+import SearchBar from '../../components/SearchBar';
 import Tabbar from '../../components/Tabbar';
 
 const Home: React.FC = () => {
   return (
     <>
       <Container>
-        <h1>Home Page</h1>
+        <SearchBar />
+        <Title />
       </Container>
       <Tabbar />
     </>

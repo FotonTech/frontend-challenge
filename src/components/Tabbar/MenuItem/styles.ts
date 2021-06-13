@@ -13,5 +13,5 @@ export const StyledLink = styled(Link)<MenuItemProps>`
   font-size: 10px;
   text-decoration: none;
   color: ${({ $active, theme }) =>
-    $active ? theme.palette.common.black : '#BFBEBF'};
+    $active ? theme.palette.common.black : theme.palette.secondary.main};
 `;
