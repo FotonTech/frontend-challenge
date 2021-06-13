@@ -4,10 +4,50 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: SFProText-Regular;
+  src: url("./fonts/SFProText/SFProText-Regular.ttf");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: SFProText-Bold;
+  src: url("./fonts/SFProText/SFProText-Bold.ttf");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: SFProDisplay-Regular;
+  src: url("./fonts/SFProDisplay/SFProDisplay-Regular.ttf");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: SFProDisplay-Bold;
+  src: url("./fonts/SFProDisplay/SFProDisplay-Bold.ttf");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: SFProDisplay-Semibold;
+  src: url("./fonts/SFProDisplay/SFProDisplay-Semibold.ttf");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
 :root {
   --search-background-color: #FDFCFC;
   --home-header-text-color: #54565A;
-  --home-title-color:#3F4043;
+  --home-title-color: #3F4043;
   --banner-title-color: #FEFEFE;
   --banner-subtitle-color: #E7E7E1;
   --link-color: #4ABDF1;
@@ -27,10 +67,9 @@ body {
   background-image: linear-gradient(#fefaf6, #FFFCF9);
   background-repeat: no-repeat;
   overflow-x: hidden;
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
