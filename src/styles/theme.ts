@@ -9,7 +9,6 @@ declare module 'styled-components' {
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '#FFF',
       main: '#0088D3',
     },
   },

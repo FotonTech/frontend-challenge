@@ -4,11 +4,14 @@ import { Typography } from '@material-ui/core';
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
-  padding: ${({ theme }) => theme.spacing(1)}px;
-  height: ${({ theme }) => theme.spacing(7)}px;
-  background-color: ${({ theme }) => theme.palette.primary.light};
+  align-items: center;
   justify-content: space-around;
+  position: fixed;
+  bottom: 0px;
+  width: 100vw;
+  height: ${({ theme }) => theme.spacing(7)}px;
+  padding: ${({ theme }) => theme.spacing(1, 0)};
+  background-color: ${({ theme }) => theme.palette.common.white};
 `;
 
 export const ItemContainer = styled.div`
