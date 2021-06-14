@@ -7,6 +7,7 @@ import { Book, Books } from '../../models/books'
 import { getBooksBySearch } from '../../utils/getBooksBySearch'
 import BookReviews from './components/bookReviews/bookReviews'
 import BooksDiscovery from './components/booksDiscovery/booksDiscovery'
+import { CircleWave1, CircleWave2 } from './components/fillers/fillers'
 import GreetingUserMessage from './components/greetingUserMessage/greetingUserMessage'
 import ReadingSummary from './components/readingSummary/readingSummary'
 
@@ -27,6 +28,8 @@ const Home = () => {
     <PageWrapper>
       <SearchBar />
       <GreetingUserMessage />
+      <CircleWave1 />
+      <CircleWave2 />
       <BooksDiscovery books={booksDiscovery} />
       <ReadingSummary book={readingSummaryBook} />
       <BookReviews />

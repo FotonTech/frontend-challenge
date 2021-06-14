@@ -6,6 +6,7 @@ import { routes } from '../../../../constants/routes'
 import { Book } from '../../../../models/books'
 import { goToPage } from '../../../../router/routerCoordinator'
 import { getAssetsUrl } from '../../../../utils/getAssetsUrl'
+import { CircleWave3, OvalShape2, Retangle2 } from '../fillers/fillers'
 
 const Wrapper = styled.div`
   height: 100px;
@@ -18,6 +19,7 @@ const Wrapper = styled.div`
   border-radius: 0px 3px 3px 0px;
   margin-left: -20px;
   background-color: #EEF5DB;
+  position: relative;
 `
 
 const BookInfoWrapper = styled.div`
@@ -67,6 +69,9 @@ const CurrentReadBookCard: React.FC<CurrentReadBookCardProps> = ({ book }) => {
 
   return (
     <Wrapper onClick={() => goToPage(history, routes.detailedBook(book.id))}>
+      <CircleWave3 />
+      <Retangle2 />
+      <OvalShape2 />
       <MediaContainer>
         <BookImage src={book.image} alt={assetsAltTexts.bookCover(book.title)} />
       </MediaContainer>

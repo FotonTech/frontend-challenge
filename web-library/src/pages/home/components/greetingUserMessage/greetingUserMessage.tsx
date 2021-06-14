@@ -12,7 +12,7 @@ interface UserMessageProps {
   useRedColor?: boolean
 }
 
-const UserMessage = styled.p<UserMessageProps>`
+const UserMessage = styled.span<UserMessageProps>`
   line-height: 30px;
   font-weight: 600;
   color: ${({ useRedColor }) => useRedColor ? '#EE6876' : 'auto'};
