@@ -10,10 +10,15 @@ export const assetsPaths = {
   headPhonesIcon: 'icons/headphones-icon.png',
   shareIcon: 'icons/share-icon.png',
   backArrowIcon: 'icons/back-arrow-icon.png',
-  firstCircleWave: 'circle-wave-1.png',
-  secondCircleWave: 'circle-wave-2.png',
-  thirdCircleWave: 'circle-wave-3.png',
-  fourthCircleWave: 'circle-wave-4.png',
+  homeFirstCircleWave: 'fillers/home/circle-wave-1.png',
+  homeSecondCircleWave: 'fillers/home/circle-wave-2.png',
+  homeThirdCircleWave: 'fillers/home/circle-wave-3.png',
+  homeFourthCircleWave: 'fillers/home/circle-wave-4.png',
+  detailedBookTopCircleWave: 'fillers/detailedBook/top-circle-wave.png',
+  detailedBookBottomCircleWave: 'fillers/detailedBook/bottom-circle-wave.png',
+  detailedBookNavyBlueBall: 'fillers/detailedBook/navy-blue-ball.png',
+  detailedBookNavyBlueCircle: 'fillers/detailedBook/navy-blue-circle.png',
+  detailedBookRedBall: 'fillers/detailedBook/red-ball.png',
 }
 
 export const mocksAssetsPaths = {

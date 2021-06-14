@@ -14,6 +14,7 @@ const BookMedia = styled.img`
   width: 150px;
   height: 230px;
   margin-top: 84px;
+  z-index: 1;
 `
 
 interface BookThumbnailProps {
