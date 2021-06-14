@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   margin: 12px 20px 0 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 15px;
 `
 
 const Books: React.FC = () => {

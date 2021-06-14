@@ -3,7 +3,7 @@ import { assetsPaths } from "../../../../constants/assetsPaths"
 import { getAssetsUrl } from "../../../../utils/getAssetsUrl"
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: fixed;
   height: 56px;
   margin: 0 20px 52px 20px;
   width: calc(100% - 40px);

@@ -5,7 +5,7 @@ import Books from "./components/books"
 
 const SearchResult = () => {
   return (
-    <PageWrapper>
+    <PageWrapper minHeight>
       <SearchBar />
       <Books />
       <BottomAppBar />

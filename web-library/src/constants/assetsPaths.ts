@@ -20,7 +20,8 @@ export const mocksAssetsPaths = {
   bookCardMedia: 'mocks/hooked-discover-new-book.png',
   currentReadBookMedia: 'mocks/originals-currently-reading.png',
   reviewOfTheDayFiller: 'mocks/review-off-the-day-placeholder.png',
-  detailedBookPage: 'mocks/hooked-detailed-page.png'
+  detailedBookPage: 'mocks/hooked-detailed-page.png',
+  bookCoverSearchPage: 'mocks/book-cover-search-page.png',
 }
 
 export const assetsAltTexts = {
