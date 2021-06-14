@@ -58,16 +58,11 @@
   --menu-grey: #BFBEBF;
 }
 
-html {
-  height: 100%;
+html, body, #root {
+  height: 100vh;
   overflow-x: hidden;
-}
-
-body {
   background-image: linear-gradient(#fefaf6, #FFFCF9);
   background-repeat: no-repeat;
-  overflow-x: hidden;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 code {

@@ -1,9 +1,23 @@
-/* Reset */
-
-/* Fonts */
-
 /* Mobile styles */
+.container {
+  height: 100vh;
+  position: relative;
+}
 
+header {
+  position: absolute;
+  top: 0;
+}
+
+main {
+  
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
 
 /* Small tablet styles */
 @media screen and (min-width: 620px) {
