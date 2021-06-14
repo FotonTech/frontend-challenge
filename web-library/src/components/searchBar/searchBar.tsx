@@ -25,6 +25,7 @@ const SearchIcon = styled.img`
 `
 
 const SearchInput = styled.input`
+  background: #FDFCFC;
   -webkit-appearance: none;
   border: none;
   flex: 1;

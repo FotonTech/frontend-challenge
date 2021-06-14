@@ -16,6 +16,13 @@
   src: local('SFProDisplay Bolder'), local('SFProDisplay-Bolder') url(./fonts/FontsFree-Net-SFProDisplay-Heavy.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'SFProDisplay';
+  font-style: italic;
+  font-weight: 200;
+  src: local('SFProDisplay Light'), local('SFProDisplay-Light') url(./fonts/FontsFree-Net-SFProDisplay-ThinItalic.ttf) format('truetype');
+}
+
 body {
   margin: 0;
   font-family: 'SFProDisplay', serif;

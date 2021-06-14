@@ -24,11 +24,14 @@ const BookInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 8px;
+  color: #2A2B26;
 `
 
 const BookTitle = styled.span`
   margin-top: 10px;
   font-size: 20px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 `
 
 const AuthorName = styled.span`

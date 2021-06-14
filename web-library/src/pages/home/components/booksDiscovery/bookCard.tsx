@@ -21,16 +21,21 @@ const Wrapper = styled.div`
 const BookInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  color: #FEFEFE;
 `
 
 const BookTitle = styled.span`
   margin-top: 17px;
   font-size: 27px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 `
 
 const AuthorName = styled.span`
   margin-top: 5px;
   font-size: 14px;
+  font: 200;
+  font-style: italic;
 `
 
 const BookStats = styled.div`
