@@ -1,6 +1,10 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import { assetsAltTexts, assetsPaths, mocksAssetsPaths } from '../../../../constants/assetsPaths'
+import { assetsAltTexts, assetsPaths } from '../../../../constants/assetsPaths'
+import { routes } from '../../../../constants/routes'
+import { Book } from '../../../../models/books'
+import { goToPage } from '../../../../router/routerCoordinator'
 import { getAssetsUrl } from '../../../../utils/getAssetsUrl'
 
 const Wrapper = styled.div`
@@ -46,12 +50,18 @@ const BookImage = styled.img`
   object-fit: contain;
 `
 
-const BookCard: React.FC = () => {
+interface BookCardProps {
+  book: Book
+}
+
+const BookCard: React.FC<BookCardProps> = ({ book }) => {
+  const history = useHistory()
+
   return (
-    <Wrapper>
+    <Wrapper onClick={() => goToPage(history, routes.detailedBook(book.id))}>
       <BookInfoWrapper>
-        <BookTitle>Book title</BookTitle>
-        <AuthorName>Author name</AuthorName>
+        <BookTitle>{book.title}</BookTitle>
+        <AuthorName>{book.authors}</AuthorName>
         <BookStats>
           <img src={getAssetsUrl(assetsPaths.chartIcon)} alt={assetsAltTexts.chartIcon} />
           <span>120+ read now</span>
@@ -59,7 +69,7 @@ const BookCard: React.FC = () => {
       </BookInfoWrapper>
 
       <MediaContainer>
-        <BookImage src={getAssetsUrl(mocksAssetsPaths.bookCardMedia)} alt={assetsAltTexts.bookCover('mock')} />
+        <BookImage src={book.image} alt={assetsAltTexts.bookCover(book.title)} />
       </MediaContainer>
     </Wrapper>
   )

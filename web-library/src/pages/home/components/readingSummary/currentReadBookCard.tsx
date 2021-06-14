@@ -1,6 +1,10 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import { assetsAltTexts, assetsPaths, mocksAssetsPaths } from '../../../../constants/assetsPaths'
+import { assetsAltTexts, assetsPaths } from '../../../../constants/assetsPaths'
+import { routes } from '../../../../constants/routes'
+import { Book } from '../../../../models/books'
+import { goToPage } from '../../../../router/routerCoordinator'
 import { getAssetsUrl } from '../../../../utils/getAssetsUrl'
 
 const Wrapper = styled.div`
@@ -51,16 +55,22 @@ const BookImage = styled.img`
   object-fit: contain;
 `
 
-const CurrentReadBookCard: React.FC = () => {
+interface CurrentReadBookCardProps {
+  book: Book
+}
+
+const CurrentReadBookCard: React.FC<CurrentReadBookCardProps> = ({ book }) => {
+  const history = useHistory()
+
   return (
-    <Wrapper>
+    <Wrapper onClick={() => goToPage(history, routes.detailedBook(book.id))}>
       <MediaContainer>
-        <BookImage src={getAssetsUrl(mocksAssetsPaths.currentReadBookMedia)} alt={assetsAltTexts.bookCover('mock')} />
+        <BookImage src={book.image} alt={assetsAltTexts.bookCover(book.title)} />
       </MediaContainer>
 
       <BookInfoWrapper>
-        <BookTitle>Originals</BookTitle>
-        <AuthorName>by Adam Grant</AuthorName>
+        <BookTitle>{book.title}</BookTitle>
+        <AuthorName>by {book.authors}</AuthorName>
         <BookStats>
           <img src={getAssetsUrl(assetsPaths.bookmarkedIcon)} alt={assetsAltTexts.bookmarkedIcon} />
           <span>

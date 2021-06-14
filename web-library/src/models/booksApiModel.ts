@@ -10,7 +10,7 @@ export interface BooksSearchApiModelResponse {
     volumeInfo: {
       title: string
       subtitle: string
-      authors: string[]
+      authors?: string[]
       publishedDate: string
       description: string
       industryIdentifiers: {
