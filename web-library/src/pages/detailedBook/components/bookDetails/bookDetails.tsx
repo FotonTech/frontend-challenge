@@ -11,14 +11,23 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   margin-bottom: 7px;
+  font-size: 24px;
+  font-weight: bolder;
 `
 
 const Author = styled.div`
   margin-bottom: 10px;
+  color: #FF6978;
+  font-size: 16px;
+  font-weight: bold;
 `
 
 const Description = styled.div`
   overflow-y: scroll;
+  max-height: 250px;
+  font-size: 14px;
+  line-height: 25px;
+  color: rgba(49, 49, 49, 0.6);
 `
 
 const BookDetails: React.FC = () => {
