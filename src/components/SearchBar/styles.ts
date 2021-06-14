@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import SearchIcon from '@material-ui/icons/Search';
 
 export const Container = styled.div`
-  width: 100%;
+  width: 90%;
   height: ${({ theme }) => theme.spacing(6)}px;
   background-color: ${({ theme }) => theme.palette.common.white};
   border-radius: ${({ theme }) => theme.spacing(1)}px;

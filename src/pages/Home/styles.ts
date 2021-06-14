@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: ${({ theme }) => theme.spacing(0, 4)};
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -14,6 +13,8 @@ export const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: ${({ theme }) => theme.spacing(5)}px;
+  width: 90%;
+  align-self: center;
   font-size: ${({ theme }) => theme.spacing(3)}px;
   color: ${({ theme }) => theme.palette.secondary.dark};
 `;
