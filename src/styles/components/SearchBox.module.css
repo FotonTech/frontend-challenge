@@ -5,7 +5,7 @@
   width: 336px;
   border-radius: 10px;
   background-color: var(--search-background-color);
-  margin: 50px 19px;
+  box-shadow: 5px 5px 80px rgba(212, 173, 134, 0.122623);
   display: flex;
   align-items: center;
   gap: 10px;

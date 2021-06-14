@@ -14,7 +14,16 @@ function Home() {
       </header>
 
       <main className="main">
-        
+        <div className={styles.welcomeMessage}>
+          <p>Hi,&nbsp;</p>
+          <p>Mehmed AI Fatih</p>
+          <img
+            width={24}
+            height={24}
+            src="wave-hand.png"
+            alt="Wave hand"
+          />
+        </div>
       </main>
 
       <footer className="footer">

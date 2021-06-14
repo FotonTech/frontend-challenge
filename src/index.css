@@ -46,7 +46,6 @@
 
 :root {
   --search-background-color: #FDFCFC;
-  --home-header-text-color: #54565A;
   --home-title-color: #3F4043;
   --banner-title-color: #FEFEFE;
   --banner-subtitle-color: #E7E7E1;
@@ -61,7 +60,7 @@
 html, body, #root {
   height: 100vh;
   overflow-x: hidden;
-  background-image: linear-gradient(#fefaf6, #FFFCF9);
+  background-color: #FFFCF9;
   background-repeat: no-repeat;
 }
 

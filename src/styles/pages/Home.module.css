@@ -1,16 +1,37 @@
 /* Mobile styles */
+
 .container {
   height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-  position: absolute;
-  top: 0;
+  margin: 50px 20px 30px;
 }
 
 main {
-  
+  margin-left: 20px;
+}
+
+.welcomeMessage {
+  display: flex;
+}
+
+.welcomeMessage>p:first-of-type {
+  font-family: SFProDisplay-Regular;
+  font-size: 24px;
+  line-height: 28.64px;
+  color: #54565A;
+}
+
+.welcomeMessage>p:nth-child(2) {
+  font-family: SFProDisplay-Semibold;
+  font-size: 24px;
+  line-height: 28.64px;
+  color: #ff6a79;
+  margin-right: 11px;
 }
 
 footer {
@@ -20,16 +41,13 @@ footer {
 }
 
 /* Small tablet styles */
-@media screen and (min-width: 620px) {
-  
-}
+
+@media screen and (min-width: 620px) {}
 
 /* Large tablet & laptop styles */
-@media screen and (min-width: 960px) {
-  
-}
+
+@media screen and (min-width: 960px) {}
 
 /* Desktop styles */
-@media screen and (min-width: 1200px) {
-  
-}
+
+@media screen and (min-width: 1200px) {}
