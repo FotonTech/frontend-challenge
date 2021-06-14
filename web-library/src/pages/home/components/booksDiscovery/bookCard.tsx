@@ -1,13 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import { assetsAltTexts, assetsPaths, mocksAssetsPaths } from '../../../../constants/assetsPaths'
+import { getAssetsUrl } from '../../../../utils/getAssetsUrl'
 
 const Wrapper = styled.div`
   width: 272px;
-  height: 139px;
+  height: 140px;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+  background: #00173D;
+  box-shadow: 2px 4px 48px rgba(154, 175, 209, 0.62134);
+  border-radius: 5px;
 `
 
 const BookInfoWrapper = styled.div`
@@ -17,17 +21,29 @@ const BookInfoWrapper = styled.div`
 
 const BookTitle = styled.span`
   margin-top: 17px;
+  font-size: 27px;
 `
 
 const AuthorName = styled.span`
   margin-top: 5px;
+  font-size: 14px;
 `
 
 const BookStats = styled.div`
   margin-top: 30px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
 `
 
 const MediaContainer = styled.div`
+  margin: 15px 0;
+`
+
+const BookImage = styled.img`
+  width: 70px;
+  height: 110px;
+  object-fit: contain;
 `
 
 const BookCard: React.FC = () => {
@@ -37,13 +53,13 @@ const BookCard: React.FC = () => {
         <BookTitle>Book title</BookTitle>
         <AuthorName>Author name</AuthorName>
         <BookStats>
-          <span>icon </span>
+          <img src={getAssetsUrl(assetsPaths.chartIcon)} alt={assetsAltTexts.chartIcon} />
           <span>120+ read now</span>
         </BookStats>
       </BookInfoWrapper>
 
       <MediaContainer>
-        Media container
+        <BookImage src={getAssetsUrl(mocksAssetsPaths.bookCardMedia)} alt={assetsAltTexts.bookCover('mock')} />
       </MediaContainer>
     </Wrapper>
   )
