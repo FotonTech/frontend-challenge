@@ -18,7 +18,7 @@ const UserMessage = styled.p<UserMessageProps>`
   color: ${({ useRedColor }) => useRedColor ? '#EE6876' : 'auto'};
 `
 
-const DEFAULT_USER_MESSAGE = 'user'
+const DEFAULT_USER_MESSAGE = 'Foton'
 
 interface GreetingUserMessageProps {
   userName?: string
