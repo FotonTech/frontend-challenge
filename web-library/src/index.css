@@ -1,0 +1,34 @@
+
+@font-face {
+  font-family: 'SFProDisplay';
+  src: local('SFProDisplay'), url(./fonts/FontsFree-Net-SFProDisplay-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  font-weight: 600;
+  src: local('SFProDisplay Bold'), local('SFProDisplay-Bold') url(./fonts/FontsFree-Net-SFProDisplay-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  font-weight: 800;
+  src: local('SFProDisplay Bolder'), local('SFProDisplay-Bolder') url(./fonts/FontsFree-Net-SFProDisplay-Heavy.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  font-style: italic;
+  font-weight: 200;
+  src: local('SFProDisplay Light'), local('SFProDisplay-Light') url(./fonts/FontsFree-Net-SFProDisplay-ThinItalic.ttf) format('truetype');
+}
+
+body {
+  margin: 0;
+  font-family: 'SFProDisplay', serif;
+  color: #54565A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
