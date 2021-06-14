@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Book } from '../../../../models/books'
 
 const Wrapper = styled.div`
   margin: 67px 20px 0 20px;
@@ -30,20 +31,21 @@ const Description = styled.div`
   color: rgba(49, 49, 49, 0.6);
 `
 
-const BookDetails: React.FC = () => {
+interface BookDetailsProps {
+  book: Book
+}
+
+const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
   return (
     <Wrapper>
       <Title>
-        Hooked : How to Build Habid-Forming Products
+        {book.title}
       </Title>
       <Author>
-        Nir Eyal
+        {book.authors}
       </Author>
       <Description>
-        How do successful companies create products people can’t put down?
-        Why do some products capture widespread attention while others flop?
-        Why do some products capture widespread attention while others flop?
-        Why do some products capture widespread attention while others flop?
+        {book.description}
       </Description>
     </Wrapper>
   )

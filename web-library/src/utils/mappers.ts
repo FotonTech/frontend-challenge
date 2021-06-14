@@ -28,7 +28,7 @@ export const detailedBookAPiModelToClientModel = (input: DetailedBookApiModel): 
     subtitle: input.volumeInfo.subtitle,
     authors: input.volumeInfo.authors.join(', '),
     description: input.volumeInfo.description,
-    image: input.volumeInfo.imageLinks.medium,
+    image: input.volumeInfo.imageLinks.thumbnail,
     id: input.id,
   }
 }

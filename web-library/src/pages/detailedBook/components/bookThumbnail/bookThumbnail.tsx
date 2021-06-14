@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { assetsAltTexts, mocksAssetsPaths } from '../../../../constants/assetsPaths'
-import { getAssetsUrl } from '../../../../utils/getAssetsUrl'
+import { assetsAltTexts } from '../../../../constants/assetsPaths'
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,10 +16,15 @@ const BookMedia = styled.img`
   margin-top: 84px;
 `
 
-const BookThumbnail: React.FC = () => {
+interface BookThumbnailProps {
+  image?: string
+  title?: string
+}
+
+const BookThumbnail: React.FC<BookThumbnailProps> = ({ image, title }) => {
   return (
     <Wrapper>
-      <BookMedia src={getAssetsUrl(mocksAssetsPaths.detailedBookPage)} alt={assetsAltTexts.bookCover('mock')} />
+      <BookMedia src={image} alt={assetsAltTexts.bookCover(title || 'mock')} />
     </Wrapper>
   )
 }
