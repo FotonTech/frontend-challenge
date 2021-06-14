@@ -1,5 +1,8 @@
+import { useHistory } from "react-router-dom"
 import styled from "styled-components"
 import { assetsAltTexts, assetsPaths } from "../../constants/assetsPaths"
+import { routes } from "../../constants/routes"
+import { goToPage } from "../../router/routerCoordinator"
 import { getAssetsUrl } from "../../utils/getAssetsUrl"
 
 const Wrapper = styled.div`
@@ -21,9 +24,10 @@ const Text = styled.span`
 `
 
 const BottomAppBar = () => {
-return (
+  const history = useHistory()
+  return (
     <Wrapper>
-      <div>
+      <div onClick={() => goToPage(history, routes.home)}>
         <img src={getAssetsUrl(assetsPaths.homeIcon)} alt={assetsAltTexts.homeIcon} />
         <Text>Home</Text>
       </div>

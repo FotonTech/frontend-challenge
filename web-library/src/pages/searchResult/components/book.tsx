@@ -1,12 +1,16 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import { assetsAltTexts, mocksAssetsPaths } from '../../../constants/assetsPaths'
-import { getAssetsUrl } from '../../../utils/getAssetsUrl'
+import { assetsAltTexts } from '../../../constants/assetsPaths'
+import { routes } from '../../../constants/routes'
+import { Book as BookModel } from '../../../models/books'
+import { goToPage } from '../../../router/routerCoordinator'
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   font-weight: bolder;
+  max-width: 100px;
 `
 
 const BookImage = styled.img`
@@ -25,15 +29,22 @@ const AuthorName = styled.div`
   font-size: 10px;
 `
 
-const Book = () => {
+interface BookProps {
+  book: BookModel
+}
+
+const Book: React.FC<BookProps> = ({ book }) => {
+
+  const history = useHistory()
+
   return (
-    <Wrapper>
-      <BookImage src={getAssetsUrl(mocksAssetsPaths.bookCoverSearchPage)} alt={assetsAltTexts.bookCover('mock')} />
+    <Wrapper onClick={() => goToPage(history, routes.detailedBook(book.id))}>
+      <BookImage src={book.image} alt={assetsAltTexts.bookCover(book.title)} />
       <Title>
-      The One Thing
+      {book.title}
       </Title>
       <AuthorName>
-      by Gary Keller
+      by {book.authors}
       </AuthorName>
     </Wrapper>
   )

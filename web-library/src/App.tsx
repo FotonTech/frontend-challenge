@@ -1,8 +1,11 @@
+import GlobalState from './global/globalState'
 import Router from './router/router'
 
 const App = () => {
   return (
-    <Router />
+    <GlobalState>
+      <Router />
+    </GlobalState>
   )
 }
 
