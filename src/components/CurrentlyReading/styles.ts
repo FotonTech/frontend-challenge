@@ -1,12 +1,10 @@
 import styled from 'styled-components';
-import ScrollContainer from 'react-indiana-drag-scroll';
 import { Typography } from '@material-ui/core';
 
-export const Container = styled(ScrollContainer)`
+export const Container = styled.div`
   width: 100%;
   align-self: center;
-  white-space: nowrap;
-  margin-top: ${({ theme }) => theme.spacing(2)}px;
+  margin-top: ${({ theme }) => theme.spacing(3)}px;
 `;
 
 export const StyledTypography = styled(Typography)`
@@ -25,20 +23,13 @@ export const StyledLinkButton = styled.a`
   font-weight: lighter;
 `;
 
-export const FirstCard = styled.div`
+export const Card = styled.div`
   display: inline-block;
-  width: ${({ theme }) => theme.spacing(31)}px;
-  height: ${({ theme }) => theme.spacing(17)}px;
-  background-image: url('https://i.imgur.com/WvNopaC.png');
+  width: 90%;
+  height: ${({ theme }) => theme.spacing(13)}px;
+  background-image: url('https://i.imgur.com/1FB5LrR.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   border-radius: ${({ theme }) => theme.spacing(1)}px;
   margin-right: ${({ theme }) => theme.spacing(2)}px;
-
-  :nth-child(even) {
-    background-image: url('https://i.imgur.com/QMRoHmy.png');
-  }
-  :first-child {
-    margin-left: 5%;
-  }
 `;

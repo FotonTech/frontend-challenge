@@ -1,11 +1,19 @@
 import React from 'react';
-import { Container, FirstCard, StyledTypography } from './styles';
+import {
+  Container,
+  FirstCard,
+  StyledTypography,
+  StyledLinkButton,
+} from './styles';
 
 const HorizontalScroll: React.FC = () => {
   return (
     <>
-      <StyledTypography>Discover new book</StyledTypography>
-      <Container horizontal hideScrollbars>
+      <StyledTypography>
+        <span>Discover new book</span>
+        <StyledLinkButton>More</StyledLinkButton>
+      </StyledTypography>
+      <Container>
         <FirstCard />
         <FirstCard />
         <FirstCard />
