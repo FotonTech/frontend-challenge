@@ -1,3 +1,4 @@
+import { BottomMenu } from '../components/BottomMenu';
 import '../styles/pages/Detail.module.css';
 
 function Detail() {
@@ -12,7 +13,7 @@ function Detail() {
       </main>
 
       <footer className="footer">
-        
+        <BottomMenu />
       </footer>
     </div>
   );

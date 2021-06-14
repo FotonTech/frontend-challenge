@@ -16,7 +16,7 @@
   font-family: SFProText-Bold;
   src: url("./fonts/SFProText/SFProText-Bold.ttf");
   font-style: normal;
-  font-weight: normal;
+  font-weight: 700;
   font-display: swap;
 }
 
@@ -29,18 +29,18 @@
 }
 
 @font-face {
-  font-family: SFProDisplay-Bold;
-  src: url("./fonts/SFProDisplay/SFProDisplay-Bold.ttf");
+  font-family: SFProDisplay-Semibold;
+  src: url("./fonts/SFProDisplay/SFProDisplay-Semibold.ttf");
   font-style: normal;
-  font-weight: normal;
+  font-weight: 600;
   font-display: swap;
 }
 
 @font-face {
-  font-family: SFProDisplay-Semibold;
-  src: url("./fonts/SFProDisplay/SFProDisplay-Semibold.ttf");
+  font-family: SFProDisplay-Bold;
+  src: url("./fonts/SFProDisplay/SFProDisplay-Bold.ttf");
   font-style: normal;
-  font-weight: normal;
+  font-weight: 700;
   font-display: swap;
 }
 

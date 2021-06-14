@@ -1,6 +1,7 @@
 import {
   Link
 } from 'react-router-dom';
+import { BottomMenu } from '../components/BottomMenu';
 import { SearchBox } from '../components/SearchBox';
 
 import styles from '../styles/pages/Home.module.css';
@@ -13,10 +14,11 @@ function Home() {
       </header>
 
       <main className="main">
-
+        
       </main>
 
       <footer className="footer">
+        <BottomMenu />
       </footer>
     </div>
   );

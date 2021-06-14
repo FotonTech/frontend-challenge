@@ -12,7 +12,8 @@ const Routes = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Home}></Route>
-      <Route exact path="/search" component={Search}></Route>
+      <Route exact path="/libraries" ></Route>
+      <Route exact path="/profile" ></Route>
       <Route exact path="/detail" component={Detail}></Route>
       <Route path="*" component={() => <h1>Página não encontrada</h1>} />
     </Switch>
