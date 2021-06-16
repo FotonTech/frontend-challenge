@@ -26,7 +26,10 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
+    "no-console":0,
     "@typescript-eslint/explicit-function-return-type": 0,
+    "react/prop-types": 0,
+    "react-hooks/exhaustive-deps": 0,
     "import/prefer-default-export": 0,
     'prettier/prettier': 'warn',
     '@typescript-eslint/no-var-requires': 0,
