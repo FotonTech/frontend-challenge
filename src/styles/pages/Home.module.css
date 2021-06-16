@@ -13,8 +13,7 @@
 
 .welcomeMessage {
   display: flex;
-  margin-bottom: 30px;
-  margin: 0 20px 30px;
+  margin: 0 20px;
 }
 
 .welcomeMessage>p:first-of-type {
@@ -34,10 +33,97 @@
 
 .oval1 {
   position: absolute;
-  width: 127px;
-  height: 127px;
-  left: 271px;
+  left: 295px;
   top: 190px;
+}
+
+.currentlyReading {
+  position: relative;
+  width: 331px;
+  min-height: 100px;
+  background: #EEF5DB;
+  box-shadow: 0px 3px 45px rgba(121, 141, 67, 0.115084);
+  border-radius: 0px 3px 3px 0px;
+  padding: 10px 0 10px 118px;
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+.currentlyReading .title {
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: 2px;
+  color: #2A2B26;
+  margin-bottom: 5px;
+}
+
+.currentlyReading .author {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 11.72px;
+  color: #74776D;
+  margin-bottom: 20px;
+}
+
+.currentlyReading .chapterInfo {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.currentlyReading .chapterInfoText {
+  font-family: SFProDisplay-Regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.020635px;
+  color: #2A2B26;
+  display: flex;
+  margin-left: 3px;
+}
+
+.currentlyReadingBookCover {
+  position: absolute;
+  z-index: 1;
+  top: 426px;
+  left: 20px;
+  filter: drop-shadow(5px 7px 32px rgba(140, 170, 58, 0.193701));
+}
+
+.currentlyReading .ring {
+  position: absolute;
+  left: 223px;
+  top: -6px;
+}
+
+.currentlyReading .oval2 {
+  position: absolute;
+  right: -22px;
+  top: 22px;
+}
+
+.currentlyReading .oval3 {
+  position: absolute;
+  top: -19px;
+  right: -33px;
+}
+
+.rectangle {
+  position: absolute;
+  right: -22.8px;
+  bottom: 20.5px;
+}
+
+.oval {
+  position: absolute;
+  top: -19px;
+  right: -33px;
 }
 
 footer {
