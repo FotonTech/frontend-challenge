@@ -38,7 +38,7 @@ class Home extends Component {
     if (loading) return <Loading />;
     return (
       <div>
-        <Input type="text" />
+        <Input type="text" placeholder="Search book" />
         <div>
           {
             bookApi.map((book, index) => (
