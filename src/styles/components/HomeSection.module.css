@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20px 15px;
+}
+
+.header>p:first-of-type {
+  font-family: SFProDisplay-Semibold;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.5px;
+  color: var(--home-title-color);
+}
+
+.header>p:nth-child(2) {
+  font-family: SFProText-Regular;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: right;
+  color: var(--link-color);
+}
