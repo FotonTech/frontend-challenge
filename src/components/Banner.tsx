@@ -3,14 +3,12 @@ import { CSSProperties, FC } from "react";
 import styles from "../styles/components/Banner.module.css";
 
 export interface BannerData {
-  volumeInfo: {
-    id: number;
-    title: string;
-    authors: string[];
-    pageCount: number;
-    imageLinks: {
-      thumbnail: string;
-    }
+  id: number;
+  title: string;
+  authors: string[];
+  pageCount: number;
+  imageLinks: {
+    thumbnail: string;
   }
 }
 
@@ -31,7 +29,7 @@ export const Banner: FC<BannerProps> = (props) => {
     <div className={styles.container} style={props.style} tabIndex={props.tabIndex}>
       {props.showBannerCircle && (
         <svg className={styles.oval2} width="102" height="114" viewBox="0 0 102 114" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-          <circle cx="38.5" cy="63.5" r="63.5" fill="url(#pattern0)" style={{ maskRepeat: "no-repeat" }} />
+          <circle cx="38.5" cy="63.5" r="63.5" fill="url(#pattern0)" />
           <defs>
             <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="0.319742" height="0.056425">
               <use xlinkHref="#image0" transform="scale(0.00940417)" />
@@ -63,15 +61,9 @@ export const Banner: FC<BannerProps> = (props) => {
         <path fillRule="evenodd" clipRule="evenodd" d="M3.81349 0.795898L0.5 29.0133L33.3682 7.67883L3.81349 0.795898Z" fill="#FCBC48" />
       </svg>
 
-      <svg className={styles.rectangle} width="46" height="16" viewBox="0 0 46 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1.16704" y="0.495239" width="46" height="4" transform="rotate(14 1.16704 0.495239)" fill="#EC6374" />
-      </svg>
+      <img className={styles.rectangle} src="rectangle.svg" alt="" />
 
-      <svg className={styles.ring} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="10" cy="10" r="9" stroke="#4550A7" strokeWidth="2" />
-      </svg>
-
-
+      <img className={styles.ring} src="ring.svg" alt="" />
 
     </div>
   );
