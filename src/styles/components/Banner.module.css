@@ -1,0 +1,95 @@
+.container {
+  position: relative;
+  border-radius: 5px;
+}
+
+.oval2 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.title {
+  max-width: 124px;
+  max-height: 36px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  z-index: 2;
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: bold;
+  color: var(--banner-primary-color);
+  margin-bottom: 5px;
+}
+
+.author {
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  z-index: 2;
+  font-family: SFProDisplay-Regular;
+  letter-spacing: 2px;
+  color: var(--banner-secondary-color);
+  font-style: italic;
+}
+
+.pageCount {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 2px;
+  margin-top: 28px;
+}
+
+.pageCountNumber {
+  font-family: SFProDisplay-Bold;
+  font-style: normal;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.02px;
+  color: var(--banner-secondary-color);
+}
+
+.pageCountText {
+  font-family: SFProDisplay-Regular;
+  font-style: normal;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.02px;
+  color: var(--banner-secondary-color);
+}
+
+.bookCover {
+  height: 109px;
+  width: 73px;
+  left: 179px;
+  top: 15px;
+  border-radius: 5px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+.triangle {
+  position: absolute;
+  top: 3.8px;
+  right: 70.63px;
+}
+
+.rectangle {
+  position: absolute;
+  right: 82.2px;
+  bottom: 28.5px;
+}
+
+.ring {
+  position: absolute;
+  top: 14px;
+  right: 110px;
+}

@@ -7,16 +7,14 @@
   flex-direction: column;
 }
 
-header {
+.header {
   margin: 50px 20px 30px;
-}
-
-main {
-  margin-left: 20px;
 }
 
 .welcomeMessage {
   display: flex;
+  margin-bottom: 30px;
+  margin: 0 20px 30px;
 }
 
 .welcomeMessage>p:first-of-type {
@@ -32,6 +30,14 @@ main {
   line-height: 28.64px;
   color: #ff6a79;
   margin-right: 11px;
+}
+
+.oval1 {
+  position: absolute;
+  width: 127px;
+  height: 127px;
+  left: 271px;
+  top: 190px;
 }
 
 footer {

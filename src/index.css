@@ -47,8 +47,10 @@
 :root {
   --search-background-color: #FDFCFC;
   --home-title-color: #3F4043;
-  --banner-title-color: #FEFEFE;
-  --banner-subtitle-color: #E7E7E1;
+  --banner-primary-color: #FEFEFE;
+  --banner-secondary-color: #E7E7E1;
+  --primary-banner-backgorund-color: #00173D;
+  --secondary-banner-background-color: #451475f6;
   --link-color: #4ABDF1;
   --detail-page-pink: #FF6978;
   --search-page-text-color: rgba(49, 49, 49, 0.8);
