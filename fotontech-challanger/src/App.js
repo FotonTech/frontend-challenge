@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
+import Home from './routes/Home';
 
 function App() {
   return (
-    <div className="App">
-      <h1>oi :D</h1>
-    </div>
+    <Home />
   );
 }
 

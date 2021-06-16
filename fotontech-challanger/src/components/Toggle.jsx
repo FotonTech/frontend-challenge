@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Toogle extends Component {
   render() {
-    return(
+    return (
       <div>oi</div>
-    )
+    );
   }
 }
 
