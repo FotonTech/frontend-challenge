@@ -11,7 +11,7 @@ import {
   IconText,
   StyledSubTitle,
   GeometricImage,
-} from '../styles';
+} from './styles';
 import { BooksModel } from '../../../hooks/utils';
 import { ReactComponent as DiscoverIcon } from '../../../assets/images/discover-icon.svg';
 import geometricImage from '../../../assets/images/geometric.png';
@@ -35,10 +35,7 @@ const Card: React.FC<Props> = ({ item }) => {
           </IconContainer>
         </LeftCardSide>
         <RightCardSide>
-          <GeometricImage
-            // eslint-disable-next-line
-            src={geometricImage}
-          />
+          <GeometricImage src={geometricImage} />
           <BookPicture src={item.volumeInfo.imageLinks.smallThumbnail} />
         </RightCardSide>
       </CardContent>

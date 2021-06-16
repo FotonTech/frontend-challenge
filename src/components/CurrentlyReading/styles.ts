@@ -22,14 +22,3 @@ export const StyledLinkButton = styled.a`
   margin-right: 5%;
   font-weight: lighter;
 `;
-
-export const Card = styled.div`
-  display: inline-block;
-  width: 90%;
-  height: ${({ theme }) => theme.spacing(13)}px;
-  background-image: url('https://i.imgur.com/1FB5LrR.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  border-radius: ${({ theme }) => theme.spacing(1)}px;
-  margin-right: ${({ theme }) => theme.spacing(2)}px;
-`;

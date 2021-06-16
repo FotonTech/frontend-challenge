@@ -7,9 +7,7 @@ interface Props {
   books: BooksModel[];
 }
 
-const HorizontalScroll: React.FC<Props> = (books) => {
-  const teste = books.books;
-
+const HorizontalScroll: React.FC<Props> = ({ books }) => {
   return (
     <>
       <StyledTypography>
@@ -19,7 +17,7 @@ const HorizontalScroll: React.FC<Props> = (books) => {
       <Container>
         {
           // eslint-disable-next-line
-          teste.map((item: any, index) => {
+          books.map((item: any, index) => {
             if (index < 3) {
               return <Card key={item.id} item={item} />;
             }

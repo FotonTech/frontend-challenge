@@ -1,11 +1,12 @@
 import React from 'react';
-import { Container, Card, StyledTypography, StyledLinkButton } from './styles';
+import { Container, StyledTypography, StyledLinkButton } from './styles';
+import Card from './Card';
 
 const CurrentlyReading: React.FC = () => {
   return (
     <>
       <StyledTypography>
-        <span>Discover new book</span>
+        <span>Currently Reading</span>
         <StyledLinkButton>All</StyledLinkButton>
       </StyledTypography>
       <Container>
