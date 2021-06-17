@@ -3,6 +3,8 @@ import styles from "../styles/components/SearchBox.module.css";
 
 interface SearchBoxProps {
   placeholder: string;
+  value?: string | number | readonly string[];
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 export const SearchBox: FC<SearchBoxProps> = (props) => {
@@ -15,7 +17,11 @@ export const SearchBox: FC<SearchBoxProps> = (props) => {
         alt="Search"
       />
 
-      <input placeholder={props.placeholder} />
+      <input
+        placeholder={props.placeholder}
+        value={props.value}
+        onChange={props.onChange}
+      />
     </div>
   );
 }
