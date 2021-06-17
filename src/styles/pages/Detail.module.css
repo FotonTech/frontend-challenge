@@ -1,16 +1,81 @@
 /* Mobile styles */
 
-/* Small tablet styles */
-@media screen and (min-width: 620px) {
-  
+.container {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
+
+.header {
+  width: 100vw;
+  position: relative;
+  height: 282px;
+  background: #FFF6E5;
+  border-radius: 0px 0px 100px 0px;
+}
+
+.backIcon {
+  margin-top: 55px;
+  margin-left: 33px;
+}
+
+.oval1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.oval2 {
+  position: absolute;
+  bottom: 0.11px;
+  right: 89.11px;
+}
+
+.ring {
+  position: absolute;
+  top: 86px;
+  left: 248px;
+}
+
+.solidBlueCircle {
+  position: absolute;
+  top: 115px;
+  left: 74px;
+}
+
+.solidPinkCircle {
+  position: absolute;
+  top: 125px;
+  left: 47px;
+}
+
+.bookCover {
+  position: absolute;
+  bottom: -31px;
+  right: 111px;
+  border-radius: 5px;
+}
+
+.main {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+/* Small tablet styles */
+
+@media screen and (min-width: 620px) {}
 
 /* Large tablet & laptop styles */
-@media screen and (min-width: 960px) {
-  
-}
+
+@media screen and (min-width: 960px) {}
 
 /* Desktop styles */
-@media screen and (min-width: 1200px) {
-  
-}
+
+@media screen and (min-width: 1200px) {}

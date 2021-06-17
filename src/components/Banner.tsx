@@ -2,6 +2,18 @@ import { CSSProperties, FC } from "react";
 
 import styles from "../styles/components/Banner.module.css";
 
+export interface BookData {
+  volumeInfo: {
+    id: number;
+    title: string;
+    authors: string[];
+    pageCount: number;
+    imageLinks: {
+      thumbnail: string;
+    }
+  }
+}
+
 interface BannerProps {
   bookName: string;
   bookAuthor: string;

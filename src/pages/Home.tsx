@@ -1,32 +1,23 @@
 import { useEffect, useState } from "react";
-import { Banner } from "../components/Banner";
+import SwipeableViews from "react-swipeable-views";
+import { useHistory } from "react-router";
+import axios from "axios";
+
+import { Banner, BookData } from "../components/Banner";
 import { BottomMenu } from "../components/BottomMenu";
 import { HomeSection } from "../components/HomeSection";
 import { SearchBox } from "../components/SearchBox";
-import SwipeableViews from "react-swipeable-views";
 
 import styles from "../styles/pages/Home.module.css";
-import axios from "axios";
-
-interface BannerData {
-  volumeInfo: {
-    id: number;
-    title: string;
-    authors: string[];
-    pageCount: number;
-    imageLinks: {
-      thumbnail: string;
-    }
-  }
-}
 
 function Home() {
   const userName = "Mehmed AI Fatih";
   const unknownBookCoverAddress = "https://islandpress.org/sites/default/files/default_book_cover_2015.jpg";
+  const history = useHistory();
 
-  const [banners, setBanners] = useState<BannerData[]>([]);
-  const [currentlyReadingBook, setCurrentlyReadingBook] = useState<BannerData>();
-  const [searchedBooks, setSearchedBooks] = useState<BannerData[]>([]);
+  const [banners, setBanners] = useState<BookData[]>([]);
+  const [currentlyReadingBook, setCurrentlyReadingBook] = useState<BookData>();
+  const [searchedBooks, setSearchedBooks] = useState<BookData[]>([]);
   const [searchText, setSearchingText] = useState("");
   const [mainIndex, setMiddleIndex] = useState<number>(0);
   const [noResultsFound, setNoResultsFound] = useState(false);
@@ -94,6 +85,11 @@ function Home() {
     console.log(searchedBooks);
   }
 
+  const handleSearchedBookClick = (book: BookData) => () => {
+    localStorage.setItem("selectedBook", JSON.stringify(book));
+    history.push("/detail");
+  }
+
   const round = (number: number) => {
     let string = number.toString();
     let editedNumber = string.slice(0, -1);
@@ -142,6 +138,7 @@ function Home() {
                   src={book.volumeInfo.imageLinks !== undefined ?
                     book.volumeInfo.imageLinks.thumbnail : unknownBookCoverAddress}
                   alt="Book cover"
+                  onClick={handleSearchedBookClick(book)}
                 />
 
                 <div className={styles.tooltip}>
