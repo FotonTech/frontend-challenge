@@ -59,11 +59,9 @@
   --menu-grey: #BFBEBF;
 }
 
-html, body, #root {
-  height: 100vh;
-  overflow-x: hidden;
+html, body {
+  height: 100%;
   background-color: #FFFCF9;
-  background-repeat: no-repeat;
 }
 
 code {
