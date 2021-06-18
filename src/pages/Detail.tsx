@@ -1,21 +1,26 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 
-import { BookData } from '../components/Banner';
 import { BottomMenu } from '../components/BottomMenu';
+import { unknownBookCoverAddress } from './Home';
 
 import styles from '../styles/pages/Detail.module.css';
 
-function Detail() {
+import { BookData } from "../types/BookData";
+
+export const Detail: FC = () => {
+  const history = useHistory();
+
   const [book, setBook] = useState<BookData>()
 
   useEffect(() => {
-    setBook(JSON.parse(localStorage.getItem("selectedBook")!))
+    setBook(JSON.parse(localStorage.getItem("selectedBook")!));
   }, [])
 
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <svg className={styles.backIcon} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg onClick={() => history.push("/")} className={styles.backIcon} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 8H1" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           <path d="M8 15L1 8L8 1" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -31,7 +36,7 @@ function Detail() {
         </svg>
 
         <svg className={styles.oval2} width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-          <circle cx="32" cy="31.9999" r="24" transform="rotate(25 32 31.9999)" fill="url(#pattern0)" />
+          <circle cx="32" cy="32" r="24" transform="rotate(25 32 32)" fill="url(#pattern0)" />
           <defs>
             <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="0.845983" height="0.149291">
               <use xlinkHref="#image0" transform="scale(0.0248819)" />
@@ -52,26 +57,48 @@ function Detail() {
           <circle cx="7.5" cy="7.5" r="7.5" fill="#FF6978" />
         </svg>
 
+        <div className={styles.bookCoverShadow} />
 
         <img
           width="153px"
           height="229px"
           className={styles.bookCover}
-          src={book?.volumeInfo.imageLinks.thumbnail}
+          src={book?.volumeInfo.imageLinks.thumbnail !== undefined ?
+            book?.volumeInfo.imageLinks.thumbnail : unknownBookCoverAddress}
           alt="Book cover"
         />
-
       </header>
 
       <main className={styles.main}>
+        <div className={styles.bookTitleAndSubtitleContainer}>
+          <p className={styles.bookTitleAndSubtitle}>
+            {book?.volumeInfo.title !== undefined ? book?.volumeInfo.title : "Unknown title"}
+            <em
+              className={styles.bookSubtitle}
+              style={{ display: book?.volumeInfo.subtitle === undefined ? "none" : "" }}
+            >
+              &nbsp;:&nbsp;
+              {book?.volumeInfo.subtitle}
+            </em>
 
+          </p>
+
+        </div>
+
+        <p className={styles.bookAuthor}>
+          {book?.volumeInfo.authors[0] !== undefined ? book?.volumeInfo.authors[0] : "Unknown author"}
+        </p>
+
+        {book?.volumeInfo.description !== undefined ?
+          book?.volumeInfo.description.replace(/([?])\s*(?=[A-Z])/g, "$1|").split("|").map(sentence => (
+            <p className={styles.bookDescriptionSentence}>{sentence}</p>
+          )) :
+          "This book has no description."}
       </main>
 
       <footer className={styles.footer}>
-        <BottomMenu />
+        
       </footer>
     </div>
   );
 }
-
-export default Detail;

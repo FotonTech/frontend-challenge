@@ -5,14 +5,15 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .header {
-  width: 100vw;
   position: relative;
-  height: 282px;
+  min-height: 282px;
   background: #FFF6E5;
   border-radius: 0px 0px 100px 0px;
+  margin-bottom: 62px;
 }
 
 .backIcon {
@@ -57,9 +58,63 @@
   border-radius: 5px;
 }
 
+.bookCoverShadow {
+  width: 146px;
+  height: 17px;
+  position: absolute;
+  bottom: -40px;
+  left: 115px;
+  background: #D8D8D8;
+  border-radius: 80%;
+  filter: blur(12px);
+}
+
 .main {
   overflow-x: hidden;
   overflow-y: scroll;
+  padding: 0 20px;
+  padding-bottom: 59px;
+}
+
+/* .bookTitleAndSubtitleContainer {
+  width: 90%;
+} */
+
+.bookTitleAndSubtitle {
+  font-family: SFProDisplay-Bold;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 28.64px;
+  letter-spacing: 1.5px;
+  color: #36383A;
+}
+
+.bookSubtitle {
+  font-family: SFProDisplay-Regular;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 28.64px;
+  letter-spacing: 0.5px;
+  color: #36383A;
+}
+
+.bookAuthor {
+  font-family: SFProDisplay-Regular;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.670588px;
+  color: #FF6978;
+  margin-top: 7px;
+}
+
+.bookDescriptionSentence {
+  font-family: SFProText-Regular;
+  font-size: 14px;
+  line-height: 25px;
+  letter-spacing: 0.2px;
+  color: rgba(49, 49, 49, 0.6);
+  margin-top: 10px;
+  margin-bottom: 25px;
 }
 
 .footer {

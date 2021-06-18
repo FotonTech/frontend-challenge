@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { useHistory } from "react-router";
 import axios from "axios";
 
-import { Banner, BookData } from "../components/Banner";
+import { Banner } from "../components/Banner";
 import { BottomMenu } from "../components/BottomMenu";
 import { HomeSection } from "../components/HomeSection";
 import { SearchBox } from "../components/SearchBox";
 
 import styles from "../styles/pages/Home.module.css";
 
-function Home() {
+import { BookData } from "../types/BookData";
+
+export const unknownBookCoverAddress = "https://islandpress.org/sites/default/files/default_book_cover_2015.jpg";
+
+export const Home: FC = () => {
   const userName = "Mehmed AI Fatih";
-  const unknownBookCoverAddress = "https://islandpress.org/sites/default/files/default_book_cover_2015.jpg";
   const history = useHistory();
 
   const [banners, setBanners] = useState<BookData[]>([]);
@@ -87,7 +90,7 @@ function Home() {
 
   const handleSearchedBookClick = (book: BookData) => () => {
     localStorage.setItem("selectedBook", JSON.stringify(book));
-    history.push("/detail");
+    history.push("/book-detail");
   }
 
   const round = (number: number) => {
@@ -299,5 +302,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;
