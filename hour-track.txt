@@ -1,0 +1,46 @@
+Day 1
+12:00 - 13:00
+- study the project
+- decide to use reactJS instead of react Native
+- cloned the repository
+- created fork
+- made the initial commit
+
+
+Day 2
+15:00 - 16:30
+- setup eslint and prettier
+- setup routes
+- added styled-components
+- added Theme
+- created Home Page
+- created Tabbar component
+
+
+Day 3
+17:30 - 19:00
+- created searchBar
+- added title 
+- started discover new Book
+- changed tabbar icons
+
+
+Day 4
+15:30 - 17:00
+- added Currently Reading 
+- added Reviews of The Days
+
+
+day 5
+13:00 - 16:30
+- finished Currently Reading 
+- finished discover new Book
+- finished HomePage
+
+day 6
+15:00 17:30
+- finished searchPage
+- finished Library page
+- added improves on all screens
+- added horizontal scroll in discover new Book item
+- added clear Search button in search Bar
