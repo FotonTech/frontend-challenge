@@ -72,3 +72,52 @@ export const StyledText = styled.span`
   color: #31313160;
   margin-top: ${({ theme }) => theme.spacing(2)}px;
 `;
+
+export const StyledTabbar = styled.div`
+  width: 80%;
+  max-width: 500px;
+  height: 64px;
+  background-color: ${({ theme }) => theme.palette.common.white};
+  box-shadow: 2px 2px 10px #00000015;
+  border-radius: ${({ theme }) => theme.spacing(0.5)}px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const TabbarItem = styled.button`
+  height: 100%;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.palette.secondary.dark};
+  flex-direction: row;
+  background-color: transparent;
+  border: none;
+  :hover {
+    background-color: #f7f7f7;
+  }
+`;
+
+export const Line = styled.div`
+  width: 1px;
+  height: 33%;
+  background-color: #eaeaea;
+`;
+
+export const TabbarContainer = styled.div`
+  bottom: 20px;
+  position: fixed;
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+`;
+
+export const ItemText = styled.span`
+  margin-left: 6px;
+  font-weight: bold;
+  font-size: 14px;
+`;

@@ -26,17 +26,17 @@ const Card: React.FC<Props> = ({ item }) => {
       <CardContent>
         <LeftCardSide>
           <TitleContainer>
-            <StyledTitle>{item.volumeInfo.title}</StyledTitle>
-            <StyledSubTitle>{item.volumeInfo.authors[0]}</StyledSubTitle>
+            <StyledTitle>{item?.volumeInfo?.title}</StyledTitle>
+            <StyledSubTitle>{item?.volumeInfo?.authors[0]}</StyledSubTitle>
           </TitleContainer>
           <IconContainer>
             <DiscoverIcon />
-            <IconText>{item.volumeInfo.pageCount}+ Read Now</IconText>
+            <IconText>{item?.volumeInfo?.pageCount}+ Read Now</IconText>
           </IconContainer>
         </LeftCardSide>
         <RightCardSide>
           <GeometricImage src={geometricImage} />
-          <BookPicture src={item.volumeInfo.imageLinks.smallThumbnail} />
+          <BookPicture src={item?.volumeInfo?.imageLinks?.smallThumbnail} />
         </RightCardSide>
       </CardContent>
     </CardContainer>

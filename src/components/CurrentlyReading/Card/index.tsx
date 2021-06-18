@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   Container,
   StyledImg,
@@ -9,39 +9,22 @@ import {
   ChapterTextContainer,
   StyledChapterText,
 } from './styles';
-
-import { useBooks } from '../../../hooks/useBooks';
+import { BooksModel } from '../../../hooks/utils';
 
 import { ReactComponent as BookIcon } from '../../../assets/images/tagBook-icon.svg';
 
-const Card: React.FC = () => {
-  // eslint-disable-next-line
-  const [book, setBook] = useState<any>();
-  const [loading, setLoading] = useState(true);
-  const { getByName } = useBooks();
+interface Props {
+  item: BooksModel;
+}
 
-  useEffect(() => {
-    getByName('Adam Grant')
-      .then(({ data }) => {
-        setBook(data.items[0]);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  if (loading) {
-    return null;
-  }
-
+const Card: React.FC<Props> = ({ item }) => {
   return (
     <Container>
       <ContentContainer>
-        <StyledImg src={book.volumeInfo.imageLinks.smallThumbnail} />
+        <StyledImg src={item?.volumeInfo?.imageLinks?.smallThumbnail} />
         <InfoContainer>
-          <StyledTitle>{book.volumeInfo.title}</StyledTitle>
-          <StyledSubTitle>by {book.volumeInfo.authors[0]}</StyledSubTitle>
+          <StyledTitle>{item?.volumeInfo?.title}</StyledTitle>
+          <StyledSubTitle>by {item?.volumeInfo?.authors[0]}</StyledSubTitle>
           <ChapterTextContainer>
             <BookIcon />
             <StyledChapterText>Chapter 2 from 10</StyledChapterText>

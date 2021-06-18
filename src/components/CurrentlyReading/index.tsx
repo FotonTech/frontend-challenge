@@ -1,8 +1,13 @@
 import React from 'react';
 import { Container, StyledTypography, StyledLinkButton } from './styles';
 import Card from './Card';
+import { BooksModel } from '../../hooks/utils';
 
-const CurrentlyReading: React.FC = () => {
+interface Props {
+  book: BooksModel;
+}
+
+const CurrentlyReading: React.FC<Props> = ({ book }) => {
   return (
     <>
       <StyledTypography>
@@ -10,7 +15,7 @@ const CurrentlyReading: React.FC = () => {
         <StyledLinkButton>All</StyledLinkButton>
       </StyledTypography>
       <Container>
-        <Card />
+        <Card item={book} />
       </Container>
     </>
   );

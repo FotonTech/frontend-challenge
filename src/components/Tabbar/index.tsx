@@ -2,7 +2,7 @@ import React from 'react';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import LibraryBooksOutlinedIcon from '@material-ui/icons/LibraryBooksOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
-import { Container, StyledTypography } from './styles';
+import { Container, StyledTypography, Item } from './styles';
 
 import MenuItem from './MenuItem';
 
@@ -13,14 +13,14 @@ const Tabbar: React.FC = () => {
         <HomeOutlinedIcon />
         <StyledTypography>Home</StyledTypography>
       </MenuItem>
-      <MenuItem to="/libraries">
+      <Item>
         <LibraryBooksOutlinedIcon />
         <StyledTypography>Libraries</StyledTypography>
-      </MenuItem>
-      <MenuItem to="/profile">
+      </Item>
+      <Item>
         <PermIdentityOutlinedIcon />
         <StyledTypography>Profile</StyledTypography>
-      </MenuItem>
+      </Item>
     </Container>
   );
 };

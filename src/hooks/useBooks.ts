@@ -21,5 +21,14 @@ export const useBooks = () => {
     }
   };
 
-  return { getAll, getByName };
+  const getOne = async (id: string) => {
+    try {
+      const response = await axios.get(id);
+      return successObject(response);
+    } catch (error) {
+      return errorObject(error);
+    }
+  };
+
+  return { getAll, getByName, getOne };
 };

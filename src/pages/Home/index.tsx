@@ -9,12 +9,28 @@ import Tabbar from '../../components/Tabbar';
 import HorizontalScroll from '../../components/HorizontalScroll';
 import CurrentlyReading from '../../components/CurrentlyReading/index';
 import Reviews from '../../components/Reviews/index';
+import SearchScreen from '../../components/SearchScreen';
+import Loading from '../../components/Loading/index';
 
 const Home: React.FC = () => {
   // eslint-disable-next-line
   const [books, setBooks] = useState<any>();
+  // eslint-disable-next-line
+  const [book, setBook] = useState<any>();
+  // eslint-disable-next-line
+  const [search, setSearch] = useState<any>();
   const [loading, setLoading] = useState(true);
-  const { getAll } = useBooks();
+  const { getAll, getByName } = useBooks();
+
+  const handleSearch = (name: string) => {
+    if (name === '') {
+      setSearch(undefined);
+    } else {
+      getByName(name).then((data) => {
+        setSearch(data);
+      });
+    }
+  };
 
   useEffect(() => {
     getAll()
@@ -24,21 +40,36 @@ const Home: React.FC = () => {
       .finally(() => {
         setLoading(false);
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    getByName('Adam Grant')
+      .then((data) => {
+        setBook(data);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   if (loading) {
-    return null;
+    return <Loading />;
   }
 
   return (
     <>
       <Container>
-        <SearchBar />
-        <Title />
-        <HorizontalScroll books={books.data.items} />
-        <CurrentlyReading />
-        <Reviews />
+        <SearchBar onChange={handleSearch} />
+        {search !== undefined ? (
+          <SearchScreen searchResults={search.data.items} />
+        ) : (
+          <>
+            <Title />
+            <HorizontalScroll books={books?.data?.items} />
+            <CurrentlyReading book={book?.data?.items[0]} />
+            <Reviews />
+          </>
+        )}
       </Container>
       <Tabbar />
     </>

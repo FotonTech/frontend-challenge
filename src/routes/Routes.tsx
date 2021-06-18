@@ -9,7 +9,7 @@ const Routes: React.FC = () => {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route path="/libraries" component={Libraries} />
+      <Route path="/libraries/:id" component={Libraries} />
       <Route path="/profile" component={Profile} />
 
       <Redirect to="/" />
