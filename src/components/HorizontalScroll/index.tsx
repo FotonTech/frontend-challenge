@@ -17,7 +17,8 @@ const HorizontalScroll: React.FC<Props> = ({ books }) => {
       <Container>
         {
           // eslint-disable-next-line
-          books ? books.map((item: any, index) => {
+          books
+            ? books.map((item: any, index) => {
                 if (index < 10) {
                   return (
                     <Card

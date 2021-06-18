@@ -18,7 +18,7 @@ const SearchBar: React.FC<Props> = ({ onChange, clearSearch }) => {
   const handleClear = () => {
     setInputValue('');
     clearSearch();
-  }
+  };
 
   return (
     <Container>
