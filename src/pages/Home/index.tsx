@@ -56,10 +56,14 @@ const Home: React.FC = () => {
     return <Loading />;
   }
 
+  const clearSearch = () => {
+    setSearch(undefined);
+  };
+
   return (
     <>
       <Container>
-        <SearchBar onChange={handleSearch} />
+        <SearchBar onChange={handleSearch} clearSearch={clearSearch} />
         {search !== undefined ? (
           <SearchScreen searchResults={search.data.items} />
         ) : (
