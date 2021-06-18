@@ -15,11 +15,12 @@ import { ReactComponent as BookIcon } from '../../../assets/images/tagBook-icon.
 
 interface Props {
   item: BooksModel;
+  to: string;
 }
 
-const Card: React.FC<Props> = ({ item }) => {
+const Card: React.FC<Props> = ({ item, to }) => {
   return (
-    <Container>
+    <Container to={to}>
       <ContentContainer>
         <StyledImg src={item?.volumeInfo?.imageLinks?.smallThumbnail} />
         <InfoContainer>

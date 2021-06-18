@@ -15,6 +15,10 @@ const Reviews: React.FC = () => {
       </StyledTypography>
       <Container>
         <StyledImage src="https://i.imgur.com/VdTrKoe.png" />
+        <StyledImage src="https://i.imgur.com/Y9pU3Q7.png" />
+        <StyledImage src="https://i.imgur.com/Yi0OueN.png" />
+        <StyledImage src="https://i.imgur.com/R5GYz1H.png" />
+        <StyledImage src="https://i.imgur.com/Z7eo4XC.png" />
       </Container>
     </>
   );

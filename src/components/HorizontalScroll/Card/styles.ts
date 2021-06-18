@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(Link)`
   display: inline-block;
   width: ${({ theme }) => theme.spacing(31)}px;
   height: ${({ theme }) => theme.spacing(17)}px;
@@ -11,6 +12,7 @@ export const CardContainer = styled.div`
   margin-right: ${({ theme }) => theme.spacing(2)}px;
   padding: ${({ theme }) => theme.spacing(0, 2)};
   flex-direction: column;
+  text-decoration: none;
 
   :nth-child(even) {
     background-image: url('https://i.imgur.com/QMRoHmy.png');

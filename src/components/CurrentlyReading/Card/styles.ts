@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const Container = styled.div`
+export const Container = styled(Link)`
   display: inline-block;
   width: 90%;
   height: ${({ theme }) => theme.spacing(13)}px;
@@ -10,6 +11,7 @@ export const Container = styled.div`
   border-radius: ${({ theme }) => theme.spacing(1)}px;
   margin-right: ${({ theme }) => theme.spacing(2)}px;
   padding: ${({ theme }) => theme.spacing(0, 2)};
+  text-decoration: none;
 `;
 
 export const ContentContainer = styled.div`

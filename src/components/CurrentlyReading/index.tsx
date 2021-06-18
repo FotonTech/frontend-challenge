@@ -10,13 +10,17 @@ interface Props {
 const CurrentlyReading: React.FC<Props> = ({ book }) => {
   return (
     <>
-      <StyledTypography>
-        <span>Currently Reading</span>
-        <StyledLinkButton>All</StyledLinkButton>
-      </StyledTypography>
-      <Container>
-        <Card item={book} />
-      </Container>
+      {book && (
+        <>
+          <StyledTypography>
+            <span>Currently Reading</span>
+            <StyledLinkButton>All</StyledLinkButton>
+          </StyledTypography>
+          <Container>
+            <Card to={`/libraries/${book.id}`} item={book} />
+          </Container>
+        </>
+      )}
     </>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from './styles';
 
 import { BooksModel } from '../../hooks/utils';
-
+import Loading from '../Loading';
 import BookItem from './BookItem';
 
 interface Props {
@@ -10,6 +10,10 @@ interface Props {
 }
 
 const SearchScreen: React.FC<Props> = ({ searchResults }) => {
+  if (!searchResults) {
+    return <Loading />;
+  }
+
   return (
     <Container>
       {searchResults !== undefined && searchResults !== [] ? (
