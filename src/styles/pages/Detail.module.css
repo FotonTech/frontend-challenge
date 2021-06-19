@@ -1,5 +1,4 @@
-/* Mobile styles */
-
+/* Base styles */
 .container {
   height: 100vh;
   position: relative;
@@ -21,49 +20,22 @@
   margin-left: 33px;
 }
 
-.oval1 {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.oval2 {
-  position: absolute;
-  bottom: 0.11px;
-  right: 89.11px;
-}
-
-.ring {
-  position: absolute;
-  top: 86px;
-  left: 248px;
-}
-
-.solidBlueCircle {
-  position: absolute;
-  top: 115px;
-  left: 74px;
-}
-
-.solidPinkCircle {
-  position: absolute;
-  top: 125px;
-  left: 47px;
-}
-
 .bookCover {
-  position: absolute;
-  bottom: -31px;
-  right: 111px;
+  display: flex;
+  position: fixed;
+  left: 50%;
+  margin-left: -76.5px;
   border-radius: 5px;
 }
 
 .bookCoverShadow {
   width: 146px;
   height: 17px;
-  position: absolute;
-  bottom: -40px;
-  left: 115px;
+  display: flex;
+  position: fixed;
+  top: 305px;
+  left: 50%;
+  margin-left: -73px;
   background: #D8D8D8;
   border-radius: 80%;
   filter: blur(12px);
@@ -118,12 +90,44 @@
   margin-bottom: 20px;
 }
 
+/* Mobile styles */
+.oval1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.oval2 {
+  position: absolute;
+  bottom: 0.11px;
+  right: 89.11px;
+}
+
+.ring {
+  position: absolute;
+  top: 86px;
+  left: 248px;
+}
+
+.solidBlueCircle {
+  position: absolute;
+  top: 115px;
+  left: 74px;
+}
+
+.solidPinkCircle {
+  position: absolute;
+  top: 125px;
+  left: 47px;
+}
+
 .footer {
   width: 335px;
   height: 56px;
   position: absolute;
   bottom: 53px;
-  left: 20px;
+  left: 50%;
+  margin-left: -167.5px;
   display: flex;
   padding: 20px 22px;
   background: #FFFFFF;
@@ -158,13 +162,24 @@
 }
 
 /* Small tablet styles */
-
-@media screen and (min-width: 620px) {}
-
-/* Large tablet & laptop styles */
-
-@media screen and (min-width: 960px) {}
-
-/* Desktop styles */
-
-@media screen and (min-width: 1200px) {}
+@media screen and (min-width: 376px) {
+  .oval1 {
+    display: none;
+  }
+  
+  .oval2 {
+    display: none;
+  }
+  
+  .ring {
+    display: none;
+  }
+  
+  .solidBlueCircle {
+    display: none;
+  }
+  
+  .solidPinkCircle {
+    display: none;
+  }
+}
