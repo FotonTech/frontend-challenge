@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { useHistory } from "react-router";
+import ReactLoading from 'react-loading';
 import axios from "axios";
 
 import { Banner } from "../components/Banner";
@@ -11,6 +12,7 @@ import { SearchBox } from "../components/SearchBox";
 import styles from "../styles/pages/Home.module.css";
 
 import { BookData } from "../types/BookData";
+import React from "react";
 
 export const unknownBookCoverAddress = "https://islandpress.org/sites/default/files/default_book_cover_2015.jpg";
 
@@ -26,6 +28,7 @@ export const Home: FC = () => {
   const [noResultsFound, setNoResultsFound] = useState(false);
   const [loadMoreButton, setLoadMoreButton] = useState(false);
   const [startIndex, setStartIndex] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const searchMainRef = useRef<HTMLElement>(null);
 
@@ -33,6 +36,8 @@ export const Home: FC = () => {
     const bannerQuery = ["hooked", "The one thing gary", "Harry Potter",
       "The little prince", "A tale of two cities", "The Da Vinci code"];
     const currentlyReadingBookQuery = "How Non-Conformists Move the World";
+
+    setLoading(true);
 
     axios.all([
       axios.get(`https://www.googleapis.com/books/v1/volumes?q=${bannerQuery[0]}`),
@@ -43,12 +48,14 @@ export const Home: FC = () => {
       axios.get(`https://www.googleapis.com/books/v1/volumes?q=${bannerQuery[5]}`),
     ])
       .then(axios.spread((res1, res2, res3, res4, res5, res6) => {
-        setBanners(banners => [...banners, res1.data.items[0]])
-        setBanners(banners => [...banners, res2.data.items[2]])
-        setBanners(banners => [...banners, res3.data.items[0]])
-        setBanners(banners => [...banners, res4.data.items[0]])
-        setBanners(banners => [...banners, res5.data.items[0]])
-        setBanners(banners => [...banners, res6.data.items[0]])
+        setBanners(banners => [...banners, res1.data.items[0]]);
+        setBanners(banners => [...banners, res2.data.items[2]]);
+        setBanners(banners => [...banners, res3.data.items[0]]);
+        setBanners(banners => [...banners, res4.data.items[0]]);
+        setBanners(banners => [...banners, res5.data.items[0]]);
+        setBanners(banners => [...banners, res6.data.items[0]]);
+
+        setLoading(false);
       }), error => {
         console.error(error);
       });
@@ -133,6 +140,14 @@ export const Home: FC = () => {
     let roundedNumber = editedNumber.concat("0");
 
     return Number(roundedNumber);
+  }
+
+  if (loading) {
+    return (
+      <div className={styles.loadingContainer}>
+        <ReactLoading type="spin" color="blue" height={'10%'} width={'10%'} />
+      </div>
+    );
   }
 
   return (
@@ -311,7 +326,7 @@ export const Home: FC = () => {
 
                 <div className={styles.chapterInfoText}>
                   Chapter <p style={{ color: "#ff6978", fontWeight: "bold" }}>&nbsp;2&nbsp;</p> From 9
-                </div>
+                  </div>
               </div>
 
               <img className={styles.ring} src="ring.svg" alt="" />
