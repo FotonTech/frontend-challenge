@@ -12,11 +12,17 @@ interface BannerProps {
   showBannerCircle: boolean;
   titleStyle?: CSSProperties;
   authorStyle?: CSSProperties;
+  onClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export const Banner: FC<BannerProps> = (props) => {
   return (
-    <div className={styles.container} style={props.style} tabIndex={props.tabIndex}>
+    <div
+      className={styles.container}
+      style={props.style}
+      tabIndex={props.tabIndex}
+      onClick={props.onClick}
+    >
       {props.showBannerCircle && (
         <svg className={styles.oval2} width="102" height="114" viewBox="0 0 102 114" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
           <circle cx="38.5" cy="63.5" r="63.5" fill="url(#pattern0)" />

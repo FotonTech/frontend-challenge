@@ -88,7 +88,7 @@ export const Home: FC = () => {
     console.log(searchedBooks);
   }
 
-  const handleSearchedBookClick = (book: BookData) => () => {
+  const handleBookClick = (book: BookData) => () => {
     localStorage.setItem("selectedBook", JSON.stringify(book));
     history.push("/book-detail");
   }
@@ -141,7 +141,7 @@ export const Home: FC = () => {
                   src={book.volumeInfo.imageLinks !== undefined ?
                     book.volumeInfo.imageLinks.thumbnail : unknownBookCoverAddress}
                   alt="Book cover"
-                  onClick={handleSearchedBookClick(book)}
+                  onClick={handleBookClick(book)}
                 />
 
                 <div className={styles.tooltip}>
@@ -166,7 +166,6 @@ export const Home: FC = () => {
               </div>
             ))}
           </main>
-
         )
       ) : (
         <main className={styles.initialMain}>
@@ -196,10 +195,11 @@ export const Home: FC = () => {
               hysteresis={0}
               onChangeIndex={(index, indexLatest) => handleSwipe(index, indexLatest)}
             >
-              {banners.map((banner, index) => (
+              {banners.map((book, index) => (
                 <Banner
                   key={index}
                   showBannerCircle={mainIndex === index ? true : false}
+                  onClick={handleBookClick(book)}
                   style={{
                     width: mainIndex === index ? "272px" : "250px",
                     height: mainIndex === index ? "139px" : "128px",
@@ -217,23 +217,27 @@ export const Home: FC = () => {
                     lineHeight: index === mainIndex ? "16.41px" : "14.06px",
                     letterSpacing: index === mainIndex ? "1.29px" : "1.1047619581222534px"
                   }}
-                  bookName={banner.volumeInfo.title !== undefined ? banner.volumeInfo.title : "Unknown title"}
-                  bookAuthor={banner.volumeInfo.authors !== undefined ? banner.volumeInfo.authors[0] : "Unknown author"}
+                  bookName={book.volumeInfo.title !== undefined ? book.volumeInfo.title : "Unknown title"}
+                  bookAuthor={book.volumeInfo.authors !== undefined ? book.volumeInfo.authors[0] : "Unknown author"}
                   pageCount={index === 0 ? 120 : (
                     index === 1 ? 90 : (
-                      banner.volumeInfo.pageCount !== undefined ?
-                        round(banner.volumeInfo.pageCount) : 1
+                      book.volumeInfo.pageCount !== undefined ?
+                        round(book.volumeInfo.pageCount) : 1
                     )
                   )}
-                  bookCover={banner.volumeInfo.imageLinks !== undefined ?
-                    banner.volumeInfo.imageLinks.thumbnail : unknownBookCoverAddress
+                  bookCover={book.volumeInfo.imageLinks !== undefined ?
+                    book.volumeInfo.imageLinks.thumbnail : unknownBookCoverAddress
                   }
                 />
               ))}
             </SwipeableViews>
           </HomeSection>
 
-          <HomeSection sectionLabel="Currently Reading" linkLabel="All">
+          <HomeSection
+            sectionLabel="Currently Reading"
+            linkLabel="All"
+            onClick={handleBookClick(currentlyReadingBook!)}
+          >
             <img
               className={styles.currentlyReadingBookCover}
               width="88px"

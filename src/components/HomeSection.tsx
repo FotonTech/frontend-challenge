@@ -6,6 +6,7 @@ interface HomeSectionProps {
   sectionLabel: string;
   linkLabel: string;
   style?: CSSProperties;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export const HomeSection: FC<HomeSectionProps> = (props) => {
@@ -16,7 +17,7 @@ export const HomeSection: FC<HomeSectionProps> = (props) => {
         <p>{props.linkLabel}</p>
       </header>
 
-      <main>
+      <main onClick={props.onClick}>
         {props.children}
       </main>
 
