@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { useHistory } from "react-router";
 import axios from "axios";
@@ -24,6 +24,10 @@ export const Home: FC = () => {
   const [searchText, setSearchingText] = useState("");
   const [mainIndex, setMiddleIndex] = useState<number>(0);
   const [noResultsFound, setNoResultsFound] = useState(false);
+  const [loadMoreButton, setLoadMoreButton] = useState(false);
+  const [startIndex, setStartIndex] = useState(0);
+
+  const searchMainRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const bannerQuery = ["hooked", "The one thing gary", "Harry Potter",
@@ -56,24 +60,40 @@ export const Home: FC = () => {
         console.error(error);
       })
 
+    if (searchMainRef.current !== null)
+      searchMainRef.current.scrollTop = searchMainRef.current.scrollHeight;
+
     return () => setBanners([]);
   }, []);
 
   useEffect(() => {
     if (searchText.length > 0) {
-      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&maxResults=20`)
+      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&maxResults=10`)
         .then(response => {
           setSearchedBooks(response.data.items !== undefined ? response.data.items : []);
           if (response.data.items === undefined)
             setNoResultsFound(true);
         }, error => {
           console.error(error);
-        })
-      return () => setSearchedBooks([]);
+        });
     }
-  }, [searchText])
 
-  const handleSwipe = (index: number, indexLatest: number) => {
+    return () => setSearchedBooks([]);
+  }, [searchText]);
+
+  useEffect(() => {
+    if (startIndex !== 0) {
+      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&startIndex=${startIndex}&maxResults=10`)
+        .then(response => {
+          const additionalBooks: BookData[] = response.data.items;
+          setSearchedBooks(searchedBooks => [...searchedBooks, ...additionalBooks]);
+        }, error => {
+          console.error(error);
+        });
+    }
+  }, [startIndex]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleBannerSwipe = (index: number, indexLatest: number) => {
     if (index > indexLatest) {
       setMiddleIndex(mainIndex + 1);
     }
@@ -85,12 +105,26 @@ export const Home: FC = () => {
   const handleSearchBoxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchingText(e.target.value);
     setNoResultsFound(false);
-    console.log(searchedBooks);
   }
 
   const handleBookClick = (book: BookData) => () => {
     localStorage.setItem("selectedBook", JSON.stringify(book));
     history.push("/book-detail");
+  }
+
+  const handleSearchMainScroll = () => {
+    if (searchMainRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = searchMainRef.current;
+      if (scrollTop + clientHeight === scrollHeight) {
+        setLoadMoreButton(true);
+      } else {
+        setLoadMoreButton(false);
+      }
+    }
+  }
+
+  const handleLoadMoreClick = () => {
+    setStartIndex(startIndex + 10);
   }
 
   const round = (number: number) => {
@@ -131,41 +165,51 @@ export const Home: FC = () => {
             <p className={styles.noResultsFoundText}>No results found</p>
           </div>
         ) : (
-          <main className={styles.searchMain}>
-            {searchedBooks.map((book, index) => (
-              <div key={index} className={styles.searchedBook}>
-                <img
-                  width="100px"
-                  height="150px"
-                  className={styles.searchedBookCover}
-                  src={book.volumeInfo.imageLinks !== undefined ?
-                    book.volumeInfo.imageLinks.thumbnail : unknownBookCoverAddress}
-                  alt="Book cover"
-                  onClick={handleBookClick(book)}
-                />
+          <>
+            <main className={styles.searchMain} ref={searchMainRef} onScroll={handleSearchMainScroll}>
+              {searchedBooks.map((book, index) => (
+                <div key={index} className={styles.searchedBook}>
+                  <img
+                    width="100px"
+                    height="150px"
+                    className={styles.searchedBookCover}
+                    src={book.volumeInfo.imageLinks !== undefined ?
+                      book.volumeInfo.imageLinks.thumbnail : unknownBookCoverAddress}
+                    alt="Book cover"
+                    onClick={handleBookClick(book)}
+                  />
 
-                <div className={styles.tooltip}>
-                  <p className={styles.title}>
-                    {book.volumeInfo.title !== undefined ? book.volumeInfo.title : "Unknown title"}
-                  </p>
+                  <div className={styles.tooltip}>
+                    <p className={styles.title}>
+                      {book.volumeInfo.title !== undefined ? book.volumeInfo.title : "Unknown title"}
+                    </p>
 
-                  <span className={styles.tooltiptext}>
-                    {book.volumeInfo.title !== undefined ? book.volumeInfo.title : "Unknown title"}
-                  </span>
+                    <span className={styles.tooltiptext}>
+                      {book.volumeInfo.title !== undefined ? book.volumeInfo.title : "Unknown title"}
+                    </span>
+                  </div>
+
+                  <div className={styles.tooltip}>
+                    <p className={styles.author}>
+                      by {book.volumeInfo.authors !== undefined ? book.volumeInfo.authors[0] : "unknown author"}
+                    </p>
+
+                    <span className={styles.tooltiptext}>
+                      by {book.volumeInfo.authors !== undefined ? book.volumeInfo.authors[0] : "unknown author"}
+                    </span>
+                  </div>
                 </div>
+              ))}
 
-                <div className={styles.tooltip}>
-                  <p className={styles.author}>
-                    by {book.volumeInfo.authors !== undefined ? book.volumeInfo.authors[0] : "unknown author"}
-                  </p>
-
-                  <span className={styles.tooltiptext}>
-                    by {book.volumeInfo.authors !== undefined ? book.volumeInfo.authors[0] : "unknown author"}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </main>
+              {loadMoreButton && <button
+                type="button"
+                className={styles.loadMoreButton}
+                onClick={handleLoadMoreClick}
+              >
+                Load more
+              </button>}
+            </main>
+          </>
         )
       ) : (
         <main className={styles.initialMain}>
@@ -193,7 +237,7 @@ export const Home: FC = () => {
               }}
               enableMouseEvents
               hysteresis={0}
-              onChangeIndex={(index, indexLatest) => handleSwipe(index, indexLatest)}
+              onChangeIndex={(index, indexLatest) => handleBannerSwipe(index, indexLatest)}
             >
               {banners.map((book, index) => (
                 <Banner

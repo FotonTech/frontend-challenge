@@ -5,6 +5,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .header {
@@ -159,9 +160,9 @@
   margin: auto;
 }
 
-.searchMain .searchedBook .tooltip:hover {
+.searchMain .searchedBook .tooltip {
   position: relative;
-  display: inline-block;
+  display: flex;
 }
 
 .searchMain .searchedBook .tooltip .tooltiptext {
@@ -247,6 +248,22 @@
   font-size: 18px;
   color: rgba(49, 49, 49, 0.8);
   margin-top: 15px;
+}
+
+.loadMoreButton {
+  font-family: SFProDisplay-Regular;
+  font-style: normal;
+  position: absolute;
+  bottom: 65px;
+  left: 50%;
+  margin-left: -50px;
+  width: 100px;
+  height: 20px;
+  background-color: #00173d;
+  border-style: none;
+  border-radius: 50px;
+  opacity: 0.8;
+  color: #FFFFFF;
 }
 
 .footer {

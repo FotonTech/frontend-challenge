@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
-import { BottomMenu } from '../components/BottomMenu';
 import { unknownBookCoverAddress } from './Home';
 
 import styles from '../styles/pages/Detail.module.css';
