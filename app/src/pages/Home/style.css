@@ -1,0 +1,125 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--background);
+    width: 100%;
+    min-height: 100vh;
+    height: min-content;
+}
+
+.userTitleContainer {
+    display: flex;
+    align-items: flex-end;
+    width: 90%;
+    height: 1.81rem;
+    margin-top: 1.87rem;
+    font-size: 1.5rem;
+    color: var(--light-grey);
+}
+.userTitleName {
+    margin-left: 0.2rem;
+    color: var(--pastel-red);
+}
+
+.subTitleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 90%;
+    height: 1.31rem;
+    margin-top: 1.87rem;
+    font-size: 1.12rem;
+    color: var(--grey);
+}
+
+.subTitleSecondText {
+    color: var(--light-blue);
+    font-size: 0.87rem;
+}
+
+.bookCardContainer {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 8.68rem;
+    overflow-x: auto;
+    margin-top: 0.93rem;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 17rem;
+    width: 17rem;
+    min-height: 8.68rem;
+    border-radius: 5px;
+    background: #00173d;
+    margin-left: 5%;
+    background-image: url(../../assets/Oval.png);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+}
+
+.triangleCardImg {
+    position: absolute;
+    top: 2.6%;
+    right: 25%;
+}
+
+.circleCardImg {
+    position: absolute;
+    top: 10.5%;
+    right: 39.5%;
+}
+
+.rectangleCardImg {
+    position: absolute;
+    right: 30%;
+    bottom: 27%;
+}
+
+.cardContentContainer {
+    display: flex;
+    width: 85%;
+    height: 6.68rem;
+    justify-content: space-between;
+}
+
+.cardTextContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 6.68rem;
+}
+
+.cardTitleContainer {
+    color: var(--book-white);
+}
+
+.cardTitle {
+    font-size: 1.68rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 36px;
+}
+
+.cardAuthor {
+    font-size: 0.87rem;
+    line-height: 16px;
+    letter-spacing: 1.28px;
+    color: var(--author-white);
+}
+
+.graphicTextContainer {
+    display: flex;
+    align-items: center;
+    font-size: 0.62rem;
+    color: var(--author-white);
+}
+
+.graphicImg {
+    margin-right: 0.2rem;
+}
