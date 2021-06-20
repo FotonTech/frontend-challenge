@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Roboto&display=swap');
+
+.Home {
+  width: 100%;
+  height: 100%;
+}
+
+.Home h1 {
+  font-size: 24px;
+  color: #54565A;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+.Home h1 span {
+  color: #FF6978;
+}
+
+.Home h1 img {
+  padding-left: 10px;
+}
+
+.HomeSections .HomeSectionsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.HomeSections .HomeSectionsHeader h2 {
+  font-size: 18px;
+  color: #3F4043;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.HomeSections .HomeSectionsHeader a {
+  font-size: 14px;
+  color: #4ABDF1;
+  text-decoration: none;
+}
+
+.DiscoverBooks {
+  margin-top: -30px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.FirstBook {
+  width: 272px;
+  height: 139px;
+}
+
+.FirstBook img {
+  width: 272px;
+  height: 139px;
+}
+
+.SecondBook {
+  width: 256px;
+  height: 167px;
+}
+
+.SecondBook img {
+  width: 256px;
+  height: 167px;
+}
+
+.CurrentlyReading {
+  position: relative;
+  z-index: 1;
+}
+
+.BannerImage {
+  position: absolute;
+  z-index: -1; 
+  width: 331px;
+  height: 150px;
+  margin-top: 10px;
+  margin-left: -48px;
+}
+
+.CurrentlyReadingInfo {
+  display: flex;
+  z-index: 4;
+}
+
+.CurrentlyReadingInfo img {
+  width: 88px;
+  height: 130px;
+}
+
+.CurrentlyReadingDetails {
+  margin-top: 30px;
+  margin-left: 10px;
+  width: 175px;
+}
+
+.CurrentlyReadingDetails h3 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 20px;
+  font-family: 'Playfair Display';
+  font-weight: 800;
+  color: #2A2B26;
+}
+
+.CurrentlyReadingDetails p {
+  font-family: 'Roboto';
+  font-weight: 400;
+  margin: 0;
+  font-size: 10px;
+  color: #74776D;
+}
+
+.ChaptersRead {
+  display: flex;
+  margin-top: 22px;
+}
+
+.ChaptersRead img {
+  width: 16px;
+  height: 16px;
+}
+
+.ChaptersRead p {
+  font-weight: 700;
+  color: #2A2B26;
+}
+
+.ChaptersRead p span {
+  color: #FF6978;
+}
+
+.Review img {
+  width: 100%;
+  height: 188px;
+}
+
+.ReviewInfo {
+  width: 100%;
+  height: 86px;
+  padding: 12px;
+}
+
+.ReviewInfo h3 {
+  font-size: 12px;
+  font-weight: bold;
+  color: #313131;
+  margin: 0;
+}
+
+.ReviewVideoDetails {
+  display: flex;
+}
+
+.ReviewVideoDetails p {
+  font-size: 8px;
+  color: rgba(106, 103, 103, 0.8);
+  margin: 6px 15px 0 0;
+}
+
+.ReviewVideoDescription p {
+  font-size: 10px;
+  color: rgba(107, 107, 107, 0.8);
+}
