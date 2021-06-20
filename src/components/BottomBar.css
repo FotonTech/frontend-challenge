@@ -1,0 +1,27 @@
+.BottomBar {
+  position: fixed;
+  width: 375px !important;
+  height: 60px;
+  background-color: #FFFCF9;
+  bottom: 0;
+  margin-left: -20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.BottomBarButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.BottomBarButton div p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+.ActiveButton p {
+  color: black;
+}
