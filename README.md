@@ -10,4 +10,4 @@ $ yarn add
 # Run the project
 $ yarn start
 
-## The project was made using Iphone X viewport as reference
+### The project was made using Iphone X viewport as reference.
