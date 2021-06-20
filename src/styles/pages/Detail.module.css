@@ -1,0 +1,224 @@
+.container {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  position: relative;
+  min-height: 282px;
+  background: #FFF6E5;
+  border-radius: 0px 0px 100px 0px;
+  margin-bottom: 62px;
+}
+
+.backButton {
+  cursor: pointer;
+  margin-top: 55px;
+  margin-left: 33px;
+}
+
+.bookCover {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  margin-left: -76.5px;
+  border-radius: 5px;
+}
+
+.bookCoverShadow {
+  width: 146px;
+  height: 17px;
+  display: flex;
+  position: absolute;
+  top: 305px;
+  left: 50%;
+  margin-left: -73px;
+  background: #D8D8D8;
+  border-radius: 80%;
+  filter: blur(12px);
+}
+
+.main {
+  padding: 0 20px;
+  padding-bottom: 59px;
+  height: 100%;
+}
+
+.bookTitleAndSubtitle {
+  font-family: SFProDisplay-Bold;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 28.64px;
+  letter-spacing: 1.5px;
+  color: #36383A;
+}
+
+.bookSubtitle {
+  font-family: SFProDisplay-Regular;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 28.64px;
+  letter-spacing: 0.5px;
+  color: #36383A;
+}
+
+.bookAuthor {
+  font-family: SFProDisplay-Regular;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.670588px;
+  color: #FF6978;
+  margin-top: 7px;
+}
+
+.bookDescriptionContainer {
+  height: 275px;
+  overflow-y: scroll;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.bookDescriptionSentence {
+  font-family: SFProText-Regular;
+  font-size: 14px;
+  line-height: 25px;
+  letter-spacing: 0.2px;
+  color: rgba(49, 49, 49, 0.6);
+  margin-bottom: 20px;
+}
+
+/* Mobile styles */
+
+.oval1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.oval2 {
+  position: absolute;
+  bottom: 0.11px;
+  right: 89.11px;
+}
+
+.ring {
+  position: absolute;
+  top: 86px;
+  left: 248px;
+}
+
+.solidBlueCircle {
+  position: absolute;
+  top: 115px;
+  left: 74px;
+}
+
+.solidPinkCircle {
+  position: absolute;
+  top: 125px;
+  left: 47px;
+}
+
+.footer {
+  width: 335px;
+  height: 56px;
+  position: absolute;
+  bottom: 53px;
+  left: 50%;
+  margin-left: -167.5px;
+  display: flex;
+  padding: 20px 22px;
+  background: #FFFFFF;
+  box-shadow: 3px 3px 23px rgba(107, 103, 70, 0.125901);
+}
+
+.readOptionContainer {
+  display: flex;
+  border-right: 1px solid rgba(151, 151, 151, 0.2);
+  cursor: pointer;
+}
+
+.readOptionContainer:hover {
+  opacity: 0.5;
+}
+
+.listenOptionContainer {
+  display: flex;
+  margin-left: 26px;
+  border-right: 1px solid rgba(151, 151, 151, 0.2);
+  cursor: pointer;
+}
+
+.listenOptionContainer:hover {
+  opacity: 0.5;
+}
+
+.shareOptionContainer {
+  display: flex;
+  margin-left: 26px;
+  cursor: pointer;
+}
+
+.shareOptionContainer:hover {
+  opacity: 0.5;
+}
+
+.footerOptionText {
+  font-family: SFProDisplay-Bold;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 1px;
+  color: #3F4043;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 376px) {
+  .oval1 {
+    display: none;
+  }
+  .oval2 {
+    display: none;
+  }
+  .ring {
+    display: none;
+  }
+  .solidBlueCircle {
+    display: none;
+  }
+  .solidPinkCircle {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .container {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+  }
+  .main {
+    padding: 0 20px;
+    padding-bottom: 0;
+    height: 100%;
+  }
+  .bookDescriptionContainer {
+    height: 100%;
+  }
+  .footer {
+    display: flex;
+    position: absolute;
+    top: 330px;
+    left: 81%;
+    margin-left: -167.5px;
+    padding: 20px 22px;
+    background: #FFFFFF;
+    box-shadow: 3px 3px 23px rgba(107, 103, 70, 0.125901);
+  }
+}

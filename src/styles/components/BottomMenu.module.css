@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+  height: 59px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #FFFFFF;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  stroke: #BFBEBF;
+  color: #BFBEBF;
+}
+
+.label {
+  font-family: SFProDisplay-Regular;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0px;
+  color: inherit;
+}
+
+.label.selected {
+  font-size: 10px;
+}

@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: SFProText-Regular;
+  src: url("./fonts/SFProText/SFProText-Regular.ttf");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: SFProText-Bold;
+  src: url("./fonts/SFProText/SFProText-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: SFProDisplay-Regular;
+  src: url("./fonts/SFProDisplay/SFProDisplay-Regular.ttf");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: SFProDisplay-Semibold;
+  src: url("./fonts/SFProDisplay/SFProDisplay-Semibold.ttf");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: SFProDisplay-Bold;
+  src: url("./fonts/SFProDisplay/SFProDisplay-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --search-background-color: #FDFCFC;
+  --home-title-color: #3F4043;
+  --banner-primary-color: #FEFEFE;
+  --banner-secondary-color: #E7E7E1;
+  --primary-banner-backgorund-color: #00173D;
+  --secondary-banner-background-color: #451475f6;
+  --link-color: #4ABDF1;
+  --detail-page-pink: #FF6978;
+  --search-page-text-color: rgba(49, 49, 49, 0.8);
+  --menu-text-color: #313131;
+  --menu-grey: #BFBEBF;
+}
+
+html, body {
+  height: 100%;
+  background-color: #FFFCF9;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

@@ -1,0 +1,354 @@
+.loadingContainer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  margin: 50px 20px 15px;
+}
+
+.searchAndMenuContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu {
+  display: none;
+}
+
+.initialMain {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-bottom: 20px;
+}
+
+.welcomeMessage {
+  display: flex;
+  margin-top: 30px;
+}
+
+.welcomeMessage>p:first-of-type {
+  font-family: SFProDisplay-Regular;
+  font-size: 24px;
+  line-height: 28.64px;
+  color: #54565A;
+}
+
+.welcomeMessage>p:nth-child(2) {
+  font-family: SFProDisplay-Semibold;
+  font-size: 24px;
+  line-height: 28.64px;
+  color: #ff6a79;
+  margin-right: 11px;
+}
+
+.oval1 {
+  position: absolute;
+  top: 3px;
+  right: 0;
+}
+
+.currentlyReading {
+  position: relative;
+  width: 331px;
+  min-height: 100px;
+  background: #EEF5DB;
+  box-shadow: 0px 3px 45px rgba(121, 141, 67, 0.115084);
+  border-radius: 0px 3px 3px 0px;
+  padding: 10px 0 10px 118px;
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+.currentlyReading .title {
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: 2px;
+  color: #2A2B26;
+  margin-bottom: 5px;
+}
+
+.currentlyReading .author {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 11.72px;
+  color: #74776D;
+  margin-bottom: 20px;
+}
+
+.currentlyReading .chapterInfo {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.currentlyReading .chapterInfoText {
+  font-family: SFProDisplay-Regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.020635px;
+  color: #2A2B26;
+  display: flex;
+  margin-left: 3px;
+}
+
+.currentlyReadingBookCover {
+  position: absolute;
+  z-index: 1;
+  top: 36px;
+  left: 20px;
+  filter: drop-shadow(5px 7px 32px rgba(140, 170, 58, 0.193701));
+}
+
+.currentlyReading .ring {
+  position: absolute;
+  left: 223px;
+  top: -6px;
+}
+
+.currentlyReading .oval2 {
+  position: absolute;
+  right: -22px;
+  top: 22px;
+}
+
+.currentlyReading .oval3 {
+  position: absolute;
+  top: -19px;
+  right: -33px;
+}
+
+.rectangle {
+  position: absolute;
+  right: -22.8px;
+  bottom: 20.5px;
+}
+
+.oval {
+  position: absolute;
+  top: -19px;
+  right: -33px;
+}
+
+.videoThumbnail {
+  margin-left: 20px;
+}
+
+.searchMain {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 14px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.searchMain .searchedBook {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchMain .searchedBook .searchedBookCover {
+  border-radius: 5px;
+  margin: auto;
+}
+
+.searchMain .searchedBook .tooltip {
+  position: relative;
+  display: flex;
+}
+
+.searchMain .searchedBook .tooltip .tooltiptext {
+  font-family: SFProDisplay-Regular;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: rgba(49, 49, 49, 0.8);
+  visibility: hidden;
+  width: 120px;
+  background-color: #555555;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.searchMain .searchedBook .tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555555 transparent transparent transparent;
+}
+
+.searchMain .searchedBook .tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.searchMain .searchedBook .title {
+  font-family: SFProDisplay-Bold;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: rgba(49, 49, 49, 0.8);
+  margin-top: 10px;
+  margin-bottom: 5px;
+  max-width: 100px;
+  max-height: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  display: inline-block;
+}
+
+.searchMain .searchedBook .author {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 10px;
+  line-height: 12px;
+  color: rgba(49, 49, 49, 0.8);
+  max-width: 100px;
+  max-height: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.noResultsFoundContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.noResultsFoundText {
+  font-family: SFProDisplay-Bold;
+  font-style: normal;
+  font-size: 18px;
+  color: rgba(49, 49, 49, 0.8);
+  margin-top: 15px;
+}
+
+.loadMoreButton {
+  font-family: SFProDisplay-Regular;
+  font-style: normal;
+  position: absolute;
+  bottom: 65px;
+  left: 50%;
+  margin-left: -50px;
+  width: 100px;
+  height: 40px;
+  background-color: #00173d;
+  border-style: none;
+  border-radius: 50px;
+  opacity: 0.8;
+  color: #FFFFFF;
+}
+
+.swipeableContainer {
+  height: 139px;
+}
+
+.booksGrid {
+  display: none;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+@media screen and (min-width: 376px) {
+  .oval1 {
+    display: none;
+  }
+  .swipeableContainer {
+    display: none;
+  }
+  .booksGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+  .searchMain {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .container {
+    padding: 0 12px;
+  }
+  footer {
+    display: none;
+  }
+  .menu {
+    display: flex;
+    gap: 32px;
+    margin-left: 32px;
+  }
+  .menu p {
+    font-family: SFProDisplay-Semibold;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .menu p:hover {
+    text-decoration: underline;
+  }
+  .loadMoreButton {
+    bottom: 20px;
+    cursor: pointer;
+    transition: 150ms ease-in-out;
+  }
+  .loadMoreButton:hover {
+    transform: scale(1.15);
+  }
+  .loadMoreButton:active {
+    transform: scale(0.9);
+  }
+}
