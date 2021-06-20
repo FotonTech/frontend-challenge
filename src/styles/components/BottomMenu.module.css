@@ -1,5 +1,3 @@
-/* Mobile styles */
-
 .container {
   width: 100%;
   height: 59px;
@@ -29,15 +27,3 @@
 .label.selected {
   font-size: 10px;
 }
-
-/* Small tablet styles */
-
-@media screen and (min-width: 620px) {}
-
-/* Large tablet & laptop styles */
-
-@media screen and (min-width: 960px) {}
-
-/* Desktop styles */
-
-@media screen and (min-width: 1200px) {}

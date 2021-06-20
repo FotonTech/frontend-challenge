@@ -1,7 +1,8 @@
 import { FC, useState } from "react";
+
 import styles from "../styles/components/BottomMenu.module.css";
 
-export const BottomMenu: FC = (props) => {
+export const BottomMenu: FC = () => {
   const [selectedPage, setSelectedPage] = useState("home");
 
   return (

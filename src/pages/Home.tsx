@@ -1,3 +1,4 @@
+import { ChangeEvent } from "react";
 import { FC, useEffect, useRef, useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { useHistory } from "react-router";
@@ -12,7 +13,6 @@ import { SearchBox } from "../components/SearchBox";
 import styles from "../styles/pages/Home.module.css";
 
 import { BookData } from "../types/BookData";
-import React from "react";
 
 export const unknownBookCoverAddress = "https://islandpress.org/sites/default/files/default_book_cover_2015.jpg";
 
@@ -109,7 +109,7 @@ export const Home: FC = () => {
     }
   }
 
-  const handleSearchBoxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchBoxChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchingText(e.target.value);
     setNoResultsFound(false);
   }
@@ -145,7 +145,7 @@ export const Home: FC = () => {
   if (loading) {
     return (
       <div className={styles.loadingContainer}>
-        <ReactLoading type="spin" color="#00173d" height={'5%'} width={'5%'} />
+        <ReactLoading type="spin" color="#192c64" height={'5%'} width={'5%'} />
       </div>
     );
   }
@@ -187,12 +187,21 @@ export const Home: FC = () => {
       {searchText.length > 0 ? (
         noResultsFound ? (
           <div className={styles.noResultsFoundContainer}>
-            <img width="64px" height="64px" src="nothing-found.png" alt="" />
+            <img
+              width="64px"
+              height="64px"
+              src="nothing-found.png"
+              alt=""
+            />
             <p className={styles.noResultsFoundText}>No results found</p>
           </div>
         ) : (
           <>
-            <main className={styles.searchMain} ref={searchMainRef} onScroll={handleSearchMainScroll}>
+            <main
+              className={styles.searchMain}
+              ref={searchMainRef}
+              onScroll={handleSearchMainScroll}
+            >
               {searchedBooks.map((book, index) => (
                 <div key={index} className={styles.searchedBook}>
                   <img
@@ -239,7 +248,11 @@ export const Home: FC = () => {
         )
       ) : (
         <main className={styles.initialMain}>
-          <HomeSection sectionLabel="Discover new book" linkLabel="More" style={{ marginTop: "15px" }}>
+          <HomeSection
+            sectionLabel="Discover new book"
+            linkLabel="More"
+            style={{ marginTop: "15px" }}
+          >
             <svg className={styles.oval1} width="80" height="127" viewBox="0 0 80 127" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
               <circle cx="63.5" cy="63.5" r="63.5" fill="url(#pattern0)" />
               <defs>
@@ -377,13 +390,20 @@ export const Home: FC = () => {
                   </div>
               </div>
 
-              <img className={styles.ring} src="ring.svg" alt="" />
+              <img
+                className={styles.ring}
+                src="ring.svg" alt=""
+              />
 
               <svg className={styles.oval2} width="116" height="116" viewBox="0 0 116 116" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="58" cy="58" r="58" fill="#D6D1B1" fillOpacity="0.09" />
               </svg>
 
-              <img className={styles.rectangle} src="rectangle.svg" alt="" />
+              <img
+                className={styles.rectangle}
+                src="rectangle.svg"
+                alt=""
+              />
 
               <svg className={styles.oval3} width="69" height="69" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <circle cx="34.5" cy="34.5" r="34.5" fill="url(#pattern0)" />
@@ -402,7 +422,11 @@ export const Home: FC = () => {
             linkLabel="All Video"
             style={{ marginTop: "45px" }}
           >
-            <img className={styles.videoThumbnail} src="video-thumbnail.png" alt="Video thumbnail" />
+            <img
+              className={styles.videoThumbnail}
+              src="video-thumbnail.png"
+              alt="Video thumbnail"
+            />
           </HomeSection>
         </main>
       )}

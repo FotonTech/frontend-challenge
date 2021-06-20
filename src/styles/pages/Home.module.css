@@ -1,5 +1,3 @@
-/* Base styles */
-
 .loadingContainer {
   height: 100vh;
   display: flex;
@@ -354,11 +352,3 @@
     transform: scale(0.9);
   }
 }
-
-/* Large tablet & laptop styles */
-
-@media screen and (min-width: 960px) {}
-
-/* Desktop styles */
-
-@media screen and (min-width: 1200px) {}

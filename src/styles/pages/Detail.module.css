@@ -1,4 +1,3 @@
-/* Base styles */
 .container {
   height: 100vh;
   position: relative;
@@ -23,7 +22,7 @@
 
 .bookCover {
   display: flex;
-  position: fixed;
+  position: absolute;
   left: 50%;
   margin-left: -76.5px;
   border-radius: 5px;
@@ -33,7 +32,7 @@
   width: 146px;
   height: 17px;
   display: flex;
-  position: fixed;
+  position: absolute;
   top: 305px;
   left: 50%;
   margin-left: -73px;
@@ -92,6 +91,7 @@
 }
 
 /* Mobile styles */
+
 .oval1 {
   position: absolute;
   top: 0;
@@ -138,17 +138,32 @@
 .readOptionContainer {
   display: flex;
   border-right: 1px solid rgba(151, 151, 151, 0.2);
+  cursor: pointer;
+}
+
+.readOptionContainer:hover {
+  opacity: 0.5;
 }
 
 .listenOptionContainer {
   display: flex;
   margin-left: 26px;
   border-right: 1px solid rgba(151, 151, 151, 0.2);
+  cursor: pointer;
+}
+
+.listenOptionContainer:hover {
+  opacity: 0.5;
 }
 
 .shareOptionContainer {
   display: flex;
   margin-left: 26px;
+  cursor: pointer;
+}
+
+.shareOptionContainer:hover {
+  opacity: 0.5;
 }
 
 .footerOptionText {
@@ -162,25 +177,48 @@
   padding-right: 20px;
 }
 
-/* Small tablet styles */
 @media screen and (min-width: 376px) {
   .oval1 {
     display: none;
   }
-  
   .oval2 {
     display: none;
   }
-  
   .ring {
     display: none;
   }
-  
   .solidBlueCircle {
     display: none;
   }
-  
   .solidPinkCircle {
     display: none;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .container {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+  }
+  .main {
+    padding: 0 20px;
+    padding-bottom: 0;
+    height: 100%;
+  }
+  .bookDescriptionContainer {
+    height: 100%;
+  }
+  .footer {
+    display: flex;
+    position: absolute;
+    top: 330px;
+    left: 81%;
+    margin-left: -167.5px;
+    padding: 20px 22px;
+    background: #FFFFFF;
+    box-shadow: 3px 3px 23px rgba(107, 103, 70, 0.125901);
   }
 }

@@ -20,7 +20,6 @@ export const HomeSection: FC<HomeSectionProps> = (props) => {
       <main onClick={props.onClick}>
         {props.children}
       </main>
-
     </div>
   );
 }

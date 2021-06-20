@@ -36,6 +36,7 @@ export const Banner: FC<BannerProps> = (props) => {
       )}
 
       <p className={styles.title} style={props.titleStyle}>{props.bookName}</p>
+
       <p className={styles.author} style={props.authorStyle}>{props.bookAuthor}</p>
 
       <div className={styles.pageCount}>
@@ -51,16 +52,27 @@ export const Banner: FC<BannerProps> = (props) => {
         <p className={styles.pageCountText}>Read Now</p>
       </div>
 
-      <img className={styles.bookCover} src={props.bookCover} alt="Book cover" />
+      <img
+        className={styles.bookCover}
+        src={props.bookCover}
+        alt="Book cover"
+      />
 
       <svg className={styles.triangle} width="34" height="30" viewBox="0 0 34 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fillRule="evenodd" clipRule="evenodd" d="M3.81349 0.795898L0.5 29.0133L33.3682 7.67883L3.81349 0.795898Z" fill="#FCBC48" />
       </svg>
 
-      <img className={styles.rectangle} src="rectangle.svg" alt="" />
+      <img
+        className={styles.rectangle}
+        src="rectangle.svg"
+        alt=""
+      />
 
-      <img className={styles.ring} src="ring.svg" alt="" />
-
+      <img
+        className={styles.ring}
+        src="ring.svg"
+        alt=""
+      />
     </div>
   );
 }
