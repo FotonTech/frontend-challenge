@@ -20,7 +20,7 @@ export const Home: FC = () => {
   const userName = "Mehmed AI Fatih";
   const history = useHistory();
 
-  const [banners, setBanners] = useState<BookData[]>([]);
+  const [bannersBooks, setBannersBooks] = useState<BookData[]>([]);
   const [currentlyReadingBook, setCurrentlyReadingBook] = useState<BookData>();
   const [searchedBooks, setSearchedBooks] = useState<BookData[]>([]);
   const [searchText, setSearchingText] = useState("");
@@ -48,12 +48,12 @@ export const Home: FC = () => {
       axios.get(`https://www.googleapis.com/books/v1/volumes?q=${bannerQuery[5]}`),
     ])
       .then(axios.spread((res1, res2, res3, res4, res5, res6) => {
-        setBanners(banners => [...banners, res1.data.items[0]]);
-        setBanners(banners => [...banners, res2.data.items[2]]);
-        setBanners(banners => [...banners, res3.data.items[0]]);
-        setBanners(banners => [...banners, res4.data.items[0]]);
-        setBanners(banners => [...banners, res5.data.items[0]]);
-        setBanners(banners => [...banners, res6.data.items[0]]);
+        setBannersBooks(bannersBooks => [...bannersBooks, res1.data.items[0]]);
+        setBannersBooks(bannersBooks => [...bannersBooks, res2.data.items[2]]);
+        setBannersBooks(bannersBooks => [...bannersBooks, res3.data.items[0]]);
+        setBannersBooks(bannersBooks => [...bannersBooks, res4.data.items[0]]);
+        setBannersBooks(bannersBooks => [...bannersBooks, res5.data.items[0]]);
+        setBannersBooks(bannersBooks => [...bannersBooks, res6.data.items[0]]);
 
         setLoading(false);
       }), error => {
@@ -70,12 +70,12 @@ export const Home: FC = () => {
     if (searchMainRef.current !== null)
       searchMainRef.current.scrollTop = searchMainRef.current.scrollHeight;
 
-    return () => setBanners([]);
+    return () => setBannersBooks([]);
   }, []);
 
   useEffect(() => {
     if (searchText.length > 0) {
-      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&maxResults=10`)
+      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&maxResults=40`)
         .then(response => {
           setSearchedBooks(response.data.items !== undefined ? response.data.items : []);
           if (response.data.items === undefined)
@@ -90,7 +90,7 @@ export const Home: FC = () => {
 
   useEffect(() => {
     if (startIndex !== 0) {
-      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&startIndex=${startIndex}&maxResults=10`)
+      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}&startIndex=${startIndex}&maxResults=40`)
         .then(response => {
           const additionalBooks: BookData[] = response.data.items;
           setSearchedBooks(searchedBooks => [...searchedBooks, ...additionalBooks]);
@@ -131,7 +131,7 @@ export const Home: FC = () => {
   }
 
   const handleLoadMoreClick = () => {
-    setStartIndex(startIndex + 10);
+    setStartIndex(startIndex + 40);
   }
 
   const round = (number: number) => {
@@ -145,7 +145,7 @@ export const Home: FC = () => {
   if (loading) {
     return (
       <div className={styles.loadingContainer}>
-        <ReactLoading type="spin" color="blue" height={'10%'} width={'10%'} />
+        <ReactLoading type="spin" color="#00173d" height={'5%'} width={'5%'} />
       </div>
     );
   }
@@ -153,11 +153,22 @@ export const Home: FC = () => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <SearchBox
-          placeholder="Search book"
-          value={searchText}
-          onChange={e => handleSearchBoxChange(e)}
-        />
+        <div className={styles.searchAndMenuContainer}>
+          <SearchBox
+            placeholder="Search book"
+            value={searchText}
+            onChange={e => handleSearchBoxChange(e)}
+          />
+
+          <div className={styles.menu}>
+            <p>Home</p>
+            <p>About</p>
+            <p>Libraries</p>
+            <p>FAQ</p>
+            <p>Contact</p>
+            <p>Profile</p>
+          </div>
+        </div>
 
         {searchText.length === 0 && (
           <div className={styles.welcomeMessage}>
@@ -240,6 +251,7 @@ export const Home: FC = () => {
             </svg>
 
             <SwipeableViews
+              className={styles.swipeableContainer}
               style={{
                 width: "80vw",
                 paddingLeft: "20px",
@@ -254,7 +266,7 @@ export const Home: FC = () => {
               hysteresis={0}
               onChangeIndex={(index, indexLatest) => handleBannerSwipe(index, indexLatest)}
             >
-              {banners.map((book, index) => (
+              {bannersBooks.map((book, index) => (
                 <Banner
                   key={index}
                   showBannerCircle={mainIndex === index ? true : false}
@@ -290,6 +302,42 @@ export const Home: FC = () => {
                 />
               ))}
             </SwipeableViews>
+
+            <div className={styles.booksGrid}>
+              {bannersBooks.map((book, index) => (
+                <Banner
+                  key={index}
+                  showBannerCircle={mainIndex === index ? true : false}
+                  onClick={handleBookClick(book)}
+                  style={{
+                    width: "272px",
+                    height: "139px",
+                    padding: "17px 20px 22px 20px",
+                    background: "var(--primary-banner-backgorund-color)"
+                  }}
+                  titleStyle={{
+                    fontSize: "27px",
+                    lineHeight: "35.99px",
+                  }}
+                  authorStyle={{
+                    fontSize: "14px",
+                    lineHeight: "16.41px",
+                    letterSpacing: "1.29px"
+                  }}
+                  bookName={book.volumeInfo.title !== undefined ? book.volumeInfo.title : "Unknown title"}
+                  bookAuthor={book.volumeInfo.authors !== undefined ? book.volumeInfo.authors[0] : "Unknown author"}
+                  pageCount={index === 0 ? 120 : (
+                    index === 1 ? 90 : (
+                      book.volumeInfo.pageCount !== undefined ?
+                        round(book.volumeInfo.pageCount) : 1
+                    )
+                  )}
+                  bookCover={book.volumeInfo.imageLinks !== undefined ?
+                    book.volumeInfo.imageLinks.thumbnail : unknownBookCoverAddress
+                  }
+                />
+              ))}
+            </div>
           </HomeSection>
 
           <HomeSection

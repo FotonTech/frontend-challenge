@@ -19,7 +19,7 @@ export const Detail: FC = () => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <svg onClick={() => history.push("/")} className={styles.backIcon} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg onClick={() => history.push("/")} className={styles.backButton} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 8H1" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           <path d="M8 15L1 8L8 1" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -45,7 +45,7 @@ export const Detail: FC = () => {
         </svg>
 
         <svg className={styles.ring} width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="13" cy="13" r="12" stroke="#4550A7" stroke-width="2" />
+          <circle cx="13" cy="13" r="12" stroke="#4550A7" strokeWidth="2" />
         </svg>
 
         <svg className={styles.solidBlueCircle} width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">

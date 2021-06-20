@@ -15,7 +15,8 @@
   margin-bottom: 62px;
 }
 
-.backIcon {
+.backButton {
+  cursor: pointer;
   margin-top: 55px;
   margin-left: 33px;
 }

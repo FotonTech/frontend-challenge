@@ -1,4 +1,4 @@
-/* Mobile styles */
+/* Base styles */
 
 .loadingContainer {
   height: 100vh;
@@ -17,6 +17,16 @@
 
 .header {
   margin: 50px 20px 15px;
+}
+
+.searchAndMenuContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu {
+  display: none;
 }
 
 .initialMain {
@@ -265,12 +275,20 @@
   left: 50%;
   margin-left: -50px;
   width: 100px;
-  height: 20px;
+  height: 40px;
   background-color: #00173d;
   border-style: none;
   border-radius: 50px;
   opacity: 0.8;
   color: #FFFFFF;
+}
+
+.swipeableContainer {
+  height: 139px;
+}
+
+.booksGrid {
+  display: none;
 }
 
 .footer {
@@ -279,9 +297,63 @@
   bottom: 0;
 }
 
-/* Small tablet styles */
+@media screen and (min-width: 376px) {
+  .oval1 {
+    display: none;
+  }
+  .swipeableContainer {
+    display: none;
+  }
+  .booksGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+  .searchMain {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
 
-@media screen and (min-width: 620px) {}
+@media screen and (min-width: 960px) {
+  .container {
+    padding: 0 12px;
+  }
+  footer {
+    display: none;
+  }
+  .menu {
+    display: flex;
+    gap: 32px;
+    margin-left: 32px;
+  }
+  .menu p {
+    font-family: SFProDisplay-Semibold;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .menu p:hover {
+    text-decoration: underline;
+  }
+  .loadMoreButton {
+    bottom: 20px;
+    cursor: pointer;
+    transition: 150ms ease-in-out;
+  }
+  .loadMoreButton:hover {
+    transform: scale(1.15);
+  }
+  .loadMoreButton:active {
+    transform: scale(0.9);
+  }
+}
 
 /* Large tablet & laptop styles */
 
