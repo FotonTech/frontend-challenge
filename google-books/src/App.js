@@ -4,6 +4,7 @@ import AppDisplay from './styles/AppDisplay';
 import DiscoverCarousel from './components/DiscoverCarousel/index';
 import CurrentlySection from './components/CurrentlySection';
 import ReviewSection from './components/ReviewSection/index';
+import Footer from './components/Footer/index';
 
 function App() {
   const user = 'Rafael Pufal';
@@ -20,6 +21,7 @@ function App() {
       <DiscoverCarousel />
       <CurrentlySection />
       <ReviewSection />
+      <Footer />
     </AppDisplay>
   );
 }

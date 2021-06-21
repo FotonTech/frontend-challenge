@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const ReviewSectionDisplay = styled.section`
 margin-top: 30px;
+margin-bottom: 70px;
 display: flex;
 flex-direction: column;
 justify-content: center;
