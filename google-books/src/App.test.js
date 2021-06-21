@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders search input', () => {
   render(<App />);
-  const testingElement = screen.getByText(/testing application/i);
-  expect(testingElement).toBeInTheDocument();
+  const searchInput = screen.getByRole('textbox');
+  expect(searchInput).toHaveValue('');
+  fireEvent.change(searchInput,  {target: {value: 'Harry Potter'}});
+  expect(searchInput).toHaveValue('Harry Potter');
 });
