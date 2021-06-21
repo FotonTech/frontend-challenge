@@ -1,10 +1,16 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './routes/Home';
+import BooksDetails from './routes/BooksDetails';
 
 function App() {
   return (
-    <Home />
+    <BrowserRouter>
+      <Switch>
+        <Route path="/BooksDetails/:id" component={ BooksDetails } />
+        <Route exact path="/" component={ Home } />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

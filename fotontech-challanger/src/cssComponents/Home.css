@@ -1,0 +1,13 @@
+.home-container {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  overflow: auto;
+  overflow-x: scroll;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.recommendationList li {
+  display: inline-block;
+}
