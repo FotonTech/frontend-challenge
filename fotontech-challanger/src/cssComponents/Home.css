@@ -11,3 +11,8 @@
 .recommendationList li {
   display: inline-block;
 }
+
+.input-home {
+  display: flex;
+  align-content: center;
+}

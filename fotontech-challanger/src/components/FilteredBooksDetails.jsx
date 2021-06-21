@@ -18,7 +18,7 @@ class FilteredBooksDetails extends Component {
     return (
       <div>
         {newArr.map((book, index) => (
-          <Link key={ `${book.title}-${index}` } to={ `/BooksDetails/${book.id}` }>
+          <Link to={ `/BooksDetails/${book.id}` } key={ `${book.title}` - `${index}` }>
             <button
               type="button"
               className="main-container"
@@ -44,7 +44,6 @@ FilteredBooksDetails.propTypes = {
     title: PropTypes.string,
     author: PropTypes.string,
     image: PropTypes.string,
-  })).isRequired,
-};
+  })).isRequired };
 
 export default FilteredBooksDetails;

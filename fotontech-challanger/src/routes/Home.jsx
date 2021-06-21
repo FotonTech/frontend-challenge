@@ -69,14 +69,17 @@ class Home extends Component {
     if (loading) return <Loading />;
     return (
       <>
-        <Input
-          type="text"
-          placeholder="Search book"
-          name="searchBook"
-          onChange={ this.handleChange }
-          onFocus={ this.handleFocus }
-          value={ filteredTitle }
-        />
+        <div className="input-home">
+          <Input
+            type="text"
+            placeholder="Search book"
+            name="searchBook"
+            onChange={ this.handleChange }
+            onFocus={ this.handleFocus }
+            value={ filteredTitle }
+          />
+
+        </div>
         { isSearchRender ? <FilteredBooksDetails filteredBooks={ searchBook } />
           : (
             <div>
