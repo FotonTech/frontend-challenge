@@ -1,21 +1,21 @@
 import React from 'react';
 import DiscoverCarouselDisplay from './styles/DiscoverCarouselDisplay';
 import CarouselCard from './CarouselCard';
-import BookCover from './styles/book-cover.png';
-import ThingCover from './styles/thing-cover.png';
+import BookCover1 from '../../imgs/book1.png';
+import BookCover2 from '../../imgs/book2.png';
 
 export default function DiscoverCarousel() {
   const booksInfo = [{
     title: 'Hooked',
     author: 'Nir Eyal',
     length: 120,
-    cover: BookCover,
+    cover: BookCover1,
     theme: 'blue',
   }, {
     title: 'The One Thing',
     author: 'Gary Keller',
     length: 90,
-    cover: ThingCover,
+    cover: BookCover2,
     theme: 'purple',
   }];
   return (
