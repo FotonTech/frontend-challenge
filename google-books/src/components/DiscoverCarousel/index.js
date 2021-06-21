@@ -1,32 +1,32 @@
 import React from 'react';
 import DiscoverCarouselDisplay from './styles/DiscoverCarouselDisplay';
+import CarouselCard from './CarouselCard';
 import BookCover from './styles/book-cover.png';
-import Stats from './styles/statistics.png';
+import ThingCover from './styles/thing-cover.png';
 
 export default function DiscoverCarousel() {
+  const booksInfo = [{
+    title: 'Hooked',
+    author: 'Nir Eyal',
+    length: 120,
+    cover: BookCover,
+    theme: 'blue',
+  }, {
+    title: 'The One Thing',
+    author: 'Gary Keller',
+    length: 90,
+    cover: ThingCover,
+    theme: 'purple',
+  }];
   return (
     <DiscoverCarouselDisplay>
       <div className="carousel-header">
         <h3>Discover new books</h3>
         <h4>More</h4>
       </div>
-      <div className="book-card">
-        <div className="card-info">
-          <div>
-            <p className="book-title">Hooked</p>
-            <p className="book-author">Nir Eyal</p>
-          </div>
-          <span>
-            <img src={Stats} alt="statistics icon" className="stats" />
-            <p className="book-length">
-              <b>120+</b>
-              {' '}
-              Read Now
-            </p>
-          </span>
-        </div>
-        <img src={BookCover} alt="book cover" className="book-cover" />
-      </div>
+      {booksInfo.map((info) => (
+        <CarouselCard info={info} key={`${info.title}-}`} />
+      ))}
     </DiscoverCarouselDisplay>
   );
 }
