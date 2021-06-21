@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchInput from './components/SearchInput/index';
 import AppDisplay from './styles/AppDisplay';
+import DiscoverCarousel from './components/DiscoverCarousel/index';
 
 function App() {
   const user = 'Rafael Pufal';
@@ -14,6 +15,7 @@ function App() {
           👋
         </p>
       </div>
+      <DiscoverCarousel />
     </AppDisplay>
   );
 }

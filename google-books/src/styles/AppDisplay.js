@@ -14,7 +14,7 @@ div {
   float: left;
 }
 
-p {
+.welcome-message p {
   display: flex;
   font-size: 24px;
 }
