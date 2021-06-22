@@ -9,11 +9,9 @@ export default function Home() {
   return (
     <HomeSectionDisplay>
       <div className="welcome-message">
-        <p>
-          Hi,
-          <p className="username">{`. ${user}  .`}</p>
-          👋
-        </p>
+        <p className="message">Hi,</p>
+        <p className="username">{user}</p>
+        <p>👋</p>
       </div>
       <DiscoverCarousel />
       <CurrentlySection />

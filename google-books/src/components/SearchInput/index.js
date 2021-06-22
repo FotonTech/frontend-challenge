@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SearchInputDisplay from './styles/SearchInputDisplay';
-import searchIcon from './styles/magnifying-glass.png';
+import searchIcon from '../../imgs/home/search_icon.png';
 
 export default function SearchInput({ searchInfo }) {
   // const [search, setSearch] = useState('');

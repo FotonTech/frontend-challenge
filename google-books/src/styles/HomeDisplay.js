@@ -1,13 +1,14 @@
 import styled from 'styled-components';
+// import font from '../../public/FontsFree'
 
 const HomeDisplay = styled.section`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-width: 90%;
-margin-left: 5%;
-margin-right: 5%;
+width: 100%;
+/* margin-left: 5%;
+margin-right: 5%; */
 margin-top: 40px;
 background-color: #FFFCF9;
 
@@ -16,15 +17,23 @@ background-color: #FFFCF9;
 } */
 
 .welcome-message p {
-  display: flex;
   font-size: 24px;
+  margin-right: 5px;
+  font-family: 'SFPro Display', sans-serif;
 }
+
+.message {
+  color: #54565A;
+}
+
 .username {
   color: #FF6978;
 }
 
 .welcome-message {
   align-self: flex-start;
+  display: flex;
+  flex-direction: row;
   margin-top: 30px;
 }
 

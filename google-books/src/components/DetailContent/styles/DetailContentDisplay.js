@@ -10,12 +10,16 @@ width:335px;
   font-size: 24px;
   width: 265px;
   margin-bottom: 7px;
+  font-family:  'SFProDisplay', sans-serif;
+  color: #36383A;
+
 }
 
 .author {
   font-size: 18.75px;
   color: #FF6978;
   margin-bottom: 10px;
+  font-family:  'SFProDisplay', sans-serif;
 }
 /* 
 .content {

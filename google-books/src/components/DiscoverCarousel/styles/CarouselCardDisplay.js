@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 const CarouselCardDisplay = styled.div`
+.details-link {
+  text-decoration: none;
+}
+
 
 .book-card {
   width: 272px;
@@ -48,7 +52,7 @@ span {
 }
 
 .card-info p {
-  color: white;
+  color: #E7E7E1;
 }
 
 .book-title {
@@ -59,7 +63,7 @@ span {
 
 .book-author {
   font-size: 14px;
-  font-family:  'SFProDisplay', sans-serif;
+  font-family:  'SFProDisplay', sans-serif; 
   font-style: italic;
 }
 

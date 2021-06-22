@@ -31,6 +31,12 @@ height: 59px;
 p {
   font-size: 10px;
   text-align: center;
+  font-family:  'SFProDisplay', sans-serif;
+  color: #BFBEBF;
+}
+
+.selected {
+  color: #313131;
 }
 `;
 

@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="footer-section">
         <div className="icon">
           <img src={HomeIcon} alt="home icon" />
-          <p>Home</p>
+          <p className="selected">Home</p>
         </div>
         <div className="icon">
           <img src={LibIcon} alt="libraries icon" />

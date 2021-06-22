@@ -13,4 +13,16 @@ export default createGlobalStyle`
 body {
   background-color: #FFFCF9;
 }
+
+@font-face {
+    font-family: 'SFPro Display';
+    src: url('SFPRO/FontsFree-Net-SFProDisplay-Medium.ttf');
+    font-weight: normal,
+  }
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('Playfair/PlayfairDisplay-Bold.ttf');
+  font-weight: bold,
+}
 `;
