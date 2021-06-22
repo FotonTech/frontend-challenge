@@ -1,10 +1,13 @@
-function App() {
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Home from './pages/Home';
+import Detail from './pages/Detail';
+
+export default function App() {
   return (
-    <div className="App">
-      <h1>testing application</h1>
-      <h1>sda</h1>
-    </div>
+    <Switch>
+      <Route path="/detail" component={Detail} />
+      <Route exact path="/" component={Home} />
+    </Switch>
   );
 }
-
-export default App;
