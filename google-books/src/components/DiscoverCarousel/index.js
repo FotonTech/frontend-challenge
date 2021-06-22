@@ -1,7 +1,7 @@
 import React from 'react';
 import DiscoverCarouselDisplay from './styles/DiscoverCarouselDisplay';
 import CarouselCard from './CarouselCard';
-import BookCover1 from '../../imgs/book1.png';
+import BookCover1 from '../../imgs/BookCover1.png';
 import BookCover2 from '../../imgs/book2.png';
 
 export default function DiscoverCarousel() {

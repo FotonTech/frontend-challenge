@@ -1,7 +1,7 @@
 import React from 'react';
 import BookCover from '../../imgs/book3.png';
 import CurrentlyDisplay from './styles/CurrentlyDisplay';
-import ChapterIcon from '../../imgs/chapter.png';
+import ChapterIcon from '../../imgs/home/chapter.png';
 
 export default function CurrentlySection() {
   return (

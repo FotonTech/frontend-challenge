@@ -27,6 +27,21 @@ background-color: #FFFCF9;
   align-self: flex-start;
   margin-top: 30px;
 }
+
+.search-results {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.load-more {
+  border: none;
+  background-color: #FFFCF9;
+  color: #4ABDF1;
+}
 `;
 
 export default HomeDisplay;

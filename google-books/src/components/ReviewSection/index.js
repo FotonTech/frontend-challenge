@@ -1,5 +1,5 @@
 import React from 'react';
-import Thumbnail from '../../imgs/video.png';
+import Thumbnail from '../../imgs/home/video.png';
 import ReviewSectionDisplay from './styles/ReviewSectionDisplay';
 
 export default function ReviewSection() {

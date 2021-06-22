@@ -1,7 +1,7 @@
 import React from 'react';
-import HomeIcon from '../../imgs/home_icon.png';
-import UserIcon from '../../imgs/user.png';
-import LibIcon from '../../imgs/book.png';
+import HomeIcon from '../../imgs/home/home_icon.png';
+import UserIcon from '../../imgs/home/user.png';
+import LibIcon from '../../imgs/home/book.png';
 import FooterSection from './styles/FooterDisplay';
 
 export default function Footer() {

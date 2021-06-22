@@ -17,6 +17,10 @@ width:335px;
   color: #FF6978;
   margin-bottom: 10px;
 }
+/* 
+.content {
+  height: 275px;
+} */
 
 .content p {
   font-size: 14px;

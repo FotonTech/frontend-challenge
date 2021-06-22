@@ -1,8 +1,8 @@
 import React from 'react';
-import ReadIcon from '../../imgs/book-open.png';
-import ListenIcon from '../../imgs/headphones.png';
-import ShareIcon from '../../imgs/share.png';
-import FooterDivisor from '../../imgs/footer-divisor.png';
+import ReadIcon from '../../imgs/detail/book-open.png';
+import ListenIcon from '../../imgs/detail/headphones.png';
+import ShareIcon from '../../imgs/detail/share.png';
+import FooterDivisor from '../../imgs/detail/footer-divisor.png';
 import DetailFooterDisplay from './styles/DetailFooterDisplay';
 
 export default function DetailFooter() {

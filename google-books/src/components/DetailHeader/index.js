@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ReturnArrow from '../../imgs/return_arrow.png';
-import BookCover1 from '../../imgs/book1.png';
+import ReturnArrow from '../../imgs/detail/return_arrow.png';
+import BookCover1 from '../../imgs/BookCover1.png';
 import DetailHeaderDisplay from './styles/DetailHeaderDisplay';
 
 export default function DetailHeader() {
