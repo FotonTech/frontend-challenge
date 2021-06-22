@@ -1,0 +1,109 @@
+.detailPageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    height: min-content;
+    margin-bottom: 5rem;
+}
+
+.firstBackgroundContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 17.62rem;
+    background: #fff6e5;
+    border-radius: 0 0 6rem 0;
+    background-image: url(../../assets/Oval4.png), url(../../assets/miniOval.png), url(../../assets/circle.png),
+        url(../../assets/colorOval.png), url(../../assets/colorOval2.png);
+    background-position: 100% 0.75%, 74% 95%, 73% 53%, 25% 53%, 11% 47%;
+    background-repeat: no-repeat;
+}
+
+.backArrow {
+    position: absolute;
+    top: 5vh;
+    left: 5vh;
+}
+
+.bookImg {
+    height: 14.62rem;
+    margin: 4rem;
+}
+
+.bookInfoContainer {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 4rem;
+}
+
+.bookAuthorInfoContainer {
+    display: flex;
+    width: 90%;
+}
+
+.bookNameTextContainer {
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    color: #36383a;
+}
+
+.authorText {
+    margin-top: 0.5rem;
+    color: var(--pastel-red);
+}
+
+.bookTextSnippets {
+    margin-top: 0.625rem;
+    font-size: 0.875rem;
+    line-height: 25px;
+    color: var(--detail-grey);
+}
+
+.detailNavbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 90%;
+    height: 3.5rem;
+    background: var(--background);
+    border-radius: 0.125rem;
+    box-shadow: 3px 3px 23px rgba(107, 103, 70, 0.125901);
+    bottom: 6.5vh;
+}
+
+.detailNavbarRead {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.875rem;
+    line-height: 16.71px;
+    color: var(--grey);
+    width: 33.333%;
+    height: min-content;
+}
+
+.detailNavbarListen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.875rem;
+    line-height: 16.71px;
+    color: var(--grey);
+    width: 33.333%;
+    height: min-content;
+}
+
+.detailNavbarShare {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.875rem;
+    line-height: 16.71px;
+    color: var(--grey);
+    width: 33.333%;
+    height: min-content;
+}

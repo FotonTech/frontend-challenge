@@ -20,6 +20,8 @@ interface IBook {
         };
         authors: string[];
         title: string;
+        subtitle: string;
+        description: string;
     };
     searchInfor: {
         textSnippet: string;
@@ -35,6 +37,8 @@ interface ICardBooks {
             };
             authors: string[];
             title: string;
+            subtitle: string;
+            description: string;
         };
         searchInfor: {
             textSnippet: string;
@@ -45,14 +49,16 @@ interface ICardBooks {
 }
 
 const Home = () => {
-    // const history = useHistory();
+    const history = useHistory();
     const [book, setBook] = useState<IBook>({
-        volumeInfo:{
-            imageLinks:{
+        volumeInfo: {
+            imageLinks: {
                 thumbnail: ''
             },
-            authors:[''],
-            title: ''
+            authors: [''],
+            title: '',
+            subtitle: '',
+            description: '',
         },
         searchInfor: {
             textSnippet: ''
@@ -60,6 +66,11 @@ const Home = () => {
         id: ''
     })
     const [cardBooks, setCardBooks] = useState<ICardBooks[]>([]);
+
+
+    const [search, setSearch] = useState('');
+    const [isSearching, setIsSearching] = useState(false);
+
 
     const getCardBook = async () => {
         const res = [
@@ -81,21 +92,54 @@ const Home = () => {
         setCardBooks(res);
     }
 
+    const pushHistory = (data: {
+        volumeInfo:
+        {
+            imageLinks: {
+                thumbnail: string;
+            };
+            authors: string[];
+            title: string;
+        };
+        searchInfor: {
+            textSnippet: string;
+        };
+        id: string;
+    }) => {
+        history.push('/Detail', {
+            book: data
+        })
+    }
+
+    const handleSearch = () => {
+        if (search) {
+            setIsSearching(true);
+        } else {
+            setIsSearching(false);
+        }
+    }
 
     useEffect(() => {
         getCardBook();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
         <section className='mainContainer'>
             <NavBar />
-            <SearchInput />
+            <SearchInput text={search} onChange={(e) => setSearch(e.target.value)} handleSearch={handleSearch} />
             <section className='userTitleContainer'>
                 <div>
                     Hi,
                 </div>
                 <div className='userTitleName'>
-                    Sabanai 👋
+                    {
+                        isSearching ? (
+                            <div>Hello World</div>
+                        ) : (
+                            <>Sabanai 👋</>
+                        )
+                    }
                 </div>
             </section>
             <section className='subTitleContainer'>
@@ -108,7 +152,7 @@ const Home = () => {
                 {
                     cardBooks.map(({ data, color }) => {
                         return (
-                            <section className='card' style={{ background: color, }} key={data.id} onClick={() => console.log(data)}>
+                            <section className='card' style={{ background: color, }} key={data.id} onClick={() => pushHistory(data)}>
                                 <img src={triangle} alt=" " className='triangleCardImg' />
                                 <img src={circle} alt=" " className='circleCardImg' />
                                 <img src={rectangle} alt=" " className='rectangleCardImg' />
@@ -135,30 +179,6 @@ const Home = () => {
                         )
                     })
                 }
-                {/* <section className='card'>
-                    <img src={triangle} alt="" className='triangleCardImg' />
-                    <img src={circle} alt="" className='circleCardImg' />
-                    <img src={rectangle} alt="" className='rectangleCardImg' />
-
-                    <section className='cardContentContainer'>
-                        <section className='cardTextContainer'>
-                            <section className='cardTitleContainer'>
-                                <div className='cardTitle'>
-                                    Naruto
-                                </div>
-                                <div className='cardAuthor'>
-                                    Masashi Kishimoto
-                                </div>
-                            </section>
-                            <div className='graphicTextContainer'>
-                                <img src={graphic} alt="graphic" className='graphicImg' />
-                                <strong>120+</strong>
-                                Read Now
-                            </div>
-                        </section>
-                        <img src={''} alt="" />
-                    </section>
-                </section> */}
 
             </section>
 
@@ -168,8 +188,8 @@ const Home = () => {
             </section>
 
             <section className='currentlyReadingContainer' >
-                <section className='currentlyReadingInfoContainer'>
-                    <img src={book.volumeInfo.imageLinks.thumbnail} className='currentlyReadingImg' />
+                <section className='currentlyReadingInfoContainer' onClick={() => pushHistory(book)}>
+                    <img src={book.volumeInfo.imageLinks.thumbnail} alt='book' className='currentlyReadingImg' />
                     <section className='currentlyReadingTextContainer'>
                         <section>
                             <div className='currentlyReadingBookTitle'>
