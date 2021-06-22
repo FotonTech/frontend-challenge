@@ -12,7 +12,7 @@ export default function DiscoverCarousel() {
     cover: BookCover1,
     theme: 'blue',
   }, {
-    title: 'The One Thing',
+    title: 'The One',
     author: 'Gary Keller',
     length: 90,
     cover: BookCover2,

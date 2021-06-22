@@ -31,11 +31,12 @@ const CarouselCardDisplay = styled.div`
 span {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .stats {
-  width: 10px;
-  height: 10px;
+  width: 16px;
+  height: 16px;
   margin-right: 4px;
 }
 

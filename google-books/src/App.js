@@ -1,29 +1,13 @@
 import React from 'react';
-import SearchInput from './components/SearchInput/index';
-import AppDisplay from './styles/AppDisplay';
-import DiscoverCarousel from './components/DiscoverCarousel/index';
-import CurrentlySection from './components/CurrentlySection';
-import ReviewSection from './components/ReviewSection/index';
-import Footer from './components/Footer/index';
+import { Route, Switch } from 'react-router-dom';
+import Home from './pages/Home';
+import Detail from './pages/Detail';
 
-function App() {
-  const user = 'Rafael Pufal';
+export default function App() {
   return (
-    <AppDisplay className="App">
-      <SearchInput />
-      <div className="welcome-message">
-        <p>
-          Hi,
-          <p className="username">{`. ${user}  .`}</p>
-          👋
-        </p>
-      </div>
-      <DiscoverCarousel />
-      <CurrentlySection />
-      <ReviewSection />
-      <Footer />
-    </AppDisplay>
+    <Switch>
+      <Route path="/detail" component={Detail} />
+      <Route exact path="/" component={Home} />
+    </Switch>
   );
 }
-
-export default App;

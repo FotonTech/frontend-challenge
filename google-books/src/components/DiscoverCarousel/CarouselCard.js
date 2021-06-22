@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CarouselCardDisplay from './styles/CarouselCardDisplay';
-import Stats from './styles/statistics.png';
+import Stats from '../../imgs/graphic_icon.png';
 
 export default function CarouselCard({ info }) {
   return (

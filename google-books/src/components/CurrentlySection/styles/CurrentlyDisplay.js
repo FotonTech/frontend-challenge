@@ -28,7 +28,7 @@ width: 100%;
   width: 100%;
 }
 
-.section-info img {
+.cover {
   width: 88px;
   height: 130px;
   margin-right: 10px;
@@ -59,6 +59,12 @@ width: 100%;
 
 .reading-point b {
   color: #FF6978;
+}
+
+.chapter-span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 `;
 

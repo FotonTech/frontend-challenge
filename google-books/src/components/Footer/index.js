@@ -8,15 +8,15 @@ export default function Footer() {
   return (
     <FooterSection>
       <div className="footer-section">
-        <div clasName="icon">
+        <div className="icon">
           <img src={HomeIcon} alt="home icon" />
           <p>Home</p>
         </div>
-        <div clasName="icon">
+        <div className="icon">
           <img src={LibIcon} alt="libraries icon" />
           <p>Libraries</p>
         </div>
-        <div clasName="icon">
+        <div className="icon">
           <img src={UserIcon} alt="profile icon" />
           <p>Profile</p>
         </div>

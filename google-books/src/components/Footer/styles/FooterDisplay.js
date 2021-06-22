@@ -22,8 +22,8 @@ height: 59px;
 .icon {
   display: flex;
   flex-direction: column;
-  justify-content:center;
-  /* align-items: center; */
+  align-items: center;
+  justify-content: space-between;
   width: 26px;
   height: 40px;
 }
