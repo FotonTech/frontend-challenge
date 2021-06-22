@@ -6,6 +6,7 @@
     width: 100%;
     min-height: 100vh;
     height: min-content;
+    margin-bottom: 5rem;
 }
 
 .userTitleContainer {
@@ -58,9 +59,15 @@
     border-radius: 5px;
     background: #00173d;
     margin-left: 5%;
-    background-image: url(../../assets/Oval.png);
+    background-image: url(../../assets/triangle.png);
     background-repeat: no-repeat;
     background-position: 0 100%;
+}
+
+.ovalCardImg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .triangleCardImg {
@@ -86,6 +93,7 @@
     width: 85%;
     height: 6.68rem;
     justify-content: space-between;
+    z-index: 1;
 }
 
 .cardTextContainer {
@@ -122,4 +130,76 @@
 
 .graphicImg {
     margin-right: 0.2rem;
+}
+
+.currentlyReadingContainer {
+    margin-top: 1.87rem;
+    width: 100%;
+    height: 6.25rem;
+}
+
+.currentlyReadingInfoContainer {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 6.25rem;
+    border-radius: 0px 3px 3px 0px;
+    background: #eef5db;
+    background-image: url(../../assets/circle.png), url(../../assets/Oval3.png), url(../../assets/rectangle.png);
+    background-position: 62% -10%,110% -60%,107% 80%;
+    background-repeat: no-repeat;
+}
+
+.currentlyReadingImg {
+    margin-left: 1.25rem;
+    width: 5.68rem;
+    height: 8.5rem;
+}
+
+.currentlyReadingTextContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 5rem;
+    margin-left: 0.5rem;
+}
+
+.currentlyReadingBookTitle {
+    color: #2A2B26;
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 27px;
+}
+
+.currentlyReadingBookAuthor {
+    color: #74776D;
+    font-size: 0.62rem;
+    line-height: 12px;
+}
+
+.currentlyReadingChaptersContainer {
+    display: flex;
+}
+
+.currentlyReadingChaptersText {
+    display: flex;
+    font-size: 0.62rem;
+    line-height: 12px;
+}
+
+.currentlyReadingChaptersNumber {
+    color: #FF6978;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+}
+
+.thumbnailImg {
+    display: flex;
+    width: 90%;
+}
+
+.thumbnailContainer {
+    margin-top: 0.93rem;
+    width: 100%;
+    border-radius: 5px;
 }
