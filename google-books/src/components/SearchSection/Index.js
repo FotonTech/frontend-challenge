@@ -5,7 +5,7 @@ import BookCard from '../BookCard/index';
 export default function SearchSection({ query }) {
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState('');
-  const pageIndex = 1 * 9;
+  const [pageIndex, setPageIndex] = useState(0);
   const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&orderBy=relevance&startIndex=${pageIndex}&maxResults=9`;
 
   const getResultsFromQuery = async (queryUrl) => {
@@ -24,15 +24,17 @@ export default function SearchSection({ query }) {
     const queryResult = await getResultsFromQuery(url);
     setResults(queryResult);
     setLoading(false);
-  }, [query]);
+  }, [url]);
 
   return (
     <div className="search-results">
-      {loading
-        ? <h1>loading</h1>
-        : results.map((info) => <BookCard info={info} key={`${info.title}-`} />)}
+      <div className="results">
+        {loading
+          ? <h1>loading</h1>
+          : results.map((info) => <BookCard info={info} key={info.id} />)}
+      </div>
+      <button type="button" className="load-more" onClick={() => setPageIndex(pageIndex + 9)}>Load More</button>
     </div>
-    /* <button type="button" className="load-more">Load More</button> */
   );
 }
 

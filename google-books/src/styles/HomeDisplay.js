@@ -23,7 +23,27 @@ background-color: #FFFCF9;
 }
 
 .search-results {
-  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 42px;
+}
+
+.load-more {
+  border: none;
+  background-color: #FFFCF9;
+  font-size: 20px;
+  font-weight: bold;
+  color: #4ABDF1;
+  margin-bottom: 80px;
+}
+
+.results {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .message {
@@ -41,20 +61,16 @@ background-color: #FFFCF9;
   margin-top: 30px;
 }
 
-.search-results {
+/* .search-results {
   margin-top: 30px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
   width: 100%;
-}
+} */
 
-.load-more {
-  border: none;
-  background-color: #FFFCF9;
-  color: #4ABDF1;
-}
+
 `;
 
 export default HomeDisplay;

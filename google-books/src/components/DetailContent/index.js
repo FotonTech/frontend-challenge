@@ -5,6 +5,18 @@ import DetailContentDisplay from './styles/DetailContentDisplay';
 export default function DetailContent({
   author, title, subtitle, description,
 }) {
+  const parseHTML = (html) => {
+    const text = html.replaceAll('<p>', '').replaceAll('</p>', '').replaceAll('<b>', '').replaceAll('</b>', '')
+      .replaceAll('<i>', '')
+      .replaceAll('</i>', '')
+      .replaceAll('<\br>', '')
+      .replaceAll('•', '\n')
+      .replaceAll('<br>', '\n');
+    const textArray = text.split('\n').filter((line) => line !== '');
+    return textArray;
+  };
+  parseHTML(description);
+
   const spacer = subtitle !== '' ? ' : ' : '';
   return (
     <DetailContentDisplay>
@@ -17,7 +29,7 @@ export default function DetailContent({
         <p className="author">{author}</p>
       </div>
       <div className="content">
-        <p>{description}</p>
+        {parseHTML(description).map((line) => <p>{line}</p>)}
       </div>
     </DetailContentDisplay>
   );
