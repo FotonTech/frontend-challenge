@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import DiscoverCarouselDisplay from './styles/DiscoverCarouselDisplay';
 import CarouselCard from './CarouselCard';
 import BookCover1 from '../../imgs/BookCover1.png';
 import BookCover2 from '../../imgs/book2.png';
 
 export default function DiscoverCarousel() {
+  const history = useHistory();
   const book1 = {
     title: 'Hooked',
     author: 'Nir Eyal',
@@ -44,7 +46,7 @@ export default function DiscoverCarousel() {
         <h4>More</h4>
       </div>
       <div className="card-div">
-        <button onClick={() => console.log('visit')} type="button">
+        <button onClick={() => history.push({ pathname: '/detail' })} type="button">
           <CarouselCard
             info={cardsArray[cardIndex[0]]}
             classCard="main"
