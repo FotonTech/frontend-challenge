@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const FooterSection = styled.footer`
-width: 100%;
+width: 375px;
 display: flex;
 flex-direction: row;
 justify-content: center;
@@ -31,6 +31,12 @@ height: 59px;
 p {
   font-size: 10px;
   text-align: center;
+  font-family:  'SFProDisplay', sans-serif;
+  color: #BFBEBF;
+}
+
+.selected {
+  color: #313131;
 }
 `;
 

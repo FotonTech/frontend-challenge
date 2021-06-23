@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const CarouselCardDisplay = styled.div`
+margin-right: 10px;
+
 
 .book-card {
   width: 272px;
@@ -10,14 +12,16 @@ const CarouselCardDisplay = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-}
-
-.blue {
   background-color: #00173D;
 }
 
-.purple {
+.main {
+  background-color: #00173D;
+}
+
+.background {
   background-color: #451475;
+  height: 128px;
 }
 
 
@@ -48,7 +52,7 @@ span {
 }
 
 .card-info p {
-  color: white;
+  color: #E7E7E1;
 }
 
 .book-title {
@@ -59,7 +63,7 @@ span {
 
 .book-author {
   font-size: 14px;
-  font-family:  'SFProDisplay', sans-serif;
+  font-family:  'SFProDisplay', sans-serif; 
   font-style: italic;
 }
 

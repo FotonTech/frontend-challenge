@@ -1,7 +1,7 @@
 import React from 'react';
-import HomeIcon from '../../imgs/home_icon.png';
-import UserIcon from '../../imgs/user.png';
-import LibIcon from '../../imgs/book.png';
+import HomeIcon from '../../imgs/home/home_icon.png';
+import UserIcon from '../../imgs/home/user.png';
+import LibIcon from '../../imgs/home/book.png';
 import FooterSection from './styles/FooterDisplay';
 
 export default function Footer() {
@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="footer-section">
         <div className="icon">
           <img src={HomeIcon} alt="home icon" />
-          <p>Home</p>
+          <p className="selected">Home</p>
         </div>
         <div className="icon">
           <img src={LibIcon} alt="libraries icon" />

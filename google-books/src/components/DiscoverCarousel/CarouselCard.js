@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CarouselCardDisplay from './styles/CarouselCardDisplay';
-import Stats from '../../imgs/graphic_icon.png';
+import Stats from '../../imgs/home/graphic_icon.png';
 
-export default function CarouselCard({ info }) {
+export default function CarouselCard({ info, classCard }) {
+  // const redirectTo = info.theme === 'foreground' ? '/detail' : '/';
   return (
     <CarouselCardDisplay>
-      <div className={`book-card ${info.theme}`}>
+      <div className={`book-card ${classCard}`}>
         <div className="card-info">
           <div>
             <p className="book-title">{info.title}</p>
@@ -34,5 +35,8 @@ CarouselCard.propTypes = {
     length: PropTypes.number.isRequired,
     cover: PropTypes.string.isRequired,
     theme: PropTypes.string.isRequired,
+    setTheme: PropTypes.func.isRequired,
+    book: PropTypes.string.isRequired,
   }).isRequired,
+  classCard: PropTypes.string.isRequired,
 };
