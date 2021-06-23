@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 const CarouselCardDisplay = styled.div`
-.details-link {
-  text-decoration: none;
-}
+margin-right: 10px;
 
 
 .book-card {
@@ -14,14 +12,16 @@ const CarouselCardDisplay = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-}
-
-.blue {
   background-color: #00173D;
 }
 
-.purple {
+.main {
+  background-color: #00173D;
+}
+
+.background {
   background-color: #451475;
+  height: 128px;
 }
 
 

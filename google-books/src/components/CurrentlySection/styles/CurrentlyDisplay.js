@@ -38,7 +38,7 @@ margin-right: 20px;
   width: 88px;
   height: 130px;
   position: absolute;
-  top: 555px;
+  top: 420px;
   left: 20px;
 }
 .info {

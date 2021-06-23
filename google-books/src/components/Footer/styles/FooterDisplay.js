@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const FooterSection = styled.footer`
-width: 100%;
+width: 375px;
 display: flex;
 flex-direction: row;
 justify-content: center;
