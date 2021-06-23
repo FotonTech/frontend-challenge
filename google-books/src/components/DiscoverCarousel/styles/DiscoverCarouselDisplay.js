@@ -48,6 +48,8 @@ button:focus {
   outline: none;
   box-shadow: none;
 }
+
+
 `;
 
 export default DiscoverCarouselDisplay;

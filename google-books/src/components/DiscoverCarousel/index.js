@@ -15,7 +15,6 @@ export default function DiscoverCarousel() {
     cover: BookCover1,
     id: 'dsz5AwAAQBAJ',
   };
-
   const book2 = {
     title: 'The One',
     author: 'Gary Keller',
@@ -23,15 +22,7 @@ export default function DiscoverCarousel() {
     cover: BookCover2,
     id: 'PqbDdQvjd8AC',
   };
-
-  const book3 = {
-    title: 'Harry Potter',
-    author: 'J.K. Rowling',
-    length: 90,
-    cover: BookCover2,
-    id: '02XnPAAACAAJ',
-  };
-  const cardsArray = [book1, book2, book3];
+  const cardsArray = [book1, book2];
   const [cardIndex, setCardIndex] = useState([0, 1]);
 
   const onClickMain = async () => {

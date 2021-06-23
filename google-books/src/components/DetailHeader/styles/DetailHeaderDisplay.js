@@ -13,7 +13,7 @@ border-bottom-right-radius: 100px;
 .return-home {
   align-self: flex-start;
   margin-left: 19px;
-}
+} 
 
 button {
   background-color: #FFF6E5;
@@ -25,6 +25,7 @@ button {
 .book-cover {
   height:229px;
   width: 153px;
+  z-index: 1;
 }
 `;
 

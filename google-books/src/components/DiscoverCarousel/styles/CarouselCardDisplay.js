@@ -15,6 +15,10 @@ margin-right: 10px;
   background-color: #00173D;
 }
 
+.behind {
+  z-index: 0;
+}
+
 .main {
   background-color: #00173D;
 }
@@ -30,6 +34,7 @@ margin-right: 10px;
   flex-direction: column;
   justify-content: space-between;
   height: 90px;
+  z-index: 1;
 }
 
 span {
