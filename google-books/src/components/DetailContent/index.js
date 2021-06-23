@@ -15,7 +15,6 @@ export default function DetailContent({
     const textArray = text.split('\n').filter((line) => line !== '');
     return textArray;
   };
-  parseHTML(description);
 
   const spacer = subtitle !== '' ? ' : ' : '';
   return (
