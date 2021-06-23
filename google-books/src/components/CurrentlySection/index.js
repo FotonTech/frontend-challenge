@@ -4,6 +4,9 @@ import BookCover from '../../imgs/book3.png';
 import CurrentlyDisplay from './styles/CurrentlyDisplay';
 import ChapterIcon from '../../imgs/home/chapter.png';
 import fetchBook from '../../services';
+import rectangle from '../../imgs/home/effects/Rectangle.png';
+import circle from '../../imgs/home/effects/transparent_circle.png';
+import oval from '../../imgs/home/effects/Oval.png';
 
 export default function CurrentlySection() {
   const history = useHistory();
@@ -39,6 +42,9 @@ export default function CurrentlySection() {
           </span>
         </div>
       </div>
+      <img src={rectangle} alt="effects" style={{ position: 'absolute', top: '500px', left: '305px' }} />
+      <img src={circle} alt="effects" style={{ position: 'absolute', top: '425px', left: '210px' }} />
+      <img src={oval} alt="effects" style={{ position: 'absolute', top: '375px', left: '275px' }} />
     </CurrentlyDisplay>
   );
 }

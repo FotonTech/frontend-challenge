@@ -5,6 +5,10 @@ import CarouselCard from './CarouselCard';
 import BookCover1 from '../../imgs/BookCover1.png';
 import BookCover2 from '../../imgs/book2.png';
 import fetchBook from '../../services';
+import triangle from '../../imgs/home/effects/triangle.png';
+import rectangle from '../../imgs/home/effects/Rectangle.png';
+import circle from '../../imgs/home/effects/transparent_circle.png';
+import oval from '../../imgs/home/effects/Oval.png';
 
 export default function DiscoverCarousel() {
   const history = useHistory();
@@ -15,7 +19,6 @@ export default function DiscoverCarousel() {
     cover: BookCover1,
     id: 'dsz5AwAAQBAJ',
   };
-
   const book2 = {
     title: 'The One',
     author: 'Gary Keller',
@@ -23,15 +26,7 @@ export default function DiscoverCarousel() {
     cover: BookCover2,
     id: 'PqbDdQvjd8AC',
   };
-
-  const book3 = {
-    title: 'Harry Potter',
-    author: 'J.K. Rowling',
-    length: 90,
-    cover: BookCover2,
-    id: '02XnPAAACAAJ',
-  };
-  const cardsArray = [book1, book2, book3];
+  const cardsArray = [book1, book2];
   const [cardIndex, setCardIndex] = useState([0, 1]);
 
   const onClickMain = async () => {
@@ -73,6 +68,11 @@ export default function DiscoverCarousel() {
           />
         </button>
       </div>
+      <img src={triangle} alt="effects" style={{ position: 'absolute', top: '218px', left: '173px' }} />
+      <img src={rectangle} alt="effects" style={{ position: 'absolute', top: '315px', left: '150px' }} />
+      <img src={circle} alt="effects" style={{ position: 'absolute', top: '225px', left: '150px' }} />
+      <img src={oval} alt="effects" style={{ position: 'absolute', top: '245px', left: '-10px' }} />
+      <img src={oval} alt="effects" style={{ position: 'absolute', top: '170px', left: '275px' }} />
     </DiscoverCarouselDisplay>
   );
 }
