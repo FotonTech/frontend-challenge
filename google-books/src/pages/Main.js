@@ -7,12 +7,11 @@ import HomeSection from '../components/HomeSection';
 
 export default function Main() {
   const [search, setSearch] = useState('');
-
   return (
     <HomeDisplay className="App">
       <SearchInput searchInfo={{ search, setSearch }} />
       { search !== ''
-        ? <SearchSection />
+        ? <SearchSection query={search} />
         : <HomeSection />}
       <Footer />
     </HomeDisplay>
