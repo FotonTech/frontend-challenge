@@ -11,7 +11,7 @@ width:335px;
   width: 265px;
   margin-bottom: 7px;
   font-family:  'SFProDisplay', sans-serif;
-  color: #36383A;
+  color: #36383A
 
 }
 

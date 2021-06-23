@@ -5,6 +5,12 @@ width: 25%;
 margin-right: 10px;
 margin-left: 10px;
 margin-bottom: 30px;
+
+button {
+  background: none;
+  border: none;
+}
+
 .title {
   font-size: 12px;
   margin-bottom: 5px;

@@ -22,6 +22,10 @@ background-color: #FFFCF9;
   font-family: 'SFPro Display', sans-serif;
 }
 
+.search-results {
+  margin-left: 20px;
+}
+
 .message {
   color: #54565A;
 }

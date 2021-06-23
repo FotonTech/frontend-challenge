@@ -1,11 +1,21 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import BookCover from '../../imgs/book3.png';
 import CurrentlyDisplay from './styles/CurrentlyDisplay';
 import ChapterIcon from '../../imgs/home/chapter.png';
+import fetchBook from '../../services';
 
 export default function CurrentlySection() {
+  const history = useHistory();
   return (
-    <CurrentlyDisplay>
+    <CurrentlyDisplay onClick={async () => {
+      const result = await fetchBook('eLRhDgAAQBAJ');
+      history.push({
+        pathname: '/details',
+        book: result,
+      });
+    }}
+    >
       <div className="section-header">
         <h3>Currently Reading</h3>
         <h4>All</h4>
