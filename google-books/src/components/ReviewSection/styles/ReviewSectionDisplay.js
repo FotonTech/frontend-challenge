@@ -31,6 +31,33 @@ margin-left: 5%;
   font-size: 14px;
 }
 
+.thumbnail-info {
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.video-title {
+  margin-top: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: rgba(107, 107, 107, 0.8);
+}
+span {
+  display: flex;
+  flex-direction: row;
+}
+span p {
+  font-size: 8px;
+  color: rgba(106, 103, 103, 0.8);
+  margin: 7px 16px 0 0;
+}
+
+.description {
+  margin-top: 6px;
+  font-size: 10px;
+  color: rgba(107, 107, 107, 0.8);
+}
 `;
 
 export default ReviewSectionDisplay;
