@@ -14,7 +14,7 @@ const Detail = () => {
     return (
         <section className='detailPageContainer'>
             <section className='detailNavbar'>
-                <div className='detailNavbarRead'>
+                <div className='detailNavbarRead' onClick={() => window.open(book.volumeInfo.previewLink, "_blank")}>
                     <img src={bookOpen} alt="" style={{ marginRight: '0.625rem' }} />
                     Read
                 </div>
@@ -29,7 +29,7 @@ const Detail = () => {
             </section>
             <section className='firstBackgroundContainer'>
                 <img src={Back} alt="" className='backArrow' onClick={() => history.goBack()} />
-                <img src={book.volumeInfo.imageLinks.thumbnail} alt=" bookImage" className='bookImg' />
+                <img src={book.volumeInfo.imageLinks?.thumbnail? book.volumeInfo.imageLinks.thumbnail : null } alt=" bookImage" className='bookImg' />
             </section>
 
             <section className='bookInfoContainer'>
@@ -39,7 +39,7 @@ const Detail = () => {
                     </section>
                 </section>
                 <div className='authorText' onClick={() => console.log(book)}>
-                    {book.volumeInfo.authors[0]}
+                    {book.volumeInfo?.authors? book.volumeInfo.authors[0] : null}
                 </div>
 
                 <div className='bookTextSnippets' dangerouslySetInnerHTML={{ __html: book.volumeInfo.description }} />

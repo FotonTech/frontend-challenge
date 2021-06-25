@@ -2,11 +2,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background: var(--background);
     width: 100%;
     min-height: 100vh;
     height: min-content;
     margin-bottom: 5rem;
+}
+
+.mainContainerSearch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--background);
+    width: 100%;
+    min-height: 100vh;
+    height: min-content;
 }
 
 .userTitleContainer {
@@ -74,18 +85,21 @@
     position: absolute;
     top: 2.6%;
     right: 25%;
+    z-index: 2;
 }
 
 .circleCardImg {
     position: absolute;
     top: 10.5%;
     right: 39.5%;
+    z-index: 2;
 }
 
 .rectangleCardImg {
     position: absolute;
     right: 30%;
     bottom: 27%;
+    z-index: 2;
 }
 
 .cardContentContainer {

@@ -3,12 +3,17 @@ import './style.css'
 import home from '../../assets/home.png';
 import book from '../../assets/book.png';
 import user from '../../assets/user.png';
+import { FC } from 'react';
 
-const NavBar = () => {
+interface INavBar {
+    homeOnClick: VoidFunction
+}
+
+const NavBar: FC<INavBar> = ({homeOnClick}) => {
     return (
         <section className='navMainContainer'>
             <div className='navIconsContainer'>
-                <div className='iconContainer'>
+                <div className='iconContainer' onClick={homeOnClick}>
                     <img src={home} alt="Home" />
                     <div className='iconText'>Home</div>
                 </div>
