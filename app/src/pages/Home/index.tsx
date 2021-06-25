@@ -202,7 +202,7 @@ const Home = () => {
                                                                 </section>
                                                                 <div className='graphicTextContainer'>
                                                                     <img src={graphic} alt="graphic" className='graphicImg' />
-                                                                    <strong>120+</strong>
+                                                                    <strong style={{marginRight: '0.2rem'}}>120+</strong>
                                                                     Read Now
                                                                 </div>
                                                             </section>
@@ -247,31 +247,33 @@ const Home = () => {
                                         <div className='subTitleSecondText'>All Video</div>
                                     </section>
 
-                                    <section className='thumbnailImg'>
-                                        <img
-                                            src="https://i.ytimg.com/vi/vBzBgewl4ac/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB4QuHiW8ShUUSPpZTgTvRSzF9U2g"
-                                            className='thumbnailContainer'
-                                            alt=' '
-                                            onClick={() => window.open("https://www.youtube.com/watch?v=vBzBgewl4ac", "_blank")}
-                                        />
-                                    </section>
+                                    <section className='videosContainer'>
+                                        <section className='thumbnailImg'>
+                                            <img
+                                                src="https://i.ytimg.com/vi/vBzBgewl4ac/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB4QuHiW8ShUUSPpZTgTvRSzF9U2g"
+                                                className='thumbnailContainer'
+                                                alt=' '
+                                                onClick={() => window.open("https://www.youtube.com/watch?v=vBzBgewl4ac", "_blank")}
+                                            />
+                                        </section>
 
-                                    <section className='thumbnailImg'>
-                                        <img
-                                            src="https://i.ytimg.com/vi/9gWR76lJFGs/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBkwzpo0gLI5fadk0dqgdLhDy3Xsg"
-                                            className='thumbnailContainer'
-                                            alt=' '
-                                            onClick={() => window.open("https://www.youtube.com/watch?v=9gWR76lJFGs", "_blank")}
-                                        />
-                                    </section>
+                                        <section className='thumbnailImg'>
+                                            <img
+                                                src="https://i.ytimg.com/vi/9gWR76lJFGs/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBkwzpo0gLI5fadk0dqgdLhDy3Xsg"
+                                                className='thumbnailContainer'
+                                                alt=' '
+                                                onClick={() => window.open("https://www.youtube.com/watch?v=9gWR76lJFGs", "_blank")}
+                                            />
+                                        </section>
 
-                                    <section className='thumbnailImg'>
-                                        <img
-                                            src="https://i.ytimg.com/vi/cWFBoPcWpDo/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAr7gnipUlSMX-3kRYFe8D0bacLkQ"
-                                            className='thumbnailContainer'
-                                            alt=' '
-                                            onClick={() => window.open("https://www.youtube.com/watch?v=cWFBoPcWpDo", "_blank")}
-                                        />
+                                        <section className='thumbnailImg'>
+                                            <img
+                                                src="https://i.ytimg.com/vi/cWFBoPcWpDo/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAr7gnipUlSMX-3kRYFe8D0bacLkQ"
+                                                className='thumbnailContainer'
+                                                alt=' '
+                                                onClick={() => window.open("https://www.youtube.com/watch?v=cWFBoPcWpDo", "_blank")}
+                                            />
+                                        </section>
                                     </section>
                                 </>
                             )

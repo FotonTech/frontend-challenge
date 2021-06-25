@@ -44,3 +44,64 @@
     font-weight: 900;
     color: var(--book-grey);
 }
+
+@media (min-width: 576px) {
+    .searchBooksContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 1rem;
+        column-gap: 10rem;
+        flex-direction: column;
+        margin-top: 2.3rem;
+        width: 85%;
+        overflow-y: inherit;
+    }
+
+    .bookContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding-top: 2rem;
+        background: var(--book-white);
+        border: 0.5px solid var(--detailNav-white);
+        border-radius: 0.8rem;
+        transition: all 250ms ease;
+    }
+
+    .bookContainer:hover {
+        cursor: pointer;
+    }
+
+    .bookImage {
+        margin: auto;
+        width: 40%;
+        height: 15rem;
+        transition: all 250ms ease;
+    }
+
+    .bookImage:hover {
+        transform: scale(1.2);
+    }
+
+    .bookTitle {
+        margin: auto;
+        margin-top: 2.5rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        line-height: 14px;
+        color: var(--book-grey);
+        width: 90%;
+    }
+    
+    .bookAuthor {
+        margin: auto;
+        margin-top: 1.1rem;
+        font-size: 1rem;
+        line-height: 12px;
+        font-weight: 900;
+        color: var(--book-grey);
+        width: 90%;
+    }
+}

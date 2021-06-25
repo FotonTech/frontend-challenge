@@ -1,6 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './style.css';
+import noImage from '../../assets/noImage.jpg';
 
 import Loading from '../Loading';
 
@@ -77,14 +78,14 @@ const SearchBook = ({ items, isLoading }: {
                                     if (index === indexNumber) {
                                         return (
                                             <section ref={lastBookElement} key={item.id} className='bookContainer' onClick={() => pushHistory(item)}>
-                                                <img src={item.volumeInfo?.imageLinks?.thumbnail} alt="" className='bookImage' />
+                                                <img src={item.volumeInfo?.imageLinks?.thumbnail ? item.volumeInfo?.imageLinks?.thumbnail : noImage} alt="" className='bookImage' />
                                                 <div className='bookTitle'>
                                                     {item.volumeInfo?.title}
                                                 </div>
                                                 <div className='bookAuthor'>
                                                     by
                                                     {
-                                                        item.volumeInfo.authors ? (" " + item.volumeInfo.authors[0]) : ('??')
+                                                        item.volumeInfo.authors ? (" " + item.volumeInfo.authors[0]) : (' Non identified')
                                                     }
                                                 </div>
                                             </section>
@@ -92,14 +93,14 @@ const SearchBook = ({ items, isLoading }: {
                                     } else {
                                         return (
                                             <section key={item.id} className='bookContainer' onClick={() => pushHistory(item)}>
-                                                <img src={item.volumeInfo?.imageLinks?.thumbnail} alt="" className='bookImage' />
+                                                <img src={item.volumeInfo?.imageLinks?.thumbnail ? item.volumeInfo?.imageLinks?.thumbnail : noImage} alt="" className='bookImage' />
                                                 <div className='bookTitle'>
                                                     {item.volumeInfo?.title}
                                                 </div>
                                                 <div className='bookAuthor'>
                                                     by
                                                     {
-                                                        item.volumeInfo.authors ? (" " + item.volumeInfo.authors[0]) : ('??')
+                                                        item.volumeInfo.authors ? (" " + item.volumeInfo.authors[0]) : (' Non identified')
                                                     }
                                                 </div>
                                             </section>

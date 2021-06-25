@@ -107,3 +107,81 @@
     width: 33.333%;
     height: min-content;
 }
+
+@media (min-width: 576px) {
+    .backArrow {
+        transition: all 250ms ease;
+    }
+    .backArrow:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+        opacity: 90%;
+    }
+
+    .firstBackgroundContainer {
+        justify-content: flex-start;
+        height: 15rem;
+    }
+
+    .bookImg {
+        height: 13.62rem;
+        margin-left: 5%;
+    }
+
+    .bookInfoContainer {
+        margin-top: 6rem;
+    }
+
+    .bookNameTextContainer {
+        font-size: 2.5rem;
+    }
+
+    .authorText {
+        margin-top: 1.2rem;
+        font-size: 1.5rem;
+    }
+    .bookTextSnippets {
+        margin-top: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .detailNavbar {
+        width: 100%;
+        height: 6rem;
+        bottom: 0;
+        background: var(--author-white);
+    }
+
+    .detailNavbarRead {
+        transform: scale(1.4);
+        transition: all 250ms ease;
+        color: black;
+    }
+
+    .detailNavbarRead:hover {
+        cursor: pointer;
+        transform: scale(1.5);
+    }
+
+    .detailNavbarListen {
+        transform: scale(1.4);
+        transition: all 250ms ease;
+        color: black;
+    }
+
+    .detailNavbarListen:hover {
+        cursor: pointer;
+        transform: scale(1.5);
+    }
+
+    .detailNavbarShare {
+        transform: scale(1.4);
+        transition: all 250ms ease;
+        color: black;
+    }
+
+    .detailNavbarShare:hover {
+        cursor: pointer;
+        transform: scale(1.5);
+    }
+}
