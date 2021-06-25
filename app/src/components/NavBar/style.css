@@ -1,0 +1,68 @@
+.navMainContainer {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 9vh;
+    left: 0;
+    bottom: 0;
+    background: var(--background);
+}
+
+.navIconsContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.iconContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iconText {
+    margin-top: 0.5rem;
+    font-size: 0.65rem;
+}
+
+@media (min-width: 576px) {
+    .navMainContainer {
+        display: flex;
+        position: relative;
+        justify-content: flex-start;
+        align-items: flex-end;
+        width: 92%;
+        height: 4rem;
+        background: transparent;
+    }
+
+    .navIconsContainer {
+        display: flex;
+        justify-content: right;
+        width: 80%;
+    }
+
+    .iconContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0rem;
+        margin-right: 2rem;
+    }
+    .navIconimg {
+        display: none;
+    }
+
+    .iconText {
+        font-size: 1.5rem;
+        transition: all 200ms ease;
+    }
+
+    .iconText:hover {
+        transform: scale(1.1);
+        opacity: 80%;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,33 @@
+@font-face {
+    font-family: "SfProDisplay";
+    src: local("SfProDisplay"),url("./fonts/FontsFree-Net-SFProDisplay-Regular.ttf") format("truetype");
+    font-weight: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: SfProDisplay;
+}
+
+:root {
+    --background: #FFFCF9;
+    --book-white: #FEFEFE;
+    --detailNav-white: #F2F2F2;
+    --author-white: #E7E7E1;
+    --light-grey: #54565A;
+    --grey: #3F4043;
+    --dark-grey: hsl(210, 4%, 22%);
+    --nav-grey: #313131;
+
+    --detail-grey:rgba(49, 49, 49, 0.6);
+    --book-grey: rgba(49, 49, 49, 0.8);
+
+    --pastel-red: #FF6978;
+    --light-blue: #4ABDF1;
+}

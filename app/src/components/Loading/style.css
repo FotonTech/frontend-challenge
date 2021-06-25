@@ -1,0 +1,19 @@
+.loading {
+    margin: 50px auto;
+    border: solid 5px var(--book-white);
+    border-top: solid 5px #3498db;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: loading 1s infinite linear;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
