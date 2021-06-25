@@ -206,7 +206,7 @@ const Home = () => {
                                                                     Read Now
                                                                 </div>
                                                             </section>
-                                                            <img src={data.volumeInfo?.imageLinks.thumbnail} alt="" />
+                                                            <img src={data.volumeInfo?.imageLinks.thumbnail} alt="" style={{width:'4.5rem'}} />
                                                         </section>
                                                     </section>
                                                 )
