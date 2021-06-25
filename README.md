@@ -1,22 +1,15 @@
-# Frontend Challenge
+# Frontend Challenge - Sabanai
 
-Clone this repository and start our challenge **right now**
-
-Use React or React Native depending on the rule you are running for.
-
-**NOTE:** If you have any questions regarding the test, just send us your question on our Discord's channel **#technical-challenge** on [Foton Discord](https://discord.gg/uw55aDewNf).
+This is my google books App that i created for my foton frontend challenge application. Created with React Typescript and axios library. 
 
 ## API
 
-Use the [Google Books](https://developers.google.com/books/docs/v1/using)' API to recover the data that will be shown on the app.
+This app uses '[Google Books](https://developers.google.com/books/docs/v1/using)' API to recover the data that will be shown on the app.
 
-```js
+```ts
 const query = 'harry potter';
-fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+app.get(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
 ```
-
-**NOTE:** You can use the form of calling apis of your choice (Fetch, Axios, etc).  
-
 ## Design/Screens
 https://www.figma.com/file/KFElqzD983WNyvMY1SaF0c/book-app?node-id=0%3A1
 
@@ -44,3 +37,13 @@ In this screen the functionalities below are **mandatory**:
 In this screen the functionalities below are **mandatory**:
 
 1. See all information for the selected book.
+
+### Bonus 
+
+I also worked on some extra functionalitys, for exemple: 
+
+1. Web page responsitivity layout;
+2. Smartphone responsitivity layout;
+3. Implementation of share (with twitter), listen and read buttons functions;
+4. Add a loading page animation layout;
+5. Created more animations in some components.
