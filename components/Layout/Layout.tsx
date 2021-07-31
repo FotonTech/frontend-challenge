@@ -7,11 +7,7 @@ const StyledWrapper = styled.div`
 `
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    background: #FFFCF9;
-    color: #313131;
-  }
-  
+  /** Reset user-agent css */
   /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -64,6 +60,35 @@ const GlobalStyle = createGlobalStyle`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+
+  /** Global styles */
+  body {
+    background: #FFFCF9;
+    color: #313131;
+    font-family: SFProText;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  h1,h2 {
+    font-family: "SFProDisplay";
+
+  }
+  h1 {
+    margin-bottom: 30px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #54565A;
+  }
+
+  h2 {
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.5px;
+    color: #3F4043;
   }
 `
 

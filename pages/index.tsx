@@ -1,8 +1,10 @@
 import styled from "styled-components"
 import Image from "next/image"
 
-import Layout from "../components/Layout"
+import Layout from "../components/Layout/Layout"
 import BookImage from "../public/Sprint.png"
+import Input from "../components/Input/Input"
+import { BookIcon, HomeIcon, SearchIcon, UserIcon } from "../components/Icons"
 
 const StyledBookCardList = styled.ul``
 
@@ -17,6 +19,8 @@ const StyledBookCard = styled.li`
 
 const StyledBookCardsHeader = styled.div`
   display: flex;
+  padding: 0 30px;
+  margin-bottom: 15px;
   justify-content: space-between;
   align-items: center;
 `
@@ -31,39 +35,137 @@ const StyledBookCardInfo = styled.div`
   justify-content: space-between;
 `
 
+const StyledTitleSpecial = styled.span`
+  color: #ff6978;
+`
+
+const StyledForm = styled.form`
+  margin-bottom: 30px;
+`
+
+const StyledMain = styled.main`
+  padding-top: 50px;
+`
+
+const StyledContentWrapper = styled.div`
+  padding: 0 30px;
+`
+
+const StyledLeftSpacingContentWrapper = styled.div`
+  padding-left: 30px;
+`
+
+const StyledRightSpacingContentWrapper = styled.div`
+  padding-right: 30px;
+`
+
+const StyledDiscoverWrapper = styled.div`
+  margin-bottom: 30px;
+`
+
+const StyledReadingWrapper = styled.div`
+  margin-bottom: 45px;
+`
+
+const StyledFloatingNavbar = styled.nav`
+  position: fixed;
+  padding: 10px 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+`
+
+const StyledNavList = styled.ul`
+  display: flex;
+  justify-content: space-around;
+  font-family: "SFProDisplay";
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #313131;
+`
+
+const StyledNavListItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const StyledNavListItemText = styled.span`
+  margin-top: 10px;
+`
+
 export default function Home() {
   return (
     <Layout>
-      <main>
-        <input />
+      <StyledMain>
+        <StyledContentWrapper>
+          <StyledForm>
+            <Input prefix={<SearchIcon />} />
+          </StyledForm>
+        </StyledContentWrapper>
 
-        <h1>Hi, Mehmed Al Fatih</h1>
+        <StyledContentWrapper>
+          <h1>
+            Hi, <StyledTitleSpecial>Mehmed Al Fatih</StyledTitleSpecial>
+          </h1>
+        </StyledContentWrapper>
 
-        <div>
+        <StyledDiscoverWrapper>
           <StyledBookCardsHeader>
             <h2>Discover new book</h2>
             <StyledLink>More</StyledLink>
           </StyledBookCardsHeader>
-          <StyledBookCardList>
-            <StyledBookCard>
-              <StyledBookCardInfo>
-                <div>
-                  <h3>Hooked</h3>
-                  <p>Nir Eyal</p>
-                </div>
-                <span>120+ Read Now</span>
-              </StyledBookCardInfo>
-              <StyledBookCardInfo>
-                <Image src={BookImage} />
-              </StyledBookCardInfo>
-            </StyledBookCard>
-          </StyledBookCardList>
-        </div>
-        <div>
+
+          <StyledLeftSpacingContentWrapper>
+            <StyledBookCardList>
+              <StyledBookCard>
+                <StyledBookCardInfo>
+                  <div>
+                    <h3>Hooked</h3>
+                    <p>Nir Eyal</p>
+                  </div>
+                  <span>120+ Read Now</span>
+                </StyledBookCardInfo>
+                <StyledBookCardInfo>
+                  <Image src={BookImage} />
+                </StyledBookCardInfo>
+              </StyledBookCard>
+            </StyledBookCardList>
+          </StyledLeftSpacingContentWrapper>
+        </StyledDiscoverWrapper>
+
+        <StyledReadingWrapper>
           <StyledBookCardsHeader>
             <h2>Currently Reading</h2>
             <StyledLink>All</StyledLink>
           </StyledBookCardsHeader>
+
+          <StyledRightSpacingContentWrapper>
+            <StyledBookCardList>
+              <StyledBookCard>
+                <StyledBookCardInfo>
+                  <div>
+                    <h3>Hooked</h3>
+                    <p>Nir Eyal</p>
+                  </div>
+                  <span>120+ Read Now</span>
+                </StyledBookCardInfo>
+                <StyledBookCardInfo>
+                  <Image src={BookImage} />
+                </StyledBookCardInfo>
+              </StyledBookCard>
+            </StyledBookCardList>
+          </StyledRightSpacingContentWrapper>
+        </StyledReadingWrapper>
+
+        <StyledBookCardsHeader>
+          <h2>Reviews of The Days</h2>
+          <StyledLink>All Video</StyledLink>
+        </StyledBookCardsHeader>
+
+        <StyledContentWrapper>
           <StyledBookCardList>
             <StyledBookCard>
               <StyledBookCardInfo>
@@ -78,28 +180,27 @@ export default function Home() {
               </StyledBookCardInfo>
             </StyledBookCard>
           </StyledBookCardList>
-        </div>
-        <div>
-          <StyledBookCardsHeader>
-            <h2>Reviews of The Days</h2>
-            <StyledLink>All Video</StyledLink>
-          </StyledBookCardsHeader>
-          <StyledBookCardList>
-            <StyledBookCard>
-              <StyledBookCardInfo>
-                <div>
-                  <h3>Hooked</h3>
-                  <p>Nir Eyal</p>
-                </div>
-                <span>120+ Read Now</span>
-              </StyledBookCardInfo>
-              <StyledBookCardInfo>
-                <Image src={BookImage} />
-              </StyledBookCardInfo>
-            </StyledBookCard>
-          </StyledBookCardList>
-        </div>
-      </main>
+        </StyledContentWrapper>
+        <StyledFloatingNavbar>
+          <StyledNavList>
+            <StyledNavListItem>
+              <HomeIcon />
+              <StyledNavListItemText>Home</StyledNavListItemText>
+            </StyledNavListItem>
+
+            <StyledNavListItem>
+              <BookIcon />
+              <StyledNavListItemText>Libraries</StyledNavListItemText>
+            </StyledNavListItem>
+
+            <StyledNavListItem>
+              <UserIcon />
+
+              <StyledNavListItemText>Profile</StyledNavListItemText>
+            </StyledNavListItem>
+          </StyledNavList>
+        </StyledFloatingNavbar>
+      </StyledMain>
     </Layout>
   )
 }
