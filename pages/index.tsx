@@ -5,13 +5,19 @@ import Layout from "../components/Layout/Layout"
 import BookImage from "../public/Sprint.png"
 import Input from "../components/Input/Input"
 import { BookIcon, HomeIcon, SearchIcon, UserIcon } from "../components/Icons"
+import { useBooksQuery } from "../queries/books"
 
-const StyledBookCardList = styled.ul``
+const StyledBookCardList = styled.ul`
+  display: flex;
+  overflow-x: scroll;
+`
 
 const StyledBookCard = styled.li`
   display: flex;
   padding: 15px 20px 20px 20px;
+  margin-right: 10px;
   justify-content: space-between;
+  min-width: 280px;
 
   background: #00173d;
   color: #e7e7e1;
@@ -96,7 +102,9 @@ const StyledNavListItemText = styled.span`
   margin-top: 10px;
 `
 
-export default function Home() {
+export default function Home(props) {
+  const { data, error } = useBooksQuery()
+
   return (
     <Layout>
       <StyledMain>
@@ -120,19 +128,24 @@ export default function Home() {
 
           <StyledLeftSpacingContentWrapper>
             <StyledBookCardList>
-              <StyledBookCard>
-                <StyledBookCardInfo>
-                  <div>
-                    <h3>Hooked</h3>
-                    <p>Nir Eyal</p>
-                  </div>
-                  <span>120+ Read Now</span>
-                </StyledBookCardInfo>
-                <StyledBookCardInfo>
-                  <Image src={BookImage} />
-                </StyledBookCardInfo>
-              </StyledBookCard>
+              {data &&
+                data.items?.map(({ volumeInfo: { authors, title } }) => (
+                  <StyledBookCard>
+                    <StyledBookCardInfo>
+                      <div>
+                        <h3>{title}</h3>
+                        {authors &&
+                          authors.slice(0, 1).map((author) => <p>{author}</p>)}
+                      </div>
+                      <span>120+ Read Now</span>
+                    </StyledBookCardInfo>
+                    <StyledBookCardInfo>
+                      <img src="Sprint.png" />
+                    </StyledBookCardInfo>
+                  </StyledBookCard>
+                ))}
             </StyledBookCardList>
+            {error && <p>{error}</p>}
           </StyledLeftSpacingContentWrapper>
         </StyledDiscoverWrapper>
 
