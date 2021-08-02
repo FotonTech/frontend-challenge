@@ -5,7 +5,7 @@ import Layout from "../components/Layout/Layout"
 import BookImage from "../public/Sprint.png"
 import Input from "../components/Input/Input"
 import { BookIcon, HomeIcon, SearchIcon, UserIcon } from "../components/Icons"
-import { useBooksQuery } from "../queries/books"
+import { useBooksQuery, useUserBookshelfVolumesQuery } from "../queries/books"
 
 const StyledBookCardList = styled.ul`
   display: flex;
@@ -102,8 +102,18 @@ const StyledNavListItemText = styled.span`
   margin-top: 10px;
 `
 
-export default function Home(props) {
-  const { data, error } = useBooksQuery()
+const CURRENT_USER_ID = "107452890772828077812"
+const GOOGLE_BOOKS_CURRENTLY_READING_SHELF_ID = "3"
+
+export default function Home() {
+  const { data: booksResult, error: booksError } = useBooksQuery()
+  const {
+    data: userCurrentlyReadingResult,
+    error: currentlyReadingError,
+  } = useUserBookshelfVolumesQuery(
+    CURRENT_USER_ID,
+    GOOGLE_BOOKS_CURRENTLY_READING_SHELF_ID
+  )
 
   return (
     <Layout>
@@ -128,24 +138,40 @@ export default function Home(props) {
 
           <StyledLeftSpacingContentWrapper>
             <StyledBookCardList>
-              {data &&
-                data.items?.map(({ volumeInfo: { authors, title } }) => (
-                  <StyledBookCard>
-                    <StyledBookCardInfo>
-                      <div>
-                        <h3>{title}</h3>
-                        {authors &&
-                          authors.slice(0, 1).map((author) => <p>{author}</p>)}
-                      </div>
-                      <span>120+ Read Now</span>
-                    </StyledBookCardInfo>
-                    <StyledBookCardInfo>
-                      <img src="Sprint.png" />
-                    </StyledBookCardInfo>
-                  </StyledBookCard>
-                ))}
+              {booksResult &&
+                booksResult.items?.map(
+                  ({
+                    id,
+                    volumeInfo: {
+                      authors,
+                      title,
+                      imageLinks: { thumbnail },
+                    },
+                  }) => (
+                    <StyledBookCard key={id}>
+                      <StyledBookCardInfo>
+                        <div>
+                          <h3>{title}</h3>
+                          {authors &&
+                            authors
+                              .slice(0, 1)
+                              .map((author) => <p key={author}>{author}</p>)}
+                        </div>
+                        <span>120+ Read Now</span>
+                      </StyledBookCardInfo>
+                      <StyledBookCardInfo>
+                        <Image
+                          width={128}
+                          height={171}
+                          alt={title}
+                          src={thumbnail}
+                        />
+                      </StyledBookCardInfo>
+                    </StyledBookCard>
+                  )
+                )}
             </StyledBookCardList>
-            {error && <p>{error}</p>}
+            {booksError && <p>{booksError}</p>}
           </StyledLeftSpacingContentWrapper>
         </StyledDiscoverWrapper>
 
@@ -157,19 +183,40 @@ export default function Home(props) {
 
           <StyledRightSpacingContentWrapper>
             <StyledBookCardList>
-              <StyledBookCard>
-                <StyledBookCardInfo>
-                  <div>
-                    <h3>Hooked</h3>
-                    <p>Nir Eyal</p>
-                  </div>
-                  <span>120+ Read Now</span>
-                </StyledBookCardInfo>
-                <StyledBookCardInfo>
-                  <Image src={BookImage} />
-                </StyledBookCardInfo>
-              </StyledBookCard>
+              {userCurrentlyReadingResult &&
+                userCurrentlyReadingResult.items?.map(
+                  ({
+                    id,
+                    volumeInfo: {
+                      authors,
+                      title,
+                      imageLinks: { thumbnail },
+                    },
+                  }) => (
+                    <StyledBookCard key={id}>
+                      <StyledBookCardInfo>
+                        <div>
+                          <h3>{title}</h3>
+                          {authors &&
+                            authors
+                              .slice(0, 1)
+                              .map((author) => <p key={author}>{author}</p>)}
+                        </div>
+                        <span>120+ Read Now</span>
+                      </StyledBookCardInfo>
+                      <StyledBookCardInfo>
+                        <Image
+                          width={128}
+                          height={171}
+                          alt={title}
+                          src={thumbnail}
+                        />
+                      </StyledBookCardInfo>
+                    </StyledBookCard>
+                  )
+                )}
             </StyledBookCardList>
+            {currentlyReadingError && currentlyReadingError}
           </StyledRightSpacingContentWrapper>
         </StyledReadingWrapper>
 

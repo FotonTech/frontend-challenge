@@ -1,11 +1,42 @@
 import { useQuery } from "react-query"
 
 type Book = {
+  id: string
   volumeInfo: {
     authors: Array<string>
     description: string
     title: string
+    imageLinks: {
+      thumbnail: string
+    }
   }
+}
+
+type BooksApiVolumesResponse = {
+  items: Array<Book>
+  totalItems: number
+
+  error?: {
+    message?: string
+  }
+}
+
+type BooksApiUserBookshelfVolumesResponse = {
+  items: Array<Book>
+  totalItems: number
+}
+
+/**
+ * Fetches book volumes from a specific user's bookshelf id
+ */
+const getUserBookshelfVolumes = async (userId: string, bookShelfId: string) => {
+  const res = await fetch(
+    `https://www.googleapis.com/books/v1/users/${userId}/bookshelves/${bookShelfId}/volumes`
+  )
+
+  const parsed: BooksApiUserBookshelfVolumesResponse = await res.json()
+
+  return parsed
 }
 
 const getBooksByQuery = async (params): Promise<{ items: Array<Book> }> => {
@@ -22,13 +53,22 @@ const getBooksByQuery = async (params): Promise<{ items: Array<Book> }> => {
       `https://www.googleapis.com/books/v1/volumes?${searchParams}`
     )
 
-    const parsed = await res.json()
+    const parsedBody: BooksApiVolumesResponse = await res.json()
 
     if (!res.ok) {
-      throw parsed?.error?.message
+      const { error } = parsedBody
+      throw error?.message
     }
 
-    return parsed
+    /** Return only books that have images */
+    const { items } = parsedBody
+    const booksThatHaveImage = items.filter(
+      (item) => item.volumeInfo.imageLinks
+    )
+
+    parsedBody.items = booksThatHaveImage
+
+    return parsedBody
   } catch (err) {
     throw err
   }
@@ -41,7 +81,12 @@ type Params = {
   q: string
 }
 
+const useUserBookshelfVolumesQuery = (userId: string, bookshelfId: string) =>
+  useQuery(["userBookshelfVolumes", userId, bookshelfId], () =>
+    getUserBookshelfVolumes(userId, bookshelfId)
+  )
+
 const useBooksQuery = (params?: Params) =>
   useQuery(["books", params], () => getBooksByQuery(params))
 
-export { getBooksByQuery, useBooksQuery }
+export { getBooksByQuery, useBooksQuery, useUserBookshelfVolumesQuery }
