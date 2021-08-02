@@ -64,6 +64,7 @@ const GlobalStyle = createGlobalStyle`
 
   /** Global styles */
   body {
+    padding-bottom: 80px;
     background: #FFFCF9;
     color: #313131;
     font-family: SFProText;

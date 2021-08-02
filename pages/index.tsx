@@ -2,7 +2,7 @@ import styled from "styled-components"
 import Image from "next/image"
 
 import Layout from "../components/Layout/Layout"
-import BookImage from "../public/Sprint.png"
+import ReviewsOfTheDaysImage from "../public/images/reviews-of-the-days.png"
 import Input from "../components/Input/Input"
 import { BookIcon, HomeIcon, SearchIcon, UserIcon } from "../components/Icons"
 import { useBooksQuery, useUserBookshelfVolumesQuery } from "../queries/books"
@@ -25,7 +25,6 @@ const StyledBookCard = styled.li`
 
 const StyledBookCardsHeader = styled.div`
   display: flex;
-  padding: 0 30px;
   margin-bottom: 15px;
   justify-content: space-between;
   align-items: center;
@@ -50,19 +49,21 @@ const StyledForm = styled.form`
 `
 
 const StyledMain = styled.main`
+  max-width: 960px;
+  margin: 0 auto;
   padding-top: 50px;
 `
 
-const StyledContentWrapper = styled.div`
-  padding: 0 30px;
+const StyledSpacingWrapper = styled.div`
+  padding: 0 20px;
 `
 
 const StyledLeftSpacingContentWrapper = styled.div`
-  padding-left: 30px;
+  padding-left: 20px;
 `
 
 const StyledRightSpacingContentWrapper = styled.div`
-  padding-right: 30px;
+  padding-right: 20px;
 `
 
 const StyledDiscoverWrapper = styled.div`
@@ -118,23 +119,25 @@ export default function Home() {
   return (
     <Layout>
       <StyledMain>
-        <StyledContentWrapper>
+        <StyledSpacingWrapper>
           <StyledForm>
             <Input prefix={<SearchIcon />} />
           </StyledForm>
-        </StyledContentWrapper>
+        </StyledSpacingWrapper>
 
-        <StyledContentWrapper>
+        <StyledSpacingWrapper>
           <h1>
             Hi, <StyledTitleSpecial>Mehmed Al Fatih</StyledTitleSpecial>
           </h1>
-        </StyledContentWrapper>
+        </StyledSpacingWrapper>
 
         <StyledDiscoverWrapper>
-          <StyledBookCardsHeader>
-            <h2>Discover new book</h2>
-            <StyledLink>More</StyledLink>
-          </StyledBookCardsHeader>
+          <StyledSpacingWrapper>
+            <StyledBookCardsHeader>
+              <h2>Discover new book</h2>
+              <StyledLink>More</StyledLink>
+            </StyledBookCardsHeader>
+          </StyledSpacingWrapper>
 
           <StyledLeftSpacingContentWrapper>
             <StyledBookCardList>
@@ -176,10 +179,12 @@ export default function Home() {
         </StyledDiscoverWrapper>
 
         <StyledReadingWrapper>
-          <StyledBookCardsHeader>
-            <h2>Currently Reading</h2>
-            <StyledLink>All</StyledLink>
-          </StyledBookCardsHeader>
+          <StyledSpacingWrapper>
+            <StyledBookCardsHeader>
+              <h2>Currently Reading</h2>
+              <StyledLink>All</StyledLink>
+            </StyledBookCardsHeader>
+          </StyledSpacingWrapper>
 
           <StyledRightSpacingContentWrapper>
             <StyledBookCardList>
@@ -220,27 +225,16 @@ export default function Home() {
           </StyledRightSpacingContentWrapper>
         </StyledReadingWrapper>
 
-        <StyledBookCardsHeader>
-          <h2>Reviews of The Days</h2>
-          <StyledLink>All Video</StyledLink>
-        </StyledBookCardsHeader>
+        <StyledSpacingWrapper>
+          <StyledBookCardsHeader>
+            <h2>Reviews of The Days</h2>
+            <StyledLink>All Video</StyledLink>
+          </StyledBookCardsHeader>
+        </StyledSpacingWrapper>
 
-        <StyledContentWrapper>
-          <StyledBookCardList>
-            <StyledBookCard>
-              <StyledBookCardInfo>
-                <div>
-                  <h3>Hooked</h3>
-                  <p>Nir Eyal</p>
-                </div>
-                <span>120+ Read Now</span>
-              </StyledBookCardInfo>
-              <StyledBookCardInfo>
-                <Image src={BookImage} />
-              </StyledBookCardInfo>
-            </StyledBookCard>
-          </StyledBookCardList>
-        </StyledContentWrapper>
+        <StyledSpacingWrapper>
+          <Image src={ReviewsOfTheDaysImage} />
+        </StyledSpacingWrapper>
         <StyledFloatingNavbar>
           <StyledNavList>
             <StyledNavListItem>
