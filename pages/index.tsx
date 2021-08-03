@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Image from "next/image"
+import Link from "next/link"
 
 import Layout from "../components/Layout/Layout"
 import ReviewsOfTheDaysImage from "../public/images/reviews-of-the-days.png"
@@ -40,9 +41,11 @@ const StyledBookCardInfo = styled.div`
   justify-content: space-between;
 `
 
-const StyledTitleSpecial = styled.span`
-  color: #ff6978;
+const StyledTitleSpecial = styled.span(
+  ({ theme }) => `
+color: ${theme.colors.special};
 `
+)
 
 const StyledForm = styled.form`
   margin-bottom: 30px;
@@ -149,26 +152,28 @@ export default function Home() {
                       imageLinks: { thumbnail }
                     }
                   }) => (
-                    <StyledBookCard key={id}>
-                      <StyledBookCardInfo>
-                        <div>
-                          <h3>{title}</h3>
-                          {authors &&
-                            authors
-                              .slice(0, 1)
-                              .map((author) => <p key={author}>{author}</p>)}
-                        </div>
-                        <span>120+ Read Now</span>
-                      </StyledBookCardInfo>
-                      <StyledBookCardInfo>
-                        <Image
-                          width={128}
-                          height={171}
-                          alt={title}
-                          src={thumbnail}
-                        />
-                      </StyledBookCardInfo>
-                    </StyledBookCard>
+                    <Link key={id} href={`/book/${id}`} passHref>
+                      <StyledBookCard>
+                        <StyledBookCardInfo>
+                          <div>
+                            <h3>{title}</h3>
+                            {authors &&
+                              authors
+                                .slice(0, 1)
+                                .map((author) => <p key={author}>{author}</p>)}
+                          </div>
+                          <span>120+ Read Now</span>
+                        </StyledBookCardInfo>
+                        <StyledBookCardInfo>
+                          <Image
+                            width={128}
+                            height={171}
+                            alt={title}
+                            src={thumbnail}
+                          />
+                        </StyledBookCardInfo>
+                      </StyledBookCard>
+                    </Link>
                   )
                 )}
             </StyledBookCardList>

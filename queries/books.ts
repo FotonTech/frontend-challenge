@@ -26,6 +26,18 @@ type BooksApiUserBookshelfVolumesResponse = {
   totalItems: number
 }
 
+const getVolumeById = async (id) => {
+  try {
+    const res = await fetch("https://www.googleapis.com/books/v1/volumes/" + id)
+
+    const parsed: Book = await res.json()
+
+    return parsed
+  } catch (err) {
+    throw err
+  }
+}
+
 /**
  * Fetches book volumes from a specific user's bookshelf id
  */
@@ -74,19 +86,26 @@ const getBooksByQuery = async (params): Promise<{ items: Array<Book> }> => {
   }
 }
 
-type Params = {
+const useVolumeByIdQuery = (id) =>
+  useQuery(["volumeById", id], () => getVolumeById(id))
+
+const useUserBookshelfVolumesQuery = (userId: string, bookshelfId: string) =>
+  useQuery(["userBookshelfVolumes", userId, bookshelfId], () =>
+    getUserBookshelfVolumes(userId, bookshelfId)
+  )
+type BooksQueryParams = {
   maxResults: string
   startIndex: string
   orderBy: string
   q: string
 }
 
-const useUserBookshelfVolumesQuery = (userId: string, bookshelfId: string) =>
-  useQuery(["userBookshelfVolumes", userId, bookshelfId], () =>
-    getUserBookshelfVolumes(userId, bookshelfId)
-  )
-
-const useBooksQuery = (params?: Params) =>
+const useBooksQuery = (params?: BooksQueryParams) =>
   useQuery(["books", params], () => getBooksByQuery(params))
 
-export { getBooksByQuery, useBooksQuery, useUserBookshelfVolumesQuery }
+export {
+  getBooksByQuery,
+  useBooksQuery,
+  useUserBookshelfVolumesQuery,
+  useVolumeByIdQuery
+}

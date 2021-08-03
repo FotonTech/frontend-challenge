@@ -1,7 +1,12 @@
 {
-  "name": "new-challenge-project",
+  "name": "fotontech-frontend-challenge",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "email": "eduardocamposdev@gmail.com",
+    "name": "Eduardo C. de Souza",
+    "url": "https://github.com/edagonis"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
