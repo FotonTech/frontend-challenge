@@ -107,5 +107,6 @@ export {
   getBooksByQuery,
   useBooksQuery,
   useUserBookshelfVolumesQuery,
-  useVolumeByIdQuery
+  useVolumeByIdQuery,
+  getVolumeById
 }

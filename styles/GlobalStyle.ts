@@ -85,6 +85,16 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: 0.5px;
     color: #3F4043;
   }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 `
 
 export default GlobalStyle

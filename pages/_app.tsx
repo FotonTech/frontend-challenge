@@ -1,18 +1,22 @@
 import { QueryClient, QueryClientProvider } from "react-query"
 import { ThemeProvider } from "styled-components"
+import { Hydrate } from "react-query/hydration"
+import { useState } from "react"
 
-import theme from "../styles"
+import theme from "../styles/theme"
 import GlobalStyle from "../styles/GlobalStyle"
 
-const queryClient = new QueryClient()
-
 const MyApp = ({ Component, pageProps }) => {
+  const [queryClient] = useState(() => new QueryClient())
+
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Hydrate state={pageProps.dehydratedState}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </Hydrate>
     </QueryClientProvider>
   )
 }

@@ -1,3 +1,5 @@
+import theme from "../../styles/theme"
+
 const SearchIcon = () => (
   <svg
     width="16"
@@ -101,4 +103,54 @@ const UserIcon = () => (
   </svg>
 )
 
-export { SearchIcon, UserIcon, HomeIcon, BookIcon }
+const BackIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M15 8H1"
+      stroke="black"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M8 15L1 8L8 1"
+      stroke="black"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+)
+
+const LoadingIcon = () => (
+  <svg
+    width="30"
+    height="30"
+    viewBox="0 0 100 100"
+    stroke={theme.colors.special}
+    preserveAspectRatio="xMidYMid"
+  >
+    <circle cx="50" opacity="0.4" cy="50" fill="none" strokeWidth="14" r="40" />
+    <circle
+      cx="50"
+      cy="50"
+      fill="none"
+      strokeWidth="12"
+      r="40"
+      strokeDasharray="60 900"
+      strokeLinecap="round"
+      style={{
+        animation: "rotate 1.5s infinite linear",
+        transformOrigin: "50px 50px"
+      }}
+    />
+  </svg>
+)
+
+export { BackIcon, SearchIcon, UserIcon, HomeIcon, BookIcon, LoadingIcon }
