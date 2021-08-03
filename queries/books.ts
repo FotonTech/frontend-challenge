@@ -46,7 +46,7 @@ const getBooksByQuery = async (params): Promise<{ items: Array<Book> }> => {
       startIndex: "0", // @TODO add pagination
       orderBy: "newest",
       q: "new books",
-      ...params,
+      ...params
     })
 
     const res = await fetch(

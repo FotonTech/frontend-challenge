@@ -108,13 +108,11 @@ const GOOGLE_BOOKS_CURRENTLY_READING_SHELF_ID = "3"
 
 export default function Home() {
   const { data: booksResult, error: booksError } = useBooksQuery()
-  const {
-    data: userCurrentlyReadingResult,
-    error: currentlyReadingError,
-  } = useUserBookshelfVolumesQuery(
-    CURRENT_USER_ID,
-    GOOGLE_BOOKS_CURRENTLY_READING_SHELF_ID
-  )
+  const { data: userCurrentlyReadingResult, error: currentlyReadingError } =
+    useUserBookshelfVolumesQuery(
+      CURRENT_USER_ID,
+      GOOGLE_BOOKS_CURRENTLY_READING_SHELF_ID
+    )
 
   return (
     <Layout>
@@ -148,8 +146,8 @@ export default function Home() {
                     volumeInfo: {
                       authors,
                       title,
-                      imageLinks: { thumbnail },
-                    },
+                      imageLinks: { thumbnail }
+                    }
                   }) => (
                     <StyledBookCard key={id}>
                       <StyledBookCardInfo>
@@ -195,8 +193,8 @@ export default function Home() {
                     volumeInfo: {
                       authors,
                       title,
-                      imageLinks: { thumbnail },
-                    },
+                      imageLinks: { thumbnail }
+                    }
                   }) => (
                     <StyledBookCard key={id}>
                       <StyledBookCardInfo>
