@@ -9,6 +9,7 @@ type Book = {
     imageLinks: {
       thumbnail: string
     }
+    publishedDate: string
   }
 }
 

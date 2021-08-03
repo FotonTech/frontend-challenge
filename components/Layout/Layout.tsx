@@ -3,6 +3,8 @@ import Head from "next/head"
 import styled from "styled-components"
 
 const StyledWrapper = styled.div`
+  max-width: 960px;
+  margin: 0 auto;
   background: #fffcf9;
 `
 

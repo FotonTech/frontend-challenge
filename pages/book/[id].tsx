@@ -3,10 +3,11 @@ import styled from "styled-components"
 import Image from "next/image"
 import { dehydrate } from "react-query/hydration"
 import { QueryClient } from "react-query"
+import Link from "next/link"
 
 import Layout from "../../components/Layout/Layout"
 import { useVolumeByIdQuery, getVolumeById } from "../../queries/books"
-import { LoadingIcon } from "../../components/Icons"
+import { BackIcon, LoadingIcon } from "../../components/Icons"
 
 const StyledMain = styled.main`
   display: flex;
@@ -30,8 +31,6 @@ const StyledDescriptionText = styled.p`
   font-family: SFProText;
   font-size: 14px;
   line-height: 25px;
-  /* or 179% */
-
   letter-spacing: 0.2px;
 
   color: rgba(49, 49, 49, 0.6);
@@ -39,7 +38,7 @@ const StyledDescriptionText = styled.p`
 
 const StyledImageWrapper = styled.div`
   display: flex;
-  margin-top: 80px;
+  margin-top: 15px;
   box-shadow: 0 25px 40px -40px #000;
 `
 
@@ -47,8 +46,13 @@ const StyledHeader = styled.div`
   display: flex;
   background: url("/images/book-background.png") no-repeat;
   flex-direction: column;
+  background-position: top;
   align-items: center;
   margin-bottom: 30px;
+
+  @media (min-width: 768px) {
+    background: url("/images/book-background-desktop.png") no-repeat;
+  }
 `
 
 const StyledLoadingWrapper = styled.div`
@@ -61,6 +65,12 @@ const StyledLoadingWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`
+
+const StyledBackIconWrapper = styled.div`
+  margin-top: 55px;
+  margin-left: 30px;
+  align-self: flex-start;
 `
 
 type Props = {
@@ -78,8 +88,15 @@ const BookPage = (props: Props) => {
       </StyledLoadingWrapper>
     )
 
-  if (error) return <p>error!</p>
-  if (!data) return <p></p>
+  if (error)
+    return (
+      <p>
+        {error}.
+        <Link href="/">
+          <a title="Back to homepage">Go back</a>
+        </Link>
+      </p>
+    )
 
   const {
     volumeInfo: { title, description, authors, imageLinks }
@@ -89,6 +106,13 @@ const BookPage = (props: Props) => {
     <Layout>
       <StyledMain>
         <StyledHeader>
+          <StyledBackIconWrapper>
+            <Link href="/">
+              <a title="Back to homepage">
+                <BackIcon />
+              </a>
+            </Link>
+          </StyledBackIconWrapper>
           <StyledImageWrapper>
             <Image
               alt={title}

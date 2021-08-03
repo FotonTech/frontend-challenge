@@ -52,8 +52,6 @@ const StyledForm = styled.form`
 `
 
 const StyledMain = styled.main`
-  max-width: 960px;
-  margin: 0 auto;
   padding-top: 50px;
 `
 
@@ -149,7 +147,8 @@ export default function Home() {
                     volumeInfo: {
                       authors,
                       title,
-                      imageLinks: { thumbnail }
+                      imageLinks: { thumbnail },
+                      publishedDate
                     }
                   }) => (
                     <Link key={id} href={`/book/${id}`} passHref>
@@ -162,7 +161,11 @@ export default function Home() {
                                 .slice(0, 1)
                                 .map((author) => <p key={author}>{author}</p>)}
                           </div>
-                          <span>120+ Read Now</span>
+
+                          <div>
+                            <p>120+ Read Now</p>
+                            {publishedDate && <p>{publishedDate}</p>}
+                          </div>
                         </StyledBookCardInfo>
                         <StyledBookCardInfo>
                           <Image
