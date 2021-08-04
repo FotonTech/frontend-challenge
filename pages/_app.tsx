@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "react-query"
 import { ThemeProvider } from "styled-components"
 import { Hydrate } from "react-query/hydration"
 import { useState } from "react"
+import "nprogress/nprogress.css"
 
 import theme from "../styles/theme"
 import GlobalStyle from "../styles/GlobalStyle"
