@@ -74,7 +74,7 @@ const SearchBookPage = () => {
 
                 return (
                   <StyledBook key={etag}>
-                    <Link href={"/book/" + id}>
+                    <Link href={"/book/" + id} shallow={true}>
                       <a title={title}>
                         <img alt={title} src={thumbnail} />
                       </a>

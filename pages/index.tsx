@@ -146,7 +146,7 @@ export default function Home() {
                       publishedDate
                     }
                   }) => (
-                    <Link key={id} href={`/book/${id}`} passHref>
+                    <Link key={id} href={`/book/${id}`} passHref shallow={true}>
                       <StyledBookCard>
                         <StyledBookCardInfo>
                           <div>
