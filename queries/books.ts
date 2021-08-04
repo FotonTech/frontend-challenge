@@ -2,6 +2,7 @@ import { useQuery } from "react-query"
 
 type Book = {
   id: string
+  etag: string
   volumeInfo: {
     authors: Array<string>
     description: string
@@ -52,7 +53,16 @@ const getUserBookshelfVolumes = async (userId: string, bookShelfId: string) => {
   return parsed
 }
 
-const getBooksByQuery = async (params) => {
+type BooksQueryParams = {
+  maxResults?: string
+  startIndex?: string
+  orderBy?: string
+  q?: string
+}
+
+const getBooksByQuery = async (params: BooksQueryParams) => {
+  console.log(params)
+
   try {
     const searchParams = new URLSearchParams({
       maxResults: "40",
@@ -94,13 +104,6 @@ const useUserBookshelfVolumesQuery = (userId: string, bookshelfId: string) =>
   useQuery(["userBookshelfVolumes", userId, bookshelfId], () =>
     getUserBookshelfVolumes(userId, bookshelfId)
   )
-
-type BooksQueryParams = {
-  maxResults?: string
-  startIndex?: string
-  orderBy?: string
-  q?: string
-}
 
 const useBooksQuery = (params?: BooksQueryParams) =>
   useQuery(["books", params], () => getBooksByQuery(params))
