@@ -7,18 +7,7 @@ import { BookIcon, HomeIcon, UserIcon } from "@/components/Icons"
 import SearchForm from "@/components/SearchInput/SearchInput"
 import { useBooksQuery, useUserBookshelfVolumesQuery } from "@/queries/books"
 import BookCardsSwiper from "@/components/BookCardsSwiper/BookCardsSwiper"
-
-const StyledBookCard = styled.li`
-  display: flex;
-  padding: 15px 20px 20px 20px;
-  margin-right: 10px;
-  justify-content: space-between;
-  min-width: 280px;
-
-  background: #00173d;
-  color: #e7e7e1;
-  cursor: pointer;
-`
+import FeaturedBookCard from "@/components/FeaturedBookCard/FeaturedBookCard"
 
 const StyledBookCardsHeader = styled.div`
   display: flex;
@@ -29,12 +18,6 @@ const StyledBookCardsHeader = styled.div`
 
 const StyledLink = styled.a`
   color: #4abdf1;
-`
-
-const StyledBookCardInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 `
 
 const StyledTitleSpecial = styled.span(
@@ -101,13 +84,13 @@ const GOOGLE_BOOKS_CURRENTLY_READING_SHELF_ID = "3"
 
 export default function Home() {
   const { data: booksResult, error: booksError } = useBooksQuery()
-  const { data: userCurrentlyReadingResult, error: currentlyReadingError } =
+  const { data: featuredBookshelfVolumesResult, error: currentlyReadingError } =
     useUserBookshelfVolumesQuery(
       CURRENT_USER_ID,
       GOOGLE_BOOKS_CURRENTLY_READING_SHELF_ID
     )
 
-  const userCurrentlyReading = userCurrentlyReadingResult?.items[0]
+  const featuredBook = featuredBookshelfVolumesResult?.items[0]
 
   return (
     <Layout>
@@ -146,28 +129,7 @@ export default function Home() {
           </StyledSpacingWrapper>
 
           <StyledRightSpacingContentWrapper>
-            {userCurrentlyReading && (
-              <StyledBookCard>
-                <StyledBookCardInfo>
-                  <div>
-                    <h3>{userCurrentlyReading.volumeInfo.title}</h3>
-                    {userCurrentlyReading.volumeInfo.authors &&
-                      userCurrentlyReading.volumeInfo.authors
-                        .slice(0, 1)
-                        .map((author) => <p key={author}>{author}</p>)}
-                  </div>
-                  <span>120+ Read Now</span>
-                </StyledBookCardInfo>
-                <StyledBookCardInfo>
-                  <Image
-                    width={128}
-                    height={171}
-                    alt={userCurrentlyReading.volumeInfo.title}
-                    src={userCurrentlyReading.volumeInfo.imageLinks.thumbnail}
-                  />
-                </StyledBookCardInfo>
-              </StyledBookCard>
-            )}
+            {featuredBook && <FeaturedBookCard book={featuredBook} />}
 
             {currentlyReadingError && currentlyReadingError}
           </StyledRightSpacingContentWrapper>

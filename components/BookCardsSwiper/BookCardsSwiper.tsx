@@ -8,14 +8,12 @@ const StyledBookCardInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 1;
 `
 
 const StyledBookCard = styled.li`
   display: flex;
   padding: 15px 20px 20px 20px;
   margin-right: 10px;
-  position: relative;
   justify-content: space-between;
   min-width: 280px;
 
