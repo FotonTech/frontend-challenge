@@ -30,7 +30,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root{
-    --background: #F2F2F2;
+    --white: #ffffff;
+
+    --background: #f2f2f2;
 
     --placeholder: #54565A;
 

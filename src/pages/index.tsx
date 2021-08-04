@@ -1,5 +1,5 @@
 import Head from "next/Head";
-import { NavigationBar } from "../components/NavigationBar";
+import { SearchInput } from "../components/SearchInput";
 
 export default function Home() {
   return (
@@ -8,7 +8,9 @@ export default function Home() {
         <title>Home | FotonBooks</title>
       </Head>
 
-      <NavigationBar />
+      <main>
+        <SearchInput />
+      </main>
     </>
   );
 }
