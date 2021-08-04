@@ -1,4 +1,5 @@
 import Head from "next/Head";
+import { SearchInput } from "../components/SearchInput";
 
 
 export default function Home() {
@@ -8,7 +9,9 @@ export default function Home() {
         <title>Home | FotonBooks</title>
       </Head>
 
-      <h1>hello</h1>
+      <main>
+        <SearchInput />
+      </main>
     </>
   )
 }
