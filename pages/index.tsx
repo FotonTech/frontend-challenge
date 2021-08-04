@@ -4,8 +4,8 @@ import Link from "next/link"
 
 import Layout from "../components/Layout/Layout"
 import ReviewsOfTheDaysImage from "../public/images/reviews-of-the-days.png"
-import Input from "../components/Input/Input"
-import { BookIcon, HomeIcon, SearchIcon, UserIcon } from "../components/Icons"
+import { BookIcon, HomeIcon, UserIcon } from "../components/Icons"
+import SearchForm from "../components/SearchForm/SearchForm"
 import { useBooksQuery, useUserBookshelfVolumesQuery } from "../queries/books"
 
 const StyledBookCardList = styled.ul`
@@ -46,10 +46,6 @@ const StyledTitleSpecial = styled.span(
 color: ${theme.colors.special};
 `
 )
-
-const StyledForm = styled.form`
-  margin-bottom: 30px;
-`
 
 const StyledMain = styled.main`
   padding-top: 50px;
@@ -119,9 +115,7 @@ export default function Home() {
     <Layout>
       <StyledMain>
         <StyledSpacingWrapper>
-          <StyledForm>
-            <Input prefix={<SearchIcon />} />
-          </StyledForm>
+          <SearchForm />
         </StyledSpacingWrapper>
 
         <StyledSpacingWrapper>

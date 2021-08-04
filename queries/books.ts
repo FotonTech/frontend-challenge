@@ -52,7 +52,7 @@ const getUserBookshelfVolumes = async (userId: string, bookShelfId: string) => {
   return parsed
 }
 
-const getBooksByQuery = async (params): Promise<{ items: Array<Book> }> => {
+const getBooksByQuery = async (params) => {
   try {
     const searchParams = new URLSearchParams({
       maxResults: "40",
@@ -94,11 +94,12 @@ const useUserBookshelfVolumesQuery = (userId: string, bookshelfId: string) =>
   useQuery(["userBookshelfVolumes", userId, bookshelfId], () =>
     getUserBookshelfVolumes(userId, bookshelfId)
   )
+
 type BooksQueryParams = {
-  maxResults: string
-  startIndex: string
-  orderBy: string
-  q: string
+  maxResults?: string
+  startIndex?: string
+  orderBy?: string
+  q?: string
 }
 
 const useBooksQuery = (params?: BooksQueryParams) =>

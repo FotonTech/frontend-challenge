@@ -1,9 +1,5 @@
-import React from "react"
+import React, { ForwardedRef, forwardRef } from "react"
 import styled from "styled-components"
-
-type Props = {
-  prefix?: JSX.Element
-}
 
 const StyledWrapper = styled.div`
   padding: 15px;
@@ -31,15 +27,33 @@ const StyledPrefix = styled.span`
   margin-right: 10px;
 `
 
-const Input = (props: Props) => {
-  const { prefix } = props
-
-  return (
-    <StyledWrapper>
-      <StyledPrefix>{prefix}</StyledPrefix>
-      <StyledInput name="search" placeholder="Search book" />
-    </StyledWrapper>
-  )
+type Props = {
+  defaultValue?: string
+  name?: string
+  placeholder?: string
+  prefix?: JSX.Element
+  autoFocus?: boolean
 }
+
+const Input = forwardRef(
+  (props: Props, ref: ForwardedRef<HTMLInputElement>) => {
+    const { autoFocus, defaultValue, name, placeholder, prefix } = props
+
+    return (
+      <StyledWrapper>
+        <StyledPrefix>{prefix}</StyledPrefix>
+        <StyledInput
+          ref={ref}
+          defaultValue={defaultValue}
+          name={name}
+          placeholder={placeholder}
+          autoFocus={autoFocus}
+        />
+      </StyledWrapper>
+    )
+  }
+)
+
+Input.displayName = "Input"
 
 export default Input
