@@ -9,6 +9,8 @@ type Book = {
     title: string
     imageLinks: {
       thumbnail: string
+      medium: string
+      large: string
     }
     publishedDate: string
   }
@@ -61,8 +63,6 @@ type BooksQueryParams = {
 }
 
 const getBooksByQuery = async (params: BooksQueryParams) => {
-  console.log(params)
-
   try {
     const searchParams = new URLSearchParams({
       maxResults: "40",
@@ -85,7 +85,7 @@ const getBooksByQuery = async (params: BooksQueryParams) => {
 
     /** Return only books that have images */
     const { items } = parsedBody
-    const booksThatHaveImage = items.filter(
+    const booksThatHaveImage = items?.filter(
       (item) => item.volumeInfo.imageLinks
     )
 

@@ -32,12 +32,20 @@ const SearchInput = (props: Props) => {
       setIsLoading(true)
 
       const timeout = setTimeout(function () {
-        router.push("/book/search/" + query)
+        router.push("/book/search/" + query, undefined, {
+          /** We need shallow here, so that the server function doesn't get called, only client */
+          shallow: true
+        })
+
         setIsLoading(false)
       }, 600)
 
       setSearchTimeout(timeout)
+
+      return true
     }
+
+    setIsLoading(false)
   }
 
   return (

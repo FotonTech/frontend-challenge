@@ -86,6 +86,12 @@ const GlobalStyle = createGlobalStyle`
     color: #3F4043;
   }
 
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
   @keyframes rotate {
     from {
       transform: rotate(0deg);

@@ -22,6 +22,7 @@ const StyledBookCard = styled.li`
 
   background: #00173d;
   color: #e7e7e1;
+  cursor: pointer;
 `
 
 const StyledBookCardsHeader = styled.div`
