@@ -2,7 +2,6 @@ import React, { ForwardedRef, forwardRef } from "react"
 import styled from "styled-components"
 
 const StyledWrapper = styled.div`
-  padding: 15px;
   display: flex;
   align-items: center;
   background: #fdfcfc;
@@ -12,6 +11,7 @@ const StyledWrapper = styled.div`
 
 const StyledInput = styled.input`
   width: 100%;
+  padding: 15px;
   border: none;
   outline: none;
   background: #fdfcfc;
@@ -24,7 +24,12 @@ const StyledInput = styled.input`
 
 const StyledPrefix = styled.span`
   display: flex;
-  margin-right: 10px;
+  padding: 15px 10px 15px 15px;
+`
+
+const StyledSufix = styled.span`
+  display: flex;
+  padding: 15px 15px 15px 10px;
 `
 
 type Props = {
@@ -32,23 +37,35 @@ type Props = {
   name?: string
   placeholder?: string
   prefix?: JSX.Element
+  sufix?: JSX.Element
   autoFocus?: boolean
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const Input = forwardRef(
   (props: Props, ref: ForwardedRef<HTMLInputElement>) => {
-    const { autoFocus, defaultValue, name, placeholder, prefix } = props
+    const {
+      autoFocus,
+      defaultValue,
+      name,
+      onChange,
+      placeholder,
+      prefix,
+      sufix
+    } = props
 
     return (
       <StyledWrapper>
-        <StyledPrefix>{prefix}</StyledPrefix>
+        {prefix && <StyledPrefix>{prefix}</StyledPrefix>}
         <StyledInput
           ref={ref}
           defaultValue={defaultValue}
           name={name}
+          onChange={onChange}
           placeholder={placeholder}
           autoFocus={autoFocus}
         />
+        {sufix && <StyledSufix>{sufix}</StyledSufix>}
       </StyledWrapper>
     )
   }

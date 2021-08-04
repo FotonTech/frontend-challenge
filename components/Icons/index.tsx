@@ -128,10 +128,10 @@ const BackIcon = () => (
   </svg>
 )
 
-const LoadingIcon = () => (
+const LoadingIcon = ({ size = "30" }: { size?: string }) => (
   <svg
-    width="30"
-    height="30"
+    width={size}
+    height={size}
     viewBox="0 0 100 100"
     stroke={theme.colors.special}
     preserveAspectRatio="xMidYMid"

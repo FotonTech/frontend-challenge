@@ -5,8 +5,9 @@ import { QueryClient } from "react-query"
 import { dehydrate } from "react-query/hydration"
 
 import { LoadingIcon } from "../../../components/Icons"
-import SearchForm from "../../../components/SearchForm/SearchForm"
+import SearchForm from "../../../components/SearchInput/SearchInput"
 import { getBooksByQuery, useBooksQuery } from "../../../queries/books"
+import Layout from "../../../components/Layout/Layout"
 
 type Props = {
   query: string
@@ -34,30 +35,32 @@ const SearchBookPage = (props: Props) => {
   if (isLoading) return <LoadingIcon />
 
   return (
-    <StyledWrapper>
-      <SearchForm defaultValue={query} />
-      found {data.totalItems} items
-      <StyledBooksList>
-        {data &&
-          data.items &&
-          data.items.map((item) => {
-            const {
-              etag,
-              volumeInfo: {
-                title,
-                imageLinks: { thumbnail }
-              }
-            } = item
+    <Layout>
+      <StyledWrapper>
+        <SearchForm defaultValue={query} />
+        found {data.totalItems} items
+        <StyledBooksList>
+          {data &&
+            data.items &&
+            data.items.map((item) => {
+              const {
+                etag,
+                volumeInfo: {
+                  title,
+                  imageLinks: { thumbnail }
+                }
+              } = item
 
-            return (
-              <StyledBook key={etag}>
-                <Image width={105} height={153} alt={title} src={thumbnail} />
-                {title}
-              </StyledBook>
-            )
-          })}
-      </StyledBooksList>
-    </StyledWrapper>
+              return (
+                <StyledBook key={etag}>
+                  <Image width={105} height={153} alt={title} src={thumbnail} />
+                  {title}
+                </StyledBook>
+              )
+            })}
+        </StyledBooksList>
+      </StyledWrapper>
+    </Layout>
   )
 }
 
