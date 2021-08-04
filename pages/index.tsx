@@ -2,11 +2,11 @@ import styled from "styled-components"
 import Image from "next/image"
 import Link from "next/link"
 
-import Layout from "../components/Layout/Layout"
-import ReviewsOfTheDaysImage from "../public/images/reviews-of-the-days.png"
-import { BookIcon, HomeIcon, UserIcon } from "../components/Icons"
-import SearchForm from "../components/SearchInput/SearchInput"
-import { useBooksQuery, useUserBookshelfVolumesQuery } from "../queries/books"
+import Layout from "@/components/Layout/Layout"
+import ReviewsOfTheDaysImage from "@/public/images/reviews-of-the-days.png"
+import { BookIcon, HomeIcon, UserIcon } from "@/components/Icons"
+import SearchForm from "@/components/SearchInput/SearchInput"
+import { useBooksQuery, useUserBookshelfVolumesQuery } from "@/queries/books"
 
 const StyledBookCardList = styled.ul`
   display: flex;

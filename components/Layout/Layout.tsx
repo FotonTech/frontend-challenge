@@ -4,7 +4,7 @@ import styled from "styled-components"
 import NProgress from "nprogress"
 import Router from "next/router"
 
-import theme from "../../styles/theme"
+import theme from "@/styles/theme"
 
 const StyledWrapper = styled.div`
   max-width: 960px;

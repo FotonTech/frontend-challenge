@@ -2,8 +2,8 @@ import { useRouter } from "next/dist/client/router"
 import React, { useState } from "react"
 import styled from "styled-components"
 
-import { LoadingIcon, SearchIcon } from "../Icons"
-import Input from "../Input/Input"
+import { LoadingIcon, SearchIcon } from "@/components/Icons"
+import Input from "@/components/Input/Input"
 
 const StyledWrapper = styled.div`
   margin-bottom: 30px;

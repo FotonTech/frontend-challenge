@@ -5,9 +5,9 @@ import { dehydrate } from "react-query/hydration"
 import { QueryClient } from "react-query"
 import { useRouter } from "next/dist/client/router"
 
-import Layout from "../../components/Layout/Layout"
-import { useVolumeByIdQuery, getVolumeById } from "../../queries/books"
-import { BackIcon, LoadingIcon } from "../../components/Icons"
+import Layout from "@/components/Layout/Layout"
+import { useVolumeByIdQuery, getVolumeById } from "@/queries/books"
+import { BackIcon, LoadingIcon } from "@/components/Icons"
 
 const StyledMain = styled.main`
   display: flex;

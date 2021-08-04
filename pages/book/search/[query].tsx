@@ -3,12 +3,12 @@ import styled from "styled-components"
 import { QueryClient } from "react-query"
 import { dehydrate } from "react-query/hydration"
 import { useRouter } from "next/dist/client/router"
-
-import { LoadingIcon } from "../../../components/Icons"
-import SearchForm from "../../../components/SearchInput/SearchInput"
-import { getBooksByQuery, useBooksQuery } from "../../../queries/books"
-import Layout from "../../../components/Layout/Layout"
 import Link from "next/link"
+
+import { LoadingIcon } from "@/components/Icons"
+import SearchForm from "@/components/SearchInput/SearchInput"
+import { getBooksByQuery, useBooksQuery } from "@/queries/books"
+import Layout from "@/components/Layout/Layout"
 
 const StyledWrapper = styled.div`
   margin-top: 50px;
