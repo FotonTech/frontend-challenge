@@ -30,19 +30,24 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root{
-    --white: #ffffff;
 
-    --background: #f2f2f2;
+    --background: #fffcf9;
 
     --placeholder: #54565A;
 
     --redtitle: #FF6978;
+
+    --link: #4ABDF1;
+
+    --input-background: #fdfcfc;
 
     --title: #3F4043;
 
     --circlebackground: #FFF6E5;
 
     --circle: #00173D;
+
+    --white: #ffffff;
   }
 
   @media (max-width: 1080px){
@@ -74,4 +79,4 @@ export const GlobalStyle = createGlobalStyle`
       color: inherit;
       text-decoration: none;
   }
-`
+`;
