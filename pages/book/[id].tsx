@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import Image from "next/image"
 import { dehydrate } from "react-query/hydration"
 import { QueryClient } from "react-query"
 import { useRouter } from "next/dist/client/router"
+import ReactHtmlParser from "react-html-parser"
 
 import Layout from "@/components/Layout/Layout"
 import { useVolumeByIdQuery, getVolumeById } from "@/queries/books"
@@ -40,6 +40,10 @@ const StyledImageWrapper = styled.div`
   display: flex;
   margin-top: 15px;
   box-shadow: 0 25px 40px -40px #000;
+
+  img {
+    height: 240px;
+  }
 `
 
 const StyledHeader = styled.div`
@@ -114,7 +118,6 @@ const BookPage = () => {
   const {
     volumeInfo: { title, description, authors, imageLinks }
   } = data
-
   return (
     <Layout>
       <StyledMain>
@@ -125,12 +128,7 @@ const BookPage = () => {
             </StyledBackAnchor>
           </StyledBackIconWrapper>
           <StyledImageWrapper>
-            <Image
-              alt={title}
-              width={151}
-              height={234}
-              src={imageLinks.thumbnail}
-            />
+            <img alt={title} src={imageLinks.thumbnail} />
           </StyledImageWrapper>
         </StyledHeader>
 
@@ -141,9 +139,9 @@ const BookPage = () => {
             <StyledAuthorText key={author}>{author}</StyledAuthorText>
           ))}
 
-          <StyledDescriptionText
-            dangerouslySetInnerHTML={{ __html: description }}
-          />
+          <StyledDescriptionText>
+            {ReactHtmlParser(description)}
+          </StyledDescriptionText>
         </StyledContentWrapper>
       </StyledMain>
     </Layout>

@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import { Book } from "@/types/books"
 import { StatisticsIcon } from "@/components/Icons"
+import Link from "next/link"
 
 const StyledBookCardInfo = styled.div`
   display: flex;
@@ -96,6 +97,7 @@ const BookCard = (props: Props) => {
         books.map((book) => {
           const {
             id,
+            etag,
             volumeInfo: {
               authors,
               imageLinks: { thumbnail },
@@ -103,28 +105,30 @@ const BookCard = (props: Props) => {
             }
           } = book
           return (
-            <StyledBookCard key={id}>
-              <StyledBookCardInfo>
-                <div>
-                  <StyledBookTitle>{title}</StyledBookTitle>
-                  {authors &&
-                    authors
-                      .slice(0, 1)
-                      .map((author) => (
-                        <StyledAuthorText key={author}>
-                          {author}
-                        </StyledAuthorText>
-                      ))}
-                </div>
-                <StyledReadNowText>
-                  <StyledStatisticsIcon />
-                  120+ Read Now
-                </StyledReadNowText>
-              </StyledBookCardInfo>
-              <StyledBookCardInfo>
-                <img alt={title} src={thumbnail} />
-              </StyledBookCardInfo>
-            </StyledBookCard>
+            <Link key={etag} href={`/book/${id}`} passHref>
+              <StyledBookCard>
+                <StyledBookCardInfo>
+                  <div>
+                    <StyledBookTitle>{title}</StyledBookTitle>
+                    {authors &&
+                      authors
+                        .slice(0, 1)
+                        .map((author) => (
+                          <StyledAuthorText key={author}>
+                            {author}
+                          </StyledAuthorText>
+                        ))}
+                  </div>
+                  <StyledReadNowText>
+                    <StyledStatisticsIcon />
+                    120+ Read Now
+                  </StyledReadNowText>
+                </StyledBookCardInfo>
+                <StyledBookCardInfo>
+                  <img alt={title} src={thumbnail} />
+                </StyledBookCardInfo>
+              </StyledBookCard>
+            </Link>
           )
         })}
     </StyledBookCardList>
