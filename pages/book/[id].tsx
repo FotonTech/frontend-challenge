@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Image from "next/image"
 import { dehydrate } from "react-query/hydration"
 import { QueryClient } from "react-query"
-import Link from "next/link"
+import { useRouter } from "next/dist/client/router"
 
 import Layout from "../../components/Layout/Layout"
 import { useVolumeByIdQuery, getVolumeById } from "../../queries/books"
@@ -73,12 +73,25 @@ const StyledBackIconWrapper = styled.div`
   align-self: flex-start;
 `
 
-type Props = {
-  id: string
-}
+const StyledBackAnchor = styled.a`
+  padding: 8px;
 
-const BookPage = (props: Props) => {
-  const { id } = props
+  svg {
+    transition: transform 0.1s linear;
+  }
+
+  &:hover {
+    svg {
+      transform: scale(1.3);
+    }
+  }
+`
+
+const BookPage = () => {
+  const {
+    query: { id },
+    back
+  } = useRouter()
   const { data, error, isLoading } = useVolumeByIdQuery(id)
 
   if (isLoading)
@@ -92,9 +105,9 @@ const BookPage = (props: Props) => {
     return (
       <p>
         {error}.
-        <Link href="/">
-          <a title="Back to homepage">Go back</a>
-        </Link>
+        <a title="Go back" onClick={back}>
+          Go back
+        </a>
       </p>
     )
 
@@ -107,11 +120,9 @@ const BookPage = (props: Props) => {
       <StyledMain>
         <StyledHeader>
           <StyledBackIconWrapper>
-            <Link href="/">
-              <a title="Back to homepage">
-                <BackIcon />
-              </a>
-            </Link>
+            <StyledBackAnchor title="Return to previous page" onClick={back}>
+              <BackIcon />
+            </StyledBackAnchor>
           </StyledBackIconWrapper>
           <StyledImageWrapper>
             <Image
@@ -149,7 +160,7 @@ export async function getServerSideProps(context) {
   await queryClient.prefetchQuery(["volumeById", id], () => getVolumeById(id))
 
   return {
-    props: { dehydratedState: dehydrate(queryClient), id }
+    props: { dehydratedState: dehydrate(queryClient) }
   }
 }
 

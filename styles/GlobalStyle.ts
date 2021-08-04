@@ -92,6 +92,10 @@ const GlobalStyle = createGlobalStyle`
     height: auto;
   }
 
+  a {
+    cursor: pointer;
+  }
+
   @keyframes rotate {
     from {
       transform: rotate(0deg);
