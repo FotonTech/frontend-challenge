@@ -1,5 +1,5 @@
 import Head from "next/Head";
-
+import { NavigationBar } from "../components/NavigationBar";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
         <title>Home | FotonBooks</title>
       </Head>
 
-      <h1>hello</h1>
+      <NavigationBar />
     </>
-  )
+  );
 }

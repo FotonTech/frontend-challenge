@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const globalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   *{
     margin: 0;
     padding: 0;
@@ -36,11 +36,15 @@ export const globalStyle = createGlobalStyle`
 
     --redtitle: #FF6978;
 
+    --link: #4ABDF1;
+
     --title: #3F4043;
 
     --circlebackground: #FFF6E5;
 
     --circle: #00173D;
+
+    --white: #ffffff;
   }
 
   @media (max-width: 1080px){
@@ -56,8 +60,8 @@ export const globalStyle = createGlobalStyle`
   }
 
   body{
-      background: var(--gray-900);
-      color: var(--white);
+      background: var(---background);
+      color: var(--title);
   }
 
   body, input, textarea, select, button{
@@ -72,4 +76,4 @@ export const globalStyle = createGlobalStyle`
       color: inherit;
       text-decoration: none;
   }
-`
+`;
