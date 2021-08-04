@@ -1,4 +1,5 @@
 import Head from "next/Head";
+import { NavigationBar } from "../components/NavigationBar";
 import { SearchInput } from "../components/SearchInput";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
 
       <main>
         <SearchInput />
+        <NavigationBar activeItem={1} />
       </main>
     </>
   );

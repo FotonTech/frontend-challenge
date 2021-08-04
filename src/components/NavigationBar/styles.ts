@@ -37,5 +37,11 @@ export const NavLink = styled.a<NavLinkProps>`
   align-items: center;
   flex-flow: column;
 
+  transition: color 0.3s;
+
   color: ${({ isActive }) => (isActive ? "#313131" : "#bfbebf")};
+
+  &:hover {
+    color: #313131;
+  }
 `;

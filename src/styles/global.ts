@@ -30,15 +30,16 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root{
-    --white: #ffffff;
 
-    --background: #f2f2f2;
+    --background: #fffcf9;
 
     --placeholder: #54565A;
 
     --redtitle: #FF6978;
 
     --link: #4ABDF1;
+
+    --input-background: #fdfcfc;
 
     --title: #3F4043;
 
@@ -62,7 +63,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body{
-      background: var(---background);
+      background: var(--background);
       color: var(--title);
   }
 
