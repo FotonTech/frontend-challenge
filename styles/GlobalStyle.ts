@@ -96,6 +96,10 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
+  * {
+    box-sizing: border-box;
+  }
+
   @keyframes rotate {
     from {
       transform: rotate(0deg);
