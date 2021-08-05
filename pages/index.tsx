@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Image from "next/image"
+import Link from "next/link"
 
 import Layout from "@/components/Layout/Layout"
 import ReviewsOfTheDaysImage from "@/public/images/reviews-of-the-days.png"
@@ -122,7 +123,9 @@ export default function Home() {
           <StyledSpacingWrapper>
             <StyledBookCardsHeader>
               <h2>Discover new book</h2>
-              <StyledLink>More</StyledLink>
+              <Link href={"/book/search/" + encodeURI("new books")}>
+                <StyledLink>More</StyledLink>
+              </Link>
             </StyledBookCardsHeader>
           </StyledSpacingWrapper>
 
