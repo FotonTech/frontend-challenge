@@ -47,6 +47,7 @@ const Layout = (props: Props) => {
           name="description"
           content="Search the world's most comprehensive index of full-text books"
         />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

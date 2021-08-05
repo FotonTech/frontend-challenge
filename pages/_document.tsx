@@ -1,4 +1,5 @@
-import Document from "next/document"
+import Document, { Html, Head, Main, NextScript } from "next/document"
+
 import { ServerStyleSheet } from "styled-components"
 
 export default class MyDocument extends Document {
@@ -26,5 +27,20 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal()
     }
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head>
+          {/** Load font styles directly on the document to prevent flashes */}
+          <link href="/fonts/styles.css" rel="stylesheet" />
+        </Head>
+        <body className="font-averta-regular">
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
   }
 }

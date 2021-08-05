@@ -1,7 +1,5 @@
 import { createGlobalStyle } from "styled-components"
 
-import fontsStyles from "./fonts"
-
 const GlobalStyle = createGlobalStyle`
   /** Reset user-agent css */
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -57,9 +55,6 @@ const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-
-  /** Fonts */
-  ${fontsStyles}
 
   /** Custom global styles */
   body {
