@@ -12,6 +12,8 @@ export const Container = styled.form`
   font-weight: 400;
   line-height: 3rem;
 
+  box-shadow: 5px 5px 80px rgba(212, 173, 134, .12);
+
   img{
     width: 16px;
 
