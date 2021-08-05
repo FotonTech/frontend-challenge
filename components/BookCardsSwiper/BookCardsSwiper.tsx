@@ -129,8 +129,8 @@ const BookCard = (props: Props) => {
               }
             } = book
             return (
-              <Link key={etag} href={`/book/${id}`} passHref>
-                <SwiperSlide key={etag}>
+              <SwiperSlide key={etag}>
+                <Link href={`/book/${id}`} passHref>
                   <StyledBookCard index={index} swiperIndex={swiperIndex}>
                     <StyledBookCardInfo>
                       <div>
@@ -156,8 +156,8 @@ const BookCard = (props: Props) => {
                       />
                     </StyledBookCardInfo>
                   </StyledBookCard>
-                </SwiperSlide>
-              </Link>
+                </Link>
+              </SwiperSlide>
             )
           })}
       </Swiper>
