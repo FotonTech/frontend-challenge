@@ -26,7 +26,7 @@ color: ${theme.colors.special};
 `
 )
 
-const StyledDescriptionText = styled.p`
+const StyledDescriptionText = styled.div`
   margin-top: 10px;
   font-family: SFProText;
   font-size: 14px;

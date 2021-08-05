@@ -125,7 +125,7 @@ const BookCard = (props: Props) => {
                   </StyledReadNowText>
                 </StyledBookCardInfo>
                 <StyledBookCardInfo>
-                  <img alt={title} src={thumbnail} />
+                  <img alt={title} src={thumbnail.replace("http", "https")} />
                 </StyledBookCardInfo>
               </StyledBookCard>
             </Link>

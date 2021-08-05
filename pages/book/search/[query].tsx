@@ -132,7 +132,10 @@ const SearchBookPage = () => {
                         <StyledBook key={etag}>
                           <Link href={"/book/" + id} shallow={true}>
                             <a title={title}>
-                              <img alt={title} src={thumbnail} />
+                              <img
+                                alt={title}
+                                src={thumbnail.replace("http", "https")}
+                              />
                             </a>
                           </Link>
                           <StyledBookTitle>{title}</StyledBookTitle>

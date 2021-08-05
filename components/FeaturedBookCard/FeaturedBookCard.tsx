@@ -77,7 +77,7 @@ const FeaturedBookCard = (props: Props) => {
   return (
     <StyledBookCard>
       <StyledBookCardInfo>
-        <StyledBookImage alt={title} src={thumbnail} />
+        <StyledBookImage alt={title} src={thumbnail.replace("http", "https")} />
       </StyledBookCardInfo>
       <StyledBookCardInfo>
         <div>
