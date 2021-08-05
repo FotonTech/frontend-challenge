@@ -7,15 +7,12 @@ export const Container = styled.form`
   margin: 3.5rem 1.5rem 2.2rem;
 
   background: var(--input-background);
-
   border-radius: 0.6rem;
 
   font-weight: 400;
   line-height: 3rem;
 
-  box-shadow: 5px 5px 80px rgba(212, 173, 134, .12);
-
-  img{
+  img {
     width: 16px;
 
     margin: 1rem;
@@ -25,13 +22,14 @@ export const Container = styled.form`
 export const SearchInputComponent = styled.input`
   width: 100%;
 
+  background: var(--input-background);
+
   border: none;
   outline: none;
 
-  background: transparent;  
-  border-radius: .6rem;
-  
-  &::placeholder{
+  border-radius: 0.6rem;
+
+  &::placeholder {
     color: var(--placeholder);
   }
 `;

@@ -35,17 +35,17 @@ export const GlobalStyle = createGlobalStyle`
 
     --placeholder: #54565A;
 
-    --link: #4ABDF1;
+    --redtitle: #FF6978;
 
     --link: #4ABDF1;
 
     --input-background: #fdfcfc;
 
     --title: #3F4043;
-    --redtitle: #FF6978;
+
+    --circlebackground: #FFF6E5;
 
     --circle: #00173D;
-    --circlebackground: #FFF6E5;
 
     --white: #ffffff;
   }
