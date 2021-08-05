@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.form`
   height: 3rem;
@@ -7,7 +7,8 @@ export const Container = styled.form`
   margin: 3.5rem 1.5rem 2.2rem;
 
   background: var(--input-background);
-  border-radius: .6rem;
+
+  border-radius: 0.6rem;
 
   font-weight: 400;
   line-height: 3rem;
@@ -19,11 +20,11 @@ export const Container = styled.form`
 
     margin: 1rem;
   }
-`
+`;
 
 export const SearchInputComponent = styled.input`
   width: 100%;
-  
+
   border: none;
   outline: none;
 
@@ -33,4 +34,4 @@ export const SearchInputComponent = styled.input`
   &::placeholder{
     color: var(--placeholder);
   }
-`
+`;

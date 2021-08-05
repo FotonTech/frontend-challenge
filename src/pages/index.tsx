@@ -1,8 +1,10 @@
 import Head from "next/Head";
 import Link from "next/link";
 import { BooksSlide } from "../components/BooksSlide";
-import { SearchInput } from "../components/SearchInput";
 import { Container, Content, Heading } from "../styles/home";
+import { NavigationBar } from "../components/NavigationBar";
+import { SearchInput } from "../components/SearchInput";
+
 
 export default function Home() {
   return (
@@ -26,7 +28,8 @@ export default function Home() {
           </section>
 
         </Content>
+        <NavigationBar activeItem={1} />
       </Container>
     </>
-  )
+  );
 }
