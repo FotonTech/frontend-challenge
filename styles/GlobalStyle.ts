@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 
+import fontsStyles from "./fonts"
+
 const GlobalStyle = createGlobalStyle`
   /** Reset user-agent css */
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -56,18 +58,21 @@ const GlobalStyle = createGlobalStyle`
     border-spacing: 0;
   }
 
-  /** Global styles */
+  /** Fonts */
+  ${fontsStyles}
+
+  /** Custom global styles */
   body {
     padding-bottom: 80px;
     background: #FFFCF9;
     color: #313131;
-    font-family: SFProText;
+    font-family: SFProDisplay;
     font-size: 16px;
     line-height: 18px;
   }
 
   h1,h2 {
-    font-family: "SFProDisplay";
+    font-family: SFProDisplay;
     margin-bottom: 8px;
   }
 
