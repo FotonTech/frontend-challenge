@@ -54,8 +54,8 @@ const getBooksByQuery = async (
 ) => {
   try {
     const searchParams = new URLSearchParams({
-      maxResults: "12",
-      startIndex: "0", // @TODO add pagination
+      maxResults: "20",
+      startIndex: "0",
       orderBy: "newest",
       q: "new books",
       ...params,

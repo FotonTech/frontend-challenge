@@ -9,6 +9,7 @@ import { BackIcon, LoadingIcon } from "@/components/Icons"
 import SearchInput from "@/components/SearchInput/SearchInput"
 import { getBooksByQuery, useBooksInfiniteQuery } from "@/queries/books"
 import Layout from "@/components/Layout/Layout"
+import useIntersectionObserver from "hooks/useIntersectionObserver"
 
 const StyledWrapper = styled.div`
   margin-top: 50px;
@@ -74,24 +75,30 @@ const StyledBackAnchor = styled.a`
   }
 `
 
+const StyledLoadMoreButton = styled.button`
+  visibility: hidden;
+`
+
 const ITEMS_PER_PAGE = 20
 
 const SearchBookPage = () => {
   const {
-    query: { query, page },
-    replace
+    query: { query }
   } = useRouter()
 
-  const {
-    data,
-    isLoading,
-    fetchNextPage,
-    hasNextPage,
-    isFetching,
-    isFetchingNextPage
-  } = useBooksInfiniteQuery({
-    q: query.toString(),
-    maxResults: ITEMS_PER_PAGE.toString()
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useBooksInfiniteQuery({
+      q: query?.toString(),
+      maxResults: ITEMS_PER_PAGE.toString()
+    })
+
+  const loadMoreButtonRef = React.useRef()
+
+  /** Calls fetch next page whenever the user scrolls to the load more button */
+  useIntersectionObserver({
+    target: loadMoreButtonRef,
+    onIntersect: fetchNextPage,
+    enabled: hasNextPage
   })
 
   return (
@@ -103,7 +110,7 @@ const SearchBookPage = () => {
               <BackIcon />
             </StyledBackAnchor>
           </Link>
-          <SearchInput defaultValue={query.toString()} />
+          <SearchInput defaultValue={query?.toString()} />
         </StyledHeaderWrapper>
 
         {data ? (
@@ -137,25 +144,16 @@ const SearchBookPage = () => {
               })}
           </StyledBooksList>
         ) : null}
-        {isLoading && (
+
+        {(isLoading || isFetchingNextPage) && (
           <StyledLoadingWrapper>
             <LoadingIcon />
           </StyledLoadingWrapper>
         )}
 
         <div>
-          <button
-            onClick={() => fetchNextPage()}
-            disabled={!hasNextPage || isFetchingNextPage}
-          >
-            {isFetchingNextPage
-              ? "Loading more..."
-              : hasNextPage
-              ? "Load More"
-              : "Nothing more to load"}
-          </button>
+          <StyledLoadMoreButton ref={loadMoreButtonRef} />
         </div>
-        <div>{isFetching && !isFetchingNextPage ? "Fetching..." : null}</div>
       </StyledWrapper>
     </Layout>
   )
@@ -163,25 +161,24 @@ const SearchBookPage = () => {
 
 export async function getServerSideProps(context) {
   const {
-    query: { query, page }
+    query: { query }
   } = context
 
   const queryClient = new QueryClient()
 
-  const startIndex = ((page || 1) - 1) * ITEMS_PER_PAGE
-
   const queryParams = {
     q: query,
-    startIndex: startIndex.toString(),
     maxResults: ITEMS_PER_PAGE.toString()
   }
 
-  await queryClient.prefetchQuery(["books", queryParams], () =>
+  await queryClient.prefetchInfiniteQuery(["books", queryParams], () =>
     getBooksByQuery(queryParams)
   )
 
   return {
-    props: { dehydratedState: dehydrate(queryClient) }
+    props: {
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient)))
+    }
   }
 }
 
