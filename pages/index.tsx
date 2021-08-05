@@ -4,7 +4,7 @@ import Image from "next/image"
 import Layout from "@/components/Layout/Layout"
 import ReviewsOfTheDaysImage from "@/public/images/reviews-of-the-days.png"
 import { BookIcon, HomeIcon, UserIcon } from "@/components/Icons"
-import SearchForm from "@/components/SearchInput/SearchInput"
+import SearchInput from "@/components/SearchInput/SearchInput"
 import { useBooksQuery, useUserBookshelfVolumesQuery } from "@/queries/books"
 import BookCardsSwiper from "@/components/BookCardsSwiper/BookCardsSwiper"
 import FeaturedBookCard from "@/components/FeaturedBookCard/FeaturedBookCard"
@@ -36,10 +36,18 @@ const StyledSpacingWrapper = styled.div`
 
 const StyledLeftSpacingContentWrapper = styled.div`
   padding-left: 20px;
+
+  @media (min-width: 768px) {
+    padding-right: 20px;
+  }
 `
 
 const StyledRightSpacingContentWrapper = styled.div`
   padding-right: 20px;
+
+  @media (min-width: 768px) {
+    padding-left: 20px;
+  }
 `
 
 const StyledDiscoverWrapper = styled.div`
@@ -79,6 +87,11 @@ const StyledNavListItemText = styled.span`
   margin-top: 10px;
 `
 
+const StyledSearchInputWrapper = styled.div`
+  padding: 0 20px;
+  margin-bottom: 30px;
+`
+
 const CURRENT_USER_ID = "107452890772828077812"
 const GOOGLE_BOOKS_CURRENTLY_READING_SHELF_ID = "3"
 
@@ -95,9 +108,9 @@ export default function Home() {
   return (
     <Layout>
       <StyledMain>
-        <StyledSpacingWrapper>
-          <SearchForm />
-        </StyledSpacingWrapper>
+        <StyledSearchInputWrapper>
+          <SearchInput />
+        </StyledSearchInputWrapper>
 
         <StyledSpacingWrapper>
           <h1>
@@ -145,6 +158,7 @@ export default function Home() {
         <StyledSpacingWrapper>
           <Image src={ReviewsOfTheDaysImage} />
         </StyledSpacingWrapper>
+
         <StyledFloatingNavbar>
           <StyledNavList>
             <StyledNavListItem>

@@ -1,4 +1,4 @@
-import { useQuery } from "react-query"
+import { QueryFunctionContext, useInfiniteQuery, useQuery } from "react-query"
 
 import { Book } from "@/types/books"
 
@@ -48,18 +48,23 @@ type BooksQueryParams = {
   q?: string
 }
 
-const getBooksByQuery = async (params: BooksQueryParams) => {
+const getBooksByQuery = async (
+  params: BooksQueryParams,
+  context?: QueryFunctionContext<any>
+) => {
   try {
     const searchParams = new URLSearchParams({
       maxResults: "12",
       startIndex: "0", // @TODO add pagination
       orderBy: "newest",
       q: "new books",
-      ...params
+      ...params,
+      /** Comes from infinite query */
+      ...(context && context.pageParam)
     })
 
     const res = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?${searchParams}`
+      `https://www.googleapis.com/books/v1/volumes?${searchParams.toString()}`
     )
 
     const parsedBody: BooksApiVolumesResponse = await res.json()
@@ -94,9 +99,24 @@ const useUserBookshelfVolumesQuery = (userId: string, bookshelfId: string) =>
 const useBooksQuery = (params?: BooksQueryParams) =>
   useQuery(["books", params], () => getBooksByQuery(params))
 
+const useBooksInfiniteQuery = (params?: BooksQueryParams) =>
+  useInfiniteQuery(
+    ["books", params],
+    (context) => getBooksByQuery(params, context),
+    {
+      getNextPageParam: (_, pages) => {
+        return {
+          startIndex: 20 * pages.length
+        }
+      },
+      refetchOnWindowFocus: false
+    }
+  )
+
 export {
   getBooksByQuery,
   useBooksQuery,
+  useBooksInfiniteQuery,
   useUserBookshelfVolumesQuery,
   useVolumeByIdQuery,
   getVolumeById

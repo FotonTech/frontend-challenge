@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 const StyledWrapper = styled.div`
   display: flex;
+  flex: 1 auto;
   align-items: center;
   background: #fdfcfc;
   box-shadow: 5px 5px 80px rgba(212, 173, 134, 0.122623);
@@ -14,8 +15,11 @@ const StyledInput = styled.input`
   padding: 15px;
   border: none;
   outline: none;
+  font-family: SFProText;
+  font-size: 16px;
+  line-height: 18px;
   background: #fdfcfc;
-  color: #54565a;
+  color: #000000;
 
   ::placeholder {
     color: #54565a;

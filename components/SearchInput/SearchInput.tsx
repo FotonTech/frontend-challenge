@@ -1,13 +1,8 @@
 import { useRouter } from "next/dist/client/router"
 import React, { useState } from "react"
-import styled from "styled-components"
 
 import { LoadingIcon, SearchIcon } from "@/components/Icons"
 import Input from "@/components/Input/Input"
-
-const StyledWrapper = styled.div`
-  margin-bottom: 30px;
-`
 
 type Props = {
   defaultValue?: string
@@ -49,16 +44,14 @@ const SearchInput = (props: Props) => {
   }
 
   return (
-    <StyledWrapper>
-      <Input
-        name="search"
-        defaultValue={defaultValue}
-        prefix={<SearchIcon />}
-        sufix={isLoading ? <LoadingIcon size="16" /> : null}
-        onChange={handleInputChange}
-        autoFocus
-      />
-    </StyledWrapper>
+    <Input
+      name="search"
+      defaultValue={defaultValue}
+      prefix={<SearchIcon />}
+      sufix={isLoading ? <LoadingIcon size="16" /> : null}
+      onChange={handleInputChange}
+      autoFocus
+    />
   )
 }
 
