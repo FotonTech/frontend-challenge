@@ -1,6 +1,8 @@
 import Head from "next/Head";
+import Link from "next/link";
+import { BooksSlide } from "../components/BooksSlide";
 import { SearchInput } from "../components/SearchInput";
-
+import { Container, Content, Heading } from "../styles/home";
 
 export default function Home() {
   return (
@@ -9,9 +11,22 @@ export default function Home() {
         <title>Home | FotonBooks</title>
       </Head>
 
-      <main>
+      <Container>
         <SearchInput />
-      </main>
+        <Content>
+          <section>
+            <Heading>
+              <h2>Discover new book</h2>
+              <Link href="/search">
+                <a>More</a>
+              </Link>
+            </Heading>
+              
+            <BooksSlide />
+          </section>
+
+        </Content>
+      </Container>
     </>
   )
 }

@@ -32,17 +32,19 @@ export const GlobalStyle = createGlobalStyle`
   :root{
     --white: #ffffff;
 
-    --background: #f2f2f2;
+    --background: #fffcf9;
 
     --placeholder: #54565A;
 
-    --redtitle: #FF6978;
+    --link: #4ABDF1;
+
+    --input-background: #fdfcfc;
 
     --title: #3F4043;
-
-    --circlebackground: #FFF6E5;
+    --redtitle: #FF6978;
 
     --circle: #00173D;
+    --circlebackground: #FFF6E5;
   }
 
   @media (max-width: 1080px){

@@ -6,7 +6,7 @@ export const Container = styled.form`
   display: flex;
   margin: 3.5rem 1.5rem 2.2rem;
 
-  background: var(--white);
+  background: var(--input-background);
   border-radius: .6rem;
 
   font-weight: 400;
@@ -23,10 +23,11 @@ export const Container = styled.form`
 
 export const SearchInputComponent = styled.input`
   width: 100%;
-
+  
   border: none;
   outline: none;
 
+  background: transparent;  
   border-radius: .6rem;
   
   &::placeholder{
