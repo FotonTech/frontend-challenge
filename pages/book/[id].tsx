@@ -111,6 +111,14 @@ const BookPage = () => {
   } = useRouter()
   const { data, error, isLoading } = useVolumeByIdQuery(id)
 
+  const handleBackButtonKeyDown = (e) => {
+    const keyCode = e.keyCode
+
+    if (keyCode === 13) {
+      back()
+    }
+  }
+
   if (isLoading)
     return (
       <StyledLoadingWrapper>
@@ -137,9 +145,10 @@ const BookPage = () => {
         <StyledHeader>
           <StyledBackIconWrapper>
             <StyledBackAnchor
-              href="#"
               title="Return to previous page"
               onClick={back}
+              onKeyDown={handleBackButtonKeyDown}
+              tabIndex={0}
             >
               <BackIcon />
             </StyledBackAnchor>
