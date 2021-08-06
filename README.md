@@ -1,12 +1,26 @@
 # FotonTech Frontend Challenge
 
+Frontend Challenge for Foton
+
 Check out the challenge document (at the time it was done) [here](https://github.com/FotonTech/frontend-challenge/blob/49f345620d0198ffbb1fc48b3587792dcdad5b11/README.md)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Installation
+
+NodeJS and NPM should be installed on your machine for development mode. Install it using [NVM](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+1. install the dependencies:
+
+```bash
+yarn
+# or
+npm install
+```
+
 ## Getting Started
 
-First, run the development server:
+1. Run the development server:
 
 ```bash
 npm run dev
@@ -14,7 +28,7 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
