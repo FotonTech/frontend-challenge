@@ -76,10 +76,14 @@ const StyledReadingWrapper = styled.div`
 
 const StyledFloatingNavbar = styled.nav`
   position: fixed;
+  max-width: 920px;
+  margin: 0 auto;
   padding: 10px 0;
   bottom: 0;
   left: 0;
   right: 0;
+  border-top: 1px solid rgba(151, 151, 151, 0.2);
+  box-shadow: 3px 3px 23px rgba(107, 103, 70, 0.125901);
   background: #fff;
 `
 

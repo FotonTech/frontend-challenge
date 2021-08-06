@@ -185,32 +185,89 @@ const StatisticsIcon = ({ className = "" }) => (
   </svg>
 )
 
-const ChapterIcon = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="none"
-      viewBox="0 0 16 16"
-    >
-      <g>
-        <path
-          fill="#E66CFF"
-          fillOpacity="0.98"
-          fillRule="evenodd"
-          d="M4.667 8c0 .518.565.838 1.01.572L7 7.777l1.324.795A.667.667 0 009.334 8V1.333a.667.667 0 00-.667-.666H5.333a.667.667 0 00-.666.666V8zm1.99-1.572L6 6.823V2h2v4.823l-.657-.395a.667.667 0 00-.686 0z"
-          clipRule="evenodd"
-        ></path>
-        <path
-          fill="#9013FE"
-          d="M3.333 2h7.334a2 2 0 012 2v8a2 2 0 01-2 2H4a.667.667 0 000 1.333h6.667A3.333 3.333 0 0014 12V4A3.333 3.333 0 0010.667.667h-8A.667.667 0 002 1.333V12a.667.667 0 101.333 0V2z"
-        ></path>
-        <circle cx="10.667" cy="12" r="0.667" fill="#FF9F00"></circle>
-      </g>
-    </svg>
-  )
-}
+const ChapterIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="none"
+    viewBox="0 0 16 16"
+  >
+    <g>
+      <path
+        fill="#E66CFF"
+        fillOpacity="0.98"
+        fillRule="evenodd"
+        d="M4.667 8c0 .518.565.838 1.01.572L7 7.777l1.324.795A.667.667 0 009.334 8V1.333a.667.667 0 00-.667-.666H5.333a.667.667 0 00-.666.666V8zm1.99-1.572L6 6.823V2h2v4.823l-.657-.395a.667.667 0 00-.686 0z"
+        clipRule="evenodd"
+      ></path>
+      <path
+        fill="#9013FE"
+        d="M3.333 2h7.334a2 2 0 012 2v8a2 2 0 01-2 2H4a.667.667 0 000 1.333h6.667A3.333 3.333 0 0014 12V4A3.333 3.333 0 0010.667.667h-8A.667.667 0 002 1.333V12a.667.667 0 101.333 0V2z"
+      ></path>
+      <circle cx="10.667" cy="12" r="0.667" fill="#FF9F00"></circle>
+    </g>
+  </svg>
+)
+
+const BookOpenIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="17"
+    height="16"
+    fill="none"
+    viewBox="0 0 17 16"
+  >
+    <path
+      stroke="#CFCBD2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M0 0h4.8C6.567 0 8 1.592 8 3.556V16c0-1.473-1.075-2.667-2.4-2.667H0V0zM16 0h-4.8C9.433 0 8 1.592 8 3.556V16c0-1.473 1.075-2.667 2.4-2.667H16V0z"
+      clipRule="evenodd"
+    ></path>
+  </svg>
+)
+
+const HeadphonesIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="18"
+    height="16"
+    fill="none"
+    viewBox="0 0 18 16"
+  >
+    <path
+      stroke="#CFCBD2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M0 13.333V8a8 8 0 1116 0v5.333"
+    ></path>
+    <path
+      fill="#CFCBD2"
+      d="M15 10.778h1a1 1 0 00-1-1v1zm-14 0v-1a1 1 0 00-1 1h1zm12.556.778c0 .122-.1.222-.223.222v-2c-.982 0-1.777.796-1.777 1.778h2zm0 2.666v-2.666h-2v2.666h2zM13.333 14c.123 0 .223.1.223.222h-2c0 .982.796 1.778 1.777 1.778v-2zm.89 0h-.89v2h.89v-2zm-.223.222c0-.122.1-.222.222-.222v2c.982 0 1.778-.796 1.778-1.778h-2zm0-3.444v3.444h2v-3.444h-2zm-.667 1H15v-2h-1.667v2zm0-4a3.778 3.778 0 00-3.777 3.778h2c0-.982.796-1.778 1.777-1.778v-2zm2.667 0h-2.667v2H16v-2zm2 2a2 2 0 00-2-2v2h2zm0 4.444V9.778h-2v4.444h2zM14.222 18A3.778 3.778 0 0018 14.222h-2c0 .982-.796 1.778-1.778 1.778v2zm-.889 0h.89v-2h-.89v2zm-3.777-3.778A3.778 3.778 0 0013.333 18v-2a1.778 1.778 0 01-1.777-1.778h-2zm0-2.666v2.666h2v-2.666h-2zM0 7.778a2 2 0 00-2 2h2v-2zm2.667 0H0v2h2.667v-2zm3.777 3.778a3.778 3.778 0 00-3.777-3.778v2c.982 0 1.777.796 1.777 1.778h2zm0 2.666v-2.666h-2v2.666h2zM2.667 18a3.778 3.778 0 003.777-3.778h-2c0 .982-.795 1.778-1.777 1.778v2zm-.89 0h.89v-2h-.89v2zM-2 14.222A3.778 3.778 0 001.778 18v-2A1.778 1.778 0 010 14.222h-2zm0-4.444v4.444h2V9.778h-2zm4 4.444v-3.444H0v3.444h2zM1.778 14c.123 0 .222.1.222.222H0C0 15.204.796 16 1.778 16v-2zm.889 0h-.89v2h.89v-2zm-.223.222c0-.122.1-.222.223-.222v2c.982 0 1.777-.796 1.777-1.778h-2zm0-2.666v2.666h2v-2.666h-2zm.223.222a.222.222 0 01-.223-.222h2c0-.982-.795-1.778-1.777-1.778v2zm-1.667 0h1.667v-2H1v2z"
+    ></path>
+  </svg>
+)
+
+const ShareIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="14"
+    height="16"
+    fill="none"
+    viewBox="0 0 14 16"
+  >
+    <path
+      stroke="#CFCBD2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M0 8v6.4A1.6 1.6 0 001.6 16h9.6a1.6 1.6 0 001.6-1.6V8M9.6 3.2L6.4 0 3.2 3.2M6.4 0v10.4"
+    ></path>
+  </svg>
+)
 
 export {
   BackIcon,
@@ -220,5 +277,8 @@ export {
   BookIcon,
   LoadingIcon,
   StatisticsIcon,
-  ChapterIcon
+  ChapterIcon,
+  BookOpenIcon,
+  HeadphonesIcon,
+  ShareIcon
 }

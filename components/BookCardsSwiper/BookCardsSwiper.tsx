@@ -115,11 +115,14 @@ const BookCard = (props: Props) => {
     <StyledWrapper>
       <Swiper
         breakpoints={{
+          375: {
+            slidesPerView: 1.25
+          },
           768: {
             slidesPerView: 3
           }
         }}
-        slidesPerView={1.25}
+        slidesPerView={1}
         onTransitionEnd={(data) => setSwiperIndex(data.realIndex)}
       >
         {books &&

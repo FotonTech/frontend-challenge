@@ -8,7 +8,13 @@ import Image from "next/image"
 
 import Layout from "@/components/Layout/Layout"
 import { useVolumeByIdQuery, getVolumeById } from "@/queries/books"
-import { BackIcon, LoadingIcon } from "@/components/Icons"
+import {
+  BackIcon,
+  BookOpenIcon,
+  HeadphonesIcon,
+  LoadingIcon,
+  ShareIcon
+} from "@/components/Icons"
 
 const StyledMain = styled.main`
   display: flex;
@@ -101,6 +107,43 @@ const StyledBackAnchor = styled.a`
   }
 `
 
+const StyledFloatingList = styled.ul`
+  position: fixed;
+  max-width: 335px;
+  bottom: 53px;
+  left: 20px;
+  right: 20px;
+  padding: 20px;
+  margin: auto;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 3px 3px 23px rgba(107, 103, 70, 0.125901);
+  background: #fff;
+
+  li {
+    &:not(:first-child) {
+      padding-left: 26px;
+      border-left: 1px solid rgba(151, 151, 151, 0.2);
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: flex-start;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 1px;
+    color: ${({ theme }) => theme.colors.heading};
+  }
+
+  svg {
+    margin-right: 10px;
+  }
+`
+
 const BookPage = () => {
   const {
     query: { id },
@@ -174,6 +217,26 @@ const BookPage = () => {
             {ReactHtmlParser(description)}
           </StyledDescriptionText>
         </StyledContentWrapper>
+        <StyledFloatingList>
+          <li>
+            <a href="#" title="Read">
+              <BookOpenIcon />
+              Read
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Listen">
+              <HeadphonesIcon />
+              Listen
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Share">
+              <ShareIcon />
+              Share
+            </a>
+          </li>
+        </StyledFloatingList>
       </StyledMain>
     </Layout>
   )

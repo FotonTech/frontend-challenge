@@ -108,7 +108,7 @@ const GlobalStyle = createGlobalStyle(
   }
 
   a, a:link, a:visited, a:focus, a:hover, a:active{
-    text-decoration:none; 
+    text-decoration:none;
   }
 
   * {
