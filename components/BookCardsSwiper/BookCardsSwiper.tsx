@@ -11,6 +11,7 @@ const StyledBookCardInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 `
 
 const StyledBookCard = styled.a<{ index: number; swiperIndex: number }>(
@@ -98,6 +99,13 @@ const StyledWrapper = styled.div`
   }
 `
 
+const StyledForegroundImageWrapper = styled.div`
+  position: absolute;
+  left: -36px;
+  top: -11px;
+  z-index: 1;
+`
+
 type Props = {
   books: BooksApiVolume[]
   isActive?: boolean
@@ -137,7 +145,11 @@ const BookCard = (props: Props) => {
             return (
               <SwiperSlide key={etag}>
                 <Link href={`/book/${id}`} passHref>
-                  <StyledBookCard index={index} swiperIndex={swiperIndex}>
+                  <StyledBookCard
+                    title={title}
+                    index={index}
+                    swiperIndex={swiperIndex}
+                  >
                     <StyledBookCardInfo>
                       <div>
                         <StyledBookTitle>{title}</StyledBookTitle>
@@ -156,6 +168,13 @@ const BookCard = (props: Props) => {
                       </StyledReadNowText>
                     </StyledBookCardInfo>
                     <StyledBookCardInfo>
+                      <StyledForegroundImageWrapper>
+                        <Image
+                          width={59}
+                          height={108}
+                          src="/images/card-foreground.png"
+                        />
+                      </StyledForegroundImageWrapper>
                       <Image
                         width={72}
                         height={111}

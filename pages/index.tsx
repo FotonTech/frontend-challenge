@@ -112,10 +112,6 @@ const StyledSearchInputWrapper = styled.div`
 `
 
 const StyledReviewImgWrapper = styled.div`
-  background-image: url(/images/book-background-oval.png);
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-
   img {
     border-radius: 5px 5px 0px 0px;
     z-index: 0;

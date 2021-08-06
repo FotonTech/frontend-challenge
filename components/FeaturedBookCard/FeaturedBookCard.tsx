@@ -8,6 +8,7 @@ import { ChapterIcon } from "../Icons"
 
 const StyledBookCard = styled.a`
   display: flex;
+  position: relative;
   padding: 10px 20px 10px 20px;
   margin-top: 20px;
   max-width: 331px;
@@ -68,6 +69,22 @@ const StyledBookChapterText = styled.span`
   }
 `
 
+const StyledForegroundImageWrapper = styled.div`
+  position: absolute;
+  height: 100px;
+  width: 100%;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+`
+
+const StyledForegroundImage = styled.div`
+  position: absolute;
+  top: -20px;
+  right: -33px;
+  z-index: 1;
+`
+
 type Props = {
   book: BooksApiVolume
 }
@@ -88,7 +105,7 @@ const FeaturedBookCard = (props: Props) => {
 
   return (
     <Link href={`/book/${id}`} passHref>
-      <StyledBookCard>
+      <StyledBookCard title={title}>
         <StyledBookCardInfo>
           <StyledBookImageWrapper>
             <Image
@@ -112,6 +129,15 @@ const FeaturedBookCard = (props: Props) => {
             Chapter&nbsp;<span>2</span>&nbsp;From 9
           </StyledBookChapterText>
         </StyledBookCardInfo>
+        <StyledForegroundImageWrapper>
+          <StyledForegroundImage>
+            <Image
+              width={142}
+              height={157}
+              src="/images/featured-card-foreground.png"
+            />
+          </StyledForegroundImage>
+        </StyledForegroundImageWrapper>
       </StyledBookCard>
     </Link>
   )
