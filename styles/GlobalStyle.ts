@@ -1,10 +1,11 @@
 import { createGlobalStyle } from "styled-components"
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle(
+  ({ theme }) => `
   /** Reset user-agent css */
   /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+  v2.0 | 20110126
+  License: none (public domain)
   */
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -59,15 +60,15 @@ const GlobalStyle = createGlobalStyle`
   /** Custom global styles */
   body {
     padding-bottom: 80px;
-    background: #FFFCF9;
-    color: #313131;
-    font-family: SFProDisplay;
+    background: ${theme.colors.background};
+    color: ${theme.colors.text};
+    font-family: ${theme.fonts.body};
     font-size: 16px;
     line-height: 18px;
   }
 
-  h1,h2 {
-    font-family: SFProDisplay;
+  h1, h2 {
+    font-family: ${theme.fonts.body};
     margin-bottom: 8px;
   }
 
@@ -76,14 +77,24 @@ const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     font-size: 24px;
     line-height: 29px;
-    color: #54565A;
+    color: ${theme.colors.primary};
+    font-family: ${theme.fonts.heading1}
   }
 
   h2 {
     font-size: 18px;
     line-height: 21px;
     letter-spacing: 0.5px;
-    color: #3F4043;
+    color: ${theme.colors.heading};
+    font-family: ${theme.fonts.heading2}
+  }
+
+  h3 {
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.5px;
+    color: ${theme.colors.heading};
+    font-family: ${theme.fonts.heading3}
   }
 
   img {
@@ -110,5 +121,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
 `
+)
 
 export default GlobalStyle

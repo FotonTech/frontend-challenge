@@ -45,7 +45,7 @@ const StyledLoadingWrapper = styled.div`
 
 const StyledBookTitle = styled.h3`
   margin-top: 10px;
-  font-family: SF Pro Display;
+  font-family: SFProDisplay;
   font-weight: bold;
   font-size: 12px;
   line-height: 14px;

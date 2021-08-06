@@ -6,6 +6,12 @@
 }
 
 @font-face {
+  font-family: "SFProDisplay";
+  src: url("/fonts/SF-Pro-Display-Bold.otf") format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
   font-family: "SFProText";
   src: url("/fonts/SF-Pro-Text-Regular.otf") format("opentype");
 }

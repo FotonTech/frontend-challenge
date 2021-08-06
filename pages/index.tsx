@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 
 import Layout from "@/components/Layout/Layout"
-import ReviewsOfTheDaysImage from "@/public/images/reviews-of-the-days.png"
 import { BookIcon, HomeIcon, UserIcon } from "@/components/Icons"
 import SearchInput from "@/components/SearchInput/SearchInput"
 import { useBooksQuery, useUserBookshelfVolumesQuery } from "@/queries/books"
@@ -12,23 +11,32 @@ import FeaturedBookCard from "@/components/FeaturedBookCard/FeaturedBookCard"
 
 const StyledBookCardsHeader = styled.div`
   display: flex;
-  margin-bottom: 15px;
+  margin-bottom: 7px;
   justify-content: space-between;
   align-items: center;
 `
 
 const StyledLink = styled.a`
+  font-family: SFProText;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: right;
   color: #4abdf1;
 `
 
 const StyledTitleSpecial = styled.span(
   ({ theme }) => `
-color: ${theme.colors.special};
+  color: ${theme.colors.special};
+  font-weight: bold;
 `
 )
 
 const StyledMain = styled.main`
   padding-top: 50px;
+`
+
+const StyledHeading = styled.h1`
+  margin-bottom: 30px;
 `
 
 const StyledSpacingWrapper = styled.div`
@@ -71,11 +79,10 @@ const StyledFloatingNavbar = styled.nav`
 const StyledNavList = styled.ul`
   display: flex;
   justify-content: space-around;
-  font-family: "SFProDisplay";
+  font-family: SFProDisplay;
   font-size: 10px;
   line-height: 12px;
-
-  color: #313131;
+  color: ${({ theme }) => theme.colors.text};
 `
 
 const StyledNavListItem = styled.li`
@@ -91,6 +98,16 @@ const StyledNavListItemText = styled.span`
 const StyledSearchInputWrapper = styled.div`
   padding: 0 20px;
   margin-bottom: 30px;
+`
+
+const StyledReviewImg = styled.img`
+  border-radius: 5px 5px 0px 0px;
+`
+
+const StyledReviewImgWrapper = styled.div`
+  background-image: url(/images/book-background-oval.png);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
 `
 
 const CURRENT_USER_ID = "107452890772828077812"
@@ -114,9 +131,9 @@ export default function Home() {
         </StyledSearchInputWrapper>
 
         <StyledSpacingWrapper>
-          <h1>
+          <StyledHeading>
             Hi, <StyledTitleSpecial>Mehmed Al Fatih</StyledTitleSpecial>
-          </h1>
+          </StyledHeading>
         </StyledSpacingWrapper>
 
         <StyledDiscoverWrapper>
@@ -159,7 +176,12 @@ export default function Home() {
         </StyledSpacingWrapper>
 
         <StyledSpacingWrapper>
-          <Image src={ReviewsOfTheDaysImage} />
+          <StyledReviewImgWrapper>
+            <StyledReviewImg
+              alt="Review of the day"
+              src="/images/review-of-the-day.jpg"
+            />
+          </StyledReviewImgWrapper>
         </StyledSpacingWrapper>
 
         <StyledFloatingNavbar>

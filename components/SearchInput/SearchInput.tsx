@@ -50,6 +50,7 @@ const SearchInput = (props: Props) => {
       prefix={<SearchIcon />}
       sufix={isLoading ? <LoadingIcon size="16" /> : null}
       onChange={handleInputChange}
+      placeholder="Search book"
       autoFocus
     />
   )

@@ -13,39 +13,44 @@ const StyledBookCardInfo = styled.div`
 `
 
 const StyledBookCard = styled.li<{ index: number; swiperIndex: number }>(
-  ({ index, swiperIndex }) => `
-  display: inline-flex;
-  padding: 15px 20px 20px 20px;
-  margin-right: 10px;
-  justify-content: space-between;
-  min-width: 280px;
-  max-width: 280px;
-  height: ${index === swiperIndex ? "139px" : "128px"};
-  transition: all .1s linear;
+  ({ index, swiperIndex }) => {
+    const isCurrentIndex = index === swiperIndex
 
-  background: ${index === swiperIndex ? "#00173d" : "#451475"};
-  border-radius: 5px;
-
-  color: #e7e7e1;
-  cursor: pointer;
-
-  background-image: url("/images/book-background-oval.png");
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-
-  img {
-    height: ${index === swiperIndex ? "111px" : "100px"};
-    transition: height .1s linear;
+    return `
+      display: inline-flex;
+      padding: 15px 20px 20px 20px;
+      margin-right: 10px;
+      justify-content: space-between;
+      min-width: ${isCurrentIndex ? "272px" : "250px"};
+      max-width: ${isCurrentIndex ? "272px" : "250px"};
+      height: ${isCurrentIndex ? "139px" : "128px"};
+      transition: all .1s linear;
+    
+      background: ${isCurrentIndex ? "#00173d" : "#451475"};
+      border-radius: 5px;
+    
+      color: #e7e7e1;
+      cursor: pointer;
+    
+      background-image: url("/images/book-background-oval.png");
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+    
+      img {
+        height: ${isCurrentIndex ? "111px" : "100px"};
+        transition: height .1s linear;
+      }
+    `
   }
-`
 )
 
 const StyledBookTitle = styled.h3`
   margin-bottom: 4px;
   max-width: 120px;
+  margin-top: 2px;
   line-height: 36px;
 
-  font-family: Playfair Display;
+  font-family: PlayfairDisplay;
   font-style: normal;
   font-weight: bold;
   font-size: 27px;
@@ -68,15 +73,17 @@ const StyledAuthorText = styled.p`
 
 const StyledReadNowText = styled.span`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   font-family: SFProDisplay;
   font-style: normal;
-  font-weight: bold;
   font-size: 10px;
   line-height: 12px;
   letter-spacing: 0.020635px;
-
   vertical-align: middle;
+
+  span {
+    font-weight: bold;
+  }
 `
 
 const StyledStatisticsIcon = styled(StatisticsIcon)`
@@ -84,7 +91,8 @@ const StyledStatisticsIcon = styled(StatisticsIcon)`
 `
 
 const StyledImg = styled.img`
-  max-height: 111px;
+  max-height: 109px;
+  border-radius: 5px;
 `
 
 const StyledWrapper = styled.div`
@@ -114,7 +122,7 @@ const BookCard = (props: Props) => {
             slidesPerView: 3
           }
         }}
-        slidesPerView={1.2}
+        slidesPerView={1.25}
         onTransitionEnd={(data) => setSwiperIndex(data.realIndex)}
       >
         {books &&
@@ -146,7 +154,7 @@ const BookCard = (props: Props) => {
                       </div>
                       <StyledReadNowText>
                         <StyledStatisticsIcon />
-                        120+ Read Now
+                        <span>120+</span>&nbsp;Read Now
                       </StyledReadNowText>
                     </StyledBookCardInfo>
                     <StyledBookCardInfo>
