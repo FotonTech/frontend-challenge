@@ -1,10 +1,11 @@
 import React from "react"
 import styled from "styled-components"
+import Link from "next/link"
 
 import { Book } from "@/types/books"
 import { ChapterIcon } from "../Icons"
 
-const StyledBookCard = styled.div`
+const StyledBookCard = styled.a`
   display: flex;
   padding: 10px 20px 10px 20px;
   margin-top: 20px;
@@ -76,6 +77,7 @@ const FeaturedBookCard = (props: Props) => {
   if (!book) return null
 
   const {
+    id,
     volumeInfo: {
       title,
       authors,
@@ -83,24 +85,29 @@ const FeaturedBookCard = (props: Props) => {
     }
   } = book
   return (
-    <StyledBookCard>
-      <StyledBookCardInfo>
-        <StyledBookImage alt={title} src={thumbnail.replace("http", "https")} />
-      </StyledBookCardInfo>
-      <StyledBookCardInfo>
-        <div>
-          <StyledBookTitle>{title}</StyledBookTitle>
-          {authors &&
-            authors
-              .slice(0, 1)
-              .map((author) => <p key={author}>by {author}</p>)}
-        </div>
-        <StyledBookChapterText>
-          <ChapterIcon />
-          Chapter&nbsp;<span>2</span>&nbsp;From 9
-        </StyledBookChapterText>
-      </StyledBookCardInfo>
-    </StyledBookCard>
+    <Link href={`/book/${id}`} passHref>
+      <StyledBookCard>
+        <StyledBookCardInfo>
+          <StyledBookImage
+            alt={title}
+            src={thumbnail.replace("http", "https")}
+          />
+        </StyledBookCardInfo>
+        <StyledBookCardInfo>
+          <div>
+            <StyledBookTitle>{title}</StyledBookTitle>
+            {authors &&
+              authors
+                .slice(0, 1)
+                .map((author) => <p key={author}>by {author}</p>)}
+          </div>
+          <StyledBookChapterText>
+            <ChapterIcon />
+            Chapter&nbsp;<span>2</span>&nbsp;From 9
+          </StyledBookChapterText>
+        </StyledBookCardInfo>
+      </StyledBookCard>
+    </Link>
   )
 }
 

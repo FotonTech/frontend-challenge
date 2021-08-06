@@ -107,6 +107,10 @@ const GlobalStyle = createGlobalStyle(
     cursor: pointer;
   }
 
+  a, a:link, a:visited, a:focus, a:hover, a:active{
+    text-decoration:none; 
+  }
+
   * {
     box-sizing: border-box;
   }

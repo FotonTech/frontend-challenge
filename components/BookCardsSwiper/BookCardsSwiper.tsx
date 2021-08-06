@@ -12,7 +12,7 @@ const StyledBookCardInfo = styled.div`
   justify-content: space-between;
 `
 
-const StyledBookCard = styled.li<{ index: number; swiperIndex: number }>(
+const StyledBookCard = styled.a<{ index: number; swiperIndex: number }>(
   ({ index, swiperIndex }) => {
     const isCurrentIndex = index === swiperIndex
 

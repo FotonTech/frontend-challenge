@@ -140,8 +140,8 @@ export default function Home() {
           <StyledSpacingWrapper>
             <StyledBookCardsHeader>
               <h2>Discover new book</h2>
-              <Link href={"/book/search/" + encodeURI("new books")}>
-                <StyledLink>More</StyledLink>
+              <Link href={"/book/search/" + encodeURI("new books")} passHref>
+                <StyledLink title="More">More</StyledLink>
               </Link>
             </StyledBookCardsHeader>
           </StyledSpacingWrapper>
@@ -157,7 +157,9 @@ export default function Home() {
           <StyledSpacingWrapper>
             <StyledBookCardsHeader>
               <h2>Currently Reading</h2>
-              <StyledLink>All</StyledLink>
+              <StyledLink href="#" title="All">
+                All
+              </StyledLink>
             </StyledBookCardsHeader>
           </StyledSpacingWrapper>
 
@@ -171,7 +173,9 @@ export default function Home() {
         <StyledSpacingWrapper>
           <StyledBookCardsHeader>
             <h2>Reviews of The Days</h2>
-            <StyledLink>All Video</StyledLink>
+            <StyledLink href="#" title="All Video">
+              All Video
+            </StyledLink>
           </StyledBookCardsHeader>
         </StyledSpacingWrapper>
 

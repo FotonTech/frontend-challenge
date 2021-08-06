@@ -22,8 +22,12 @@ const StyledContentWrapper = styled.div`
 
 const StyledAuthorText = styled.p(
   ({ theme }) => `
-color: ${theme.colors.special};
-`
+    font-family: SFProDisplay;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.670588px;
+    color: ${theme.colors.special};
+  `
 )
 
 const StyledDescriptionText = styled.div`
@@ -42,7 +46,7 @@ const StyledImageWrapper = styled.div`
   box-shadow: 0 25px 40px -40px #000;
 
   img {
-    height: 240px;
+    height: 229px;
   }
 `
 
@@ -52,10 +56,19 @@ const StyledHeader = styled.div`
   flex-direction: column;
   background-position: top;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 36px;
 
   @media (min-width: 768px) {
     background: url("/images/book-background-desktop.png") no-repeat;
+  }
+`
+
+const StyledTitle = styled.h1`
+  letter-spacing: 1.5px;
+  color: #36383a;
+
+  span {
+    font-weight: bold;
   }
 `
 
@@ -73,7 +86,7 @@ const StyledLoadingWrapper = styled.div`
 
 const StyledBackIconWrapper = styled.div`
   margin-top: 55px;
-  margin-left: 30px;
+  margin-left: 33px;
   align-self: flex-start;
 `
 
@@ -116,14 +129,18 @@ const BookPage = () => {
     )
 
   const {
-    volumeInfo: { title, description, authors, imageLinks }
+    volumeInfo: { title, subtitle, description, authors, imageLinks }
   } = data
   return (
     <Layout>
       <StyledMain>
         <StyledHeader>
           <StyledBackIconWrapper>
-            <StyledBackAnchor title="Return to previous page" onClick={back}>
+            <StyledBackAnchor
+              href="#"
+              title="Return to previous page"
+              onClick={back}
+            >
               <BackIcon />
             </StyledBackAnchor>
           </StyledBackIconWrapper>
@@ -133,7 +150,10 @@ const BookPage = () => {
         </StyledHeader>
 
         <StyledContentWrapper>
-          <h1>{title}</h1>
+          <StyledTitle>
+            <span>{title}</span>
+            {subtitle && ` : ${subtitle}`}
+          </StyledTitle>
 
           {authors.slice(0, 2).map((author) => (
             <StyledAuthorText key={author}>{author}</StyledAuthorText>

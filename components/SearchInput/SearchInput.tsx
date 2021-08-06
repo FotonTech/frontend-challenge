@@ -51,7 +51,6 @@ const SearchInput = (props: Props) => {
       sufix={isLoading ? <LoadingIcon size="16" /> : null}
       onChange={handleInputChange}
       placeholder="Search book"
-      autoFocus
     />
   )
 }

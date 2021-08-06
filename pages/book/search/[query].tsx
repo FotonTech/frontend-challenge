@@ -19,7 +19,7 @@ const StyledWrapper = styled.div`
 const StyledBooksList = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
+  gap: 20px;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(5, 1fr);
@@ -29,10 +29,13 @@ const StyledBook = styled.li`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  min-height: 240px;
+  min-height: 220px;
+  filter: drop-shadow(0px 2px 4px rgba(229, 229, 229, 0.5));
 
   img {
-    min-height: 150px;
+    height: 150px;
+    border-radius: 5px;
+    max-width: 100px;
   }
 `
 
@@ -49,6 +52,17 @@ const StyledBookTitle = styled.h3`
   font-weight: bold;
   font-size: 12px;
   line-height: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /** Max of 3 lines */
+  max-height: 42px;
+  max-width: 100px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   color: rgba(49, 49, 49, 0.8);
 `
@@ -57,7 +71,7 @@ const StyledHeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   align-self: stretch;
-  margin-bottom: 30px;
+  margin-bottom: 42px;
 `
 
 const StyledBackAnchor = styled.a`
@@ -73,6 +87,15 @@ const StyledBackAnchor = styled.a`
       transform: scale(1.3);
     }
   }
+`
+
+const StyledAuthorText = styled.p`
+  margin-top: 5px;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
+  color: rgba(49, 49, 49, 0.8);
 `
 
 const StyledLoadMoreButton = styled.button`
@@ -105,7 +128,7 @@ const SearchBookPage = () => {
     <Layout>
       <StyledWrapper>
         <StyledHeaderWrapper>
-          <Link href="/">
+          <Link href="/" passHref>
             <StyledBackAnchor title="Return to home page">
               <BackIcon />
             </StyledBackAnchor>
@@ -124,10 +147,12 @@ const SearchBookPage = () => {
                         id,
                         etag,
                         volumeInfo: {
+                          authors,
                           title,
                           imageLinks: { thumbnail }
                         }
                       } = item
+
                       return (
                         <StyledBook key={etag}>
                           <Link href={"/book/" + id} shallow={true}>
@@ -138,7 +163,27 @@ const SearchBookPage = () => {
                               />
                             </a>
                           </Link>
-                          <StyledBookTitle>{title}</StyledBookTitle>
+                          <Link href={"/book/" + id} shallow={true}>
+                            <StyledBookTitle>
+                              <a title={title}>{title}</a>
+                            </StyledBookTitle>
+                          </Link>
+
+                          {authors && (
+                            <StyledAuthorText>
+                              by&nbsp;
+                              {authors.slice(0, 3).map((author, index) => (
+                                <Fragment key={author}>
+                                  {author}
+                                  {authors.length > index + 1 && index !== 2
+                                    ? ", "
+                                    : index === 2
+                                    ? "..."
+                                    : null}
+                                </Fragment>
+                              ))}
+                            </StyledAuthorText>
+                          )}
                         </StyledBook>
                       )
                     })}
