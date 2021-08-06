@@ -209,7 +209,7 @@ const BookPage = () => {
             {subtitle && ` : ${subtitle}`}
           </StyledTitle>
 
-          {authors.slice(0, 2).map((author) => (
+          {authors?.slice(0, 2).map((author) => (
             <StyledAuthorText key={author}>{author}</StyledAuthorText>
           ))}
 
