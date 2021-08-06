@@ -1,4 +1,4 @@
-export type Book = {
+export type BooksApiVolume = {
   id: string
   etag: string
   volumeInfo: {

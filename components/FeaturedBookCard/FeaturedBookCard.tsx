@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Link from "next/link"
 import Image from "next/image"
 
-import { Book } from "@/types/books"
+import { BooksApiVolume } from "@/types/books-api"
 import { ChapterIcon } from "../Icons"
 
 const StyledBookCard = styled.a`
@@ -69,7 +69,7 @@ const StyledBookChapterText = styled.span`
 `
 
 type Props = {
-  book: Book
+  book: BooksApiVolume
 }
 
 const FeaturedBookCard = (props: Props) => {
@@ -85,6 +85,7 @@ const FeaturedBookCard = (props: Props) => {
       imageLinks: { thumbnail }
     }
   } = book
+
   return (
     <Link href={`/book/${id}`} passHref>
       <StyledBookCard>

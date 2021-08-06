@@ -8,7 +8,7 @@ import Layout from "@/components/Layout/Layout"
 import { BookIcon, HomeIcon, UserIcon } from "@/components/Icons"
 import SearchInput from "@/components/SearchInput/SearchInput"
 import {
-  getBooksByQuery,
+  getVolumesBySearchQuery,
   useBooksQuery,
   useUserBookshelfVolumesQuery,
   getUserBookshelfVolumes
@@ -230,7 +230,9 @@ export default function Home() {
 export async function getServerSideProps() {
   const queryClient = new QueryClient()
 
-  await queryClient.prefetchQuery(["books", null], () => getBooksByQuery(null))
+  await queryClient.prefetchQuery(["books", null], () =>
+    getVolumesBySearchQuery(null)
+  )
 
   const userBookshelfParams = {
     bookshelfId: GOOGLE_BOOKS_CURRENTLY_READING_SHELF_ID,

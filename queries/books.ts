@@ -1,9 +1,21 @@
 import { QueryFunctionContext, useInfiniteQuery, useQuery } from "react-query"
 
-import { Book } from "@/types/books"
+import { BooksApiVolume } from "@/types/books-api"
 
-type BooksApiVolumesResponse = {
-  items: Array<Book>
+type BooksApiUserBookshelfVolumesResponse = {
+  items: Array<BooksApiVolume>
+  totalItems: number
+}
+
+type VolumesApiQueryParams = {
+  maxResults?: string
+  startIndex?: string
+  orderBy?: string
+  q?: string
+}
+
+type VolumesByQueryApiResponse = {
+  items: Array<BooksApiVolume>
   totalItems: number
 
   error?: {
@@ -11,16 +23,19 @@ type BooksApiVolumesResponse = {
   }
 }
 
-type BooksApiUserBookshelfVolumesResponse = {
-  items: Array<Book>
-  totalItems: number
+type UserBookshelfVolumesFunctionParams = {
+  userId: string
+  bookshelfId: string
 }
 
-const getVolumeById = async (id) => {
-  try {
-    const res = await fetch("https://www.googleapis.com/books/v1/volumes/" + id)
+const GOOGLE_BOOKS_API_DOMAIN = "https://www.googleapis.com/books/v1"
+const MAX_ITEMS_PER_RESULT = 20
 
-    const parsed: Book = await res.json()
+const getVolumeById = async (id: string | number) => {
+  try {
+    const res = await fetch(`${GOOGLE_BOOKS_API_DOMAIN}/volumes/${id}`)
+
+    const parsed: BooksApiVolume = await res.json()
 
     return parsed
   } catch (err) {
@@ -31,14 +46,13 @@ const getVolumeById = async (id) => {
 /**
  * Fetches book volumes from a specific user's bookshelf id
  */
-const getUserBookshelfVolumes = async (params: {
-  userId: string
-  bookshelfId: string
-}) => {
+const getUserBookshelfVolumes = async (
+  params: UserBookshelfVolumesFunctionParams
+) => {
   const { bookshelfId, userId } = params
 
   const res = await fetch(
-    `https://www.googleapis.com/books/v1/users/${userId}/bookshelves/${bookshelfId}/volumes`
+    `${GOOGLE_BOOKS_API_DOMAIN}/users/${userId}/bookshelves/${bookshelfId}/volumes`
   )
 
   const parsed: BooksApiUserBookshelfVolumesResponse = await res.json()
@@ -46,20 +60,13 @@ const getUserBookshelfVolumes = async (params: {
   return parsed
 }
 
-type BooksQueryParams = {
-  maxResults?: string
-  startIndex?: string
-  orderBy?: string
-  q?: string
-}
-
-const getBooksByQuery = async (
-  params: BooksQueryParams,
+const getVolumesBySearchQuery = async (
+  params: VolumesApiQueryParams,
   context?: QueryFunctionContext<any>
 ) => {
   try {
     const searchParams = new URLSearchParams({
-      maxResults: "20",
+      maxResults: MAX_ITEMS_PER_RESULT,
       startIndex: "0",
       orderBy: "newest",
       q: "new books",
@@ -69,10 +76,10 @@ const getBooksByQuery = async (
     })
 
     const res = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?${searchParams.toString()}`
+      `${GOOGLE_BOOKS_API_DOMAIN}/volumes?${searchParams.toString()}`
     )
 
-    const parsedBody: BooksApiVolumesResponse = await res.json()
+    const parsedBody: VolumesByQueryApiResponse = await res.json()
 
     if (!res.ok) {
       const { error } = parsedBody
@@ -93,28 +100,32 @@ const getBooksByQuery = async (
   }
 }
 
-const useVolumeByIdQuery = (id) =>
+const useVolumeByIdQuery = (id: string | number) =>
   useQuery(["volumeById", id], () => getVolumeById(id))
 
-const useUserBookshelfVolumesQuery = (params: {
-  userId: string
-  bookshelfId: string
-}) =>
+const useUserBookshelfVolumesQuery = (
+  params: UserBookshelfVolumesFunctionParams
+) =>
   useQuery(["userBookshelfVolumes", params], () =>
     getUserBookshelfVolumes(params)
   )
 
-const useBooksQuery = (params?: BooksQueryParams) =>
-  useQuery(["books", params], () => getBooksByQuery(params))
+const useBooksQuery = (params?: VolumesApiQueryParams) =>
+  useQuery(["books", params], () => getVolumesBySearchQuery(params))
 
-const useBooksInfiniteQuery = (params?: BooksQueryParams) =>
+/**
+ * Saves data from previous requests into an array of pages
+ * So that the query can be fetched infinitely
+ * Check out more at: https://react-query.tanstack.com/guides/infinite-queries
+ */
+const useBooksInfiniteQuery = (params?: VolumesApiQueryParams) =>
   useInfiniteQuery(
     ["books", params],
-    (context) => getBooksByQuery(params, context),
+    (context) => getVolumesBySearchQuery(params, context),
     {
       getNextPageParam: (_, pages) => {
         return {
-          startIndex: 20 * pages.length
+          startIndex: MAX_ITEMS_PER_RESULT * pages.length
         }
       },
       refetchOnWindowFocus: false
@@ -122,7 +133,7 @@ const useBooksInfiniteQuery = (params?: BooksQueryParams) =>
   )
 
 export {
-  getBooksByQuery,
+  getVolumesBySearchQuery,
   useBooksQuery,
   useBooksInfiniteQuery,
   useUserBookshelfVolumesQuery,

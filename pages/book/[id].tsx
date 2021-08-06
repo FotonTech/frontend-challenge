@@ -149,7 +149,7 @@ const BookPage = () => {
     query: { id },
     back
   } = useRouter()
-  const { data, error, isLoading } = useVolumeByIdQuery(id)
+  const { data, error, isLoading } = useVolumeByIdQuery(id.toString())
 
   const handleBackButtonKeyDown = (e) => {
     const keyCode = e.keyCode
@@ -179,6 +179,7 @@ const BookPage = () => {
   const {
     volumeInfo: { title, subtitle, description, authors, imageLinks }
   } = data
+
   return (
     <Layout>
       <StyledMain>

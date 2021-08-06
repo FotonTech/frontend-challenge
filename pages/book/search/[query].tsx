@@ -8,7 +8,7 @@ import Image from "next/image"
 
 import { BackIcon, LoadingIcon } from "@/components/Icons"
 import SearchInput from "@/components/SearchInput/SearchInput"
-import { getBooksByQuery, useBooksInfiniteQuery } from "@/queries/books"
+import { getVolumesBySearchQuery, useBooksInfiniteQuery } from "@/queries/books"
 import Layout from "@/components/Layout/Layout"
 import useIntersectionObserver from "hooks/useIntersectionObserver"
 
@@ -166,6 +166,7 @@ const SearchBookPage = () => {
                               />
                             </a>
                           </Link>
+
                           <Link href={"/book/" + id} shallow={true}>
                             <StyledBookTitle>
                               <a title={title}>{title}</a>
@@ -223,7 +224,7 @@ export async function getServerSideProps(context) {
   }
 
   await queryClient.prefetchInfiniteQuery(["books", queryParams], () =>
-    getBooksByQuery(queryParams)
+    getVolumesBySearchQuery(queryParams)
   )
 
   return {

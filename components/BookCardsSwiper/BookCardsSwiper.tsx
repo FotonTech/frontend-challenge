@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import Link from "next/link"
 import Image from "next/image"
 
-import { Book } from "@/types/books"
+import { BooksApiVolume } from "@/types/books-api"
 import { StatisticsIcon } from "@/components/Icons"
 
 const StyledBookCardInfo = styled.div`
@@ -68,8 +68,6 @@ const StyledAuthorText = styled.p`
   font-family: SFProDisplay;
   font-size: 14px;
   line-height: 16px;
-  /* identical to box height */
-
   letter-spacing: 1.28889px;
 `
 
@@ -101,7 +99,7 @@ const StyledWrapper = styled.div`
 `
 
 type Props = {
-  books: Book[]
+  books: BooksApiVolume[]
   isActive?: boolean
 }
 
