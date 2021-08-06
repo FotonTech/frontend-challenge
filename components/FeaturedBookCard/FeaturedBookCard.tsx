@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Link from "next/link"
+import Image from "next/image"
 
 import { Book } from "@/types/books"
 import { ChapterIcon } from "../Icons"
@@ -42,7 +43,7 @@ const StyledBookCardInfo = styled.div`
   justify-content: space-between;
 `
 
-const StyledBookImage = styled.img`
+const StyledBookImageWrapper = styled.div`
   margin: -25px 0;
   max-height: 130px;
   filter: drop-shadow(5px 7px 32px rgba(140, 170, 58, 0.193701));
@@ -88,10 +89,14 @@ const FeaturedBookCard = (props: Props) => {
     <Link href={`/book/${id}`} passHref>
       <StyledBookCard>
         <StyledBookCardInfo>
-          <StyledBookImage
-            alt={title}
-            src={thumbnail.replace("http", "https")}
-          />
+          <StyledBookImageWrapper>
+            <Image
+              width={88}
+              height={130}
+              alt={title}
+              src={thumbnail.replace("http", "https")}
+            />
+          </StyledBookImageWrapper>
         </StyledBookCardInfo>
         <StyledBookCardInfo>
           <div>

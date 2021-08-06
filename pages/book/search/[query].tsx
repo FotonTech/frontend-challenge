@@ -4,6 +4,7 @@ import { QueryClient } from "react-query"
 import { dehydrate } from "react-query/hydration"
 import { useRouter } from "next/dist/client/router"
 import Link from "next/link"
+import Image from "next/image"
 
 import { BackIcon, LoadingIcon } from "@/components/Icons"
 import SearchInput from "@/components/SearchInput/SearchInput"
@@ -157,7 +158,9 @@ const SearchBookPage = () => {
                         <StyledBook key={etag}>
                           <Link href={"/book/" + id} shallow={true}>
                             <a title={title}>
-                              <img
+                              <Image
+                                width={100}
+                                height={150}
                                 alt={title}
                                 src={thumbnail.replace("http", "https")}
                               />

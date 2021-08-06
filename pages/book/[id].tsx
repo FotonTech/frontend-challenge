@@ -4,6 +4,7 @@ import { dehydrate } from "react-query/hydration"
 import { QueryClient } from "react-query"
 import { useRouter } from "next/dist/client/router"
 import ReactHtmlParser from "react-html-parser"
+import Image from "next/image"
 
 import Layout from "@/components/Layout/Layout"
 import { useVolumeByIdQuery, getVolumeById } from "@/queries/books"
@@ -44,10 +45,6 @@ const StyledImageWrapper = styled.div`
   display: flex;
   margin-top: 15px;
   box-shadow: 0 25px 40px -40px #000;
-
-  img {
-    height: 229px;
-  }
 `
 
 const StyledHeader = styled.div`
@@ -154,7 +151,12 @@ const BookPage = () => {
             </StyledBackAnchor>
           </StyledBackIconWrapper>
           <StyledImageWrapper>
-            <img alt={title} src={imageLinks.thumbnail} />
+            <Image
+              width={153}
+              height={229}
+              alt={title}
+              src={imageLinks.thumbnail}
+            />
           </StyledImageWrapper>
         </StyledHeader>
 

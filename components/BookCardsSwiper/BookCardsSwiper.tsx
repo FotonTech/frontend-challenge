@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { Swiper, SwiperSlide } from "swiper/react"
 import Link from "next/link"
+import Image from "next/image"
 
 import { Book } from "@/types/books"
 import { StatisticsIcon } from "@/components/Icons"
@@ -39,6 +40,7 @@ const StyledBookCard = styled.a<{ index: number; swiperIndex: number }>(
       img {
         height: ${isCurrentIndex ? "111px" : "100px"};
         transition: height .1s linear;
+        border-radius: 5px;
       }
     `
   }
@@ -88,11 +90,6 @@ const StyledReadNowText = styled.span`
 
 const StyledStatisticsIcon = styled(StatisticsIcon)`
   margin-right: 4px;
-`
-
-const StyledImg = styled.img`
-  max-height: 109px;
-  border-radius: 5px;
 `
 
 const StyledWrapper = styled.div`
@@ -158,9 +155,11 @@ const BookCard = (props: Props) => {
                       </StyledReadNowText>
                     </StyledBookCardInfo>
                     <StyledBookCardInfo>
-                      <StyledImg
+                      <Image
+                        width={72}
+                        height={111}
                         alt={title}
-                        src={thumbnail.replace("http", "https")}
+                        src={thumbnail}
                       />
                     </StyledBookCardInfo>
                   </StyledBookCard>

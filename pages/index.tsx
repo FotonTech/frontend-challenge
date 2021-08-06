@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Link from "next/link"
+import Image from "next/image"
 import { dehydrate } from "react-query/hydration"
 import { QueryClient } from "react-query"
 
@@ -106,14 +107,15 @@ const StyledSearchInputWrapper = styled.div`
   margin-bottom: 30px;
 `
 
-const StyledReviewImg = styled.img`
-  border-radius: 5px 5px 0px 0px;
-`
-
 const StyledReviewImgWrapper = styled.div`
   background-image: url(/images/book-background-oval.png);
   background-position: 0 100%;
   background-repeat: no-repeat;
+
+  img {
+    border-radius: 5px 5px 0px 0px;
+    z-index: 0;
+  }
 `
 
 const CURRENT_USER_ID = "107452890772828077812"
@@ -187,7 +189,10 @@ export default function Home() {
 
         <StyledSpacingWrapper>
           <StyledReviewImgWrapper>
-            <StyledReviewImg
+            <Image
+              width={335}
+              height={188}
+              layout="responsive"
               alt="Review of the day"
               src="/images/review-of-the-day.jpg"
             />

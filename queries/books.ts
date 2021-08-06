@@ -57,7 +57,6 @@ const getBooksByQuery = async (
   params: BooksQueryParams,
   context?: QueryFunctionContext<any>
 ) => {
-  console.log(params)
   try {
     const searchParams = new URLSearchParams({
       maxResults: "20",
