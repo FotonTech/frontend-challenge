@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap");
+
+@font-face {
+  font-family: "SFProDisplay";
+  src: url("/fonts/SF-Pro-Display-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "SFProDisplay";
+  src: url("/fonts/SF-Pro-Display-Bold.otf") format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "SFProText";
+  src: url("/fonts/SF-Pro-Text-Regular.otf") format("opentype");
+}

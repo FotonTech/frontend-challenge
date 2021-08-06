@@ -1,46 +1,52 @@
-# Frontend Challenge
+# FotonTech Frontend Challenge
 
-Clone this repository and start our challenge **right now**
+Frontend Challenge for Foton
 
-Use React or React Native depending on the rule you are running for.
+Check out the challenge document (at the time it was done) [here](https://github.com/FotonTech/frontend-challenge/blob/49f345620d0198ffbb1fc48b3587792dcdad5b11/README.md)
 
-**NOTE:** If you have any questions regarding the test, just send us your question on our Discord's channel **#technical-challenge** on [Foton Discord](https://discord.gg/uw55aDewNf).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## API
+## Installation
 
-Use the [Google Books](https://developers.google.com/books/docs/v1/using)' API to recover the data that will be shown on the app.
+NodeJS and NPM should be installed on your machine for development mode. Install it using [NVM](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-```js
-const query = 'harry potter';
-fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+1. install the dependencies:
+
+```bash
+yarn
+# or
+npm install
 ```
 
-**NOTE:** You can use the form of calling apis of your choice (Fetch, Axios, etc).  
+## Getting Started
 
-## Design/Screens
-https://www.figma.com/file/KFElqzD983WNyvMY1SaF0c/book-app?node-id=0%3A1
+1. Run the development server:
 
-<img width="581" alt="Screen Shot 2021-04-13 at 10 19 47" src="https://user-images.githubusercontent.com/13947203/114559257-eb55ad00-9c41-11eb-9617-4e7627cc373e.png">
+```bash
+npm run dev
+# or
+yarn dev
+```
 
+2. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The website design has 3 screens, which are:
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-### Home
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-1. Create a Pixel Perfect screen based on design above;
-2. The books must be clickable and redirect to **details** screen.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-### Search
+## Learn More
 
-In this screen the functionalities below are **mandatory**:
+To learn more about Next.js, take a look at the following resources:
 
-1. See a list of books based on search query;
-2. Make it possible to search for more books with a "Load more" button;
-3. Search books by name;
-4. Click on one of the books to see their details.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### Books details
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-In this screen the functionalities below are **mandatory**:
+## Deploy on Vercel
 
-1. See all information for the selected book.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
