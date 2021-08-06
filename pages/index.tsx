@@ -1,11 +1,17 @@
 import styled from "styled-components"
-import Image from "next/image"
 import Link from "next/link"
+import { dehydrate } from "react-query/hydration"
+import { QueryClient } from "react-query"
 
 import Layout from "@/components/Layout/Layout"
 import { BookIcon, HomeIcon, UserIcon } from "@/components/Icons"
 import SearchInput from "@/components/SearchInput/SearchInput"
-import { useBooksQuery, useUserBookshelfVolumesQuery } from "@/queries/books"
+import {
+  getBooksByQuery,
+  useBooksQuery,
+  useUserBookshelfVolumesQuery,
+  getUserBookshelfVolumes
+} from "@/queries/books"
 import BookCardsSwiper from "@/components/BookCardsSwiper/BookCardsSwiper"
 import FeaturedBookCard from "@/components/FeaturedBookCard/FeaturedBookCard"
 
@@ -114,12 +120,12 @@ const CURRENT_USER_ID = "107452890772828077812"
 const GOOGLE_BOOKS_CURRENTLY_READING_SHELF_ID = "3"
 
 export default function Home() {
-  const { data: booksResult, error: booksError } = useBooksQuery()
+  const { data: booksResult, error: booksError } = useBooksQuery(null)
   const { data: featuredBookshelfVolumesResult, error: currentlyReadingError } =
-    useUserBookshelfVolumesQuery(
-      CURRENT_USER_ID,
-      GOOGLE_BOOKS_CURRENTLY_READING_SHELF_ID
-    )
+    useUserBookshelfVolumesQuery({
+      bookshelfId: GOOGLE_BOOKS_CURRENTLY_READING_SHELF_ID,
+      userId: CURRENT_USER_ID
+    })
 
   const featuredBook = featuredBookshelfVolumesResult?.items[0]
 
@@ -210,4 +216,26 @@ export default function Home() {
       </StyledMain>
     </Layout>
   )
+}
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient()
+
+  await queryClient.prefetchQuery(["books", null], () => getBooksByQuery(null))
+
+  const userBookshelfParams = {
+    bookshelfId: GOOGLE_BOOKS_CURRENTLY_READING_SHELF_ID,
+    userId: CURRENT_USER_ID
+  }
+
+  await queryClient.prefetchQuery(
+    ["userBookshelfVolumes", userBookshelfParams],
+    () => getUserBookshelfVolumes(userBookshelfParams)
+  )
+
+  return {
+    props: {
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient)))
+    }
+  }
 }
