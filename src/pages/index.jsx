@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Text, Box } from '@chakra-ui/react'
-import { Master } from '../components/Master'
+import { Wrapper } from '../components/Wrapper'
 import { SearchBox } from '../components/SearchBox'
 import { CardSwiper } from '../components/CardSwiper'
 import { CurrentBookCard } from '../components/CurrentBookCard'
@@ -10,7 +10,7 @@ import { getDefaultBooks } from '../services/books'
 
 export default function Home({ homeBooks, currentlyReading }) {
   return (
-    <Master title='Home | FotonChallenge'>
+    <Wrapper title='Home | FotonChallenge'>
       <Box margin='0 20px'>
         <SearchBox />
 
@@ -41,7 +41,7 @@ export default function Home({ homeBooks, currentlyReading }) {
           />
         </Box>
       </Box>
-    </Master>
+    </Wrapper>
   )
 }
 

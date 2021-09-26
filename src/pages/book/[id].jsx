@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from "framer-motion"
 import { Flex, Box, Text, Heading, useBreakpointValue } from '@chakra-ui/react'
-import { Master } from '../../components/Master'
+import { Wrapper } from '../../components/Wrapper'
 import { getDefaultBooks, getBook } from '../../services/books'
 import { ReturnIcon } from '../../components/Icons'
 
@@ -17,7 +17,7 @@ export default function BookDetails({ book }) {
   const { volumeInfo: { authors, title, subtitle, description, imageLinks: { thumbnail } } } = book
 
   return (
-    <Master title={`${title} | FotonChallenge`} isBookDetailsPage>
+    <Wrapper title={`${title} | FotonChallenge`} isBookDetailsPage>
 
       <Flex flexDir='column'>
         <Flex
@@ -78,7 +78,7 @@ export default function BookDetails({ book }) {
         }}
       />
 
-    </Master>
+    </Wrapper>
   )
 }
 

@@ -3,14 +3,14 @@ import Image from 'next/image'
 import { motion } from "framer-motion"
 import { Box, Flex, SimpleGrid, Text, Heading } from '@chakra-ui/react'
 import { searchBook } from '../../../services/books'
-import { Master } from '../../../components/Master'
+import { Wrapper } from '../../../components/Wrapper'
 import { SearchBox } from '../../../components/SearchBox'
 
 const MotionBox = motion(Box)
 
 export default function SearchBook({ books }) {
   return (
-    <Master title='Search | FotonChallenge'>
+    <Wrapper title='Search | FotonChallenge'>
       <Box m='0 20px'>
         <SearchBox />
 
@@ -51,7 +51,7 @@ export default function SearchBook({ books }) {
       </Box>
 
       <h1>oi</h1>
-    </Master>
+    </Wrapper>
   )
 }
 
