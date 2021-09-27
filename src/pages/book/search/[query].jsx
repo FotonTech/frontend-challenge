@@ -20,6 +20,7 @@ export default function SearchBook({ books }) {
 
     const queryParams = {
       q: router.query,
+      startIndex: bookResults.length,
       maxResults: 40
     }
 
