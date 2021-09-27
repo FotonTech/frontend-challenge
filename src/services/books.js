@@ -25,7 +25,16 @@ export const getDefaultBooks = async () => {
       }
     }))
 
-    return homeBooks
+    const parsedBooks = {
+      res1: homeBooks.res1.data.items.filter(item => item.volumeInfo.imageLinks && item.volumeInfo.authors),
+      res2: homeBooks.res2.data.items.filter(item => item.volumeInfo.imageLinks && item.volumeInfo.authors),
+      res3: homeBooks.res3.data.items.filter(item => item.volumeInfo.imageLinks && item.volumeInfo.authors),
+      res4: homeBooks.res4.data.items.filter(item => item.volumeInfo.imageLinks && item.volumeInfo.authors),
+      res5: homeBooks.res5.data.items.filter(item => item.volumeInfo.imageLinks && item.volumeInfo.authors),
+      res6: homeBooks.res6.data.items.filter(item => item.volumeInfo.imageLinks && item.volumeInfo.authors),
+    }
+
+    return parsedBooks
   } catch (error) {
     console.log(error)
   }

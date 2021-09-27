@@ -49,14 +49,14 @@ export const getStaticProps = async () => {
   const books = await getDefaultBooks()
 
   const homeBooks = [
-    books.res1.data.items[0],
-    books.res2.data.items[2],
-    books.res3.data.items[0],
-    books.res4.data.items[0],
-    books.res5.data.items[0],
+    books.res1[0],
+    books.res2[1],
+    books.res3[0],
+    books.res4[0],
+    books.res5[0],
   ]
 
-  const currentlyReading = books.res6.data.items[0]
+  const currentlyReading = books.res6[0]
 
   return {
     props: {
