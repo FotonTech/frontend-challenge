@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { motion } from "framer-motion"
-import { Box, Flex, SimpleGrid, Text, Heading } from '@chakra-ui/react'
+import { Box, Button, Flex, SimpleGrid, Text, Heading } from '@chakra-ui/react'
 import { searchBook } from '../../../services/books'
 import { Wrapper } from '../../../components/Wrapper'
 import { SearchBox } from '../../../components/SearchBox'
@@ -9,16 +11,35 @@ import { SearchBox } from '../../../components/SearchBox'
 const MotionBox = motion(Box)
 
 export default function SearchBook({ books }) {
+  const router = useRouter()
+  const [bookResults, setBookResults] = useState(books)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleLoadMore = async () => {
+    setIsLoading(true)
+
+    const queryParams = {
+      q: router.query,
+      maxResults: 40
+    }
+
+    const res = await searchBook(queryParams)
+
+    const newResults = [...bookResults, ...res]
+    setBookResults(newResults)
+    setIsLoading(false)
+  }
+
   return (
     <Wrapper title='Search | FotonChallenge'>
       <Box m='0 20px'>
         <SearchBox />
-
+        <button onClick={handleLoadMore}>teste</button>
         <SimpleGrid my='40px' columns={[3, 4]} spacingX={[5, 40]} spacingY='50px'>
-          {books.map(book => {
-            const { id, volumeInfo: { authors, title, imageLinks: { thumbnail } } } = book
+          {bookResults.map(book => {
+            const { id, etag, volumeInfo: { authors, title, imageLinks: { thumbnail } } } = book
             return (
-              <Link key={id} href={`/book/${id}`} passHref>
+              <Link key={etag} href={`/book/${id}`} passHref>
                 <MotionBox
                   as='a'
                   key={id}
@@ -48,9 +69,19 @@ export default function SearchBook({ books }) {
             )
           })}
         </SimpleGrid>
+        <Flex justify='center' mb={20}>
+          <Button
+            onClick={handleLoadMore}
+            color="highlight"
+            variant="link"
+            fontSize='20px'
+            isLoading={isLoading}
+            isLoadingText='Loading'
+          >
+            Load More
+          </Button>
+        </Flex>
       </Box>
-
-      <h1>oi</h1>
     </Wrapper>
   )
 }
