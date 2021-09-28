@@ -21,7 +21,7 @@ export const CurrentBookCard = ({ book }) => {
         sx={{ gap: '8px' }}
       >
 
-        <Flex flexDir='column' justify='space-between'>
+        <Flex flexDir='column' justify='space-between' mr='10px'>
           <Box m='-25px 0' maxHeight='130px'>
             <Image
               width={88}
