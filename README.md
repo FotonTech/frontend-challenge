@@ -1,5 +1,9 @@
 # Frontend Challenge
 
+Checkout the live version of the challenge [here](https://foton-frontend-challenge-yuribmontez.vercel.app)
+
+<hr>
+
 Clone this repository and start our challenge **right now**
 
 Use React or React Native depending on the rule you are running for.
