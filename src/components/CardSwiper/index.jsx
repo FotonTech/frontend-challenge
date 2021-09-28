@@ -10,6 +10,7 @@ import { CardStatisticsIcon } from '../Icons'
 
 SwiperCore.use([Pagination, Navigation]);
 const MotionBox = motion(Box)
+const MotionFlex = motion(Flex)
 
 export const CardSwiper = ({ books }) => {
   const [swiper, setSwiper] = useState(0)
@@ -47,24 +48,27 @@ export const CardSwiper = ({ books }) => {
                   swiper={swiper}
                   whileTap={{scale: .95}}
                 >
-                  <Flex
-                    height={isActive ? '140px' : '128px'}
-                    minWidth={isActive ? '272px' : '250px'}
-                    maxWidth={isActive ? '272px' : '250px'}
+                  <MotionFlex
+                    height='128px'
+                    width='250px'
                     bgColor={isActive ? '#00173d' : '#451475'}
                     p='16px 20px 20px'
                     borderRadius='8px'
                     cursor='pointer'
                     sx={{
-                      transition: 'all .1s linear',
                       backgroundImage: 'url("/images/discover-background.png")',
                       backgroundPosition: '0 100%',
                       backgroundRepeat: 'no-repeat',
-                      img: { height: isActive ? '112px' : '100px',
-                        transition: 'height .1s linear',
-                        borderRadius: '8px'
-                      }
+                      img: { borderRadius: '8px' }
                     }}
+                    animate={{
+                      width: isActive ? '272px' : '250px',
+                      height: isActive ? '140px' : '128px',
+                      img: {
+                        height: isActive ? '112px' : '110px'
+                      },
+                    }}
+                    transition={{ ease: 'linear', duration: .1 }}
                   >
 
                       <Flex
@@ -129,7 +133,7 @@ export const CardSwiper = ({ books }) => {
                         />
                       </Flex>
 
-                  </Flex>
+                  </MotionFlex>
                 </MotionBox>
               </Link>
             </SwiperSlide>
