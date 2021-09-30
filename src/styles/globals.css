@@ -1,16 +1,27 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "SFPro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url(/fonts/SF_PRO_REGULAR.woff) format("woff");
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@font-face {
+  font-family: "SFPro";
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+  src: url(/fonts/SF_PRO_MEDIUM.woff) format("woff");
 }
 
-* {
-  box-sizing: border-box;
+@font-face {
+  font-family: "SFPro";
+  font-style: normal;
+  font-weight: 800;
+  font-display: optional;
+  src: url(/fonts/SF_PRO_BOLD.woff) format("woff");
 }
