@@ -1,3 +1,4 @@
+import { InputSearch } from "components/InputSearch";
 import { Navbar } from "components/Navbar";
 import Head from "next/head";
 
@@ -12,7 +13,8 @@ export default function Home() {
         <div className="fixed bottom-0 left-0 right-0">
           <Navbar />
         </div>
-        <p className="">Hello there!</p>
+
+        <InputSearch placeholder="Search book" />
       </div>
     </>
   );
