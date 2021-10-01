@@ -15,6 +15,7 @@ module.exports = {
       title: "#3F4043",
       pink: "#FF6978",
       blue: "#4ABDF1",
+      black: "#000",
       gray: "#BFBEBF",
     },
     backgroundColor: {
