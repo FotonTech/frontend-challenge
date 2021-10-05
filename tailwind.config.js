@@ -12,14 +12,16 @@ module.exports = {
       "color-placeholder": "#54565A",
       "color-text-light": "rgba(49, 49, 49, 0.6);",
       "color-text-dark": "rgba(49, 49, 49, 0.8);",
+      cloud: "#fefefe",
       title: "#3F4043",
       pink: "#FF6978",
       blue: "#4ABDF1",
       black: "#000",
       gray: "#BFBEBF",
+      "card-gray": "#E7E7E1",
     },
     backgroundColor: {
-      primary: "#FFFCF9",
+      primary: "#fefaf6",
       white: "#fff",
       "dark-blue": "#00173D",
       purple: "#451475",
@@ -29,6 +31,13 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["SFPro", ...fontFamily.sans],
+      },
+      backgroundImage: {
+        circle: "url('/images/circle.svg')",
+        currentlyReading: "url('/images/currentlyReadingBackground.svg')",
+      },
+      backgroundPosition: {
+        "minus-top-right": "top -20px right -33px",
       },
     },
   },
