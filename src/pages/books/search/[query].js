@@ -18,10 +18,12 @@ export default function Search() {
 
   const { data, loading, error } = useSearchBooks(searchParams);
 
-  // Loading more funcionality.
   const handleLoadMore = () => {
     setSeacrhParams((oldParams) => {
-      return { ...oldParams, startIndex: data.length };
+      return {
+        ...oldParams,
+        startIndex: oldParams.startIndex + data.items.length,
+      };
     });
   };
 
@@ -72,6 +74,15 @@ export default function Search() {
             );
           })}
       </section>
+
+      {!loading && !error && (
+        <button
+          className="pb-[40px] text-pink text-lg font-bold"
+          onClick={handleLoadMore}
+        >
+          Load more
+        </button>
+      )}
     </main>
   );
 }
