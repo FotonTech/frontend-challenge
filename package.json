@@ -1,0 +1,36 @@
+{
+  "name": "frontend-challenge",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "pre-commit": "lint-staged",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "swiper": "^7.0.8",
+    "swr": "^1.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "autoprefixer": "^10.3.6",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "postcss": "^8.3.8",
+    "prettier": "^2.4.1",
+    "tailwindcss": "^2.2.16"
+  }
+}

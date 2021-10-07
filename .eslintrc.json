@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "jest": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:@next/next/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/no-unescaped-entities": "off"
+  }
+}

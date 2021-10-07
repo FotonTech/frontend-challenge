@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "SFPro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url(/fonts/SF_PRO_REGULAR.woff) format("woff");
+}
+
+@font-face {
+  font-family: "SFPro";
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+  src: url(/fonts/SF_PRO_MEDIUM.woff) format("woff");
+}
+
+@font-face {
+  font-family: "SFPro";
+  font-style: normal;
+  font-weight: 800;
+  font-display: optional;
+  src: url(/fonts/SF_PRO_BOLD.woff) format("woff");
+}
+
+.swiper-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
