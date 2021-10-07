@@ -20,6 +20,9 @@ module.exports = {
       gray: "#BFBEBF",
       "card-gray": "#E7E7E1",
     },
+    borderColor: {
+      menu: "rgba(151, 151, 151, 0.2)",
+    },
     backgroundColor: {
       primary: "#fefaf6",
       white: "#fff",
@@ -35,9 +38,14 @@ module.exports = {
       backgroundImage: {
         circle: "url('/images/circle.svg')",
         currentlyReading: "url('/images/currentlyReadingBackground.svg')",
+        bookBackground: "url('/images/bookBackground.png')",
+        bookBackgroundDesktop: "url('/images/bookBackgroundDesktop.png')",
       },
       backgroundPosition: {
         "minus-top-right": "top -20px right -33px",
+      },
+      gridTemplateColumns: {
+        "auto-fill": "repeat(auto-fill, 100px)",
       },
     },
   },
