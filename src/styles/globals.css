@@ -25,3 +25,8 @@
   font-display: optional;
   src: url(/fonts/SF_PRO_BOLD.woff) format("woff");
 }
+
+.swiper-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
