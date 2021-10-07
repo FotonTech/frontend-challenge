@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { URL } from "utils/fetcher";
+import { URL } from "../utils";
 
 export const fetcher = async (url, id) => {
   const response = await fetch(`${url}/${id}`);

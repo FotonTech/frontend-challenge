@@ -1,6 +1,5 @@
 import useSWR from "swr";
-import { discoverBooks, parseBooks } from "utils";
-import { URL } from "utils/fetcher";
+import { discoverBooks, parseBooks, URL } from "utils";
 
 export const fetcher = async (url) => {
   const [book1, book2, book3, book4, book5] = await Promise.all([
