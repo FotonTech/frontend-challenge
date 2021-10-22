@@ -1,6 +1,6 @@
 # Instructions
 
-To start using this project just need to set the environment variable `REACT_APP_GOOGLE_BOOKS_API` with the google api link that in the moment is [https://www.googleapis.com/books/v1/volumes](https://www.googleapis.com/books/v1/volumes) and the variable with your google api key as `REACT_APP_GOOGLE_BOOKS_API_KEY` with the key provided by google in the page [https://console.cloud.google.com/](https://console.cloud.google.com/).
+To start using this project you need to set the environment variable `REACT_APP_GOOGLE_BOOKS_API` with the google api link that at the moment is [https://www.googleapis.com/books/v1/volumes](https://www.googleapis.com/books/v1/volumes) and the variable with your google api key as `REACT_APP_GOOGLE_BOOKS_API_KEY` with the key provided by google in the page [https://console.cloud.google.com/marketplace/product/google/books.googleapis.com](https://console.cloud.google.com/marketplace/product/google/books.googleapis.com).
 
 # Frontend Challenge
 
