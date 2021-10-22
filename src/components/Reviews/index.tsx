@@ -5,7 +5,7 @@ import {
   // CardText,
   // CardTitle,
   Col,
-  Row
+  Row,
 } from 'reactstrap';
 import Thumbnail from '../../images/image-example.jpg';
 import BlockWrapper from '../BlockWrapper';

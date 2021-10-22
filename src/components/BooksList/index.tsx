@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -6,7 +8,7 @@ import {
   CardBody,
   CardSubtitle,
   CardTitle,
-  Row
+  Row,
 } from 'reactstrap';
 import NoImageAvailable from '../../images/no-image-available.jpg';
 import { BooksContext } from '../../providers/booksProvider';
@@ -50,7 +52,7 @@ const BooksList: React.FC = () => {
       <Row className="no-gutters justify-content-between">
         {items.map((book) => {
           const {
-            volumeInfo: { title, authors, imageLinks }
+            volumeInfo: { title, authors, imageLinks },
           } = book;
 
           return (

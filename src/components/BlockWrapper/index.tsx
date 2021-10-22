@@ -1,22 +1,20 @@
-import React from 'react';
+import { FC } from 'react';
 import { Row } from 'reactstrap';
 import { Children, Col, H5, Link } from './styled';
 
-export type BlockWrapperType = React.FC<
-  React.PropsWithChildren<{
-    children: any;
-    title: string;
-    linkTitle: string;
-    href: string;
-  }>
->;
+export type BlockWrapperType = {
+  children: React.ReactNode;
+  title: string;
+  linkTitle: string;
+  href: string;
+};
 
-const BlockWrapper: BlockWrapperType = ({
+const BlockWrapper: FC<BlockWrapperType> = ({
   children,
   title,
   linkTitle,
-  href
-}) => {
+  href,
+}: BlockWrapperType) => {
   return (
     <>
       <Row>

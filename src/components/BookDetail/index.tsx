@@ -17,7 +17,7 @@ import {
   OvalImg,
   Text,
   Thumbnail,
-  Title
+  Title,
 } from './styled';
 
 type TParams = {
@@ -39,7 +39,7 @@ const initialState = {
   subtitle: '',
   description: '',
   infoLink: '',
-  thumbnail: ''
+  thumbnail: '',
 };
 
 const BookDetail = ({ match }: RouteComponentProps<TParams>) => {
@@ -57,7 +57,7 @@ const BookDetail = ({ match }: RouteComponentProps<TParams>) => {
             subtitle,
             description,
             infoLink,
-            imageLinks
+            imageLinks,
           } = data.volumeInfo;
           setBook({
             authors,
@@ -65,7 +65,7 @@ const BookDetail = ({ match }: RouteComponentProps<TParams>) => {
             subtitle,
             description,
             infoLink,
-            thumbnail: imageLinks ? imageLinks.thumbnail : ''
+            thumbnail: imageLinks ? imageLinks.thumbnail : '',
           });
         })
         .catch((error) => {

@@ -12,6 +12,7 @@ const SearchField: React.FC = () => {
   useEffect(() => {
     actions.setSearchIndex(0);
     actions.setSearchText(textToSearch);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [actions.setSearchText, textToSearch]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

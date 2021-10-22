@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useCallback, useEffect } from 'react';
 import * as BooksApi from '../api/books';
 
@@ -55,15 +56,15 @@ const initialState = {
   error: null,
   search: '',
   searchIndex: 0,
-  totalPages: 0
+  totalPages: 0,
 };
 
 export const BooksContext = React.createContext<BooksContextProps>({
   state: initialState,
   actions: {
     setSearchText: (action) => action,
-    setSearchIndex: (action) => action
-  }
+    setSearchIndex: (action) => action,
+  },
 });
 
 const reducer = (state: InitialState = initialState, action: ActionTypes) => {
@@ -73,7 +74,7 @@ const reducer = (state: InitialState = initialState, action: ActionTypes) => {
         ...state,
         books: initialBooksState,
         isLoading: true,
-        error: null
+        error: null,
       };
     }
     case 'GET_BOOKS_SUCCESS': {
@@ -81,28 +82,28 @@ const reducer = (state: InitialState = initialState, action: ActionTypes) => {
         ...state,
         books: action.payload.books,
         isLoading: false,
-        error: null
+        error: null,
       };
     }
     case 'GET_BOOKS_ERROR': {
       return {
         ...state,
         isLoading: false,
-        error: action.payload.error
+        error: action.payload.error,
       };
     }
     case 'SET_SEARCH_TEXT': {
       return {
         ...state,
         isLoading: false,
-        search: action.payload.search
+        search: action.payload.search,
       };
     }
     case 'SET_SEARCH_INDEX': {
       return {
         ...state,
         isLoading: false,
-        searchIndex: action.payload.searchIndex
+        searchIndex: action.payload.searchIndex,
       };
     }
     default: {
@@ -120,14 +121,14 @@ export const BooksProvider: BooksProviderProps = ({ children }) => {
         if (state.search !== '') {
           await BooksApi.searchBooks({
             query: state.search,
-            startIndex: state.searchIndex
+            startIndex: state.searchIndex,
           })
             .then(({ data }) => {
               dispatch({
                 type: 'GET_BOOKS_SUCCESS',
                 payload: {
-                  books: data
-                }
+                  books: data,
+                },
               });
             })
             .catch((error) => {
@@ -137,8 +138,8 @@ export const BooksProvider: BooksProviderProps = ({ children }) => {
           dispatch({
             type: 'GET_BOOKS_SUCCESS',
             payload: {
-              books: initialBooksState
-            }
+              books: initialBooksState,
+            },
           });
         }
       } catch (error) {
@@ -154,7 +155,7 @@ export const BooksProvider: BooksProviderProps = ({ children }) => {
       dispatch({ type: 'GET_BOOKS_SEARCH' });
       dispatch({
         type: 'SET_SEARCH_TEXT',
-        payload: { search: text }
+        payload: { search: text },
       });
     },
     [dispatch]
@@ -164,7 +165,7 @@ export const BooksProvider: BooksProviderProps = ({ children }) => {
     (searchIndex: number) => {
       dispatch({
         type: 'SET_SEARCH_INDEX',
-        payload: { searchIndex }
+        payload: { searchIndex },
       });
     },
     [dispatch]
@@ -174,7 +175,7 @@ export const BooksProvider: BooksProviderProps = ({ children }) => {
     <BooksContext.Provider
       value={{
         state,
-        actions: { setSearchText, setSearchIndex }
+        actions: { setSearchText, setSearchIndex },
       }}
     >
       {children}
