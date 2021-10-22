@@ -10,7 +10,7 @@ type BookDetailMenuProps = React.FC<{
 }>;
 
 const BookDetailMenu: BookDetailMenuProps = ({
-  links: { readLink, listenLink, shareLink }
+  links: { readLink, listenLink, shareLink },
 }) => {
   return (
     <Container className="fixed-bottom">

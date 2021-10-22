@@ -32,7 +32,7 @@ type CircleType = {
 
 export const Circle = styled.div.attrs((props: CircleType) => ({
   bgColor: props.bgColor,
-  filled: props.filled
+  filled: props.filled,
 }))<CircleType>`
   display: flex;
   position: absolute;
@@ -76,7 +76,7 @@ type OvalImgType = {
 
 export const OvalImg = styled.img.attrs((props: OvalImgType) => ({
   height: props.height,
-  width: props.width
+  width: props.width,
 }))<OvalImgType>`
   display: flex;
   position: absolute;

@@ -7,7 +7,7 @@ import {
   CardText,
   CardTitle,
   Col,
-  Row
+  Row,
 } from 'reactstrap';
 import OvalBottomPng from '../../images/oval-bottom.png';
 import OvalTopPng from '../../images/oval-top.png';
@@ -20,7 +20,7 @@ import {
   ImageWrapper,
   OvalImg,
   Rectangle,
-  Triangle
+  Triangle,
 } from './styled';
 
 const CardItem: React.FC = () => (

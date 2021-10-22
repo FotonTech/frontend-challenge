@@ -5,7 +5,7 @@ import {
   CardText,
   CardTitle,
   Col,
-  Row
+  Row,
 } from 'reactstrap';
 import OvalTopPng from '../../images/oval-top-card-reading.png';
 import BlockWrapper from '../BlockWrapper';
@@ -16,7 +16,7 @@ import {
   Circle,
   OvalImg,
   Rectangle,
-  Wrapper
+  Wrapper,
 } from './styled';
 
 const CurrentlyReading: React.FC = () => {
