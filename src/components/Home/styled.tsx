@@ -4,4 +4,5 @@ import styled from 'styled-components';
 export const Container = styled(ContainerStyled)`
   padding-top: 50px;
   margin-bottom: 63px;
+  max-width: 375px;
 `;

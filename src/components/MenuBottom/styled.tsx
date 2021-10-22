@@ -4,6 +4,11 @@ import styled from 'styled-components';
 export const Container = styled(ContainerBS)`
   background: #fff;
 
+  .row {
+    margin: 0 auto;
+    max-width: 375px;
+  }
+
   .icon {
     display: flex;
     flex-direction: column;
